@@ -1,2 +1,2 @@
 # MIETI
-Repositório do curso de Engenharia de Telecomunicações e Informática da Universidade do Minho
+Este repositório contém documentação(testes, projetos, livros) das várias unidades curriculares que constituem o curso de Engenharia de Telecomunicações e Informática.

@@ -1,3 +1,5 @@
+*ESTE REPOSITÓRIO E CONTA VÃO SER APAGADOS EM BREVE*
+
 # MIETI
 
 Este repositório contém material das várias unidades curriculares que constituem o curso de Engenharia de Telecomunicações e Informática. Resulta da agregação dos vários que existiram no curso, além disso tem documentação presente em repositórios de outros cursos.

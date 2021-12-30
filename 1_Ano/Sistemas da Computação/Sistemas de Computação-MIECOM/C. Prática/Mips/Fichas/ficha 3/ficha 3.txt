@@ -1,0 +1,395 @@
+5. Quantos bytes terão sido reservados/utilizados para armazenar o array?
+	40 bytes
+6. Identifique o endereço da primeira posição do array (onde está o valor 1)
+	[0x10010000]
+7. Identifique o endereço da última posição do array.
+	[0x10010025]
+8. Qual o inteiro (ou seja, a Word) que está no endereço de memória 0x10010014?
+	-4
+9. Experimente no programa passar para primeiro lugar a declaração da constante “nl”. Abra
+novamente o programa no PCSpim e veja como fica a memória.
+
+# UNTITLED PROGRAM
+
+	.data		# Data declaration section
+
+porto:	.word 70,602,102,18,15,-4,89,8078,-475,289
+nl:		.asciiz "\n"
+
+	.text
+
+main:			# Start of code section
+	la $a0,nl	
+	li $v0,4	
+	syscall	
+	
+	la $t0, porto
+	lw $s1, ($t0)
+	move $a0, $s1
+	li $v0, 1
+	syscall
+	
+	la $a0,nl	
+	li $v0,4	
+	syscall	
+
+	add $t0,$t0,4
+	lw $s1, ($t0)
+	move $a0, $s1
+	li $v0, 1
+	syscall
+
+	la $a0,nl	
+	li $v0,4	
+	syscall
+
+	add $t0,$t0,4
+	lw $s1, ($t0)
+	move $a0, $s1
+	li $v0, 1
+	syscall
+
+	la $a0,nl	
+	li $v0,4	
+	syscall
+
+	add $t0,$t0,4
+	lw $s1, ($t0)
+	move $a0, $s1
+	li $v0, 1
+	syscall
+
+	la $a0,nl	
+	li $v0,4	
+	syscall
+
+# END OF PROGRAM
+
+10. O que faz esse programa?
+	faz o mesmo que o anterior apenas acrescenta uma linha antes de apresentar as Words
+11. O que faz a instrução “la $t0, porto” ?
+	carrega o endereço da string(porto) para um local temporário(t0).
+12. E a instrução “lw $s1, ($t0)”?
+	carrega o endereço do local temporário(t0) para um local permanente(s1).
+13. Altere o programa para que este percorra e mostre o valor inteiro presente em cada posição
+do array (10 posições), utilizando uma estrutura cíclica.
+	
+# UNTITLED PROGRAM
+
+	.data		# Data declaration section
+
+porto:	.word 70,602,102,18,15,-4,89,8078,-475,289
+nl:	.asciiz "\n"
+
+	.text
+
+main:			# Start of code section
+	
+	la $t0, porto 	#endereço de memória carregado para t0
+	li $s2, 0
+	
+NEXT:	lw $s1, ($t0)	#carregar word que endereço de memória está em t0
+	move $a0, $s1 	#escreve na consola o valor s1
+	li $v0, 1	
+	syscall
+
+	la $a0, nl	# escreve na consola a string nl(acrescenta uma linha)
+	li $v0, 4	
+	syscall
+
+	add $t0,$t0, 4		# adicionar 4 ao endereço de t0
+	add $s2, $s2, 1		# adicionar 1 a s2 e guardar em s2
+	bne $s2, 10, NEXT	# se o valor de s2 for diferente de 10 saltar para NEXT
+
+END:	# END OF PROGRAM
+
+14. Faça um programa em que este lê do utilizador 10 números e devolve esses mesmos dez
+números pela consola novamente (defina um array de words, inicializado a zero)
+
+# UNTITLED PROGRAM
+
+	.data		# Data declaration section
+
+nl:	.asciiz "\n"	# declara um array com mudança de linha
+xpto:   .space 10	#declarar um array com 10 espaços
+
+	.text
+
+main:			# Start of code section
+	li $s2, 0	# s2 toma valor de 0
+	li $s3, 0	# s3 toma valor de 0
+	la $t0, xpto    # carrega arrays xpto em t0
+	
+LER:	li $v0, 5	# le da consola
+	syscall
+
+	move $t0, $v0 		# mover valor de v0 para t0
+	add $t0, $t0, 1		# adicionar 1 ao endereço de t0
+	add $s2, $s2, 1		# adicionar 1 a s2 e guardar em s2
+	bne $s2, 10, LER	# se o valor de s2 for diferente de 10 saltar para LER
+
+SUB:	sub $t0, $t0, 10	# subtrair ao endereço de t0, 10 valores e guardar em t0
+
+ESCREVER:	move $a0, $t0	# escrever na consola o valor contido no endereço de t0
+		li $v0, 1	
+		syscall
+
+		la $a0, nl	# escreve na consola a string nl(acrescenta uma linha)
+		li $v0, 4	
+		syscall
+
+		add $t0, $t0, 1		# adicionar 1 ao endereço de t0
+		add $s3, $s3, 1		# adicionar 1 a s3 e guardar em s3
+		bne $s3, 10, ESCREVER	# se o valor de s3 for diferente de 10 saltar para ESCREVER
+
+END:	# END OF PROGRAM
+
+15. Faça um programa que leia 10 números do utilizador e conte quantos números pares foram
+inseridos. (Como é que com uma divisão se consegue saber se um número é par? Estude e
+utilize a operação “div”). O programa deverá terminar com a apresentação na consola do
+número de pares encontrado.
+
+# UNTITLED PROGRAM
+
+	.data		# Data declaration section
+
+nl:	.asciiz "\n"	# declara um array com mudança de linha
+xpto:   .space 10	# declara um array com 10 espaços
+
+	.text
+
+main:			# Start of code section
+	li $s2, 0	# s2 toma valor de 0 - s2 é utilizado para parar o ciclo LER
+	li $s3, 0	# s3 toma valor de 0 - s3 é utilizado para parar o ciclo PARES
+	li $s4, 0	# s4 toma valor de 0 - s4 é utilizado para contar o numero de numeros pares
+	li $s5, 2	# s5 utlizado para dividir o valor introduzido
+	la $t0, xpto    # carrega arrays xpto em t0
+	
+LER:	li $v0, 5	# lê da consola
+	syscall
+
+	sb $v0, ($t0)		# guardar calor do array t0
+	
+	add $t0, $t0, 1		# adicionar 1 ao endereço de t0
+	add $s2, $s2, 1		# adicionar 1 a s2 e guardar em s2 - s2 é utilizado para parar o ciclo LER
+	bne $s2, 10, LER	# se o valor de s2 for diferente de 10 saltar para LER
+
+SUB:	sub $t0, $t0, 10	# subtrair ao endereço de t0, 10 valores e guardar em t0
+
+PARES:	lb $t5, ($t0)		# carregar valor do array t0
+	div $t5, $s5		# divide o valor de t5 por 2
+	mfhi, $t1		# move o resto da divisão para t1
+	add $s3, $s3, 1		# adicionar 1 a s3 e guardar em s3 - s3 é utilizado para parar o ciclo PARES	
+	beq $t1, 0, CONT_PARES	# se o valor de t1 for igual a 0 saltar para CONT_PARES
+	beq $s3, 10, ESCREVER	# se o valor de s3 for igual a 10 saltar para ESCREVER
+	add $t0, $t0, 1		# adicionar 1 ao endereço de t0
+	j PARES			# saltar para PARES
+	
+CONT_PARES:	add $s4, $s4, 1			# adicionar 1 a s4 e guardar em s4 - s4 é utilizado para contar o numero de numeros pares
+		beq $s3, 10, ESCREVER		# se o valor de s3 for igual a 10 saltar para ESCREVER
+		add $t0, $t0, 1			# adicionar 1 ao endereço de t0
+		j PARES				# saltar para PARES	
+
+
+ESCREVER:	la $a0, nl		# escreve na consola a string nl(muda de linha)
+		li $v0, 4	
+		syscall
+		move $a0, $s4		# escrever na consola o valor contido no endereço de s4
+		li $v0, 1	
+		syscall
+		
+END:	# END OF PROGRAM
+
+.....................................................................................................................................................
+
+Trabalho para casa
+
+1. Altere o programa que fez na alínea 13 e ponha-o a ler o array no sentido inverso, da última posição do array para a primeira.
+
+# UNTITLED PROGRAM
+
+	.data		# Data declaration section
+
+porto:	.word 70,602,102,18,15,-4,89,8078,-475,289	# declara um array com 10 valores, um em cada posição(10 posições)
+nl:	.asciiz "\n"					# declara um array com mudança de linha
+
+	.text
+
+main:			# Start of code section
+	
+	la $t0, porto 		#endereço de memória carregado para t0 - 70
+	add $t0, $t0, 36	# adicionar 36(pk da primeira posição até á ultima vão 9*4) ao endereço de t0
+	li $s2, 0
+	
+	
+NEXT:	lw $s1, ($t0)		#carregar word que endereço de memória está em t0
+	move $a0, $s1 		#escreve na consola o valor s1
+	li $v0, 1	
+	syscall
+
+	la $a0, nl		# escreve na consola a string nl(muda de linha)
+	li $v0, 4	
+	syscall
+
+	sub $t0,$t0, 4		# adicionar 4 ao endereço de t0
+	add $s2, $s2, 1		# adicionar 1 a s2 e guardar em s2
+	bne $s2, 10, NEXT	# se o valor de s2 for diferente de 10 saltar para NEXT
+
+END:	# END OF PROGRAM
+
+2. Altere o programa que fez na alínea 15 para contar não só os números pares mas também os ímpares.
+
+# UNTITLED PROGRAM
+
+	.data		# Data declaration section
+
+nl:	.asciiz "\n"	# declara um array com mudança de linha
+xpto:   .space 10	# declara um array com 10 espaços
+
+	.text
+
+main:			# Start of code section
+	li $s2, 0	# s2 toma valor de 0 - s2 é utilizado para parar o ciclo LER
+	li $s3, 0	# s3 toma valor de 0 - s3 é utilizado para parar o ciclo DIV
+	li $s4, 0	# s4 toma valor de 0 - s4 é utilizado para contar o numero de numeros pares
+	li $s5, 2	# s5 utlizado para dividir o valor introduzido
+	li $s6, 0	# s6 toma valor de 0 - s6 é utilizado para parar o ciclo IMPARES
+	li $s7, 0	# s7 toma valor de 0 - s7 é utilizado para contar o numero de numeros impares
+	la $t0, xpto    # carrega arrays xpto em t0
+	
+LER:	li $v0, 5	# lê da consola
+	syscall
+
+	move $t0, $v0 		# mover valor de v0 para t0
+	add $t0, $t0, 1		# adicionar 1 ao endereço de t0
+	add $s2, $s2, 1		# adicionar 1 a s2 e guardar em s2 - s2 é utilizado para parar o ciclo LER
+	bne $s2, 10, LER	# se o valor de s2 for diferente de 10 saltar para LER
+
+SUB:	sub $t0, $t0, 10	# subtrair ao endereço de t0, 10 valores e guardar em t0
+
+PARES:	move $t5, $t0		# mover um inteiro situado no endereço de memória t0 e guarda-lo em t5
+	div $t5, $s5		# divide o valor de t5 por 2
+	mfhi, $t1		# move o resto da divisão para t1
+	add $s3, $s3, 1		# adicionar 1 a s3 e guardar em s3 - s3 é utilizado para parar o ciclo PARES	
+	beq $t1, 0, CONT_PARES	# se o valor de t1 for igual a 0 saltar para CONT_PARES
+	beq $s3, 10, SUB_2	# se o valor de s3 for igual a 10 saltar para SUB_2
+	add $t0, $t0, 1		# adicionar 1 ao endereço de t0
+	j PARES			# saltar para PARES
+
+CONT_PARES:	add $s4, $s4, 1			# adicionar 1 a s4 e guardar em s4 - s4 é utilizado para contar o numero de numeros pares
+		beq $s3, 10, ESCREVER		# se o valor de s3 for igual a 10 saltar para ESCREVER
+		add $t0, $t0, 1			# adicionar 1 ao endereço de t0
+		j PARES				# saltar para PARES	
+
+SUB_2:	sub $t0, $t0, 10	# subtrair ao endereço de t0, 10 valores e guardar em t0
+
+IMPARES:	move $t5, $t0			# mover um inteiro situado no endereço de memória t0 e guarda-lo em t5
+		div $t5, $s5			# divide o valor de t5 por 2
+		mfhi, $t1			# move o resto da divisão para t1
+		add $s6, $s6, 1			# adicionar 1 a s6 e guardar em s6 - s6 é utilizado para parar o ciclo IMPARES	
+		bne $t1, 0, CONT_IMPARES	# se o valor de t1 for igual a 0 saltar para CONT_PARES
+		beq $s6, 10, ESCREVER		# se o valor de s6 for igual a 10 saltar para ESCREVER
+		add $t0, $t0, 1			# adicionar 1 ao endereço de t0
+		j IMPARES			# saltar para IMPARES
+
+CONT_IMPARES:	add $s7, $s7, 1			# adicionar 1 a s7 e guardar em s7 - s7 é utilizado para contar o numero de numeros impares
+		beq $s6, 10, ESCREVER		# se o valor de s6 for igual a 10 saltar para ESCREVER
+		add $t0, $t0, 1			# adicionar 1 ao endereço de t0
+		j IMPARES			# saltar para IMPARES	
+
+
+ESCREVER:	la $a0, nl		# escreve na consola a string nl(muda de linha)
+		li $v0, 4	
+		syscall
+
+		move $a0, $s4		# escrever na consola o valor contido no endereço de s4
+		li $v0, 1	
+		syscall
+
+		la $a0, nl		# escreve na consola a string nl(muda de linha)
+		li $v0, 4	
+		syscall
+
+		move $a0, $s7		# escrever na consola o valor contido no endereço de s7
+		li $v0, 1	
+		syscall
+		
+END:	# END OF PROGRAM
+
+
+3. Faça um programa que leia uma sequência de 10 números inteiros e que substitua na sequência os pares por 0 (zero) e os ímpares por -1. 
+O programa deverá apresentar a nova sequência no final.
+
+# UNTITLED PROGRAM
+
+	.data		# Data declaration section
+
+nl:	.asciiz "\n"	# declara um array com mudança de linha
+xpto:   .space 10	# declarar um array com 10 espaços
+
+	.text
+
+main:			# Start of code section
+	li $s2, 0	# s2 toma valor de 0 - s2 é utilizado para parar o ciclo LER
+	li $s3, 0	# s3 toma valor de 0 - s3 é utilizado para parar o ciclo DIV
+	li $s4, 0	# s4 toma valor de 0 - s4 é utilizado para mover para t0 nos numeros pares, bne
+	li $s5, 2	# s5 toma valor de 2 - s5 é utlizado para dividir o valor introduzido
+	li $s6, 0	# s6 toma valor de 0 - s6 é utilizado para parar o ciclo IMPARES
+	li $s7, -1	# s7 toma valor de -1 - s7 é utilizado para mover para t0 nos numeros impares
+	la $t0, xpto    # carrega arrays xpto em t0
+	
+LER:	li $v0, 5	# le da consola
+	syscall
+
+	move $t0, $v0 		# mover valor de v0 para t0
+	add $t0, $t0, 1		# adicionar 1 ao endereço de t0
+	add $s2, $s2, 1		# adicionar 1 a s2 e guardar em s2
+	bne $s2, 10, LER	# se o valor de s2 for diferente de 10 saltar para LER
+
+SUB:	sub $t0, $t0, 10	# subtrair ao endereço de t0, 10 valores e guardar em t0
+
+PARES:	move $t5, $t0		# mover um inteiro situado no endereço de memória t0 e guarda-lo em t5
+	div $t5, $s5		# divide o valor de t5 por 2
+	mfhi, $t1		# move o resto da divisão para t1
+	add $s3, $s3, 1		# adicionar 1 a s3 e guardar em s3 - s3 é utilizado para parar o ciclo PARES	
+	beq $t1, 0, PARES_0	# se o valor de t1 for igual a 0 saltar para PARES_0
+	beq $s3, 10, SUB_2	# se o valor de s3 for igual a 10 saltar para SUB_2
+	add $t0, $t0, 1		# adicionar 1 ao endereço de t0
+	j PARES			# saltar para PARES
+
+PARES_0: 	move $t0, $s4		# mover um 0 e guarda-lo em t0	
+		add $t0, $t0, 1		# adicionar 1 ao endereço de t0
+		beq $s3, 10, SUB_2	# se o valor de s3 for igual a 10 saltar para SUB_2
+		j PARES			# saltar para PARES
+
+SUB_2:	sub $t0, $t0, 10	# subtrair ao endereço de t0, 10 valores e guardar em t0
+
+IMPARES:	move $t5, $t0			# mover um inteiro situado no endereço de memória t0 e guarda-lo em t5
+		div $t5, $s5			# divide o valor de t5 por 2
+		mfhi, $t1			# move o resto da divisão para t1
+		add $s6, $s6, 1			# adicionar 1 a s6 e guardar em s6 - s6 é utilizado para parar o ciclo IMPARES	
+		bne $t1, 0, IMPARES_NEG1	# se o valor de t1 for igual a 0 saltar para IMPARES_NEG1
+		beq $s6, 10, SUB_3		# se o valor de s6 for igual a 10 saltar para SUB_3
+		add $t0, $t0, 1			# adicionar 1 ao endereço de t0
+		j IMPARES			# saltar para IMPARES
+
+IMPARES_NEG1: 	move $t0, $s7		# mover um -1 e guarda-lo em t0	
+		add $t0, $t0, 1		# adicionar 1 ao endereço de t0
+		beq $s6, 10, SUB_3	# se o valor de s6 for igual a 10 saltar para SUB_3
+		j IMPARES		# saltar para IMPARES
+
+SUB_3:	sub $t0, $t0, 10	# subtrair ao endereço de t0, 10 valores e guardar em t0
+
+ESCREVER:	move $a0, $t0	# escrever na consola o valor contido no endereço de t0
+		li $v0, 1	
+		syscall
+
+		la $a0, nl	# escreve na consola a string nl(acrescenta uma linha)
+		li $v0, 4	
+		syscall
+
+		add $t0, $t0, 1		# adicionar 1 ao endereço de t0
+		add $s3, $s3, 1		# adicionar 1 a s3 e guardar em s3
+		bne $s3, 10, ESCREVER	# se o valor de s3 for diferente de 10 saltar para ESCREVER
+
+END:	# END OF PROGRAM

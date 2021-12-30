@@ -1,0 +1,324 @@
+COMMAND		NAME							COMMENT
+=========	=========						=========
+add		add							'computes numbers 1 and 2 and stores it in register $t0.
+li		load immediate						'loads a 32-it constant into a register.
+move		move							'copies contents of one register into another.
+la		load address						'loads the address of one register into another.
+bgt		branching instruction					'this takes 3 arguments, the first 2 are numbers, and the last is a label. If the first number is larger than the second, then the execution should continue at the label, otherwise it continues at the next instruction.
+b		b instruction						'branches to the given label.
+mult		multiply						'multiply's 2 registers.
+blez		branch on less than or equal to zero			'if the register is less than or = to 0 then exit the function.
+lb		load byte						'loads byte(s) into a register.
+beqz		branch not = to zero					'if register is = to 0 branch out of loop.
+addu		add unsigned						'if register is not = to 0 add unsigned to register.
+subu		subtrack unsigned					'if register is = to 0 subtact unsigned.
+beq		branch on equal						'if register 1 is = to number, branch out of loop.
+bne		branch on not equal					'if register 1 is not equal, do nothing.
+blt		branch on less than					'if number is less than or = to register end loop.
+bgt		branch on grater than					'if number is grater than or = to register end loop.
+mfhi		move from hi						'n/a
+mflo		move from lo						'n/a
+syscall		system call						'name explaines it all.
+sw		store word						'stores the offset into a register.
+jal		jump and link						'jumps to a specified register.
+lw		load word						'stores the offset into a register.
+jr		jump register						'jumps to a specified register.
+jr $ra		jump register return address				'jumps to the return address
+addu $sp	add unsigned / restore stack pointer			'n/a
+lw $ra		load word / restore return address			'n/a
+lw $fp		load word / restore frame pointer			'n/a
+div		divide							'divides a register by a register and stores the quotient in $lo and the remainder in $hi.
+bltzal		branch on less than zero and link			'if register is less than 0, branch to register.
+bgezal		branch on greater than or equal to zero and link	'if register is greater than or equal to 0, branch to register.
+bgtzal		branch on greater than 0 and link			'if register is greater than 0, branch and link to register.
+lui		load upper immediate					'the immediate value is shifted left 16 bits and stored in the register.
+nop		no operation						'instruction which has no effect.
+and		bitwise and						'bitwise ands two registers and stores the result in a register.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+SYMBOLIC NAME	 NUMBER			USAGE
+=============	 =========		=========
+zero		 0			constant 0
+at		 1			reserved for assembler
+v0 - v1		 2 - 3			result register
+a0 - a3		 4 - 7			argument registers 1,2,3,4
+t0 - t9		 8 - 15, 24 - 25	temporary registers 0,1,2,3,4,5,6,7,8,9
+s0 - s7		 16 - 23		saved registers 0,1,2,3,4,5,6,7
+k0 - k1		 26 - 27		kernel registers 0,1
+gp		 28			global data pointer
+sp		 29			stack pointer
+fp		 30			frame pointer
+ra		 31			return address	
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ABS.S Floating Point Absolute Value
+ADD Add Word
+ADD.S Floating Point ADD
+ADDI Add Immediate Unsigned Word
+ADDIU Add Immediate Unsigned Word
+ADDU Add unsigned Word
+AND And
+ANDI Add immediate
+BC0F Branch on Coprocessor 0 False
+BC0FL Branch on Coprocessor 0 False Likely
+BC0T Branch on Coprocessor 0 True
+BC0TL Branch on Coprocessor 0 True Likely
+BC1F Branch on FP False
+BC1FL Branch on FP False Likely
+BC1T Branch on FP True
+BC1TL Branch on FP True Likely
+BEQ Branch on Equal
+BEQL Branch on equal likely
+BGEZ Branch on Greater Than or Equal to Zero
+BGEZAL Branch on Greater Than or Equal to Zero and Link
+BGEZALL
+Branch on Greater Than or Equal to Zero and Link likely
+BGEZL Branch on Greater Than or Equal to Zero likely
+BGTZ Branch on Greater Than Zero
+BGTZL Branch on Greater Than Zero likely
+BLEZ Branch on Less Than or equal to Zero
+BLEZL Branch on Less Than or equal to Zero likely
+BLTZ Branch on Less than Zero
+BLTZAL Branch on Less than Zero and Link
+BLTZALL Branch on Less than Zero and Link likely
+BLTZL Branch on Less than Zero likely
+BNE Branch on Not Equal
+BNEL Branch on Not Equal likely
+BREAK Breakpoint
+C.EQ.S Floating Point Compare
+C.F.S Floating Point Compare
+C.LE.S Floating Point Compare
+C.LT.S Floating Point Compare
+CFC1 Move Control Word from Floating Point
+CTC1 Move Control Word to Floating Point
+CVT.S.W Fixed point Convert to Single Floating Point
+CVT.W.S Floating Point Convert to Word Fixed point
+DADD Doubleword Add
+DADDI Doubleword Add Immediate
+DADDIU Doubleword Add Immediate Unsigned
+DADDU Doubleword Add unsigned
+DI Disable Interrupt
+DIV Divide Word
+DIV1 Divide Word Pipeline 1
+DIV.S Floating Point Divide
+DIVU Divide Unsigned Word
+DIVU1 Divide Unsigned World Pipeline 1
+DSLL Doubleword Shift Left logicial
+DSLL32 Doubleword Shift Left logicial Plus 32
+DSLLV Doubleword Shift Left logicial Variable
+DSRA Doubleword Shift Right Arithmetic
+DSRA32 Doubleword Shift Right Arithmetic plus 32
+DSRAV Doubleword Shift Right Arithmetic variable
+DSRL Doubleword Shift Right Logical
+DSRL32 Doubleword Shift Right Logical plus 32
+DSRLV Doubleword Shift Right Logical Variable
+DSUB Doubleword Subtract
+DSUBU Doubleword Subtract unsigned
+EI Enable Interrupt
+ERET Exception Return
+J Jump
+JAL Jump and Link
+JALR Jump and Link Register
+JR Jump Register
+LB Load Byte
+LBU Load Byte Unsigned
+LD Load Doubleword
+LDL Load Doubleword Left
+LDR Load Doubleword Right
+LH Load Halfword
+LHU Load Halfword Unsigned
+LUI Load Upper Immediate
+LW Load Word
+LWL Load Word Left
+LWR Load Word Right
+LWU Load Word Unsigned
+LWC1 Loading Word to Floating Point
+LQ Load Quadword
+MADD Multiply Add word
+MADD1 Multiply Add Unsigned word
+MADD.S Floating Point Multiply ADD
+MADDA.S Floating Point Multiply ADD
+MADDU Multiply Add Unsigned word
+MAX.S Floating Point Maximum
+MADDU1 Multiply Add Unsigned word Pipeline 1
+MFBPC Move from Breakpoint Control Register
+MFC0 Move from System Control Coprocessor
+MFDAB Move from Data Address Breakpoint Register
+MFDABM Move from Data Address Breakpoint Mask Register
+MFDVB Move from Data value Breakpoint Register
+MFDVBM Move from Data Value Breakpoint Mask Register
+MFIAB Move from Intstruction Address Breakpoint Register
+MFIABM Move from Instruction Address Breakpoint Mask Register
+MFC1 Move Word from Floating Point
+MFPC Move from Performance Counter
+MFPS Move from Performance Event Specifier
+MIN.S Floating Point Minimum
+MTBPC Move to Breakpoint Control Register
+MTC0 Move to System Control Coprocessor
+MTDAB Move to Data Address Breakpoint Register
+MTDABM Move from Data Address Breakpoint Mask Register
+MTDVB Move to Data Value Breakpoint Register
+MTDVBM Move to Data Value Breakpoint Mask Register
+MTIAB Move to Instruction Address Breakpoint Register
+MTPC Move to Performance Counter
+MTPS Move to Performace Even Specifier
+MFHI Move from HI Register
+MFHI1 Move From HI1 Register
+MFLO Move from LO Register
+MFLO1 Move From LO1 Register
+MFSA Move from Shift Amount Register
+MOV.S
+MOVN Move Conditional on Not Zero
+MOVZ Move Conditional on Zero
+MSUB.S Floating Point Multiply and Subtract
+MSUBA.S Floating Point Multiply and Subtract from Accumulator
+MTC1 Move Word to Floating Point
+MTHI Move to HI Register
+MTHI1 Move to HI1 Register
+MTLO Move to LO Register
+MTLO1 Move To LO1 Register
+MTSA Move to Shift Amount Register
+MTSAB Move Byte Count to Shift Amount Registter
+MTSAH Move Halfword Count to Shift Amount Register
+MUL.S Floating Point Multiply
+MULA.S Floating Multiply to Accumulator
+MULT Multiple Word
+MULT1 Multiply Word Pipeline 1
+MULTU Multiple Word Unsigned
+MULTU1 Multiple Unsigned World Pipeline 1
+NEG.S Floating Point Negate
+NOR Not Or
+OR Or
+ORI Or Immediate
+PREF Prefetch
+PABSH Parellel Absolute Halfword
+PABSW Parellel Absolute Word
+PADDB Parellel Add Byte
+PADDH Parallel Add Halfword
+PADDSB Parallel Add with Signed saturation Byte
+PADDSH Parallel Add with Signed saturation Halfword
+PADDSW Parallel Add with Signed saturation Word
+PADDUB Parallel Add with Unsigned saturation Byte
+PADDUH Parallel Add with Unsigned saturation Halfword
+PADDUW Parallel Add with Unsigned saturation Word
+PADDW Parallel Add Word
+PADSBH Parallel Add/Subtract Halfword
+PAND Parallel And
+PCEQB Parallel Compare for Equal Byte
+PCEQH Parallel Compare for Equal Halfword
+PCEQW Parallel Compare for Equal Word
+PCGTB Parallel Compare for Greater Than Byte
+PCGTH Parallel Compare for Greater Then Halfowrd
+PCGTW Parallel Compare for Greater Than Word
+PCPYH Parallel Copy Halfword
+PCPYLD Parallel Copy Lower Doubleword
+PCPYUD Parallel Copy Upper Doubleword
+PDVIBW Parallel Divide Broadcast Word
+PDIVUW Parallel Divide Ungisnged Word
+PDIVW Parallel Divide Word
+PEXCH Parallel Exchange Center Halfword
+PEXCW Parallel Exchange Center Word
+PEXEH Parallel Exchange Even Halfword
+PEXEW Parallel Exchange Even Word
+PEXT5 Parallel Extend from 5 bits
+PEXTLB Parallel Extend Lower from Byte
+PEXTLH Parallel Extend Lower from Halfword
+PEXTLW Parallel Extend Lower from Word
+PEXTUB Parallel Extend Upper from Byte
+PEXTUH Parallel Extend Upper from Halfword
+PEXTUW Parallel Extend Upper from Word
+PHMADH Parallel Horizontal Multiply Add Halfword
+PHMSBH Parallel Horizontal Multiply Subract Halfword
+PINTEH Parallel Interleave Even Halfword
+PINTH Parallel Interleave Halfword
+PLZCW Parallel Leading Zero or one Count Word
+PMADDH Parallel Multiply Add Halfword
+PMADDUW Parallel Multiply Add Unsigned Word
+PMADDW Parallel Multiply Add Word
+PMAXH Parallel Maximize Halfword
+PMAXW Parallel Maximize Word
+PMFHI Parallel Move From HI Register
+PMFHL.LH Parallel Move From HI/LO Register
+PMFHL.LW Parallel Move From HI/LO Register
+PMFHL.SH Parallel Move From HI/LO Register
+PMFHL.SLW Parallel Move From HI/LO Register
+PMFHL.UW Parallel Move From HI/LO Register
+PMFLO Parallel Move From LO Register
+PMINH Parallel Minimize Halfword
+PMINW Parallel Minimize Word
+PMSUBH Parallel Multiply Subract Halfword
+PMSUBW Parallel Multiply Subract Word
+PMTHI Parallel Move To HI Register
+PMTH.LW Parallel Move To HI/LO Register
+PMTLO Parallel Move To LO Register
+PMULTH Parallel Multiply Halfword
+PMULTUW Parallel Multiply Unsigned Word
+PMULTw Parallel Multiply Word
+PNOR Parallel Not Or
+PPAC5 Parallel Pack to 5 bits
+PPACB Parallel Pack to Byte
+PPACH Parallel Pack to Halfword
+PPACW Parallel Pack to Word
+PREVH Parallel Reverse Halfword
+PROT3W Parallel Rotate 3 Words Left
+PSLLH Parallel Shift Left Logical Halfword
+PSLLVW Parallel Shift Left Logical Variable Word
+PSLLW Parallel Shift Left Logical Word
+PSRAH Parallel Shift Right Arithmetic Halfword
+PSRAVW Parallel Shift Right Arithmetic Variable Word
+PSRAW Parallel Shift Right Arithmetic Word
+PSRLH Parallel Shift Right Locial Halfword
+PSRLVW Parallel Shift Right Logical Variable Word
+PSRLW Parallel Shift Right Logical Word
+PSUBB Parallel Subract Byte
+PSUBH Parallel Subtract Halfword
+PSUBSB Parallel Subtract with Signed saturation Byte
+PSUBSH Parallel Subtract with Signed Saturation Halfword
+PSUBSW Parallel Subtract with Signed Saturation Word
+PSUBUB Parallel Subtract with Unsigned Saturation Byte
+PSUBUH Parallel Subtract with Unsigned Saturation Halfword
+PSUBUW Parallel Subtract with Unsigned Saturation Word
+PSUBW Parallel Subtract Word
+PXOR Parallel Exclusive OR
+QFSRV Quadword Fnnel Shift Right Variable
+RSQRT.S Floating Point Square Root
+SB Store Byte
+SD Store Doubleword
+SDL Store Doubleword Left
+SDR Store Doubleword Right
+SH Store halfword
+SLL Store Word Left Logical
+SLLV Store Word Left Logical Variable
+SLT Set on Less Than
+SLTI Set on Less Than Immediate
+SLTIU Set on Less Than Immediate Unsigned
+SLTU Set on Less Than Unsigned
+SQ Store Quadword
+SQRT.S Floating Point Square Root
+SRA Shift Word Right Arithmetic
+SRAV Shift Word Right Arithmetic Variable
+SRL Shift Word Right Logical
+SRLV Shift Word Right Logical Variable
+SUB Subtract Word
+SUB.S Floating Point SUbtract
+SUBA.S Floating Point Subtract to Accumulator
+SUBU Subtract Unsigned Word
+SW Store Word
+SWC1 Store Word from Floating Point
+SWL Store Word Left
+SWR Store Word Right
+SYNC Synchronize Shared Memory
+SYSCALL System Call
+TEQ Trap if Equal
+TEQI Trap if Equal Immediate
+TGE Trap if Greater or Equal
+TGEI Trap if Greater or Equal Immediate
+TGEIU Trap if Greater or Equal Immediate Unsigned
+TGEU Trap if Greater or Equal Unsigned
+TLT Trap if Less Than
+TLTI Trap if Less Than Immediate
+TLTIU Trap if Less Than Immediate Unsigned
+TLTU Trap if Less Than unsigned
+TNE Trap if Not Equal
+TNEI Trap if Not Equal Immediate
+XOR Exclusive OR
+XORI Exclusive OR Immediate

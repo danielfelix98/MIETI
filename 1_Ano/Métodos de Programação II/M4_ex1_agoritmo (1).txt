@@ -1,0 +1,29 @@
+Definir tipo de dados Aluno
+
+main()
+
+	Declarar um array de 5 posições do tipo Aluno   -> alunos
+	Declarar um array de carateres com 100 posições -> aux
+
+	Abrir o ficheiro "M4_ex1_input.bin" para leitura em modo binário -> fp
+
+	para (n=0 ate 4) fazer
+		i=0
+		fazer // ler o campo 'nome' caratere a caratere
+			fread(aux+i,sizeof(char),1,fp)
+			Incrementar i
+		enquanto(aux[i-1] != '\0')
+		strcpy((alunos+n)->nome,aux)
+		fread(&(alunos+n)->numero,sizeof(int),1,fp) // ler o 'numero'
+		fread(&(alunos+n)->nota,sizeof(float),1,fp) // ler a 'nota'
+	fimPara
+
+	para (n=0 ate 4) fazer
+		Escrever (alunos+n)->nome   no ecrã
+		Escrever (alunos+n)->numero no ecrã
+		Escrever (alunos+n)->nota   no ecrã
+	fimPara
+
+	Fechar o ficheiro apontado por 'fp'
+
+fim_main

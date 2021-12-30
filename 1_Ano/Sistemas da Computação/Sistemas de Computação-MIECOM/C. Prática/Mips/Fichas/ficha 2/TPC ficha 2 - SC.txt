@@ -1,0 +1,52 @@
+Filipe Rodrigues nº a68455
+
+Trabalho de casa
+1. Faça um programa que calcula e apresente a soma de uma sequência de números inteiros
+introduzidos pelo utilizador. A quantidade de números introduzidos não é conhecida. Se o
+utilizador não quiser introduzir mais valores, deverá introduzir o valor zero.
+
+.data		# Data declaration section
+
+	.text
+
+main:			# Start of code section
+	
+		li $s1, -10
+		li $s2, 2
+		li $s3, 0
+		li $s4, 0	
+
+PRINT:	li  $v0, 1            # system call code for print_int
+      	move $a0, $s3         # move g to argument 0
+      	syscall               # print it
+	
+		beq$s1,$s4,FIM
+		add $s1, $s1, $s2
+		add $s3, $s3, $s1
+		j PRINT
+FIM:
+...................................................................................
+2. Faça um programa que aceite uma sequência de inteiros positivos (que o utilizador terminará
+inserindo o valor zero) e identifique o maior número.
+.data		# Data declaration section
+
+	.text
+
+main:			# Start of code section
+	
+		li $s1, 10
+		li $s2, 2
+		li $s3, 0
+		li $s4, 0
+
+PRINT:	li  $v0, 1            # system call code for print_int
+      	move $a0, $s6         # move g to argument 0
+      	syscall               # print it
+	
+		bgt $s1, $s6, MOVE
+		beq$s1,$s4,FIM
+		sub $s1, $s1, $s2
+		j PRINT
+MOVE: 	move $s6, $s1
+	j PRINT
+FIM:

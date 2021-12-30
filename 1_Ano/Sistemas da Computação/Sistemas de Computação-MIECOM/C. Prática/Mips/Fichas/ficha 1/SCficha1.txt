@@ -1,0 +1,63 @@
+a68456
+Jorge Paulo Sampaio Bastos.
+
+Ficha1:
+
+3.
+Tem três instruções. A primeira declara o numero 14 no registo S3.
+A segunda declara o numero 5 no registo S2. A terceira soma o registo S3 com o registo S2 no registo S1.
+
+4.
+Tem 3 registos.
+
+5.
+O MIPS tem 32 registos.
+
+7.
+[0x00400000]
+
+11.
+Seguidos de "#".
+
+12.
+
+# UNTITLED PROGRAM
+
+	.data		# Data declaration section
+	A: .byte 7
+	B: .byte 5
+	C: .byte 9
+
+	.text
+
+main:			# Start of code section
+	
+	lb $s1, A
+	lb $s2, B
+	lb $s3, C		
+	add $s4,$s1,$s2 # comentário!!!!
+	add $s5,$s4,$s3
+# END OF PROGRAM
+
+13. ainda por fazer.
+
+# UNTITLED PROGRAM
+
+	.data		# Data declaration section
+	A: .byte 2
+	B: .byte 4
+	C: .byte 6
+	D: .byte 8
+	E: .byte 10
+	.text
+
+main:			# Start of code section
+	
+	lb $s1, A
+	lb $s2, B
+	lb $s3, C
+	lb $s4, D
+	lb $s5, E		
+	add $s4,$s1,$s2 # comentário!!!!
+	add $s5,$s4,$s3
+# END OF PROGRAM

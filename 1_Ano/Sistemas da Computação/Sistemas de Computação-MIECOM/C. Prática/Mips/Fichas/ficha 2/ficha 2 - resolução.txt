@@ -1,0 +1,241 @@
+.data  # Data declaration section  
+ .text  
+main:     # Start of code section 
+  li $s0, 20   # primeiro número 
+  li $s1, 14   # segundo número 
+  bgt $s0, $s1, benfica   # salta para "benfica" se $s0>$s1 
+  move $s7, $s1   # o maior é o $s1 
+  j FIM    # Salta para o fim 
+benfica: move $s7, $s0   # o maior é o $s0 
+FIM:   
+# END OF PROGRAM# END OF PROGRAM 
+
+4. Altere o programa de modo a que este identifique o menor dos dois números
+
+.data  # Data declaration section  
+ .text  
+main:     # Start of code section 
+  li $s0, 20   # primeiro número 
+  li $s1, 14   # segundo número 
+  blt $s0, $s1, benfica   # salta para "porto" se $s0>$s1 
+  move $s7, $s1   # o maior é o $s1 
+  j FIM    # Salta para o fim 
+porto: move $s7, $s0   # o maior é o $s0 
+FIM:   
+# END OF PROGRAM# END OF PROGRAM 
+
+5. Este programa não está perfeito, uma vez que não detecta quando os números são iguais.
+Altere o programa inicial de modo a que no registo “$s7” seja colocado o valor -1, caso os
+números sejam iguais.
+
+.data  # Data declaration section  
+ .text  
+main:     # Start of code section 
+  li $s0, 20   
+  li $s1, 14 
+  li $s2, -1  
+  beq $s0, $s1, porto   
+  bgt $s0, $s1, benfica  
+  move $s7, $s1   # o maior é o $s1 
+  j FIM    # Salta para o fim 
+benfica: move $s7, $s0  
+  j FIM    # Salta para o fim 
+porto: move $s7, $s2    
+FIM:   
+# END OF PROGRAM# 
+
+6. O programa “MIPS2_2.s” conta de 1 até 10. Carregue-o para o PCSpim e verifique se faz de
+facto isso.
+
+# UNTITLED PROGRAM
+
+	.data		# Data declaration section
+
+	.text
+
+main:			# Start of code section
+	
+		li $s1, 1
+		li $s2, 1
+		li $s3, 10	
+
+PRINT:	li  $v0, 1            # system call code for print_int
+      	move $a0, $s1         # move g to argument 0
+      	syscall               # print it
+	
+		beq $s1,$s3,FIM
+		add $s1, $s1, $s2
+		j PRINT
+FIM:
+
+# END OF PROGRAM
+
+8. Altere o programa para contar até 20
+
+# UNTITLED PROGRAM
+
+	.data		# Data declaration section
+
+	.text
+
+main:			# Start of code section
+	
+		li $s1, 1
+		li $s2, 1
+		li $s3, 20	
+
+PRINT:	li  $v0, 1            # system call code for print_int
+      	move $a0, $s1         # move g to argument 0
+      	syscall               # print it
+	
+		beq $s1,$s3,FIM
+		add $s1, $s1, $s2
+		j PRINT
+FIM:
+
+# END OF PROGRAM
+
+9. Altere novamente o programa para contar de 2 em 2.
+
+# UNTITLED PROGRAM
+
+	.data		# Data declaration section
+
+	.text
+
+main:			# Start of code section
+	
+		li $s1, 1
+		li $s2, 2
+		li $s3, 19	
+
+PRINT:	li  $v0, 1            # system call code for print_int
+      	move $a0, $s1         # move g to argument 0
+      	syscall               # print it
+	
+		bge$s1,$s3,FIM
+		add $s1, $s1, $s2
+		j PRINT
+FIM:
+
+# END OF PROGRAM
+
+10. Altere o programa para contar de 20 até 1.
+
+
+# UNTITLED PROGRAM
+
+	.data		# Data declaration section
+
+	.text
+
+main:			# Start of code section
+	
+		li $s1, 20
+		li $s2, 1
+		li $s3, 1	
+
+PRINT:	li  $v0, 1            # system call code for print_int
+      	move $a0, $s1         # move g to argument 0
+      	syscall               # print it
+	
+		beq $s1,$s3,FIM
+		sub $s1, $s1, $s3
+		j PRINT
+FIM:
+
+# END OF PROGRAM
+
+11. Faça um programa que multiplique dois números fornecidos pelo utilizador (ver em System
+Calls and I/O (SPIM Simulator), a opção de “read_int” para fazer o input através da “consola”)
+
+.data	
+.text	
+main: 	li $v0, 5
+	syscall
+	move $s0, $v0
+
+	li $v0, 5
+	syscall
+	move $s1, $v0
+
+	mult $s1, $s0
+	mflo $s2
+
+	li  $v0, 1
+	move $a0, $s2
+	syscall
+END:
+
+Trabalho de casa
+1. Faça um programa que calcula e apresente a soma de uma sequência de números inteiros
+introduzidos pelo utilizador. A quantidade de números introduzidos não é conhecida. Se o
+utilizador não quiser introduzir mais valores, deverá introduzir o valor zero.
+
+.data		# Data declaration section
+
+	.text
+
+main:			# Start of code section
+	
+		li $s1, -10
+		li $s2, 2
+		li $s3, 0
+		li $s4, 0	
+
+PRINT:	li  $v0, 1            # system call code for print_int
+      	move $a0, $s3         # move g to argument 0
+      	syscall               # print it
+	
+		beq$s1,$s4,FIM
+		add $s1, $s1, $s2
+		add $s3, $s3, $s1
+		j PRINT
+FIM:
+...................................................................................
+.data		# Data declaration section
+
+	.text
+
+main:			# Start of code section
+	
+		li $s1, 1
+		li $s2, 2
+		li $s3, 0
+		li $s4, 1000	
+
+PRINT:	li  $v0, 1            # system call code for print_int
+      	move $a0, $s3         # move g to argument 0
+      	syscall               # print it
+	
+		bge$s1,$s4,FIM
+		add $s1, $s1, $s2
+		add $s3, $s3, $s1
+		j PRINT
+FIM:
+
+
+2. Faça um programa que aceite uma sequência de inteiros positivos (que o utilizador terminará
+inserindo o valor zero) e identifique o maior número.
+.data		# Data declaration section
+
+	.text
+
+main:			# Start of code section
+	
+		li $s1, 10
+		li $s2, 2
+		li $s3, 0
+		li $s4, 0
+
+PRINT:	li  $v0, 1            # system call code for print_int
+      	move $a0, $s6         # move g to argument 0
+      	syscall               # print it
+	
+		bgt $s1, $s6, MOVE
+		beq$s1,$s4,FIM
+		sub $s1, $s1, $s2
+		j PRINT
+MOVE: 	move $s6, $s1
+	j PRINT
+FIM:

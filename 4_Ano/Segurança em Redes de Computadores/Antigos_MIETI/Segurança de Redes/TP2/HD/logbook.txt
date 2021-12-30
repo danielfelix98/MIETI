@@ -1,0 +1,152 @@
+1) openssl genrsa -out privkey.pem 2048
+
+2) openssl rsa -in privkey.pem -check
+
+RSA key ok
+-----BEGIN RSA PRIVATE KEY-----
+MIIEpAIBAAKCAQEAmnj18FUdJ3BClR08HiiXumrIKicd/sCd+tGJOlN7mphEd0wy
+mXvC5eR32BSPBjxVyXsrjv0hQ3eOSW8kDcqiuzcxZYUm61T9fczAPvw7YV+sQzm3
+4iquiR3FGAwx1Om560Gv9sUaCSwP1Xv/Hw25xXRVlW8o+GR3yo8hFrTVv9AktZBN
+3ZgT3d4dQfPZaJaDEpBwxLmm3UTrMT8Rt1UB4EljonOLpeshAxW+/KQwuzyVGqUm
+SMpAbcknfzVYrJQ040xX0w/plQT9zFEbZvTE3sbUdXXhGHCr93xgEhyFlPtPWDGZ
+6/OXskhvZ+MPJMgS1QTJiVJZuq4O2sNkF+50DQIDAQABAoIBAQCU6Yrddo+2V0g4
+i4hK4oLyWMJBsJf/4BvrkVei/JupeqR2BOS6hU5rZIYLrjX6outoYe6p12fbrENk
+k1nEWdXqeNiLr4LHVpVQUrP5hBqSUjK0U83qn47F7Ab2mbroL7DlE9vYHkZtFSbm
+fLSCcS7nJLDkb9alLeU1Ril1xDpSv4s8Kcrwy7EkM4lssy5WIhTRCIiLWr/+Y1es
+903fwWDuJQUZ7P++53SfAbkAB5B47q0mO6F0zXLWtCsT7mZH6MrUY9LcoGD4wWx7
+iR7n2DIFaGCoCYjO/1DurCi9a5Hoap5zFLIkXeNKbIMzZ4mxCBVQIm8W42nSb5N+
+wSjeJ+OZAoGBAMvv6x2dXPKGXuknH7vzeYniN3KbhsH+qaIALagkHpum/eEZVLfl
+T6vcDpg9F2BkEG/NTXFv6bcS1elbAHJpCgo6HkwwrsxqkbbzjxGYoeGGwxpetLnH
+vr4v0aiGpssbTPw6hVJVYaTOWOM7cwowMuf4m+jOceLNwWA6kvIufGejAoGBAMHo
+Va7ThStgBQcgS9+BJ3be4T+gTrOoLJNiImEDSXUUnbZ0ZdpK8n9YdA/pdDlX2Tlv
+5TBX9jNBwB9/3bDGjdvu1wbb8h0nMu7yJlEFUEuYrOppcJI684YKIdVN/0o3sgIu
+fg6ctGzKcOokC/6I30cksvwZqQFiaXPzaE7XFjCPAoGBAKjDwFPfl71ziTN0lwRY
+tilutOf44InFjudrMl1ElrfEd7BB4CPWdhoIn2NImwG/jQKYaRAIxuYjhjX4guQr
+HI3eDpiKaPzs6+z0nV64aq5RcT9vRCvBqo2E0QGffIPz8b+BRjceRRG3WUOiPM8f
+l+DzkUIVJZXFI9PYZSZZZcX1AoGAcfra2sAU6FExw2WVk9R8WSBb8SWO/YXeZefq
+Y3ImLL8okYZMFIu3jWl2F6BXpBliY6PFaaxa2PhOMXXc3ztnSZ9UIAELiV1wUApg
+wYFJGJavFb9S33HtkZ3FE3gclwi0BxpDGN2+JLC+vLLhpgXYkR4eY5fFwz2Q1QqA
+Bs/hiDsCgYA7oPnmpgmMlj8t81O/MxDqMIgP5SpAqlqTIAG+X2njlachnksKqCjW
+2ihSh/Vt1UF/uaqjyZNw4vw43EY9a1z0zOqTISsLzDTHqVN9Zb+WngLFHvs58XXb
+sY7rOd2KSmyqvsVWtatTQroCMZ78wQh85quimdlod32FgqB84Fo+8g==
+-----END RSA PRIVATE KEY-----
+
+3) openssl req -new -key privkey.pem -out cert.csr
+
+You are about to be asked to enter information that will be incorporated
+into your certificate request.
+What you are about to enter is what is called a Distinguished Name or a DN.
+There are quite a few fields but you can leave some blank
+For some fields there will be a default value,
+If you enter '.', the field will be left blank.
+-----
+Country Name (2 letter code) [AU]:PT
+State or Province Name (full name) [Some-State]:Braga
+Locality Name (eg, city) []:Guimaraes
+Organization Name (eg, company) [Internet Widgits Pty Ltd]:Universidade do Minho
+Organizational Unit Name (eg, section) []:Seguranca de Redes
+Common Name (e.g. server FQDN or YOUR name) []:Grupo2
+Email Address []:A75121@alunos.uminho.pt
+
+Please enter the following 'extra' attributes
+to be sent with your certificate request
+A challenge password []:12354
+An optional company name []: 
+
+4) openssl req -text -noout -verify -in cert.csr
+
+verify OK
+Certificate Request:
+    Data:
+        Version: 0 (0x0)
+        Subject: C=PT, ST=Braga, L=Guimaraes, O=Universidade do Minho, OU=Seguranca de Redes, CN=Grupo2/emailAddress=A75121@alunos.uminho.pt
+        Subject Public Key Info:
+            Public Key Algorithm: rsaEncryption
+                Public-Key: (2048 bit)
+                Modulus:
+                    00:9a:78:f5:f0:55:1d:27:70:42:95:1d:3c:1e:28:
+                    97:ba:6a:c8:2a:27:1d:fe:c0:9d:fa:d1:89:3a:53:
+                    7b:9a:98:44:77:4c:32:99:7b:c2:e5:e4:77:d8:14:
+                    8f:06:3c:55:c9:7b:2b:8e:fd:21:43:77:8e:49:6f:
+                    24:0d:ca:a2:bb:37:31:65:85:26:eb:54:fd:7d:cc:
+                    c0:3e:fc:3b:61:5f:ac:43:39:b7:e2:2a:ae:89:1d:
+                    c5:18:0c:31:d4:e9:b9:eb:41:af:f6:c5:1a:09:2c:
+                    0f:d5:7b:ff:1f:0d:b9:c5:74:55:95:6f:28:f8:64:
+                    77:ca:8f:21:16:b4:d5:bf:d0:24:b5:90:4d:dd:98:
+                    13:dd:de:1d:41:f3:d9:68:96:83:12:90:70:c4:b9:
+                    a6:dd:44:eb:31:3f:11:b7:55:01:e0:49:63:a2:73:
+                    8b:a5:eb:21:03:15:be:fc:a4:30:bb:3c:95:1a:a5:
+                    26:48:ca:40:6d:c9:27:7f:35:58:ac:94:34:e3:4c:
+                    57:d3:0f:e9:95:04:fd:cc:51:1b:66:f4:c4:de:c6:
+                    d4:75:75:e1:18:70:ab:f7:7c:60:12:1c:85:94:fb:
+                    4f:58:31:99:eb:f3:97:b2:48:6f:67:e3:0f:24:c8:
+                    12:d5:04:c9:89:52:59:ba:ae:0e:da:c3:64:17:ee:
+                    74:0d
+                Exponent: 65537 (0x10001)
+        Attributes:
+            challengePassword        :unable to print attribute
+    Signature Algorithm: sha256WithRSAEncryption
+         96:63:ba:44:c1:39:15:cb:3c:9a:cd:08:68:97:5b:43:4c:25:
+         51:4e:7d:73:48:4d:fc:21:e8:c4:41:2b:05:67:ce:bd:00:bb:
+         b5:2e:58:76:c2:54:95:9f:e3:00:62:4f:c4:e0:a1:01:fd:46:
+         fd:aa:2c:8c:fa:ed:25:24:33:c6:8d:74:86:e1:e7:62:c6:29:
+         97:62:ec:2d:f2:57:d5:bd:e0:8d:e1:e5:b9:ed:a1:e1:df:a2:
+         e4:bc:67:f6:83:85:08:cf:ce:dd:96:e9:53:68:ed:44:3d:2d:
+         5c:ff:91:74:4c:da:9e:d3:8e:4d:9e:5d:50:3f:9f:46:ed:f6:
+         b9:65:16:23:58:db:43:03:f3:89:05:3d:8b:f9:98:fa:c5:34:
+         d2:98:f7:b4:a7:06:28:5e:53:16:73:4d:d7:65:a7:d2:88:c5:
+         50:3d:4c:2c:32:76:45:a8:df:08:08:10:b8:be:86:f4:fa:46:
+         6b:04:5f:86:98:8b:e0:6d:dc:aa:19:31:61:d3:63:87:c3:25:
+         23:41:5c:32:d0:ed:8e:27:90:33:9d:fd:a0:22:c4:07:58:e6:
+         b2:d5:61:8f:f9:3b:33:82:31:8c:15:13:21:bf:75:d2:b6:63:
+         9b:3e:25:64:a4:d5:d8:30:78:a2:a7:bc:77:65:8a:b7:3c:9f:
+         7e:1a:00:db
+
+5) openssl x509 -req -in cert.csr -signkey privkey.pem -out privcert.crt
+
+Signature ok
+subject=/C=PT/ST=Braga/L=Guimaraes/O=Universidade do Minho/OU=Seguranca de Redes/CN=Grupo2/emailAddress=A75121@alunos.uminho.pt
+Getting Private key
+
+11)
+
+	Version : 3
+	Serial No : 00de65a91e9a320f89ce433faf0676820b76c40875
+	Subject DN :
+ 	
+Email :	 A75121@alunos.uminho.pt
+Common Name :	 Grupo2
+Organisation Unit :	 Seguranca de Redes
+Organisation :	 Universidade do Minho
+Locality :	 Guimaraes
+State :	 Braga
+Country :	 PT
+	Issuer DN :
+ 	
+Common Name :	 ADSS Default
+Organisation Unit :	 DSI
+Organisation :	 UMinhho
+Email :	 A75121@alunos.uminho.pt
+Country :	 PT
+	Signature Algorithm : sha256WithRSAEncryption
+	Validity :
+ From : 2018-03-15 15:50:43
+ To : 2019-03-15 15:50:43
+	
+Public Key : RSA ( 2048 Bits ) 
+
+30:82:01:22:30:0D:06:09:2A:86:48:86:F7:0D:01:01:01:05:00:03:82:01:0F:00:30:82:01:0A:02:82:01:01:00:9A:78:F5:F0:55:1D:27:70:42:95:1D:3C:1E:28:97:BA:6A:C8:2A:27:1D:FE:C0:9D:FA:D1:89:3A:53:7B:9A:98:44:77:4C:32:99:7B:C2:E5:E4:77:D8:14:8F:06:3C:55:C9:7B:2B:8E:FD:21:43:77:8E:49:6F:24:0D:CA:A2:BB:37:31:65:85:26:EB:54:FD:7D:CC:C0:3E:FC:3B:61:5F:AC:43:39:B7:E2:2A:AE:89:1D:C5:18:0C:31:D4:E9:B9:EB:41:AF:F6:C5:1A:09:2C:0F:D5:7B:FF:1F:0D:B9:C5:74:55:95:6F:28:F8:64:77:CA:8F:21:16:B4:D5:BF:D0:24:B5:90:4D:DD:98:13:DD:DE:1D:41:F3:D9:68:96:83:12:90:70:C4:B9:A6:DD:44:EB:31:3F:11:B7:55:01:E0:49:63:A2:73:8B:A5:EB:21:03:15:BE:FC:A4:30:BB:3C:95:1A:A5:26:48:CA:40:6D:C9:27:7F:35:58:AC:94:34:E3:4C:57:D3:0F:E9:95:04:FD:CC:51:1B:66:F4:C4:DE:C6:D4:75:75:E1:18:70:AB:F7:7C:60:12:1C:85:94:FB:4F:58:31:99:EB:F3:97:B2:48:6F:67:E3:0F:24:C8:12:D5:04:C9:89:52:59:BA:AE:0E:DA:C3:64:17:EE:74:0D:02:03:01:00:01
+	Basic Constraints : Type=End Entity
+	Key Usage : nonRepudiation, keyEncipherment, digitalSignature
+	Extended Key Usage : emailProtection
+	
+Authority Key Identifier :	
+52:EB:89:1F:07:7D:77:85:EB:6C:22:25:A0:EC:31:64:C8:C9:11:AC
+	
+Subject Key Identifier :	
+D5:35:2A:0F:46:10:B2:B2:1C:43:3F:8C:8B:DB:FF:6E:04:9C:17:4D
+	Thumbprint Algorithm : sha1
+	Thumbprint : talGK6RNl9qIRiDV5uqbAQ==
+
+
+13) Não foi necessário forçar o SO a considerar como válidos os certificados.

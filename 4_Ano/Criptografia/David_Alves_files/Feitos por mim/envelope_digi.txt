@@ -1,0 +1,34 @@
+O envelope digital (hybrid encryption) combina tecnicas simetricas e assimetricas.
+1. Explique o seu funcionamento e quais as vantagens que traz relativamente a utilizacão isolada de cada
+uma dessas tecnicas.
+
+A pessoa que envia uma mensagem em um envelope digital deve selecionar aleatoriamente uma chave de sessão 
+de algoritmo simétrico e, em seguida, criptografar essa chave de sessão usando a chave pública do destinatário e 
+um algoritmo assimétrico.
+O remetente criptografa o corpo da mensagem (o texto sem formatação ) com a chave de sessão simétrica original 
+(não criptografada) e, em seguida, envia a chave de sessão criptografada e o corpo da mensagem criptografada 
+(o texto cifrado ) para o destinatário.
+Os destinatários dessa mensagem devem descriptografar a chave de sessão (usando sua própria chave privada) e, 
+em seguida, descriptografar o restante da mensagem usando a chave de sessão recuperada para obter o corpo da 
+mensagem original (o texto sem formatação). Apenas o titular da chave privada do destinatário (esperançosamente, 
+apenas o destinatário) pode recuperar a chave da sessão e a mensagem original.
+
+Dois tipos principais de criptografia são chave simétrica e chave assimétrica. 
+A criptografia de chave simétrica usa a mesma chave para criptografar e descriptografar. 
+A criptografia de chave assimétrica cria a chave em duas partes complementares, 
+como as duas peças de uma nota de dólar rasgada. Uma parte é a chave pública , 
+porque nenhuma segurança é perdida, publicando-a para qualquer um saber, e a outra é a chave privada ,
+porque você deve protegê-la da descoberta. Se você criptografar com uma determinada chave pública, alguém
+pode descriptografar somente com a chave privada correspondente; nenhuma outra chave , incluindo a chave
+pública usada para criptografar as informações , pode descriptografá-las com êxito. Essa simples diferença
+no uso chave é o avanço mais significativo na tecnologia de segurança em 2000 anos.
+
+Uma das vantagens é que, do ponto de vista geral de segurança, ele acrescenta uma camada extra de segurança 
+para que uma violação de dados, por exemplo, não forneça acesso a essa chave. Assim, as pessoas não poderão 
+descriptografar suas informações e se apossar delas. Portanto, do ponto de vista da segurança, é bastante 
+seguro do ponto de vista de privacidade de dados, embora ele sofra do mesmo problema aqu
+
+2. Refira uma aplicacão concreta desse mecanismo de entre os protocolos/aplicacões estudadas no curso.
+Uma aplicacao concreta pode ser no protocolo StS, no qual se requer um certificado sempre q necessitem de uma chave 
+publica.Dessa forma ficam asseguradas que as chaves publicas usadas estao associadas as identidentidades presumidas, e assim
+impossibilitam ataques man-in-the-middle.Neste caso as chaves publicas poderiam ir dentro de um envelope digital.

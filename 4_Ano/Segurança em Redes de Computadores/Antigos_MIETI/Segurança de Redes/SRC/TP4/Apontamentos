@@ -1,0 +1,7 @@
+AÇÕES
+	Detetar ações suspeitas.
+	Analisar protocolos, Telnet não é cifrado, etc, ver a PW no Telnet.
+	Utilização constante do mesmo protocolo -> ação suspeita, alguém que tenta descobrir uma vulnerabilidade.
+		Basicamente fazer um scan a ver o que tá a descoberto, ver as portas que estão ativas e assim.
+			Pode usar o HTTP para ver se a porta 80 está ativa, e a resposta do pedido HTTP traz muita informação associada.
+				É mais interessante o IP da máquina que o nome. Ou o nome que dão internamente à máquina, para saber qual o nome dela quando se entra efetivamente na rede.

@@ -1,0 +1,150 @@
+2)
+
+RSA key ok
+-----BEGIN RSA PRIVATE KEY-----
+MIIEogIBAAKCAQEAmukGuj/iVZ2P605vEIXcmwaFolQj7c3nHQIybO+rMm6Pk3SE
+ySIz6HUse0MWg4TFX5OEujHhLFxgAsWzyQcJGnQZkXMVIm6QxyKzeYdFTPDcJ/3u
+GcrNAfJWWglxfWMiXKjqSgaCxYuDkj0dnPv3iFHGQbSeAmPY9bQVPtRFrAG6xclU
+sfjtliiwtVJ6ARHNjBoUmRuUyJBS8qlEi6PNB4VjQTb/WAYXQy4p36POi+MDwNIW
+Tr/dYoPnD1PCSGOVD23BHFOXJsMgD/dLhpFbAzlEnboWC+Jk0foZkkUv3eVF9AaC
+zmjhe6fT5x0gVC+RLhem+pdtXl2ep1E3PDn3ewIDAQABAoIBABU853A3e/dS771J
+9o4kXBdg8IdN09MxjIL8nx8ySJ1UbRjBO8c7ijRPhDat/vMvC8RLvEGuvvlO/NbE
+dh6UeVoIGs1HItmioPS8PDDoK8cdqoFNHgypMiwXJmGXs9iF89sSSXS2qc0dkH9H
+I703CjvFQlIVyif3unINK3B+t8KaD36mpJ286CDpO0T+5cREULA1It7huNfpgE+J
+CsQPEKhEFHh5EwCXT3BB97haNsf6araYpIP9aWhCA2gPyLQYf0y8d5VPzklzZ/X6
++pJ9xLHywpFPd+KR15HRHlD/amcylxdmjsnhioszc5AA8ag5JqBiamBHgSiUMRSB
++biEoQECgYEAyVCaqM/FgupFsi/hXIZBoRUssgvZa+tLXnWsfzsJv4cgJ3j7/vu5
+QH+ZhaXd/PW+CKFV99ebflarkHSPtsVdzego8yHoRwMjyTCFtnOf845I8x8f7X6h
+P39nL+mddpZ4lAPHallhHizmjibVVCBpWuzOOOmQC7OOJ0L59U2JXoECgYEAxP10
+jfTKiqxNxt67FkQ/sUAkbdzRy5eYxZ4y7OMj/YIVfftNDT+ZkR0P7T3KvnaDRQCP
+mrNgR0sdGVD3XZm5lEnkop6qAbjX6Z+uMokW3Z7zjT139menJJdrVWl3u16z419K
+HdRiJ9zuCj853/FARpDOfnyPj3rZOGek8tMgz/sCgYAli9n8iBu/SfBLxnBSsFuH
+LorSfjFD1nONH4dXh2xPA2W01vSw3sPzSpkYexIG/tI9i9Gb0uOWUZXX8FVpcjAH
+mjgg+H7415YSDPGzUKdRZoUmivSKd+adECbvobOTjYbZnEbSB+98EEXD12xML2tW
+4PmpVa5e8FMf8XbrEFYBgQKBgGvhblprzBxjvniB9C1+lO8KdKjh/Ncln5niSHto
+7YXhHsoOvSTbRsutAdLoO0dRehRo+Tw8riZ9IWOC7uWI0ZQ/X4IbqHkm9L/SHkE4
+yJf4e+NG3ZLJM0Ub08FD8Dlh5NxJjDqH3HV+TbK464YUBiJfHWcx6iEmox17zV7a
+dybPAoGAThjIUzke7Ymp0U+gDLjLozzkTXK2Y7GpSkn6S1o+bkkVOQqF7epabDS8
+hyGZi44C6WzEv7LxEykI+Yghjt0LCb3zYI6YFEZYu6KmOVnDHSGGaXH3InBF6N+b
+WnbwHCRjbmwtQydbZY17sJxXuQcMNABnzSZUY6YOfm/KA59B/+o=
+-----END RSA PRIVATE KEY-----
+
+
+3)
+
+You are about to be asked to enter information that will be incorporated
+into your certificate request.
+What you are about to enter is what is called a Distinguished Name or a DN.
+There are quite a few fields but you can leave some blank
+For some fields there will be a default value,
+If you enter '.', the field will be left blank.
+-----
+Country Name (2 letter code) [AU]:PT
+State or Province Name (full name) [Some-State]:Braga
+Locality Name (eg, city) []:Guimaraes
+Organization Name (eg, company) [Internet Widgits Pty Ltd]:Universidade do Minho
+Organizational Unit Name (eg, section) []:Segurança de Redes
+Common Name (e.g. server FQDN or YOUR name) []:Grupo2
+Email Address []:A76569@alunos.uminho.pt
+
+Please enter the following 'extra' attributes
+to be sent with your certificate request
+A challenge password []:MC12354
+An optional company name []:
+
+4)
+
+verify OK
+Certificate Request:
+    Data:
+        Version: 0 (0x0)
+        Subject: C=PT, ST=Braga, L=Guimaraes, O=Universidade do Minho, OU=Seguran\xC3\x83\xC2\xA7a de Redes, CN=Grupo2/emailAddress=A76569@alunos.uminho.pt
+        Subject Public Key Info:
+            Public Key Algorithm: rsaEncryption
+                Public-Key: (2048 bit)
+                Modulus:
+                    00:9a:e9:06:ba:3f:e2:55:9d:8f:eb:4e:6f:10:85:
+                    dc:9b:06:85:a2:54:23:ed:cd:e7:1d:02:32:6c:ef:
+                    ab:32:6e:8f:93:74:84:c9:22:33:e8:75:2c:7b:43:
+                    16:83:84:c5:5f:93:84:ba:31:e1:2c:5c:60:02:c5:
+                    b3:c9:07:09:1a:74:19:91:73:15:22:6e:90:c7:22:
+                    b3:79:87:45:4c:f0:dc:27:fd:ee:19:ca:cd:01:f2:
+                    56:5a:09:71:7d:63:22:5c:a8:ea:4a:06:82:c5:8b:
+                    83:92:3d:1d:9c:fb:f7:88:51:c6:41:b4:9e:02:63:
+                    d8:f5:b4:15:3e:d4:45:ac:01:ba:c5:c9:54:b1:f8:
+                    ed:96:28:b0:b5:52:7a:01:11:cd:8c:1a:14:99:1b:
+                    94:c8:90:52:f2:a9:44:8b:a3:cd:07:85:63:41:36:
+                    ff:58:06:17:43:2e:29:df:a3:ce:8b:e3:03:c0:d2:
+                    16:4e:bf:dd:62:83:e7:0f:53:c2:48:63:95:0f:6d:
+                    c1:1c:53:97:26:c3:20:0f:f7:4b:86:91:5b:03:39:
+                    44:9d:ba:16:0b:e2:64:d1:fa:19:92:45:2f:dd:e5:
+                    45:f4:06:82:ce:68:e1:7b:a7:d3:e7:1d:20:54:2f:
+                    91:2e:17:a6:fa:97:6d:5e:5d:9e:a7:51:37:3c:39:
+                    f7:7b
+                Exponent: 65537 (0x10001)
+        Attributes:
+            challengePassword        :unable to print attribute
+    Signature Algorithm: sha256WithRSAEncryption
+         6c:b5:cd:e3:b1:4d:ca:86:3e:eb:0a:78:e0:6d:a2:d0:14:9b:
+         19:79:e9:ce:8a:49:f2:e7:1b:03:67:7b:b4:02:c4:5d:a6:6a:
+         5c:45:d3:1e:b6:76:58:cb:e8:d1:2b:d6:28:48:51:7c:9f:b3:
+         e8:8d:cb:82:b1:3e:ac:7e:f7:23:a3:54:aa:93:46:1f:df:3d:
+         d4:db:cd:78:89:c1:10:b8:fa:5b:cd:28:db:54:83:eb:6d:21:
+         5c:09:7f:28:bd:6d:eb:c5:d7:86:2c:f4:c6:57:3f:ff:a9:07:
+         bf:db:15:a4:20:5b:80:df:03:68:11:77:18:d5:23:14:aa:b7:
+         81:32:cf:c4:84:5f:29:e0:05:d9:90:aa:bc:6e:62:50:a1:65:
+         55:63:48:d7:70:60:32:a3:11:43:f4:8c:61:01:6f:6e:48:c7:
+         30:f6:73:5d:55:21:c7:0f:cb:ec:91:17:1b:7d:f7:6f:d3:24:
+         c2:85:9e:43:44:8c:19:3f:bf:2c:2e:f2:59:da:38:aa:26:4a:
+         f5:6c:9e:cc:30:0b:25:e0:a9:69:58:97:c6:a2:76:09:97:bb:
+         1b:bf:45:de:61:51:25:1e:1b:f8:ef:75:8a:c3:d4:8a:57:89:
+         42:21:81:71:0a:84:10:7d:69:99:ca:61:e4:fe:cf:36:a5:d0:
+         cb:fa:9b:5d
+
+
+5)
+
+Signature ok
+subject=/C=PT/ST=Braga/L=Guimaraes/O=Universidade do Minho/OU=Seguran\xC3\x83\xC2\xA7a de Redes/CN=Grupo2/emailAddress=A76569@alunos.uminho.pt
+Getting Private key
+
+11)
+
+    Version : 3
+    Serial No : 772d018f03669407d4deb396010ab5f552cc1d90
+    Subject DN :
+    
+Email :  A76569@alunos.uminho.pt
+Common Name :    Grupo2
+Organisation Unit :  SeguranÃ§a de Redes
+Organisation :   Universidade do Minho
+Locality :   Guimaraes
+State :  Braga
+Country :    PT
+    Issuer DN :
+    
+Common Name :    ADSS Default
+Organisation Unit :  DSI
+Organisation :   UMinhho
+Email :  A75121@alunos.uminho.pt
+Country :    PT
+    Signature Algorithm : sha256WithRSAEncryption
+    Validity :
+ From : 2018-03-15 15:52:28
+ To : 2019-03-15 15:52:28
+    
+Public Key : RSA ( 2048 Bits ) 
+
+30:82:01:22:30:0D:06:09:2A:86:48:86:F7:0D:01:01:01:05:00:03:82:01:0F:00:30:82:01:0A:02:82:01:01:00:9A:E9:06:BA:3F:E2:55:9D:8F:EB:4E:6F:10:85:DC:9B:06:85:A2:54:23:ED:CD:E7:1D:02:32:6C:EF:AB:32:6E:8F:93:74:84:C9:22:33:E8:75:2C:7B:43:16:83:84:C5:5F:93:84:BA:31:E1:2C:5C:60:02:C5:B3:C9:07:09:1A:74:19:91:73:15:22:6E:90:C7:22:B3:79:87:45:4C:F0:DC:27:FD:EE:19:CA:CD:01:F2:56:5A:09:71:7D:63:22:5C:A8:EA:4A:06:82:C5:8B:83:92:3D:1D:9C:FB:F7:88:51:C6:41:B4:9E:02:63:D8:F5:B4:15:3E:D4:45:AC:01:BA:C5:C9:54:B1:F8:ED:96:28:B0:B5:52:7A:01:11:CD:8C:1A:14:99:1B:94:C8:90:52:F2:A9:44:8B:A3:CD:07:85:63:41:36:FF:58:06:17:43:2E:29:DF:A3:CE:8B:E3:03:C0:D2:16:4E:BF:DD:62:83:E7:0F:53:C2:48:63:95:0F:6D:C1:1C:53:97:26:C3:20:0F:F7:4B:86:91:5B:03:39:44:9D:BA:16:0B:E2:64:D1:FA:19:92:45:2F:DD:E5:45:F4:06:82:CE:68:E1:7B:A7:D3:E7:1D:20:54:2F:91:2E:17:A6:FA:97:6D:5E:5D:9E:A7:51:37:3C:39:F7:7B:02:03:01:00:01
+    Basic Constraints : Type=End Entity
+    Key Usage : nonRepudiation, keyEncipherment, digitalSignature
+    Extended Key Usage : emailProtection
+    
+Authority Key Identifier :  
+52:EB:89:1F:07:7D:77:85:EB:6C:22:25:A0:EC:31:64:C8:C9:11:AC
+    
+Subject Key Identifier :    
+7E:81:BC:48:B9:C3:F7:60:EC:11:F0:82:5E:A9:69:41:F9:64:A1:BD
+    Thumbprint Algorithm : sha1
+    Thumbprint : aCKRlshWa1ghXUiP2+RgJw==
+

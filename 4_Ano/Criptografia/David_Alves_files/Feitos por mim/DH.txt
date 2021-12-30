@@ -1,0 +1,35 @@
+Considere o protocolo de acordo de chaves DH
+
+1. Descreve resumidamente o seu funcionamento e os aspectos de seguranca relativamente a um adversario
+passivo e activo respectivamente.
+
+
+O Diffie-Hellman estabelece um compartilhamento de chaves secreto que pode ser usado para troca de mensagens secretas
+dentro de um canal de comunicação público:
+1.Inicialmente, uma chave em comum é compartilhada entre Alice e Bob, chave esta que pode ser observada por um terceiro 
+interessado na comunicação entre os dois(chave publica). 
+2.O passo seguinte é a escolha de Alice e Bob, cada um, de uma chave secreta própria, que não é compartilhada com ninguém.
+(chave privada)
+3.Cada um combina com a chave comum, a sua chave secreta.
+4.O passo chave do processo é que Alice e Bob trocam apenas as suas "misturas".Estas misturas , resultado
+ das combinações da chave comum e das chaves secretas, muito dificilmente se conseguem reverter e determinar quais as chaves
+ secretas que Alice e Bob utilizaram, caso um terceiro esteja escutando a comunicação.
+5.Alice e Bob então combinam as suas chaves secretas com as misturas recebidas, gerando misturas secundárias (chave comum) que serão 
+iguais tanto para Alice quanto para Bob, sem que um terceiro que esteja observando a comunicação consiga produzir esta mistura secundária.
+
+No que diz respeito a aspectos de segurança,perante adversarios passivos:
+-Se fosse possivel calcular o logaritmo discreto,o 
+intruso poderia calcular x a partir de g^x e assim atacar o protocolo.
+-A partir de g^x e g^y nao é possivel obter g^xy.Sendo x e y as chaves privadas e g^x e g^y as chaves publicas 
+
+Em relaçao a adversarios ativos:
+-é possivel, estes poderem fazer-se passar por outro agente, comprometendo a segurança do DH.(ataque man-in-the-middle).O
+ataque resume-se a:
+--A gera x, calcula g^x e envia-o para B.
+---I intercepta a mensagem
+----I gera z e calcula g^z que envia para A
+-----A passa a adotar o segredo K=(g^z)^x =g^xz achando que z se trata de um parametro gerado por B
+------I conhece o segredo K que A pensa que so A e B sabem, e agora pode desencriptar, encriptar as mensagens trocadas
+
+
+ 

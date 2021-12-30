@@ -1,0 +1,44 @@
+1. Introdução
+
+2. Introdução teórica sobre conceitos chave
+2.1. Chave pública e chave privada
+2.2. Certificados
+
+3. Práticas de Criptografia Aplicada
+3.1. Antes de começar
+	Instalar cliente email -> Thunderbird
+3.2. Resolução prática
+	.1 Adicionar certificado ao browser (FIGURA adicionarCert)
+	   	.1 Aceder ao servidor ADSS (FIGURA entrarSite)
+	   	.2 Consola do servidor ADSS (FIGURA consola)
+           	.3 Tentar aceder com alguém já conectado ao servidor ADSS (FIGURA kickGrupo)
+	   	.4 Logout do servidor ADSS (FIGURA logoutConsola)
+	.2 Update ao OpenSSL (explicar comando caso não se tenha sudo apt-get install openssl)
+	.3 Criar par de chaves (FIGURA gerarPriv)
+		.1 Confirmar o bom estado (FIGURA checkPriv)
+	.4 Pedir certificado
+		.1 Formulario pedido (FIGURA form)
+		.2 Pedido certificado visivel (FIGURA cert + cert2)
+		.3 Verificar estado do pedido do certificado (FIGURA checkCert + checkCert2)
+	.5 Gerar certificado para 1 ano (FIGURA geraPrivCert)
+		.1 Certificado visivel (FIGURA privCert + privCert2)
+	.6 Certificados de todos
+		.1 Aceder ao key manager e criar um novo par de chaves (FIGURA keyPair)
+		.2 Criado com sucesso (FIGURA keyPairGerado)
+	.7 Certificado da CA
+		.1 Formulário inserido (FIGURA certCA)
+		.2 Certificado gerado com sucesso (FIGURA cerCAgerado)
+	.8 
+		.1 Certificado já certificado pela CA (FIGURA certYES)
+		.2 Mostrar a informação do certificado (FIGURA certAlias + certAlias 2)
+	.9 Gerir as CA
+		.1 Mostrar as CA existentes (FIGURA listaCAantes)
+		.2 Criar uma nova CA local (FIGURA configCAlocal)
+		.3 Mostrar as CA existentes (FIGURA listaCAdepois)
+	.10 Certificação Manual de todos
+		.1 FIGURA certManual
+		.2 Mostrar certificados verificados pela ADSS de todos
+	
+
+	
+

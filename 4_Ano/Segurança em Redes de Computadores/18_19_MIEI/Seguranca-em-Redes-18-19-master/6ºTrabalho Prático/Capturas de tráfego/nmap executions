@@ -1,0 +1,1530 @@
+root@kali:~# nmap -sS 192.168.1.1/24
+Starting Nmap 7.70 ( https://nmap.org ) at 2018-12-28 14:04 GMT
+Nmap scan report for 192.168.1.64
+Host is up (0.0070s latency).
+Not shown: 997 closed ports
+PORT     STATE SERVICE
+8080/tcp open  http-proxy
+8082/tcp open  blackice-alerts
+8086/tcp open  d-s-n
+MAC Address: FC:51:A4:BD:30:E1 (Arris Group)
+
+Nmap scan report for 192.168.1.65
+Host is up (0.068s latency).
+All 1000 scanned ports on 192.168.1.65 are closed
+MAC Address: 48:2C:A0:71:D5:60 (Unknown)
+
+Nmap scan report for LAPTOP-7E2TOF4J.lan (192.168.1.66)
+Host is up (0.00054s latency).
+Not shown: 995 filtered ports
+PORT    STATE SERVICE
+135/tcp open  msrpc
+139/tcp open  netbios-ssn
+445/tcp open  microsoft-ds
+902/tcp open  iss-realsecure
+912/tcp open  apex-mesh
+MAC Address: D8:9C:67:26:55:01 (Unknown)
+
+Nmap scan report for RedmiNote3-Rosa.lan (192.168.1.68)
+Host is up (0.067s latency).
+All 1000 scanned ports on RedmiNote3-Rosa.lan (192.168.1.68) are closed
+MAC Address: B0:E2:35:7E:1D:01 (Xiaomi Communications)
+
+Nmap scan report for 192.168.1.72
+Host is up (0.050s latency).
+All 1000 scanned ports on 192.168.1.72 are filtered
+MAC Address: F4:60:E2:EF:6E:12 (Unknown)
+
+Nmap scan report for 192.168.1.73
+Host is up (0.044s latency).
+All 1000 scanned ports on 192.168.1.73 are filtered
+MAC Address: 18:F0:E4:E8:4F:D1 (Xiaomi Communications)
+
+Nmap scan report for ubuntu.lan (192.168.1.81)
+Host is up (0.00095s latency).
+Not shown: 993 closed ports
+PORT     STATE SERVICE
+21/tcp   open  ftp
+22/tcp   open  ssh
+80/tcp   open  http
+111/tcp  open  rpcbind
+139/tcp  open  netbios-ssn
+445/tcp  open  microsoft-ds
+2049/tcp open  nfs
+MAC Address: 00:0C:29:91:AB:EF (VMware)
+
+Nmap scan report for 192.168.1.120
+Host is up (0.00074s latency).
+Not shown: 992 closed ports
+PORT     STATE SERVICE
+21/tcp   open  ftp
+25/tcp   open  smtp
+80/tcp   open  http
+135/tcp  open  msrpc
+139/tcp  open  netbios-ssn
+443/tcp  open  https
+445/tcp  open  microsoft-ds
+3306/tcp open  mysql
+MAC Address: 00:0C:29:74:EF:B4 (VMware)
+
+Nmap scan report for Linux.lan (192.168.1.253)
+Host is up (0.0027s latency).
+Not shown: 997 closed ports
+PORT    STATE SERVICE
+139/tcp open  netbios-ssn
+445/tcp open  microsoft-ds
+515/tcp open  printer
+MAC Address: 12:13:31:54:1D:80 (Unknown)
+
+Nmap scan report for dsldevice.lan (192.168.1.254)
+Host is up (0.0051s latency).
+Not shown: 991 filtered ports
+PORT     STATE  SERVICE
+21/tcp   open   ftp
+22/tcp   open   ssh
+23/tcp   open   telnet
+53/tcp   open   domain
+80/tcp   open   http
+443/tcp  open   https
+1723/tcp open   pptp
+8000/tcp open   http-alt
+9001/tcp closed tor-orport
+MAC Address: 10:13:31:54:1D:80 (Technicolor)
+
+Nmap scan report for kali.lan (192.168.1.80)
+Host is up (0.0000030s latency).
+All 1000 scanned ports on kali.lan (192.168.1.80) are closed
+
+Nmap done: 256 IP addresses (11 hosts up) scanned in 109.40 seconds
+root@kali:~# nmap -n -sV 192.168.1.1/24
+Starting Nmap 7.70 ( https://nmap.org ) at 2018-12-28 14:25 GMT
+Nmap scan report for 192.168.1.64
+Host is up (0.0066s latency).
+Not shown: 997 closed ports
+PORT     STATE SERVICE          VERSION
+8080/tcp open  http             T-Home Telekom Media Receiver httpd
+8082/tcp open  blackice-alerts?
+8086/tcp open  http             Microsoft Mediaroom httpd (IPTV tuner)
+1 service unrecognized despite returning data. If you know the service/version, please submit the following fingerprint at https://nmap.org/cgi-bin/submit.cgi?new-service :
+SF-Port8082-TCP:V=7.70%I=7%D=12/28%Time=5C26328F%P=x86_64-pc-linux-gnu%r(N
+SF:ULL,6,"hello\n")%r(GetRequest,6,"hello\n")%r(FourOhFourRequest,6,"hello
+SF:\n")%r(GenericLines,6,"hello\n")%r(HTTPOptions,6,"hello\n")%r(RTSPReque
+SF:st,6,"hello\n")%r(RPCCheck,6,"hello\n")%r(DNSVersionBindReqTCP,6,"hello
+SF:\n")%r(DNSStatusRequestTCP,6,"hello\n")%r(Help,6,"hello\n")%r(SSLSessio
+SF:nReq,6,"hello\n")%r(TLSSessionReq,6,"hello\n")%r(Kerberos,6,"hello\n")%
+SF:r(SMBProgNeg,6,"hello\n")%r(X11Probe,6,"hello\n")%r(LPDString,6,"hello\
+SF:n")%r(LDAPSearchReq,6,"hello\n")%r(LDAPBindReq,6,"hello\n")%r(SIPOption
+SF:s,6,"hello\n")%r(LANDesk-RC,6,"hello\n")%r(TerminalServer,6,"hello\n")%
+SF:r(NCP,6,"hello\n")%r(NotesRPC,6,"hello\n")%r(JavaRMI,6,"hello\n")%r(WMS
+SF:Request,6,"hello\n")%r(oracle-tns,6,"hello\n")%r(ms-sql-s,6,"hello\n")%
+SF:r(afp,6,"hello\n")%r(giop,6,"hello\n");
+MAC Address: FC:51:A4:BD:30:E1 (Arris Group)
+Service Info: Device: media device
+
+Nmap scan report for 192.168.1.66
+Host is up (0.00053s latency).
+Not shown: 995 filtered ports
+PORT    STATE SERVICE         VERSION
+135/tcp open  msrpc           Microsoft Windows RPC
+139/tcp open  netbios-ssn     Microsoft Windows netbios-ssn
+445/tcp open  microsoft-ds?
+902/tcp open  ssl/vmware-auth VMware Authentication Daemon 1.10 (Uses VNC, SOAP)
+912/tcp open  vmware-auth     VMware Authentication Daemon 1.0 (Uses VNC, SOAP)
+MAC Address: D8:9C:67:26:55:01 (Unknown)
+Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows
+
+Nmap scan report for 192.168.1.68
+Host is up (0.0044s latency).
+All 1000 scanned ports on 192.168.1.68 are closed
+MAC Address: B0:E2:35:7E:1D:01 (Xiaomi Communications)
+
+Nmap scan report for 192.168.1.72
+Host is up (0.050s latency).
+All 1000 scanned ports on 192.168.1.72 are filtered
+MAC Address: F4:60:E2:EF:6E:12 (Unknown)
+
+Nmap scan report for 192.168.1.73
+Host is up (0.0041s latency).
+All 1000 scanned ports on 192.168.1.73 are closed
+MAC Address: 18:F0:E4:E8:4F:D1 (Xiaomi Communications)
+
+Nmap scan report for 192.168.1.81
+Host is up (0.00042s latency).
+Not shown: 993 closed ports
+PORT     STATE SERVICE     VERSION
+21/tcp   open  ftp         vsftpd 2.3.4
+22/tcp   open  ssh         OpenSSH 5.1p1 Debian 3ubuntu1 (Ubuntu Linux; protocol 2.0)
+80/tcp   open  http        Apache httpd 2.2.9 ((Ubuntu) PHP/5.2.6-2ubuntu4.6 with Suhosin-Patch)
+111/tcp  open  rpcbind     2 (RPC #100000)
+139/tcp  open  netbios-ssn Samba smbd 3.X - 4.X (workgroup: WORKGROUP)
+445/tcp  open  netbios-ssn Samba smbd 3.X - 4.X (workgroup: WORKGROUP)
+2049/tcp open  nfs         2-4 (RPC #100003)
+MAC Address: 00:0C:29:91:AB:EF (VMware)
+Service Info: OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel
+
+Nmap scan report for 192.168.1.120
+Host is up (0.00044s latency).
+Not shown: 992 closed ports
+PORT     STATE SERVICE      VERSION
+21/tcp   open  ftp          FileZilla ftpd 0.9.32 beta
+25/tcp   open  smtp         SLmail smtpd 5.5.0.4433
+80/tcp   open  http         Apache httpd 2.2.12 ((Win32) DAV/2 mod_ssl/2.2.12 OpenSSL/0.9.8k mod_autoindex_color PHP/5.3.0 mod_perl/2.0.4 Perl/v5.10.0)
+135/tcp  open  msrpc        Microsoft Windows RPC
+139/tcp  open  netbios-ssn  Microsoft Windows netbios-ssn
+443/tcp  open  ssl/http     Apache httpd 2.2.12 ((Win32) DAV/2 mod_ssl/2.2.12 OpenSSL/0.9.8k mod_autoindex_color PHP/5.3.0 mod_perl/2.0.4 Perl/v5.10.0)
+445/tcp  open  microsoft-ds Microsoft Windows XP microsoft-ds
+3306/tcp open  mysql?
+MAC Address: 00:0C:29:74:EF:B4 (VMware)
+Service Info: Host: tester-595cbae8; OSs: Windows, Windows XP; CPE: cpe:/o:microsoft:windows, cpe:/o:microsoft:windows_xp
+
+Nmap scan report for 192.168.1.253
+Host is up (0.0019s latency).
+Not shown: 997 closed ports
+PORT    STATE SERVICE     VERSION
+139/tcp open  netbios-ssn Samba smbd 3.X - 4.X (workgroup: WORKGROUP)
+445/tcp open  netbios-ssn Samba smbd 3.X - 4.X (workgroup: WORKGROUP)
+515/tcp open  printer     Xerox lpd
+MAC Address: 12:13:31:54:1D:80 (Unknown)
+Service Info: Device: printer
+
+Nmap scan report for 192.168.1.254
+Host is up (0.0033s latency).
+Not shown: 991 filtered ports
+PORT     STATE  SERVICE    VERSION
+21/tcp   open   ftp        Alcatel Speedtouch ADSL router ftpd
+22/tcp   open   ssh        (protocol 2.0)
+23/tcp   open   telnet     Technicolor TG582n WAP telnetd
+53/tcp   open   domain     (generic dns response: NOTIMP)
+80/tcp   open   http       Mbedthis-Appweb (Thomson Technicolor broadband router http admin)
+443/tcp  open   ssl/http   Mbedthis-Appweb (Thomson Technicolor broadband router http admin)
+1723/tcp open   pptp       THOMSON (Firmware: 1)
+8000/tcp open   http       Technicolor TG787 VoIP gateway http admin 1.0
+9001/tcp closed tor-orport
+2 services unrecognized despite returning data. If you know the service/version, please submit the following fingerprints at https://nmap.org/cgi-bin/submit.cgi?new-service :
+==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
+SF-Port22-TCP:V=7.70%I=7%D=12/28%Time=5C263295%P=x86_64-pc-linux-gnu%r(NUL
+SF:L,1B,"SSH-2\.0-TECHNICOLOR_SW_1\.0\n");
+==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
+SF-Port53-TCP:V=7.70%I=7%D=12/28%Time=5C263295%P=x86_64-pc-linux-gnu%r(DNS
+SF:VersionBindReqTCP,20,"\0\x1e\0\x06\x81\x84\0\x01\0\0\0\0\0\0\x07version
+SF:\x04bind\0\0\x10\0\x03")%r(DNSStatusRequestTCP,E,"\0\x0c\0\0\x90\x84\0\
+SF:0\0\0\0\0\0\0");
+MAC Address: 10:13:31:54:1D:80 (Technicolor)
+Service Info: Host: SpeedTouch; Devices: broadband router, WAP, VoIP adapter; CPE: cpe:/h:technicolor:tg582n
+
+Nmap scan report for 192.168.1.80
+Host is up (0.0000030s latency).
+All 1000 scanned ports on 192.168.1.80 are closed
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 256 IP addresses (10 hosts up) scanned in 184.65 seconds
+root@kali:~# nmap -A -T4 192.168.1.1/24
+Starting Nmap 7.70 ( https://nmap.org ) at 2018-12-28 16:56 GMT
+Nmap scan report for 192.168.1.64
+Host is up (0.0069s latency).
+Not shown: 997 closed ports
+PORT     STATE SERVICE          VERSION
+8080/tcp open  http             T-Home Telekom Media Receiver httpd
+|_http-title: Site doesn't have a title.
+8082/tcp open  blackice-alerts?
+| fingerprint-strings: 
+|   DNSStatusRequestTCP, DNSVersionBindReqTCP, FourOhFourRequest, GenericLines, GetRequest, HTTPOptions, Help, JavaRMI, Kerberos, LANDesk-RC, LDAPBindReq, LDAPSearchReq, LPDString, NCP, NULL, NotesRPC, RPCCheck, RTSPRequest, SIPOptions, SMBProgNeg, SSLSessionReq, TLSSessionReq, TerminalServer, WMSRequest, X11Probe, afp, giop, ms-sql-s, oracle-tns: 
+|_    hello
+8086/tcp open  http             Microsoft Mediaroom httpd (IPTV tuner)
+1 service unrecognized despite returning data. If you know the service/version, please submit the following fingerprint at https://nmap.org/cgi-bin/submit.cgi?new-service :
+SF-Port8082-TCP:V=7.70%I=7%D=12/28%Time=5C2655EB%P=x86_64-pc-linux-gnu%r(N
+SF:ULL,6,"hello\n")%r(GetRequest,6,"hello\n")%r(FourOhFourRequest,6,"hello
+SF:\n")%r(GenericLines,6,"hello\n")%r(HTTPOptions,6,"hello\n")%r(RTSPReque
+SF:st,6,"hello\n")%r(RPCCheck,6,"hello\n")%r(DNSVersionBindReqTCP,6,"hello
+SF:\n")%r(DNSStatusRequestTCP,6,"hello\n")%r(Help,6,"hello\n")%r(SSLSessio
+SF:nReq,6,"hello\n")%r(TLSSessionReq,6,"hello\n")%r(Kerberos,6,"hello\n")%
+SF:r(SMBProgNeg,6,"hello\n")%r(X11Probe,6,"hello\n")%r(LPDString,6,"hello\
+SF:n")%r(LDAPSearchReq,6,"hello\n")%r(LDAPBindReq,6,"hello\n")%r(SIPOption
+SF:s,6,"hello\n")%r(LANDesk-RC,6,"hello\n")%r(TerminalServer,6,"hello\n")%
+SF:r(NCP,6,"hello\n")%r(NotesRPC,6,"hello\n")%r(JavaRMI,6,"hello\n")%r(WMS
+SF:Request,6,"hello\n")%r(oracle-tns,6,"hello\n")%r(ms-sql-s,6,"hello\n")%
+SF:r(afp,6,"hello\n")%r(giop,6,"hello\n");
+MAC Address: FC:51:A4:BD:30:E1 (Arris Group)
+Device type: media device
+Running: Motorola embedded, Telekom embedded
+OS CPE: cpe:/h:motorola:vip1232 cpe:/h:telekom:mr_303
+OS details: Motorola VIP1232 digital set top box or Telekom Media Receiver MR 303
+Network Distance: 1 hop
+Service Info: Device: media device
+
+TRACEROUTE
+HOP RTT     ADDRESS
+1   6.93 ms 192.168.1.64
+
+Nmap scan report for 192.168.1.65
+Host is up (0.019s latency).
+All 1000 scanned ports on 192.168.1.65 are closed
+MAC Address: 48:2C:A0:71:D5:60 (Unknown)
+Too many fingerprints match this host to give specific OS details
+Network Distance: 1 hop
+
+TRACEROUTE
+HOP RTT      ADDRESS
+1   18.66 ms 192.168.1.65
+
+Nmap scan report for LAPTOP-7E2TOF4J.lan (192.168.1.66)
+Host is up (0.00047s latency).
+Not shown: 995 filtered ports
+PORT    STATE SERVICE         VERSION
+135/tcp open  msrpc           Microsoft Windows RPC
+139/tcp open  netbios-ssn     Microsoft Windows netbios-ssn
+445/tcp open  microsoft-ds?
+902/tcp open  ssl/vmware-auth VMware Authentication Daemon 1.10 (Uses VNC, SOAP)
+912/tcp open  vmware-auth     VMware Authentication Daemon 1.0 (Uses VNC, SOAP)
+MAC Address: D8:9C:67:26:55:01 (Unknown)
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose
+Running (JUST GUESSING): Microsoft Windows 2008 (86%)
+OS CPE: cpe:/o:microsoft:windows_server_2008::sp1 cpe:/o:microsoft:windows_server_2008:r2
+Aggressive OS guesses: Microsoft Windows Server 2008 SP1 or Windows Server 2008 R2 (86%)
+No exact OS matches for host (test conditions non-ideal).
+Network Distance: 1 hop
+Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows
+
+Host script results:
+|_clock-skew: mean: 5h17m02s, deviation: 0s, median: 5h17m02s
+|_nbstat: NetBIOS name: LAPTOP-7E2TOF4J, NetBIOS user: <unknown>, NetBIOS MAC: d8:9c:67:26:55:01 (unknown)
+| smb2-security-mode: 
+|   2.02: 
+|_    Message signing enabled but not required
+| smb2-time: 
+|   date: 2018-12-28 22:16:58
+|_  start_date: N/A
+
+TRACEROUTE
+HOP RTT     ADDRESS
+1   0.47 ms LAPTOP-7E2TOF4J.lan (192.168.1.66)
+
+Nmap scan report for RedmiNote3-Rosa.lan (192.168.1.68)
+Host is up (0.0092s latency).
+All 1000 scanned ports on RedmiNote3-Rosa.lan (192.168.1.68) are closed
+MAC Address: B0:E2:35:7E:1D:01 (Xiaomi Communications)
+Too many fingerprints match this host to give specific OS details
+Network Distance: 1 hop
+
+TRACEROUTE
+HOP RTT     ADDRESS
+1   9.21 ms RedmiNote3-Rosa.lan (192.168.1.68)
+
+Nmap scan report for ubuntu.lan (192.168.1.81)
+Host is up (0.00040s latency).
+Not shown: 993 closed ports
+PORT     STATE SERVICE     VERSION
+21/tcp   open  ftp         vsftpd 2.3.4
+|_ftp-anon: Anonymous FTP login allowed (FTP code 230)
+| ftp-syst: 
+|   STAT: 
+| FTP server status:
+|      Connected to 192.168.1.80
+|      Logged in as ftp
+|      TYPE: ASCII
+|      No session bandwidth limit
+|      Session timeout in seconds is 300
+|      Control connection is plain text
+|      Data connections will be plain text
+|      At session startup, client count was 1
+|      vsFTPd 2.3.4 - secure, fast, stable
+|_End of status
+22/tcp   open  ssh         OpenSSH 5.1p1 Debian 3ubuntu1 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   1024 04:a9:f7:e1:ce:66:8c:95:ce:cd:dc:84:e2:ff:22:2c (DSA)
+|_  2048 ab:d7:b0:df:21:ab:5c:24:8b:92:fe:b2:4f:ef:9c:21 (RSA)
+80/tcp   open  http        Apache httpd 2.2.9 ((Ubuntu) PHP/5.2.6-2ubuntu4.6 with Suhosin-Patch)
+| http-methods: 
+|_  Potentially risky methods: TRACE
+|_http-server-header: Apache/2.2.9 (Ubuntu) PHP/5.2.6-2ubuntu4.6 with Suhosin-Patch
+|_http-title: Site doesn't have a title (text/html).
+111/tcp  open  rpcbind     2 (RPC #100000)
+| rpcinfo: 
+|   program version   port/proto  service
+|   100000  2            111/tcp  rpcbind
+|   100000  2            111/udp  rpcbind
+|   100003  2,3,4       2049/tcp  nfs
+|   100003  2,3,4       2049/udp  nfs
+|   100005  1,2,3      51650/tcp  mountd
+|   100005  1,2,3      56351/udp  mountd
+|   100021  1,3,4      48024/udp  nlockmgr
+|   100021  1,3,4      54788/tcp  nlockmgr
+|   100024  1          36186/tcp  status
+|_  100024  1          56056/udp  status
+139/tcp  open  netbios-ssn Samba smbd 3.X - 4.X (workgroup: WORKGROUP)
+445/tcp  open  netbios-ssn Samba smbd 3.X - 4.X (workgroup: WORKGROUP)
+2049/tcp open  nfs         2-4 (RPC #100003)
+MAC Address: 00:0C:29:91:AB:EF (VMware)
+No exact OS matches for host (If you know what OS is running on it, see https://nmap.org/submit/ ).
+TCP/IP fingerprint:
+OS:SCAN(V=7.70%E=4%D=12/28%OT=21%CT=1%CU=37767%PV=Y%DS=1%DC=D%G=Y%M=000C29%
+OS:TM=5C26578D%P=x86_64-pc-linux-gnu)SEQ(SP=BB%GCD=1%ISR=BB%TI=Z%CI=Z%II=I%
+OS:TS=U)OPS(O1=M5B4NNSNW6%O2=M5B4NNSNW6%O3=M5B4NW6%O4=M5B4NNSNW6%O5=M5B4NNS
+OS:NW6%O6=M5B4NNS)WIN(W1=16D0%W2=16D0%W3=16D0%W4=16D0%W5=16D0%W6=16D0)ECN(R
+OS:=Y%DF=Y%T=40%W=16D0%O=M5B4NNSNW6%CC=N%Q=)T1(R=Y%DF=Y%T=40%S=O%A=S+%F=AS%
+OS:RD=0%Q=)T2(R=N)T3(R=Y%DF=Y%T=40%W=16D0%S=O%A=S+%F=AS%O=M5B4NNSNW6%RD=0%Q
+OS:=)T4(R=Y%DF=Y%T=40%W=0%S=A%A=Z%F=R%O=%RD=0%Q=)T5(R=Y%DF=Y%T=40%W=0%S=Z%A
+OS:=S+%F=AR%O=%RD=0%Q=)T6(R=Y%DF=Y%T=40%W=0%S=A%A=Z%F=R%O=%RD=0%Q=)T7(R=Y%D
+OS:F=Y%T=40%W=0%S=Z%A=S+%F=AR%O=%RD=0%Q=)U1(R=Y%DF=N%T=40%IPL=164%UN=0%RIPL
+OS:=G%RID=G%RIPCK=G%RUCK=G%RUD=G)IE(R=Y%DFI=N%T=40%CD=S)
+
+Network Distance: 1 hop
+Service Info: OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel
+
+Host script results:
+|_clock-skew: mean: 5h17m02s, deviation: 0s, median: 5h17m02s
+|_nbstat: NetBIOS name: UBUNTU, NetBIOS user: <unknown>, NetBIOS MAC: <unknown> (unknown)
+| smb-security-mode: 
+|   account_used: guest
+|   authentication_level: user
+|   challenge_response: supported
+|_  message_signing: disabled (dangerous, but default)
+|_smb2-time: Protocol negotiation failed (SMB2)
+
+TRACEROUTE
+HOP RTT     ADDRESS
+1   0.40 ms ubuntu.lan (192.168.1.81)
+
+Nmap scan report for 192.168.1.120
+Host is up (0.00070s latency).
+Not shown: 992 closed ports
+PORT     STATE SERVICE      VERSION
+21/tcp   open  ftp          FileZilla ftpd 0.9.32 beta
+| ftp-anon: Anonymous FTP login allowed (FTP code 230)
+| drwxr-xr-x 1 ftp ftp              0 Aug 06  2009 incoming
+|_-r--r--r-- 1 ftp ftp            187 Aug 06  2009 onefile.html
+|_ftp-bounce: bounce working!
+| ftp-syst: 
+|_  SYST: UNIX emulated by FileZilla
+25/tcp   open  smtp         SLmail smtpd 5.5.0.4433
+| smtp-commands: tester-595cbae8, SIZE 100000000, SEND, SOML, SAML, HELP, VRFY, EXPN, ETRN, XTRN, 
+|_ This server supports the following commands. HELO MAIL RCPT DATA RSET SEND SOML SAML HELP NOOP QUIT 
+80/tcp   open  http         Apache httpd 2.2.12 ((Win32) DAV/2 mod_ssl/2.2.12 OpenSSL/0.9.8k mod_autoindex_color PHP/5.3.0 mod_perl/2.0.4 Perl/v5.10.0)
+|_http-server-header: Apache/2.2.12 (Win32) DAV/2 mod_ssl/2.2.12 OpenSSL/0.9.8k mod_autoindex_color PHP/5.3.0 mod_perl/2.0.4 Perl/v5.10.0
+| http-title:             XAMPP            1.7.2        
+|_Requested resource was http://192.168.1.120/xampp/splash.php
+135/tcp  open  msrpc        Microsoft Windows RPC
+139/tcp  open  netbios-ssn  Microsoft Windows netbios-ssn
+443/tcp  open  ssl/http     Apache httpd 2.2.12 ((Win32) DAV/2 mod_ssl/2.2.12 OpenSSL/0.9.8k mod_autoindex_color PHP/5.3.0 mod_perl/2.0.4 Perl/v5.10.0)
+|_http-server-header: Apache/2.2.12 (Win32) DAV/2 mod_ssl/2.2.12 OpenSSL/0.9.8k mod_autoindex_color PHP/5.3.0 mod_perl/2.0.4 Perl/v5.10.0
+| http-title:             XAMPP            1.7.2        
+|_Requested resource was https://192.168.1.120/xampp/splash.php
+| ssl-cert: Subject: commonName=localhost
+| Not valid before: 2009-04-15T22:04:42
+|_Not valid after:  2019-04-13T22:04:42
+|_ssl-date: 2018-12-28T22:17:01+00:00; +5h17m03s from scanner time.
+| sslv2: 
+|   SSLv2 supported
+|   ciphers: 
+|     SSL2_RC2_128_CBC_EXPORT40_WITH_MD5
+|     SSL2_RC4_128_EXPORT40_WITH_MD5
+|     SSL2_RC4_128_WITH_MD5
+|     SSL2_DES_192_EDE3_CBC_WITH_MD5
+|     SSL2_DES_64_CBC_WITH_MD5
+|_    SSL2_RC2_128_CBC_WITH_MD5
+445/tcp  open  microsoft-ds Windows XP microsoft-ds
+3306/tcp open  mysql?
+|_mysql-info: ERROR: Script execution failed (use -d to debug)
+MAC Address: 00:0C:29:74:EF:B4 (VMware)
+Device type: general purpose
+Running: Microsoft Windows XP
+OS CPE: cpe:/o:microsoft:windows_xp::sp2 cpe:/o:microsoft:windows_xp::sp3
+OS details: Microsoft Windows XP SP2 or SP3
+Network Distance: 1 hop
+Service Info: Host: tester-595cbae8; OSs: Windows, Windows XP; CPE: cpe:/o:microsoft:windows, cpe:/o:microsoft:windows_xp
+
+Host script results:
+|_clock-skew: mean: 5h17m06s, deviation: 6s, median: 5h17m02s
+|_nbstat: NetBIOS name: TESTER-595CBAE8, NetBIOS user: <unknown>, NetBIOS MAC: 00:0c:29:74:ef:b4 (VMware)
+| smb-os-discovery: 
+|   OS: Windows XP (Windows 2000 LAN Manager)
+|   OS CPE: cpe:/o:microsoft:windows_xp::-
+|   Computer name: tester-595cbae8
+|   NetBIOS computer name: TESTER-595CBAE8\x00
+|   Workgroup: WORKGROUP\x00
+|_  System time: 2018-12-28T22:17:08+00:00
+| smb-security-mode: 
+|   account_used: <blank>
+|   authentication_level: user
+|   challenge_response: supported
+|_  message_signing: disabled (dangerous, but default)
+|_smb2-time: Protocol negotiation failed (SMB2)
+
+TRACEROUTE
+HOP RTT     ADDRESS
+1   0.70 ms 192.168.1.120
+
+Nmap scan report for Linux.lan (192.168.1.253)
+Host is up (0.0040s latency).
+Not shown: 997 closed ports
+PORT    STATE SERVICE     VERSION
+139/tcp open  netbios-ssn Samba smbd 3.X - 4.X (workgroup: WORKGROUP)
+445/tcp open  netbios-ssn Samba smbd 3.0.37 (workgroup: WORKGROUP)
+515/tcp open  printer     Xerox lpd
+MAC Address: 12:13:31:54:1D:80 (Unknown)
+Device type: general purpose
+Running: Linux 2.6.X
+OS CPE: cpe:/o:linux:linux_kernel:2.6
+OS details: Linux 2.6.9 - 2.6.30
+Network Distance: 1 hop
+Service Info: Device: printer
+
+Host script results:
+|_clock-skew: mean: 5h17m08s, deviation: 7s, median: 5h17m02s
+|_nbstat: NetBIOS name: MEO, NetBIOS user: <unknown>, NetBIOS MAC: <unknown> (unknown)
+| smb-os-discovery: 
+|   OS: Unix (Samba 3.0.37)
+|   NetBIOS computer name: 
+|   Workgroup: WORKGROUP\x00
+|_  System time: 2018-12-28T22:17:08+00:00
+| smb-security-mode: 
+|   account_used: guest
+|   authentication_level: share (dangerous)
+|   challenge_response: supported
+|_  message_signing: disabled (dangerous, but default)
+|_smb2-time: Protocol negotiation failed (SMB2)
+
+TRACEROUTE
+HOP RTT     ADDRESS
+1   3.96 ms Linux.lan (192.168.1.253)
+
+Nmap scan report for dsldevice.lan (192.168.1.254)
+Host is up (0.0032s latency).
+Not shown: 991 filtered ports
+PORT     STATE  SERVICE    VERSION
+21/tcp   open   ftp        Alcatel Speedtouch ADSL router ftpd
+22/tcp   open   ssh        (protocol 2.0)
+| fingerprint-strings: 
+|   NULL: 
+|_    SSH-2.0-TECHNICOLOR_SW_1.0
+| ssh-hostkey: 
+|_  1023 dc:dc:19:22:a0:29:b1:7f:42:df:9d:48:2d:35:45:62 (DSA)
+23/tcp   open   telnet     Technicolor TG582n WAP telnetd
+53/tcp   open   domain     (generic dns response: NOTIMP)
+| fingerprint-strings: 
+|   DNSVersionBindReqTCP: 
+|     version
+|_    bind
+80/tcp   open   http       Mbedthis-Appweb (Thomson Technicolor broadband router http admin)
+| http-cookie-flags: 
+|   /: 
+|     xAuth_SESSION_ID: 
+|_      httponly flag not set
+|_http-server-header: <empty>
+| http-title: Technicolor Gateway - Login
+|_Requested resource was http://dsldevice.lan/login.lp
+443/tcp  open   ssl/http   Mbedthis-Appweb (Thomson Technicolor broadband router http admin)
+| ssl-cert: Subject: commonName=MediaAccess TG789vac v2/organizationName=Technicolor
+| Not valid before: 2005-01-01T00:00:00
+|_Not valid after:  2024-12-31T00:00:00
+|_ssl-date: 2018-12-28T22:16:59+00:00; +5h17m02s from scanner time.
+1723/tcp open   pptp       THOMSON (Firmware: 1)
+8000/tcp open   http       Technicolor TG787 VoIP gateway http admin 1.0
+|_http-title: Did not follow redirect to http://192.168.1.254:80
+9001/tcp closed tor-orport
+2 services unrecognized despite returning data. If you know the service/version, please submit the following fingerprints at https://nmap.org/cgi-bin/submit.cgi?new-service :
+==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
+SF-Port22-TCP:V=7.70%I=7%D=12/28%Time=5C2655EB%P=x86_64-pc-linux-gnu%r(NUL
+SF:L,1B,"SSH-2\.0-TECHNICOLOR_SW_1\.0\n");
+==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
+SF-Port53-TCP:V=7.70%I=7%D=12/28%Time=5C2655EB%P=x86_64-pc-linux-gnu%r(DNS
+SF:VersionBindReqTCP,20,"\0\x1e\0\x06\x81\x84\0\x01\0\0\0\0\0\0\x07version
+SF:\x04bind\0\0\x10\0\x03")%r(DNSStatusRequestTCP,E,"\0\x0c\0\0\x90\x84\0\
+SF:0\0\0\0\0\0\0");
+MAC Address: 10:13:31:54:1D:80 (Technicolor)
+Aggressive OS guesses: Thomson ST 585 or ST 536i ADSL modem (96%), Thomson TG712 DSL router (95%), Thomson SpeedTouch 510/510i/530/570/580 DSL modem (92%), Blue Coat SG200 proxy server (SGOS 4.2.2.8 - 4.2.6.1) (91%), Thomson SpeedTouch 510 DSL modem (91%), HP ProCurve 2524 switch or 9100c Digital Sender printer (90%), Epson Stylus Pro 400 printer (90%), Blue Coat SG810 proxy server (SGOS 4.2.3.26) (90%), Hirschmann RS20 switch (VxWorks) (89%), Apple Mac OS X 10.3.9 (Panther) - 10.4.7 (Tiger) (Darwin 7.9.0 - 8.7.8, PowerPC) (89%)
+No exact OS matches for host (test conditions non-ideal).
+Network Distance: 1 hop
+Service Info: Host: SpeedTouch; Devices: broadband router, WAP, VoIP adapter; CPE: cpe:/h:technicolor:tg582n
+
+Host script results:
+|_clock-skew: mean: 5h17m01s, deviation: 0s, median: 5h17m01s
+
+TRACEROUTE
+HOP RTT     ADDRESS
+1   3.24 ms dsldevice.lan (192.168.1.254)
+
+Nmap scan report for kali.lan (192.168.1.80)
+Host is up (0.000059s latency).
+All 1000 scanned ports on kali.lan (192.168.1.80) are closed
+Too many fingerprints match this host to give specific OS details
+Network Distance: 0 hops
+
+Post-scan script results:
+| clock-skew: 
+|   5h17m02s: 
+|     192.168.1.81 (ubuntu.lan)
+|     192.168.1.120
+|     192.168.1.253 (Linux.lan)
+|_    192.168.1.66 (LAPTOP-7E2TOF4J.lan)
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 256 IP addresses (9 hosts up) scanned in 445.56 seconds
+root@kali:~# nmap -O 192.168.1.1/24
+Starting Nmap 7.70 ( https://nmap.org ) at 2018-12-28 22:24 GMT
+Nmap scan report for 192.168.1.64
+Host is up (0.014s latency).
+Not shown: 997 closed ports
+PORT     STATE SERVICE
+8080/tcp open  http-proxy
+8082/tcp open  blackice-alerts
+8086/tcp open  d-s-n
+MAC Address: FC:51:A4:BD:30:E1 (Arris Group)
+Device type: media device
+Running: Motorola embedded, Telekom embedded
+OS CPE: cpe:/h:motorola:vip1232 cpe:/h:telekom:mr_303
+OS details: Motorola VIP1232 digital set top box or Telekom Media Receiver MR 303
+Network Distance: 1 hop
+
+Nmap scan report for LAPTOP-7E2TOF4J.lan (192.168.1.66)
+Host is up (0.00060s latency).
+Not shown: 995 filtered ports
+PORT    STATE SERVICE
+135/tcp open  msrpc
+139/tcp open  netbios-ssn
+445/tcp open  microsoft-ds
+902/tcp open  iss-realsecure
+912/tcp open  apex-mesh
+MAC Address: D8:9C:67:26:55:01 (Unknown)
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose
+Running (JUST GUESSING): Microsoft Windows 7|2008 (85%)
+OS CPE: cpe:/o:microsoft:windows_7 cpe:/o:microsoft:windows_server_2008::sp1 cpe:/o:microsoft:windows_server_2008:r2
+Aggressive OS guesses: Microsoft Windows 7 (85%), Microsoft Windows Server 2008 SP1 or Windows Server 2008 R2 (85%)
+No exact OS matches for host (test conditions non-ideal).
+Network Distance: 1 hop
+
+Nmap scan report for ubuntu.lan (192.168.1.81)
+Host is up (0.00082s latency).
+Not shown: 993 closed ports
+PORT     STATE SERVICE
+21/tcp   open  ftp
+22/tcp   open  ssh
+80/tcp   open  http
+111/tcp  open  rpcbind
+139/tcp  open  netbios-ssn
+445/tcp  open  microsoft-ds
+2049/tcp open  nfs
+MAC Address: 00:0C:29:91:AB:EF (VMware)
+Device type: general purpose
+Running: Linux 2.6.X
+OS CPE: cpe:/o:linux:linux_kernel:2.6
+OS details: Linux 2.6.18 - 2.6.31
+Network Distance: 1 hop
+
+Nmap scan report for 192.168.1.120
+Host is up (0.00044s latency).
+Not shown: 992 closed ports
+PORT     STATE SERVICE
+21/tcp   open  ftp
+25/tcp   open  smtp
+80/tcp   open  http
+135/tcp  open  msrpc
+139/tcp  open  netbios-ssn
+443/tcp  open  https
+445/tcp  open  microsoft-ds
+3306/tcp open  mysql
+MAC Address: 00:0C:29:74:EF:B4 (VMware)
+Device type: general purpose
+Running: Microsoft Windows XP
+OS CPE: cpe:/o:microsoft:windows_xp::sp2 cpe:/o:microsoft:windows_xp::sp3
+OS details: Microsoft Windows XP SP2 or SP3
+Network Distance: 1 hop
+
+Nmap scan report for Linux.lan (192.168.1.253)
+Host is up (0.0023s latency).
+Not shown: 997 closed ports
+PORT    STATE SERVICE
+139/tcp open  netbios-ssn
+445/tcp open  microsoft-ds
+515/tcp open  printer
+MAC Address: 12:13:31:54:1D:80 (Unknown)
+Device type: general purpose
+Running: Linux 2.6.X
+OS CPE: cpe:/o:linux:linux_kernel:2.6
+OS details: Linux 2.6.9 - 2.6.30
+Network Distance: 1 hop
+
+Nmap scan report for dsldevice.lan (192.168.1.254)
+Host is up (0.0027s latency).
+Not shown: 991 filtered ports
+PORT     STATE  SERVICE
+21/tcp   open   ftp
+22/tcp   open   ssh
+23/tcp   open   telnet
+53/tcp   open   domain
+80/tcp   open   http
+443/tcp  open   https
+1723/tcp open   pptp
+8000/tcp open   http-alt
+9001/tcp closed tor-orport
+MAC Address: 10:13:31:54:1D:80 (Technicolor)
+Aggressive OS guesses: Thomson ST 585 or ST 536i ADSL modem (96%), Thomson TG712 DSL router (95%), Thomson SpeedTouch 510/510i/530/570/580 DSL modem (92%), Blue Coat SG200 proxy server (SGOS 4.2.2.8 - 4.2.6.1) (91%), Thomson SpeedTouch 510 DSL modem (91%), HP ProCurve 2524 switch or 9100c Digital Sender printer (90%), Epson Stylus Pro 400 printer (90%), Blue Coat SG810 proxy server (SGOS 4.2.3.26) (90%), Hirschmann RS20 switch (VxWorks) (89%), Apple Mac OS X 10.3.9 (Panther) - 10.4.7 (Tiger) (Darwin 7.9.0 - 8.7.8, PowerPC) (89%)
+No exact OS matches for host (test conditions non-ideal).
+Network Distance: 1 hop
+
+Nmap scan report for kali.lan (192.168.1.80)
+Host is up (0.000050s latency).
+All 1000 scanned ports on kali.lan (192.168.1.80) are closed
+Too many fingerprints match this host to give specific OS details
+Network Distance: 0 hops
+
+OS detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 256 IP addresses (7 hosts up) scanned in 46.50 seconds
+root@kali:~# nmap -v -O 192.168.1.1/24
+Starting Nmap 7.70 ( https://nmap.org ) at 2018-12-28 22:32 GMT
+Initiating ARP Ping Scan at 22:32
+Scanning 255 hosts [1 port/host]
+Completed ARP Ping Scan at 22:32, 1.97s elapsed (255 total hosts)
+Initiating Parallel DNS resolution of 255 hosts. at 22:32
+Completed Parallel DNS resolution of 255 hosts. at 22:32, 0.01s elapsed
+Nmap scan report for 192.168.1.0 [host down]
+Nmap scan report for 192.168.1.1 [host down]
+Nmap scan report for 192.168.1.2 [host down]
+Nmap scan report for 192.168.1.3 [host down]
+Nmap scan report for 192.168.1.4 [host down]
+Nmap scan report for 192.168.1.5 [host down]
+Nmap scan report for 192.168.1.6 [host down]
+Nmap scan report for 192.168.1.7 [host down]
+Nmap scan report for 192.168.1.8 [host down]
+Nmap scan report for 192.168.1.9 [host down]
+Nmap scan report for 192.168.1.10 [host down]
+Nmap scan report for 192.168.1.11 [host down]
+Nmap scan report for 192.168.1.12 [host down]
+Nmap scan report for 192.168.1.13 [host down]
+Nmap scan report for 192.168.1.14 [host down]
+Nmap scan report for 192.168.1.15 [host down]
+Nmap scan report for 192.168.1.16 [host down]
+Nmap scan report for 192.168.1.17 [host down]
+Nmap scan report for 192.168.1.18 [host down]
+Nmap scan report for 192.168.1.19 [host down]
+Nmap scan report for 192.168.1.20 [host down]
+Nmap scan report for 192.168.1.21 [host down]
+Nmap scan report for 192.168.1.22 [host down]
+Nmap scan report for 192.168.1.23 [host down]
+Nmap scan report for 192.168.1.24 [host down]
+Nmap scan report for 192.168.1.25 [host down]
+Nmap scan report for 192.168.1.26 [host down]
+Nmap scan report for 192.168.1.27 [host down]
+Nmap scan report for 192.168.1.28 [host down]
+Nmap scan report for 192.168.1.29 [host down]
+Nmap scan report for 192.168.1.30 [host down]
+Nmap scan report for 192.168.1.31 [host down]
+Nmap scan report for 192.168.1.32 [host down]
+Nmap scan report for 192.168.1.33 [host down]
+Nmap scan report for 192.168.1.34 [host down]
+Nmap scan report for 192.168.1.35 [host down]
+Nmap scan report for 192.168.1.36 [host down]
+Nmap scan report for 192.168.1.37 [host down]
+Nmap scan report for 192.168.1.38 [host down]
+Nmap scan report for 192.168.1.39 [host down]
+Nmap scan report for 192.168.1.40 [host down]
+Nmap scan report for 192.168.1.41 [host down]
+Nmap scan report for 192.168.1.42 [host down]
+Nmap scan report for 192.168.1.43 [host down]
+Nmap scan report for 192.168.1.44 [host down]
+Nmap scan report for 192.168.1.45 [host down]
+Nmap scan report for 192.168.1.46 [host down]
+Nmap scan report for 192.168.1.47 [host down]
+Nmap scan report for 192.168.1.48 [host down]
+Nmap scan report for 192.168.1.49 [host down]
+Nmap scan report for 192.168.1.50 [host down]
+Nmap scan report for 192.168.1.51 [host down]
+Nmap scan report for 192.168.1.52 [host down]
+Nmap scan report for 192.168.1.53 [host down]
+Nmap scan report for 192.168.1.54 [host down]
+Nmap scan report for 192.168.1.55 [host down]
+Nmap scan report for 192.168.1.56 [host down]
+Nmap scan report for 192.168.1.57 [host down]
+Nmap scan report for 192.168.1.58 [host down]
+Nmap scan report for 192.168.1.59 [host down]
+Nmap scan report for 192.168.1.60 [host down]
+Nmap scan report for 192.168.1.61 [host down]
+Nmap scan report for 192.168.1.62 [host down]
+Nmap scan report for 192.168.1.63 [host down]
+Nmap scan report for 192.168.1.67 [host down]
+Nmap scan report for 192.168.1.68 [host down]
+Nmap scan report for 192.168.1.69 [host down]
+Nmap scan report for 192.168.1.70 [host down]
+Nmap scan report for 192.168.1.71 [host down]
+Nmap scan report for 192.168.1.73 [host down]
+Nmap scan report for 192.168.1.74 [host down]
+Nmap scan report for 192.168.1.75 [host down]
+Nmap scan report for 192.168.1.76 [host down]
+Nmap scan report for 192.168.1.77 [host down]
+Nmap scan report for 192.168.1.78 [host down]
+Nmap scan report for 192.168.1.79 [host down]
+Nmap scan report for 192.168.1.82 [host down]
+Nmap scan report for 192.168.1.83 [host down]
+Nmap scan report for 192.168.1.84 [host down]
+Nmap scan report for 192.168.1.85 [host down]
+Nmap scan report for 192.168.1.86 [host down]
+Nmap scan report for 192.168.1.87 [host down]
+Nmap scan report for 192.168.1.88 [host down]
+Nmap scan report for 192.168.1.89 [host down]
+Nmap scan report for 192.168.1.90 [host down]
+Nmap scan report for 192.168.1.91 [host down]
+Nmap scan report for 192.168.1.92 [host down]
+Nmap scan report for 192.168.1.93 [host down]
+Nmap scan report for 192.168.1.94 [host down]
+Nmap scan report for 192.168.1.95 [host down]
+Nmap scan report for 192.168.1.96 [host down]
+Nmap scan report for 192.168.1.97 [host down]
+Nmap scan report for 192.168.1.98 [host down]
+Nmap scan report for 192.168.1.99 [host down]
+Nmap scan report for 192.168.1.100 [host down]
+Nmap scan report for 192.168.1.101 [host down]
+Nmap scan report for 192.168.1.102 [host down]
+Nmap scan report for 192.168.1.103 [host down]
+Nmap scan report for 192.168.1.104 [host down]
+Nmap scan report for 192.168.1.105 [host down]
+Nmap scan report for 192.168.1.106 [host down]
+Nmap scan report for 192.168.1.107 [host down]
+Nmap scan report for 192.168.1.108 [host down]
+Nmap scan report for 192.168.1.109 [host down]
+Nmap scan report for 192.168.1.110 [host down]
+Nmap scan report for 192.168.1.111 [host down]
+Nmap scan report for 192.168.1.112 [host down]
+Nmap scan report for 192.168.1.113 [host down]
+Nmap scan report for 192.168.1.114 [host down]
+Nmap scan report for 192.168.1.115 [host down]
+Nmap scan report for 192.168.1.116 [host down]
+Nmap scan report for 192.168.1.117 [host down]
+Nmap scan report for 192.168.1.118 [host down]
+Nmap scan report for 192.168.1.119 [host down]
+Nmap scan report for 192.168.1.121 [host down]
+Nmap scan report for 192.168.1.122 [host down]
+Nmap scan report for 192.168.1.123 [host down]
+Nmap scan report for 192.168.1.124 [host down]
+Nmap scan report for 192.168.1.125 [host down]
+Nmap scan report for 192.168.1.126 [host down]
+Nmap scan report for 192.168.1.127 [host down]
+Nmap scan report for 192.168.1.128 [host down]
+Nmap scan report for 192.168.1.129 [host down]
+Nmap scan report for 192.168.1.130 [host down]
+Nmap scan report for 192.168.1.131 [host down]
+Nmap scan report for 192.168.1.132 [host down]
+Nmap scan report for 192.168.1.133 [host down]
+Nmap scan report for 192.168.1.134 [host down]
+Nmap scan report for 192.168.1.135 [host down]
+Nmap scan report for 192.168.1.136 [host down]
+Nmap scan report for 192.168.1.137 [host down]
+Nmap scan report for 192.168.1.138 [host down]
+Nmap scan report for 192.168.1.139 [host down]
+Nmap scan report for 192.168.1.140 [host down]
+Nmap scan report for 192.168.1.141 [host down]
+Nmap scan report for 192.168.1.142 [host down]
+Nmap scan report for 192.168.1.143 [host down]
+Nmap scan report for 192.168.1.144 [host down]
+Nmap scan report for 192.168.1.145 [host down]
+Nmap scan report for 192.168.1.146 [host down]
+Nmap scan report for 192.168.1.147 [host down]
+Nmap scan report for 192.168.1.148 [host down]
+Nmap scan report for 192.168.1.149 [host down]
+Nmap scan report for 192.168.1.150 [host down]
+Nmap scan report for 192.168.1.151 [host down]
+Nmap scan report for 192.168.1.152 [host down]
+Nmap scan report for 192.168.1.153 [host down]
+Nmap scan report for 192.168.1.154 [host down]
+Nmap scan report for 192.168.1.155 [host down]
+Nmap scan report for 192.168.1.156 [host down]
+Nmap scan report for 192.168.1.157 [host down]
+Nmap scan report for 192.168.1.158 [host down]
+Nmap scan report for 192.168.1.159 [host down]
+Nmap scan report for 192.168.1.160 [host down]
+Nmap scan report for 192.168.1.161 [host down]
+Nmap scan report for 192.168.1.162 [host down]
+Nmap scan report for 192.168.1.163 [host down]
+Nmap scan report for 192.168.1.164 [host down]
+Nmap scan report for 192.168.1.165 [host down]
+Nmap scan report for 192.168.1.166 [host down]
+Nmap scan report for 192.168.1.167 [host down]
+Nmap scan report for 192.168.1.168 [host down]
+Nmap scan report for 192.168.1.169 [host down]
+Nmap scan report for 192.168.1.170 [host down]
+Nmap scan report for 192.168.1.171 [host down]
+Nmap scan report for 192.168.1.172 [host down]
+Nmap scan report for 192.168.1.173 [host down]
+Nmap scan report for 192.168.1.174 [host down]
+Nmap scan report for 192.168.1.175 [host down]
+Nmap scan report for 192.168.1.176 [host down]
+Nmap scan report for 192.168.1.177 [host down]
+Nmap scan report for 192.168.1.178 [host down]
+Nmap scan report for 192.168.1.179 [host down]
+Nmap scan report for 192.168.1.180 [host down]
+Nmap scan report for 192.168.1.181 [host down]
+Nmap scan report for 192.168.1.182 [host down]
+Nmap scan report for 192.168.1.183 [host down]
+Nmap scan report for 192.168.1.184 [host down]
+Nmap scan report for 192.168.1.185 [host down]
+Nmap scan report for 192.168.1.186 [host down]
+Nmap scan report for 192.168.1.187 [host down]
+Nmap scan report for 192.168.1.188 [host down]
+Nmap scan report for 192.168.1.189 [host down]
+Nmap scan report for 192.168.1.190 [host down]
+Nmap scan report for 192.168.1.191 [host down]
+Nmap scan report for 192.168.1.192 [host down]
+Nmap scan report for 192.168.1.193 [host down]
+Nmap scan report for 192.168.1.194 [host down]
+Nmap scan report for 192.168.1.195 [host down]
+Nmap scan report for 192.168.1.196 [host down]
+Nmap scan report for 192.168.1.197 [host down]
+Nmap scan report for 192.168.1.198 [host down]
+Nmap scan report for 192.168.1.199 [host down]
+Nmap scan report for 192.168.1.200 [host down]
+Nmap scan report for 192.168.1.201 [host down]
+Nmap scan report for 192.168.1.202 [host down]
+Nmap scan report for 192.168.1.203 [host down]
+Nmap scan report for 192.168.1.204 [host down]
+Nmap scan report for 192.168.1.205 [host down]
+Nmap scan report for 192.168.1.206 [host down]
+Nmap scan report for 192.168.1.207 [host down]
+Nmap scan report for 192.168.1.208 [host down]
+Nmap scan report for 192.168.1.209 [host down]
+Nmap scan report for 192.168.1.210 [host down]
+Nmap scan report for 192.168.1.211 [host down]
+Nmap scan report for 192.168.1.212 [host down]
+Nmap scan report for 192.168.1.213 [host down]
+Nmap scan report for 192.168.1.214 [host down]
+Nmap scan report for 192.168.1.215 [host down]
+Nmap scan report for 192.168.1.216 [host down]
+Nmap scan report for 192.168.1.217 [host down]
+Nmap scan report for 192.168.1.218 [host down]
+Nmap scan report for 192.168.1.219 [host down]
+Nmap scan report for 192.168.1.220 [host down]
+Nmap scan report for 192.168.1.221 [host down]
+Nmap scan report for 192.168.1.222 [host down]
+Nmap scan report for 192.168.1.223 [host down]
+Nmap scan report for 192.168.1.224 [host down]
+Nmap scan report for 192.168.1.225 [host down]
+Nmap scan report for 192.168.1.226 [host down]
+Nmap scan report for 192.168.1.227 [host down]
+Nmap scan report for 192.168.1.228 [host down]
+Nmap scan report for 192.168.1.229 [host down]
+Nmap scan report for 192.168.1.230 [host down]
+Nmap scan report for 192.168.1.231 [host down]
+Nmap scan report for 192.168.1.232 [host down]
+Nmap scan report for 192.168.1.233 [host down]
+Nmap scan report for 192.168.1.234 [host down]
+Nmap scan report for 192.168.1.235 [host down]
+Nmap scan report for 192.168.1.236 [host down]
+Nmap scan report for 192.168.1.237 [host down]
+Nmap scan report for 192.168.1.238 [host down]
+Nmap scan report for 192.168.1.239 [host down]
+Nmap scan report for 192.168.1.240 [host down]
+Nmap scan report for 192.168.1.241 [host down]
+Nmap scan report for 192.168.1.242 [host down]
+Nmap scan report for 192.168.1.243 [host down]
+Nmap scan report for 192.168.1.244 [host down]
+Nmap scan report for 192.168.1.245 [host down]
+Nmap scan report for 192.168.1.246 [host down]
+Nmap scan report for 192.168.1.247 [host down]
+Nmap scan report for 192.168.1.248 [host down]
+Nmap scan report for 192.168.1.249 [host down]
+Nmap scan report for 192.168.1.250 [host down]
+Nmap scan report for 192.168.1.251 [host down]
+Nmap scan report for 192.168.1.252 [host down]
+Nmap scan report for 192.168.1.255 [host down]
+Initiating Parallel DNS resolution of 1 host. at 22:32
+Completed Parallel DNS resolution of 1 host. at 22:32, 0.00s elapsed
+Initiating SYN Stealth Scan at 22:32
+Scanning 8 hosts [1000 ports/host]
+Discovered open port 139/tcp on 192.168.1.66
+Discovered open port 1723/tcp on 192.168.1.254
+Discovered open port 139/tcp on 192.168.1.120
+Discovered open port 139/tcp on 192.168.1.253
+Discovered open port 139/tcp on 192.168.1.81
+Discovered open port 25/tcp on 192.168.1.120
+Discovered open port 8080/tcp on 192.168.1.64
+Discovered open port 3306/tcp on 192.168.1.120
+Discovered open port 23/tcp on 192.168.1.254
+Discovered open port 21/tcp on 192.168.1.254
+Discovered open port 21/tcp on 192.168.1.81
+Discovered open port 445/tcp on 192.168.1.66
+Discovered open port 445/tcp on 192.168.1.253
+Discovered open port 445/tcp on 192.168.1.81
+Discovered open port 21/tcp on 192.168.1.120
+Discovered open port 445/tcp on 192.168.1.120
+Discovered open port 53/tcp on 192.168.1.254
+Discovered open port 443/tcp on 192.168.1.120
+Discovered open port 80/tcp on 192.168.1.120
+Discovered open port 80/tcp on 192.168.1.81
+Discovered open port 135/tcp on 192.168.1.120
+Discovered open port 111/tcp on 192.168.1.81
+Discovered open port 22/tcp on 192.168.1.81
+Discovered open port 2049/tcp on 192.168.1.81
+Completed SYN Stealth Scan against 192.168.1.120 in 0.52s (7 hosts left)
+Completed SYN Stealth Scan against 192.168.1.81 in 0.53s (6 hosts left)
+Discovered open port 443/tcp on 192.168.1.254
+Discovered open port 80/tcp on 192.168.1.254
+Discovered open port 135/tcp on 192.168.1.66
+Discovered open port 22/tcp on 192.168.1.254
+Discovered open port 902/tcp on 192.168.1.66
+Discovered open port 8000/tcp on 192.168.1.254
+Discovered open port 912/tcp on 192.168.1.66
+Discovered open port 8086/tcp on 192.168.1.64
+Discovered open port 515/tcp on 192.168.1.253
+Discovered open port 8082/tcp on 192.168.1.64
+Completed SYN Stealth Scan against 192.168.1.66 in 63.55s (5 hosts left)
+Completed SYN Stealth Scan against 192.168.1.65 in 63.70s (4 hosts left)
+Completed SYN Stealth Scan against 192.168.1.253 in 64.84s (3 hosts left)
+Completed SYN Stealth Scan against 192.168.1.64 in 68.26s (2 hosts left)
+Completed SYN Stealth Scan against 192.168.1.254 in 71.07s (1 host left)
+Completed SYN Stealth Scan at 22:33, 72.78s elapsed (8000 total ports)
+Initiating OS detection (try #1) against 8 hosts
+Retrying OS detection (try #2) against 4 hosts
+Nmap scan report for 192.168.1.64
+Host is up (0.015s latency).
+Not shown: 997 closed ports
+PORT     STATE SERVICE
+8080/tcp open  http-proxy
+8082/tcp open  blackice-alerts
+8086/tcp open  d-s-n
+MAC Address: FC:51:A4:BD:30:E1 (Arris Group)
+Device type: media device
+Running: Motorola embedded, Telekom embedded
+OS CPE: cpe:/h:motorola:vip1232 cpe:/h:telekom:mr_303
+OS details: Motorola VIP1232 digital set top box or Telekom Media Receiver MR 303
+Network Distance: 1 hop
+TCP Sequence Prediction: Difficulty=122 (Good luck!)
+IP ID Sequence Generation: Incremental
+
+Nmap scan report for 192.168.1.65
+Host is up (0.033s latency).
+All 1000 scanned ports on 192.168.1.65 are closed
+MAC Address: 48:2C:A0:71:D5:60 (Unknown)
+Too many fingerprints match this host to give specific OS details
+Network Distance: 1 hop
+
+Nmap scan report for LAPTOP-7E2TOF4J.lan (192.168.1.66)
+Host is up (0.00045s latency).
+Not shown: 995 filtered ports
+PORT    STATE SERVICE
+135/tcp open  msrpc
+139/tcp open  netbios-ssn
+445/tcp open  microsoft-ds
+902/tcp open  iss-realsecure
+912/tcp open  apex-mesh
+MAC Address: D8:9C:67:26:55:01 (Unknown)
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose
+Running (JUST GUESSING): Microsoft Windows 2008 (86%)
+OS CPE: cpe:/o:microsoft:windows_server_2008::sp1 cpe:/o:microsoft:windows_server_2008:r2
+Aggressive OS guesses: Microsoft Windows Server 2008 SP1 or Windows Server 2008 R2 (86%)
+No exact OS matches for host (test conditions non-ideal).
+Network Distance: 1 hop
+TCP Sequence Prediction: Difficulty=264 (Good luck!)
+IP ID Sequence Generation: Incremental
+
+Nmap scan report for 192.168.1.72
+Host is up (0.063s latency).
+All 1000 scanned ports on 192.168.1.72 are filtered
+MAC Address: F4:60:E2:EF:6E:12 (Unknown)
+Too many fingerprints match this host to give specific OS details
+Network Distance: 1 hop
+
+Nmap scan report for ubuntu.lan (192.168.1.81)
+Host is up (0.0030s latency).
+Not shown: 993 closed ports
+PORT     STATE SERVICE
+21/tcp   open  ftp
+22/tcp   open  ssh
+80/tcp   open  http
+111/tcp  open  rpcbind
+139/tcp  open  netbios-ssn
+445/tcp  open  microsoft-ds
+2049/tcp open  nfs
+MAC Address: 00:0C:29:91:AB:EF (VMware)
+Device type: general purpose
+Running: Linux 2.6.X
+OS CPE: cpe:/o:linux:linux_kernel:2.6
+OS details: Linux 2.6.18 - 2.6.31
+Network Distance: 1 hop
+TCP Sequence Prediction: Difficulty=198 (Good luck!)
+IP ID Sequence Generation: All zeros
+
+Nmap scan report for 192.168.1.120
+Host is up (0.00088s latency).
+Not shown: 992 closed ports
+PORT     STATE SERVICE
+21/tcp   open  ftp
+25/tcp   open  smtp
+80/tcp   open  http
+135/tcp  open  msrpc
+139/tcp  open  netbios-ssn
+443/tcp  open  https
+445/tcp  open  microsoft-ds
+3306/tcp open  mysql
+MAC Address: 00:0C:29:74:EF:B4 (VMware)
+Device type: general purpose
+Running: Microsoft Windows XP
+OS CPE: cpe:/o:microsoft:windows_xp::sp2 cpe:/o:microsoft:windows_xp::sp3
+OS details: Microsoft Windows XP SP2 or SP3
+Network Distance: 1 hop
+TCP Sequence Prediction: Difficulty=257 (Good luck!)
+IP ID Sequence Generation: Incremental
+
+Nmap scan report for Linux.lan (192.168.1.253)
+Host is up (0.0078s latency).
+Not shown: 997 closed ports
+PORT    STATE SERVICE
+139/tcp open  netbios-ssn
+445/tcp open  microsoft-ds
+515/tcp open  printer
+MAC Address: 12:13:31:54:1D:80 (Unknown)
+Device type: general purpose
+Running: Linux 2.6.X
+OS CPE: cpe:/o:linux:linux_kernel:2.6
+OS details: Linux 2.6.9 - 2.6.30
+Uptime guess: 20.415 days (since Sat Dec  8 12:35:25 2018)
+Network Distance: 1 hop
+TCP Sequence Prediction: Difficulty=188 (Good luck!)
+IP ID Sequence Generation: All zeros
+
+Nmap scan report for dsldevice.lan (192.168.1.254)
+Host is up (0.0030s latency).
+Not shown: 991 filtered ports
+PORT     STATE  SERVICE
+21/tcp   open   ftp
+22/tcp   open   ssh
+23/tcp   open   telnet
+53/tcp   open   domain
+80/tcp   open   http
+443/tcp  open   https
+1723/tcp open   pptp
+8000/tcp open   http-alt
+9001/tcp closed tor-orport
+MAC Address: 10:13:31:54:1D:80 (Technicolor)
+Aggressive OS guesses: Thomson ST 585 or ST 536i ADSL modem (96%), Thomson TG712 DSL router (95%), Thomson SpeedTouch 510/510i/530/570/580 DSL modem (92%), Blue Coat SG200 proxy server (SGOS 4.2.2.8 - 4.2.6.1) (91%), Thomson SpeedTouch 510 DSL modem (91%), HP ProCurve 2524 switch or 9100c Digital Sender printer (90%), Epson Stylus Pro 400 printer (90%), Blue Coat SG810 proxy server (SGOS 4.2.3.26) (90%), Hirschmann RS20 switch (VxWorks) (89%), Apple Mac OS X 10.3.9 (Panther) - 10.4.7 (Tiger) (Darwin 7.9.0 - 8.7.8, PowerPC) (89%)
+No exact OS matches for host (test conditions non-ideal).
+Uptime guess: 20.419 days (since Sat Dec  8 12:30:44 2018)
+Network Distance: 1 hop
+TCP Sequence Prediction: Difficulty=263 (Good luck!)
+IP ID Sequence Generation: Incremental
+
+Initiating SYN Stealth Scan at 22:33
+Scanning kali.lan (192.168.1.80) [1000 ports]
+Completed SYN Stealth Scan at 22:33, 0.04s elapsed (1000 total ports)
+Initiating OS detection (try #1) against kali.lan (192.168.1.80)
+Retrying OS detection (try #2) against kali.lan (192.168.1.80)
+Nmap scan report for kali.lan (192.168.1.80)
+Host is up (0.000043s latency).
+All 1000 scanned ports on kali.lan (192.168.1.80) are closed
+Too many fingerprints match this host to give specific OS details
+Network Distance: 0 hops
+
+Read data files from: /usr/bin/../share/nmap
+OS detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 256 IP addresses (9 hosts up) scanned in 82.08 seconds
+           Raw packets sent: 13055 (583.212KB) | Rcvd: 7449 (309.154KB)
+root@kali:~# nmap -sT -sV 192.168.1.1/24
+Starting Nmap 7.70 ( https://nmap.org ) at 2018-12-28 22:37 GMT
+Nmap scan report for 192.168.1.64
+Host is up (0.0067s latency).
+Not shown: 997 closed ports
+PORT     STATE SERVICE          VERSION
+8080/tcp open  http             T-Home Telekom Media Receiver httpd
+8082/tcp open  blackice-alerts?
+8086/tcp open  http             Microsoft Mediaroom httpd (IPTV tuner)
+1 service unrecognized despite returning data. If you know the service/version, please submit the following fingerprint at https://nmap.org/cgi-bin/submit.cgi?new-service :
+SF-Port8082-TCP:V=7.70%I=7%D=12/28%Time=5C26A61A%P=x86_64-pc-linux-gnu%r(N
+SF:ULL,6,"hello\n")%r(GetRequest,6,"hello\n")%r(FourOhFourRequest,6,"hello
+SF:\n")%r(GenericLines,6,"hello\n")%r(HTTPOptions,6,"hello\n")%r(RTSPReque
+SF:st,6,"hello\n")%r(RPCCheck,6,"hello\n")%r(DNSVersionBindReqTCP,6,"hello
+SF:\n")%r(DNSStatusRequestTCP,6,"hello\n")%r(Help,6,"hello\n")%r(SSLSessio
+SF:nReq,6,"hello\n")%r(TLSSessionReq,6,"hello\n")%r(Kerberos,6,"hello\n")%
+SF:r(SMBProgNeg,6,"hello\n")%r(X11Probe,6,"hello\n")%r(LPDString,6,"hello\
+SF:n")%r(LDAPSearchReq,6,"hello\n")%r(LDAPBindReq,6,"hello\n")%r(SIPOption
+SF:s,6,"hello\n")%r(LANDesk-RC,6,"hello\n")%r(TerminalServer,6,"hello\n")%
+SF:r(NCP,6,"hello\n")%r(NotesRPC,6,"hello\n")%r(JavaRMI,6,"hello\n")%r(WMS
+SF:Request,6,"hello\n")%r(oracle-tns,6,"hello\n")%r(ms-sql-s,6,"hello\n")%
+SF:r(afp,6,"hello\n")%r(giop,6,"hello\n");
+MAC Address: FC:51:A4:BD:30:E1 (Arris Group)
+Service Info: Device: media device
+
+Nmap scan report for LAPTOP-7E2TOF4J.lan (192.168.1.66)
+Host is up (0.00061s latency).
+Not shown: 995 filtered ports
+PORT    STATE SERVICE         VERSION
+135/tcp open  msrpc           Microsoft Windows RPC
+139/tcp open  netbios-ssn     Microsoft Windows netbios-ssn
+445/tcp open  microsoft-ds?
+902/tcp open  ssl/vmware-auth VMware Authentication Daemon 1.10 (Uses VNC, SOAP)
+912/tcp open  vmware-auth     VMware Authentication Daemon 1.0 (Uses VNC, SOAP)
+MAC Address: D8:9C:67:26:55:01 (Unknown)
+Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows
+
+Nmap scan report for 192.168.1.72
+Host is up (0.084s latency).
+All 1000 scanned ports on 192.168.1.72 are filtered
+MAC Address: F4:60:E2:EF:6E:12 (Unknown)
+
+Nmap scan report for ubuntu.lan (192.168.1.81)
+Host is up (0.015s latency).
+Not shown: 993 closed ports
+PORT     STATE SERVICE     VERSION
+21/tcp   open  ftp         vsftpd 2.3.4
+22/tcp   open  ssh         OpenSSH 5.1p1 Debian 3ubuntu1 (Ubuntu Linux; protocol 2.0)
+80/tcp   open  http        Apache httpd 2.2.9 ((Ubuntu) PHP/5.2.6-2ubuntu4.6 with Suhosin-Patch)
+111/tcp  open  rpcbind     2 (RPC #100000)
+139/tcp  open  netbios-ssn Samba smbd 3.X - 4.X (workgroup: WORKGROUP)
+445/tcp  open  netbios-ssn Samba smbd 3.X - 4.X (workgroup: WORKGROUP)
+2049/tcp open  nfs         2-4 (RPC #100003)
+MAC Address: 00:0C:29:91:AB:EF (VMware)
+Service Info: OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel
+
+Nmap scan report for 192.168.1.120
+Host is up (0.0034s latency).
+Not shown: 992 closed ports
+PORT     STATE SERVICE      VERSION
+21/tcp   open  ftp          FileZilla ftpd 0.9.32 beta
+25/tcp   open  smtp         SLmail smtpd 5.5.0.4433
+80/tcp   open  http         Apache httpd 2.2.12 ((Win32) DAV/2 mod_ssl/2.2.12 OpenSSL/0.9.8k mod_autoindex_color PHP/5.3.0 mod_perl/2.0.4 Perl/v5.10.0)
+135/tcp  open  msrpc        Microsoft Windows RPC
+139/tcp  open  netbios-ssn  Microsoft Windows netbios-ssn
+443/tcp  open  ssl/http     Apache httpd 2.2.12 ((Win32) DAV/2 mod_ssl/2.2.12 OpenSSL/0.9.8k mod_autoindex_color PHP/5.3.0 mod_perl/2.0.4 Perl/v5.10.0)
+445/tcp  open  microsoft-ds Microsoft Windows XP microsoft-ds
+3306/tcp open  mysql?
+MAC Address: 00:0C:29:74:EF:B4 (VMware)
+Service Info: Host: tester-595cbae8; OSs: Windows, Windows XP; CPE: cpe:/o:microsoft:windows, cpe:/o:microsoft:windows_xp
+
+Nmap scan report for Linux.lan (192.168.1.253)
+Host is up (0.0019s latency).
+Not shown: 997 closed ports
+PORT    STATE SERVICE     VERSION
+139/tcp open  netbios-ssn Samba smbd 3.X - 4.X (workgroup: WORKGROUP)
+445/tcp open  netbios-ssn Samba smbd 3.X - 4.X (workgroup: WORKGROUP)
+515/tcp open  printer     Xerox lpd
+MAC Address: 12:13:31:54:1D:80 (Unknown)
+Service Info: Device: printer
+
+Nmap scan report for dsldevice.lan (192.168.1.254)
+Host is up (0.0088s latency).
+Not shown: 991 filtered ports
+PORT     STATE  SERVICE    VERSION
+21/tcp   open   ftp        Alcatel Speedtouch ADSL router ftpd
+22/tcp   open   ssh        (protocol 2.0)
+23/tcp   open   telnet     Technicolor TG582n WAP telnetd
+53/tcp   open   domain     (generic dns response: NOTIMP)
+80/tcp   open   http       Mbedthis-Appweb (Thomson Technicolor broadband router http admin)
+443/tcp  open   ssl/http   Mbedthis-Appweb (Thomson Technicolor broadband router http admin)
+1723/tcp open   pptp       THOMSON (Firmware: 1)
+8000/tcp open   http       Technicolor TG787 VoIP gateway http admin 1.0
+9001/tcp closed tor-orport
+2 services unrecognized despite returning data. If you know the service/version, please submit the following fingerprints at https://nmap.org/cgi-bin/submit.cgi?new-service :
+==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
+SF-Port22-TCP:V=7.70%I=7%D=12/28%Time=5C26A620%P=x86_64-pc-linux-gnu%r(NUL
+SF:L,1B,"SSH-2\.0-TECHNICOLOR_SW_1\.0\n");
+==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
+SF-Port53-TCP:V=7.70%I=7%D=12/28%Time=5C26A620%P=x86_64-pc-linux-gnu%r(DNS
+SF:VersionBindReqTCP,20,"\0\x1e\0\x06\x81\x84\0\x01\0\0\0\0\0\0\x07version
+SF:\x04bind\0\0\x10\0\x03")%r(DNSStatusRequestTCP,E,"\0\x0c\0\0\x90\x84\0\
+SF:0\0\0\0\0\0\0");
+MAC Address: 10:13:31:54:1D:80 (Technicolor)
+Service Info: Host: SpeedTouch; Devices: broadband router, WAP, VoIP adapter; CPE: cpe:/h:technicolor:tg582n
+
+Nmap scan report for kali.lan (192.168.1.80)
+Host is up (0.000081s latency).
+All 1000 scanned ports on kali.lan (192.168.1.80) are closed
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 256 IP addresses (8 hosts up) scanned in 238.52 seconds
+root@kali:~# nmap -O -sV -sC -oX /root/Desktop/nessus-scan.xml -stylesheet=nmap_grupo_2.xls 192.168.1.1-254
+Starting Nmap 7.70 ( https://nmap.org ) at 2018-12-28 22:55 GMT
+
+root@kali:~# ^C
+root@kali:~# nmap -O -sV -sC -oX /root/Desktop/nessus-scan.xml -stylesheet=nmap_grupo_3.xls 192.168.1.1-254
+Starting Nmap 7.70 ( https://nmap.org ) at 2018-12-28 22:59 GMT
+Nmap scan report for 192.168.1.64
+Host is up (0.0076s latency).
+Not shown: 997 closed ports
+PORT     STATE SERVICE          VERSION
+8080/tcp open  http             T-Home Telekom Media Receiver httpd
+|_http-title: Site doesn't have a title.
+8082/tcp open  blackice-alerts?
+| fingerprint-strings: 
+|   DNSStatusRequestTCP, DNSVersionBindReqTCP, FourOhFourRequest, GenericLines, GetRequest, HTTPOptions, Help, JavaRMI, Kerberos, LANDesk-RC, LDAPBindReq, LDAPSearchReq, LPDString, NCP, NULL, NotesRPC, RPCCheck, RTSPRequest, SIPOptions, SMBProgNeg, SSLSessionReq, TLSSessionReq, TerminalServer, WMSRequest, X11Probe, afp, giop, ms-sql-s, oracle-tns: 
+|_    hello
+8086/tcp open  http             Microsoft Mediaroom httpd (IPTV tuner)
+| http-auth: 
+| HTTP/1.1 401 Unauthorized\x0D
+|_  Server returned status 401 but no WWW-Authenticate header.
+|_http-title: Site doesn't have a title.
+1 service unrecognized despite returning data. If you know the service/version, please submit the following fingerprint at https://nmap.org/cgi-bin/submit.cgi?new-service :
+SF-Port8082-TCP:V=7.70%I=7%D=12/28%Time=5C26AB0E%P=x86_64-pc-linux-gnu%r(N
+SF:ULL,6,"hello\n")%r(GetRequest,6,"hello\n")%r(FourOhFourRequest,6,"hello
+SF:\n")%r(GenericLines,6,"hello\n")%r(HTTPOptions,6,"hello\n")%r(RTSPReque
+SF:st,6,"hello\n")%r(RPCCheck,6,"hello\n")%r(DNSVersionBindReqTCP,6,"hello
+SF:\n")%r(DNSStatusRequestTCP,6,"hello\n")%r(Help,6,"hello\n")%r(SSLSessio
+SF:nReq,6,"hello\n")%r(TLSSessionReq,6,"hello\n")%r(Kerberos,6,"hello\n")%
+SF:r(SMBProgNeg,6,"hello\n")%r(X11Probe,6,"hello\n")%r(LPDString,6,"hello\
+SF:n")%r(LDAPSearchReq,6,"hello\n")%r(LDAPBindReq,6,"hello\n")%r(SIPOption
+SF:s,6,"hello\n")%r(LANDesk-RC,6,"hello\n")%r(TerminalServer,6,"hello\n")%
+SF:r(NCP,6,"hello\n")%r(NotesRPC,6,"hello\n")%r(JavaRMI,6,"hello\n")%r(WMS
+SF:Request,6,"hello\n")%r(oracle-tns,6,"hello\n")%r(ms-sql-s,6,"hello\n")%
+SF:r(afp,6,"hello\n")%r(giop,6,"hello\n");
+MAC Address: FC:51:A4:BD:30:E1 (Arris Group)
+Device type: media device
+Running: Motorola embedded, Telekom embedded
+OS CPE: cpe:/h:motorola:vip1232 cpe:/h:telekom:mr_303
+OS details: Motorola VIP1232 digital set top box or Telekom Media Receiver MR 303
+Network Distance: 1 hop
+Service Info: Device: media device
+
+Nmap scan report for LAPTOP-7E2TOF4J.lan (192.168.1.66)
+Host is up (0.00049s latency).
+Not shown: 995 filtered ports
+PORT    STATE SERVICE         VERSION
+135/tcp open  msrpc           Microsoft Windows RPC
+139/tcp open  netbios-ssn     Microsoft Windows netbios-ssn
+445/tcp open  microsoft-ds?
+902/tcp open  ssl/vmware-auth VMware Authentication Daemon 1.10 (Uses VNC, SOAP)
+912/tcp open  vmware-auth     VMware Authentication Daemon 1.0 (Uses VNC, SOAP)
+MAC Address: D8:9C:67:26:55:01 (Unknown)
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: general purpose
+Running (JUST GUESSING): Microsoft Windows 2008 (86%)
+OS CPE: cpe:/o:microsoft:windows_server_2008::sp1 cpe:/o:microsoft:windows_server_2008:r2
+Aggressive OS guesses: Microsoft Windows Server 2008 SP1 or Windows Server 2008 R2 (86%)
+No exact OS matches for host (test conditions non-ideal).
+Network Distance: 1 hop
+Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows
+
+Host script results:
+|_nbstat: NetBIOS name: LAPTOP-7E2TOF4J, NetBIOS user: <unknown>, NetBIOS MAC: d8:9c:67:26:55:01 (unknown)
+| smb2-security-mode: 
+|   2.02: 
+|_    Message signing enabled but not required
+| smb2-time: 
+|   date: 2018-12-28 23:03:02
+|_  start_date: N/A
+
+Nmap scan report for ubuntu.lan (192.168.1.81)
+Host is up (0.0013s latency).
+Not shown: 993 closed ports
+PORT     STATE SERVICE     VERSION
+21/tcp   open  ftp         vsftpd 2.3.4
+|_ftp-anon: Anonymous FTP login allowed (FTP code 230)
+| ftp-syst: 
+|   STAT: 
+| FTP server status:
+|      Connected to 192.168.1.80
+|      Logged in as ftp
+|      TYPE: ASCII
+|      No session bandwidth limit
+|      Session timeout in seconds is 300
+|      Control connection is plain text
+|      Data connections will be plain text
+|      At session startup, client count was 1
+|      vsFTPd 2.3.4 - secure, fast, stable
+|_End of status
+22/tcp   open  ssh         OpenSSH 5.1p1 Debian 3ubuntu1 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   1024 04:a9:f7:e1:ce:66:8c:95:ce:cd:dc:84:e2:ff:22:2c (DSA)
+|_  2048 ab:d7:b0:df:21:ab:5c:24:8b:92:fe:b2:4f:ef:9c:21 (RSA)
+80/tcp   open  http        Apache httpd 2.2.9 ((Ubuntu) PHP/5.2.6-2ubuntu4.6 with Suhosin-Patch)
+| http-methods: 
+|_  Potentially risky methods: TRACE
+|_http-server-header: Apache/2.2.9 (Ubuntu) PHP/5.2.6-2ubuntu4.6 with Suhosin-Patch
+|_http-title: Site doesn't have a title (text/html).
+111/tcp  open  rpcbind     2 (RPC #100000)
+| rpcinfo: 
+|   program version   port/proto  service
+|   100000  2            111/tcp  rpcbind
+|   100000  2            111/udp  rpcbind
+|   100003  2,3,4       2049/tcp  nfs
+|   100003  2,3,4       2049/udp  nfs
+|   100005  1,2,3      51650/tcp  mountd
+|   100005  1,2,3      56351/udp  mountd
+|   100021  1,3,4      48024/udp  nlockmgr
+|   100021  1,3,4      54788/tcp  nlockmgr
+|   100024  1          36186/tcp  status
+|_  100024  1          56056/udp  status
+139/tcp  open  netbios-ssn Samba smbd 3.X - 4.X (workgroup: WORKGROUP)
+445/tcp  open  netbios-ssn Samba smbd 3.X - 4.X (workgroup: WORKGROUP)
+2049/tcp open  nfs         2-4 (RPC #100003)
+MAC Address: 00:0C:29:91:AB:EF (VMware)
+Device type: general purpose
+Running: Linux 2.6.X
+OS CPE: cpe:/o:linux:linux_kernel:2.6
+OS details: Linux 2.6.18 - 2.6.31
+Network Distance: 1 hop
+Service Info: OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel
+
+Host script results:
+|_nbstat: NetBIOS name: UBUNTU, NetBIOS user: <unknown>, NetBIOS MAC: <unknown> (unknown)
+| smb-security-mode: 
+|   account_used: guest
+|   authentication_level: user
+|   challenge_response: supported
+|_  message_signing: disabled (dangerous, but default)
+|_smb2-time: Protocol negotiation failed (SMB2)
+
+Nmap scan report for 192.168.1.120
+Host is up (0.00055s latency).
+Not shown: 992 closed ports
+PORT     STATE SERVICE      VERSION
+21/tcp   open  ftp          FileZilla ftpd 0.9.32 beta
+| ftp-anon: Anonymous FTP login allowed (FTP code 230)
+| drwxr-xr-x 1 ftp ftp              0 Aug 06  2009 incoming
+|_-r--r--r-- 1 ftp ftp            187 Aug 06  2009 onefile.html
+|_ftp-bounce: bounce working!
+| ftp-syst: 
+|_  SYST: UNIX emulated by FileZilla
+25/tcp   open  smtp         SLmail smtpd 5.5.0.4433
+| smtp-commands: tester-595cbae8, SIZE 100000000, SEND, SOML, SAML, HELP, VRFY, EXPN, ETRN, XTRN, 
+|_ This server supports the following commands. HELO MAIL RCPT DATA RSET SEND SOML SAML HELP NOOP QUIT 
+80/tcp   open  http         Apache httpd 2.2.12 ((Win32) DAV/2 mod_ssl/2.2.12 OpenSSL/0.9.8k mod_autoindex_color PHP/5.3.0 mod_perl/2.0.4 Perl/v5.10.0)
+|_http-server-header: Apache/2.2.12 (Win32) DAV/2 mod_ssl/2.2.12 OpenSSL/0.9.8k mod_autoindex_color PHP/5.3.0 mod_perl/2.0.4 Perl/v5.10.0
+| http-title:             XAMPP            1.7.2        
+|_Requested resource was http://192.168.1.120/xampp/splash.php
+135/tcp  open  msrpc        Microsoft Windows RPC
+139/tcp  open  netbios-ssn  Microsoft Windows netbios-ssn
+443/tcp  open  ssl/http     Apache httpd 2.2.12 ((Win32) DAV/2 mod_ssl/2.2.12 OpenSSL/0.9.8k mod_autoindex_color PHP/5.3.0 mod_perl/2.0.4 Perl/v5.10.0)
+|_http-server-header: Apache/2.2.12 (Win32) DAV/2 mod_ssl/2.2.12 OpenSSL/0.9.8k mod_autoindex_color PHP/5.3.0 mod_perl/2.0.4 Perl/v5.10.0
+| http-title:             XAMPP            1.7.2        
+|_Requested resource was https://192.168.1.120/xampp/splash.php
+| ssl-cert: Subject: commonName=localhost
+| Not valid before: 2009-04-15T22:04:42
+|_Not valid after:  2019-04-13T22:04:42
+|_ssl-date: 2018-12-28T23:03:02+00:00; 0s from scanner time.
+| sslv2: 
+|   SSLv2 supported
+|   ciphers: 
+|     SSL2_RC2_128_CBC_EXPORT40_WITH_MD5
+|     SSL2_RC2_128_CBC_WITH_MD5
+|     SSL2_DES_64_CBC_WITH_MD5
+|     SSL2_RC4_128_EXPORT40_WITH_MD5
+|     SSL2_DES_192_EDE3_CBC_WITH_MD5
+|_    SSL2_RC4_128_WITH_MD5
+445/tcp  open  microsoft-ds Windows XP microsoft-ds
+3306/tcp open  mysql?
+|_mysql-info: ERROR: Script execution failed (use -d to debug)
+MAC Address: 00:0C:29:74:EF:B4 (VMware)
+Device type: general purpose
+Running: Microsoft Windows XP
+OS CPE: cpe:/o:microsoft:windows_xp::sp2 cpe:/o:microsoft:windows_xp::sp3
+OS details: Microsoft Windows XP SP2 or SP3
+Network Distance: 1 hop
+Service Info: Host: tester-595cbae8; OSs: Windows, Windows XP; CPE: cpe:/o:microsoft:windows, cpe:/o:microsoft:windows_xp
+
+Host script results:
+|_clock-skew: mean: 1s, deviation: 2s, median: 0s
+|_nbstat: NetBIOS name: TESTER-595CBAE8, NetBIOS user: <unknown>, NetBIOS MAC: 00:0c:29:74:ef:b4 (VMware)
+| smb-os-discovery: 
+|   OS: Windows XP (Windows 2000 LAN Manager)
+|   OS CPE: cpe:/o:microsoft:windows_xp::-
+|   Computer name: tester-595cbae8
+|   NetBIOS computer name: TESTER-595CBAE8\x00
+|   Workgroup: WORKGROUP\x00
+|_  System time: 2018-12-28T23:03:05+00:00
+| smb-security-mode: 
+|   account_used: <blank>
+|   authentication_level: user
+|   challenge_response: supported
+|_  message_signing: disabled (dangerous, but default)
+|_smb2-time: Protocol negotiation failed (SMB2)
+
+Nmap scan report for Linux.lan (192.168.1.253)
+Host is up (0.0023s latency).
+Not shown: 997 closed ports
+PORT    STATE SERVICE     VERSION
+139/tcp open  netbios-ssn Samba smbd 3.X - 4.X (workgroup: WORKGROUP)
+445/tcp open  netbios-ssn Samba smbd 3.0.37 (workgroup: WORKGROUP)
+515/tcp open  printer     Xerox lpd
+MAC Address: 12:13:31:54:1D:80 (Unknown)
+Device type: general purpose
+Running: Linux 2.6.X
+OS CPE: cpe:/o:linux:linux_kernel:2.6
+OS details: Linux 2.6.9 - 2.6.30
+Network Distance: 1 hop
+Service Info: Device: printer
+
+Host script results:
+|_clock-skew: mean: 0s, deviation: 1s, median: 0s
+|_nbstat: NetBIOS name: MEO, NetBIOS user: <unknown>, NetBIOS MAC: <unknown> (unknown)
+| smb-os-discovery: 
+|   OS: Unix (Samba 3.0.37)
+|   NetBIOS computer name: 
+|   Workgroup: WORKGROUP\x00
+|_  System time: 2018-12-28T23:03:04+00:00
+| smb-security-mode: 
+|   account_used: guest
+|   authentication_level: share (dangerous)
+|   challenge_response: supported
+|_  message_signing: disabled (dangerous, but default)
+|_smb2-time: Protocol negotiation failed (SMB2)
+
+Nmap scan report for dsldevice.lan (192.168.1.254)
+Host is up (0.0037s latency).
+Not shown: 991 filtered ports
+PORT     STATE  SERVICE    VERSION
+21/tcp   open   ftp        Alcatel Speedtouch ADSL router ftpd
+22/tcp   open   ssh        (protocol 2.0)
+| fingerprint-strings: 
+|   NULL: 
+|_    SSH-2.0-TECHNICOLOR_SW_1.0
+| ssh-hostkey: 
+|_  1023 dc:dc:19:22:a0:29:b1:7f:42:df:9d:48:2d:35:45:62 (DSA)
+23/tcp   open   telnet     Technicolor TG582n WAP telnetd
+53/tcp   open   domain     (generic dns response: NOTIMP)
+| fingerprint-strings: 
+|   DNSVersionBindReqTCP: 
+|     version
+|_    bind
+80/tcp   open   http       Mbedthis-Appweb (Thomson Technicolor broadband router http admin)
+| http-cookie-flags: 
+|   /: 
+|     xAuth_SESSION_ID: 
+|_      httponly flag not set
+|_http-server-header: <empty>
+| http-title: Technicolor Gateway - Login
+|_Requested resource was http://dsldevice.lan/login.lp
+443/tcp  open   ssl/http   Mbedthis-Appweb (Thomson Technicolor broadband router http admin)
+| http-cookie-flags: 
+|   /: 
+|     xAuth_SESSION_ID: 
+|_      httponly flag not set
+| http-title: Technicolor Gateway - Login
+|_Requested resource was https://dsldevice.lan/login.lp
+| ssl-cert: Subject: commonName=MediaAccess TG789vac v2/organizationName=Technicolor
+| Not valid before: 2005-01-01T00:00:00
+|_Not valid after:  2024-12-31T00:00:00
+|_ssl-date: 2018-12-28T23:03:07+00:00; 0s from scanner time.
+1723/tcp open   pptp       THOMSON (Firmware: 1)
+8000/tcp open   http       Technicolor TG787 VoIP gateway http admin 1.0
+|_http-title: Did not follow redirect to http://192.168.1.254:80
+9001/tcp closed tor-orport
+2 services unrecognized despite returning data. If you know the service/version, please submit the following fingerprints at https://nmap.org/cgi-bin/submit.cgi?new-service :
+==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
+SF-Port22-TCP:V=7.70%I=7%D=12/28%Time=5C26AB14%P=x86_64-pc-linux-gnu%r(NUL
+SF:L,1B,"SSH-2\.0-TECHNICOLOR_SW_1\.0\n");
+==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
+SF-Port53-TCP:V=7.70%I=7%D=12/28%Time=5C26AB14%P=x86_64-pc-linux-gnu%r(DNS
+SF:VersionBindReqTCP,20,"\0\x1e\0\x06\x81\x84\0\x01\0\0\0\0\0\0\x07version
+SF:\x04bind\0\0\x10\0\x03")%r(DNSStatusRequestTCP,E,"\0\x0c\0\0\x90\x84\0\
+SF:0\0\0\0\0\0\0");
+MAC Address: 10:13:31:54:1D:80 (Technicolor)
+Aggressive OS guesses: Thomson ST 585 or ST 536i ADSL modem (96%), Thomson TG712 DSL router (95%), Thomson SpeedTouch 510/510i/530/570/580 DSL modem (92%), Blue Coat SG200 proxy server (SGOS 4.2.2.8 - 4.2.6.1) (91%), Thomson SpeedTouch 510 DSL modem (91%), HP ProCurve 2524 switch or 9100c Digital Sender printer (90%), Epson Stylus Pro 400 printer (90%), Blue Coat SG810 proxy server (SGOS 4.2.3.26) (90%), Hirschmann RS20 switch (VxWorks) (89%), Apple Mac OS X 10.3.9 (Panther) - 10.4.7 (Tiger) (Darwin 7.9.0 - 8.7.8, PowerPC) (89%)
+No exact OS matches for host (test conditions non-ideal).
+Network Distance: 1 hop
+Service Info: Host: SpeedTouch; Devices: broadband router, WAP, VoIP adapter; CPE: cpe:/h:technicolor:tg582n
+
+Nmap scan report for kali.lan (192.168.1.80)
+Host is up (0.000050s latency).
+All 1000 scanned ports on kali.lan (192.168.1.80) are closed
+Too many fingerprints match this host to give specific OS details
+Network Distance: 0 hops
+
+Post-scan script results:
+| clock-skew: 
+|   0s: 
+|     192.168.1.254 (dsldevice.lan)
+|     192.168.1.66 (LAPTOP-7E2TOF4J.lan)
+|     192.168.1.120
+|     192.168.1.253 (Linux.lan)
+|_    192.168.1.81 (ubuntu.lan)
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 254 IP addresses (7 hosts up) scanned in 446.35 seconds
+root@kali:~# 
+

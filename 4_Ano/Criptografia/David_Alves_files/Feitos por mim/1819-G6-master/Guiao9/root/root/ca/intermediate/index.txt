@@ -1,0 +1,4 @@
+V	191217162921Z		1000	unknown	/C=PT/ST=Braga/L=Guimaraes/O=Universidade do Minho/OU=Departamento de Servi\xC3\x83\xC2\xA7os Informaticos/CN=Servicos/emailAddress=email-servicos@uminho.pt
+V	191217164537Z		1001	unknown	/C=PT/ST=Braga/L=Guimaraes/O=Universidade do Minho/OU=Escola de Engenharia/CN=Servidor/emailAddress=servidor@uminho.pt
+V	191217164805Z		1002	unknown	/C=PT/ST=Braga/L=Guimaraes/O=Universidade do Minho/OU=Escola de Engenharia/CN=Cliente/emailAddress=cliente@uminho.pt
+V	191217172303Z		1003	unknown	/C=PT/ST=Braga/L=Guimaraes/O=Universidade do Minho/OU=Escola de Engenharia/CN=Servidor/emailAddress=servidor-uminho@uminho.pt

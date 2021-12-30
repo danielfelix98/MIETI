@@ -1,0 +1,8 @@
+\documentclass[../tp2.tex]{subfiles}
+
+\begin{document}
+É necessário ter em conta determinadas características desta implementação.\par 
+- A possibilidade de o nível de segurança atribuído a um utilizador ser alterado durante uma sessão poderá afetar o fluxo de informação que se pretende preservar.\par 
+- Este modelo apenas garante a confidencialidade. A integridade de qualquer conteúdo poderá estar sujeito ao que se chama ``blind write'' ou seja, o reescrever de um ficheiro por parte de um processo que não tem permissão de leitura.\par 
+- Existe também um outro inconveniente, quando um determinado processo com permissões acima do nível de segurança do objeto que pretende escrever não tem permissão, devido à característica deste modelo de não permitir \textit{write down}. Como tal é necessário a autenticação a níveis de segurança inferiores (ao nível de segurança do objeto) para que possa efetuar a operação pretendida.
+\end{document}

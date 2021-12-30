@@ -1,0 +1,34 @@
+Session 1:
+
+	Stream: 0 - 15
+	Pacote: 3-339 
+	T: 1.457307 - 3.903881
+
+Session 2:
+
+	Stream: 16 e 22
+	Pacotes: 340-347,425,451-458
+	T: 17.040 - 137.997
+
+	Mudar Texto:
+		Nesta sessão é acedido um cliente de email (mail.google.com) e 		está dividida em duas streams com quase 55s de diferença devido a um 		reset na ligação devido ao pacote RST no fim da stream 16.
+	
+Session 3 ==
+
+Session 4
+
+	Stream: 18 (Telnet, só se for para mudar o texto)
+	
+Session 5
+
+	Stream: 19 - 21
+	Pacote: 435-440,442,444,446
+	T: 97.001 - 109.203
+	Txt: O que tiveste agora a ver de spam
+	
+	
+Session 6 
+	
+	Stream: 23 - 24
+	Pacotes: 461,463-539,541-563
+	T: 143.66 - 152.81

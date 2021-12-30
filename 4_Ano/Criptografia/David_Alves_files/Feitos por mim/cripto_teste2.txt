@@ -1,0 +1,67 @@
+RES TESTE2
+Q1
+1.Para a criaçao de um certificado X509 pode-se começar através de OpenSSL, primeiramente fornecer dados informativos,tais 
+como, identificacao do titular do certificado, chave publica do titular, a identificacao do Entidade Certificadora, e depois 
+disto, finalmente é a assinatura dos dados realizada pela Entidade Certificadora.
+
+2.Sim, a utilização de certificados X509 pressupoe o establecimento de uma relacao de confianca, uma vez que o utilizador 
+conhece um numero limitado de chaves publicas de EC's(normalmente apenas Root CA's), isto significa que através de uma 
+validacao recursiva, o utilizador irá aceitar um certificado emitido pelas CA's que contenham nos seus certificados a 
+informacao indicando que descendem hierarquicamente dessas Root CA's, assim que o utilizador ao usar um certificado delas
+está a faze-lo confiando de que estas são oficialmente autorizadas pelas Root CA's para assinarem certificados.
+
+
+3.Para se usar um serviço que pretenda ter o conhecimento de uma chave publica é necessario obter e validar um certificado
+que a contenha.Isso implica o conhecimento da chave publica da entidade de certificacao que o emitiu.Neste ponto, existem
+duas hipoteses:a chave publica ja é do conhecimento do utilizador(por exemplo,ja esta instalada no SO); Ou é fornecida por 
+meio de um certificado de outra EC.E como é obvio neste segundo caso há necessidade de validacao recursiva dos certificados,
+que so termina quando se encontrar um certificado de uma EC na qual ja se confia. A isto chama-se cadeia de certificacao.
+Numa Root CA, os seus certificados sao auto-assinados(o subject é igual ao issuer).
+
+4.Numa cadeia de certificacao, aquilo que é verificado é: primeiro, verifica-se a validade da assinatura, depois a 
+aplicabilidade do certificado, e por fim verifica-se se nao foi revogado.A raiz da cadeia de certificacao deve ser uma
+EC na qual ja deva conhecer previamente a sua chave publica, esta tem o nome de Root EC, ou ancora de confianca.A convencao 
+é de que na Root EC os seus certificado sao auto-assinados, ou seja, subject é igual ao issuer.
+
+
+Q2.
+1.No protocolo StS, é requerido um certificado sempre que se necessite uma chave publica, e desta forma fica garantido
+que as chaves publicas usadas se encontram associadas às identidades presumidas(isto por via de uma validacao recursiva de
+uma cadeia de certificacao.), assim impossibilitando ataques man-in-the-middle, algo que pode acontecer no DH devido ao 
+facto de no DH se criarem chaves publicas por sessão, podendo haver o risco de colisoes de chaves.
+
+2.No segundo e terceiro passos do protocolo,dado que estao presentes assinaturas digitais, a troca de certificados serve 
+para também se verificarem essas mesmas assinaturas.(Nos certificados estao presentes as chaves publicas de A e B).
+
+3.Não,dado que no protocolo StS, os certificados são unicos, e contém nele as informações de origem tais como quem o produziu,
+a quem pertence,bem como outras informacoes, a chave publica de quem o envia, alem de que os certificados podem 
+estar protegidos como uma passphrase que a partida so o utilizador sabera. Além disso convém referir que as assinaturas 
+digitais de cada certificado, que comprovam quem o enviou, sao encriptadas antes de serem enviadas juntamente com as 
+mensagens, o que ainda torna mais dificil o "roubo de identidade" por algum atacante.No entanto há sempre um pequeno risco
+de que o atacante tendo de alguma forma,acesso a chave publica de alguem, crie um certificado veiculado a essa chave publica.
+
+Q3
+1.A cifra de chave publica, ou cifra assimetrica é qualquer sistema criptografico que use pares de chaves(
+publicas e privadas).Para a sua utilização são feitas duas acoes:autenticacao(onde a chave publica verifica que um portador
+da chave privada usada enviou uma mensagem;encriptacao(onde apenas o portador da chave privada pode desencriptar a 
+mensagem encriptada com a chave publica de quem a enviou).
+
+2.Como se sabe, no RSA antes da encriptacao ou desencriptacao sao gerados numeros aleatorios,p e q, que depois sao
+combinados, dando origem a um numero n=p.q, que é usado na encriptacao e desencriptacao,a grande vantagem disto é que torna-se
+praticamente impossivel, devido ao tamanho dos numeros p e q, descobri-los atraves de uma factorizacao de n.Dada a hipotese,
+de se poder facilmente, factorizar n de modo a descobrir rapidamente p e q, isto tornaria a cifra RSA totalmente insegura,
+dado que aquilo que sabendo p e q qualquer atacante pode encriptar e desencriptar mensagens que não sao suas. 
+
+3.Na cifra RSA, sabe-se que o método de encriptacao é deterministico, ou seja, uma dada mensagem encriptada varias vezes 
+resulta sempre no mesmo criptograma.Por isso e para que seja mais dificil que alguem ataque esta cifra usam-se numeros aleatórios 
+muito grandes para encriptar as mensagens,(p e q),que são multiplicados para que o atacante tenha muito mais dificuldade 
+advinha-los.Se fosse possivel factorizar qualquer numero, o RSA tinha que ser proibido de usar ou reformulado, dado que 
+ficaria muito mais facil para qualquer atacante encriptar e desencriptar mensagens dado que poderia ter acesso aos numeros 
+p e q muito mais facilmente.
+
+
+
+
+
+
+

@@ -1,0 +1,69 @@
+Questao1
+1.O facto da cifra one-time-pad exibir segurança absoluta deve-se ao facto de a cifra ser de uso único, e significa que, 
+mesmo que o adversário tenha capacidade computacional infinita a cifra continua sendo segura.Por um lado torna-a mais segura, mas por outro dificil de implementar a uma escala global uma vez
+que exige mais recursos no processo de encriptação(como memória,tempo de processamento,etc).
+
+2.Nao se pode afirmar que as cifras sequencias exibem o mesmo nivel de segurança que a cifra one-time-pad, uma vez que nas
+cifras sequenciais, estas geram as suas chaves através de uma funcao geradora com base numa key determinada pelo utilizador.Este gerador
+vai ter uma certa sequencia de chaves que se vao repetir, ou seja a sequencia de chaves vai ser ciclica, isto torna as cifras
+sequenciais menos seguras, mas possiveis de implementar a uma maior escala que a cifra one-time-pad.Esta cifra é desenhada a pensar que
+o adversario tem limitacoes computacionais, ao contrario da cifra one-time-pad.Esta cifra portanto pode-se dizer que exibe 
+segurança computacional.
+
+3.
+a)
+Este método permite emular uma cifra sequencial a partir de uma cifra por blocos uma vez que
+a chave é obtida iterando a cifra sobre um bloco inicial(IV) e a mensagem é encriptada por blocos de texto sendo todos dependentes do anterior.Este modo gera blocos de caracteres aleatórios
+que através de operações XOR com os blocos de texto simples para obter o texto cifrado.Isto significa que invertendo
+um bit no texto cifrado faz com que se produza um bit invertido também no texto simples,no mesmo sítio.
+Cada operaçao de codificacao neste modo, depende de todas as anteriores e por isso nao se pode ser executar em paralelo
+varias operacoes de codificacao.Além disso, como a sequencia de chave é independente da mensagem, a chave pode ser processada 
+mesmo que a mensagem ainda nao esteja disponivel.
+
+b) A desencriptaçao neste modo acontece na seguinte sequencia:primeiro utilizado o mesmo vector de ´
+dados aleatórios(IV) e  a mesma key que foram usados na encriptacao,  combina-se estes dois blocos usando a funcao de encriptacao, de seguida a saída
+dessa funcao é combinada através de um xor com o primeiro bloco de texto cifrado obtendo o primeiro bloco de texto
+limpo, de seguida, usando a mesma key e  combinando novamente na funcao de encriptacao com bloco que resultou da primeira iteraçao 
+(onde se combinou o iv e a key),de seguida o que resulta desta encriptacao,é combinado atraves de um xor com o segundo
+bloco de texto cifrado,obtendo-se o 2º bloco de texto limpo.Para desencriptar só sao usadas funcoes de encriptacao.
+
+c)Neste modo, o iv, na minha opiniao deve ser aleatório.Se assim nao fosse a confidencialidade das mensagens ficaria comprometida
+Por exemplo, se um bloco de texto limpo de alguma mensagem for conhecido, chamemos-lhe o n-ésimo bloco de texto limpo,depois o n-ésimo bloco
+de saida da funcao de encriptacao pode ser determinado facilmente a partir do n-ésimo
+bloco da mensagem cifrada,uma vez que estariam a usar o mesmo iv.
+
+d)Na minha opiniao, neste modo de operaçao(OFB), o último bloco do criptograma pode ser
+usado como MAC,uma vez que, tal como referido na resposta à alinea a) a sequencia de chave é independente da mensagem, por isso utilizando o último 
+bloco para colocar o MAC, nao afetaria a mensagem a enviar.
+
+Questao2
+1.Para transmitir um ficheiro de 20 bytes de comprimento(20*8=160 bits), proponho o seguinte procedimento:
+primeiro, gerar uma key e um iv aleatórios, podendo ser por exemplo a key de 32 bytes(256 bits) e o iv de 16 bytes(128 bits), de seguida
+usando um modo de operação,por exemplo CBC, combina-se numa função de encriptacao a key, o iv e o conteúdo do ficheiro de 20 bytes,o resultado 
+será um criptograma que só poderá ser desencriptado por quem tiver acesso ao iv e key usados na encriptação.
+
+2. Não, esta solução não garante a integridade da informação, uma vez que não há uma "assinatura" que confirme que estes dados
+não foram alterados.Para que exista essa "assinatura" deve-se adicionar o MAC à mensagem a enviar, neste caso poderá usar-se
+o HMAC,para isso o procedimento seria o seguinte:primeiro geravam-se 2 keys aleatórias de 32 bytes ,uma para a encriptacao do ficheiro
+e outra para o HMAC,e também um vetor inicial aleatório(iv)de 16 bytes, de seguida usando um modo de operação,por exemplo CBC, combina-se numa função de encriptacao a key, o iv e o conteúdo do ficheiro de 20 bytes.
+Depois usando uma funcão de HMAC combina-se a key originada para o HMAC, com o criptograma.O resultado será um criptograma que só poderá ser
+desencriptado por quem tiver acesso às keys(de encriptação e de HMAC), ao iv e outros parametros usados para criacao das keys(salt(que é aleatório) e backend(usado na crição das keys, na funcao de encriptacao, e na funcao de HMAC))
+
+Questao3
+1.
+Semelhanças:
+-Ambas sao funcoes de hash
+-Podem ser construidas a partir de cifras por blocos
+-Sao formadas por funcoes de compressao(que sao funcoes de sentido unico, nas quais sabendo ambas as entradas é possivel determinar
+a saidam, sendo também resistentes a colisoes)
+
+
+Diferencas:
+-MAC pode ser vista como uma funcao de hash combinada com um "segredo"(o criptograma).
+-As funcoes de hash nao garantem a integridade e autenticidade, o MAC sim.
+
+2.As KDF sao funcoes de hash criptografadas que resultam da aplicacao destas com o objetivo
+de amplificacao da entropia das mensagens criptograficas.As KDF combinam através de uma funcão
+geradora, uma ou mais mensagens fracas(fáceis de decifrar e com pouca entropia, chamadas por exemplo masterkey) com parametros pseudo-aleatorios,
+como o salt, o que faz com que o adversário tenha que ter o conhecimento deste parametro para decifrar a password(chamada masterkey, por exemplo), 
+tornando assim a encriptacao mais segura.

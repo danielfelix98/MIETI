@@ -1,0 +1,93 @@
+Relembre o protocolo de acordo de chaves Diffie-Helman:
+(a) Explique de forma sucinta porque é que um atacante passivo nao consegue ficar na posse do segredo
+acordado.
+R::Antes de mais convem explicar os passos do protocolo DH:
+	1-A e B geram uma chave/segredo comum compartilhada entre os dois.
+	2-A e B geram uma chave privada
+	3-Cada um combina a sua chave privada com as chave comum.
+	4-A e B trocam as suas misturas.
+	5-A e B combinam essas misturas recebidas com as suas chaves privadas.
+	6-A e B têm agora um segredo partilhado comum 
+Posto isto,pode-se observar que mesmo que um atacante fique na posse daquilo que A e B trocaram no canal
+de comunicacao, este nao podera obter o segredo partilhado comum dado que nao tem acesso às chaves privadas de A e B.
+
+(b) No entanto, o protocolo é vulneravel ao ataque man-in-the-middle. Em que consiste esse ataque?
+R::
+	1-A combina a sua chave privada com a sua chave comum e envia a mistura para B
+	2-I intercepta essa mistura.
+	3-I envia para A uma mistura da chave privada de I com a chave comum
+	4-A pensa que essa mistura vem de B e combina-a com a sua chave privada.
+	5-I combina a mistura interceptada com a sua chave privada.
+	6-I e A têm agora o mesmo segredo partilhado.
+O que I fez, chama-se ataque man-in-the-middle, é um tipo de ataque ativo.
+-------------------------------------------------------------------------------------------------
+
+No que  consiste um certificado de chave publica X509? Porque motivo é tao importante a
+utilizacao desses certificados quando estao envolvidas cifras assimetricas?
+
+R::Um certificado de chave publica x509 é usado em tanto em protocolos de comunicacao online(TLS,SSL,HTTPS), bem como offline(assinatura de 
+documentos).Este contem uma chave publica e uma identidade(nome do host, organizaçao ou indviduo), e é assinado por uma
+entidade de certificacao (EC ou CA em ingles),e também pode ser auto-assinado, caso se trate de um certificado assinado pela
+autoridade de certificacao raiz(Root CA). Estes certificados sao importantes de usar quando se trata de cifras assimetricas, dado que
+neste tipo de cifra é importante ter a certeza de que as chaves publicas utilizadas são de quem se presume ser.A nao ser assim
+podem dar-se ataques de man-in-the-middle facilmente.
+--------------------------------------------
+
+Suponha que um utilizador A pretende enviar uma mensagem de correio electronico para B cifrada e
+assinada. Que certificados estao envolvidos no envio e na recepcao dessa mensagem?
+
+R::Sendo uma mensagem de correio eletronico é provavel que o protocolo usado seja o S/MIME,e os certificados são X.509
+O esquema do envio e recepcao da mensagem é o seguinte:
+	Envio:
+	1.A envia para B o certificado de A
+	2.A usa a sua chave privada para gerar uma assinatura digital, que envia para B
+	3.A usa uma secret key(diferente da chave privada ) para encriptar a o texto limpo da mensagem e envia-a para B
+	4.A recebe o certificado de B e extrai a chave publica de B
+	5.A encripta a sua secret key com a chave publica de B
+	6.A envia para B a sua secret key encriptada. 	
+		
+	Recepcao:
+	1.B desencripta a secret key encriptada que vem de A com a chave privada de B.
+	2.B desencripta a mensagem usando a secret key de A
+	3.B recebe o certificado de A extrai a sua chave publica.
+	4.B verifica a assinatura de A, usando a chave publica de A.
+	
+	
+----------------------------------------------------
+E normal os protocolos de comunicacao seguros fazerem uso de uma combinacao de tecnicas assimetricas 
+e simetricas (e.g. SSL). Porque? (sugestao: ilustre essa combinacao num exemplo concreto – e.g.
+envelope digital)
+
+Porque assim aumenta a dificuldade na producao de ataques, como por exemplo ataques man-in-the-middle.
+O uso de envelopes digitais funciona da seguinte forma:
+	Envio:
+	1.A gera uma chave simetrica aleatorio
+	2.A encripta a mensagem de texto limpo com essa chave
+	3.A encripta essa chave simetrica usando a chave publica de B
+	4.A concatena o resultado dos passos 2 e 3 e junta tudo num "envelope digital" e envia para B
+	
+	Receção:
+	1.B recebe o "envelope"
+	2.B retira a chave simetrica encriptada e desencripta-a usando a sua chave privada
+	3.B desencripta agora a mensagem encriptada com a chave simetrica obtida.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

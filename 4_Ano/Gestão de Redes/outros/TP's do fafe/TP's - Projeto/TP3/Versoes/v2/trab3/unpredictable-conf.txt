@@ -1,0 +1,6 @@
+UDP-PORT 6666
+COMMUNITY-STRING unpredictable
+REFRESH-RATE 1
+TABLE-SIZE 256
+NUMBER-SIZE 8
+FIRST-SEED /usr/share/unpredictable/1st-seed

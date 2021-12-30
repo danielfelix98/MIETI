@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_trabalhopratico3" default="compile.module.trabalhopratico3">
+  <dirname property="module.trabalhopratico3.basedir" file="${ant.file.module_trabalhopratico3}"/>
+  
+  <property name="module.jdk.home.trabalhopratico3" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.trabalhopratico3" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.trabalhopratico3" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.trabalhopratico3" value="-encoding UTF-8 -source 8 -target 8 ${compiler.args}"/>
+  
+  <property name="trabalhopratico3.output.dir" value="${module.trabalhopratico3.basedir}/out/production/TrabalhoPratico3"/>
+  <property name="trabalhopratico3.testoutput.dir" value="${module.trabalhopratico3.basedir}/out/test/TrabalhoPratico3"/>
+  
+  <path id="trabalhopratico3.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="trabalhopratico3.module.production.classpath">
+    <path refid="${module.jdk.classpath.trabalhopratico3}"/>
+    <path refid="library.snmp4j-2.3.0.classpath"/>
+    <path refid="library.snmp4j-agent-2.5.3-javadoc.classpath"/>
+    <path refid="library.snmp4j-agent-2.5.3.classpath"/>
+  </path>
+  
+  <path id="trabalhopratico3.runtime.production.module.classpath">
+    <pathelement location="${trabalhopratico3.output.dir}"/>
+    <path refid="library.snmp4j-2.3.0.classpath"/>
+    <path refid="library.snmp4j-agent-2.5.3-javadoc.classpath"/>
+    <path refid="library.snmp4j-agent-2.5.3.classpath"/>
+  </path>
+  
+  <path id="trabalhopratico3.module.classpath">
+    <path refid="${module.jdk.classpath.trabalhopratico3}"/>
+    <pathelement location="${trabalhopratico3.output.dir}"/>
+    <path refid="library.snmp4j-2.3.0.classpath"/>
+    <path refid="library.snmp4j-agent-2.5.3-javadoc.classpath"/>
+    <path refid="library.snmp4j-agent-2.5.3.classpath"/>
+  </path>
+  
+  <path id="trabalhopratico3.runtime.module.classpath">
+    <pathelement location="${trabalhopratico3.testoutput.dir}"/>
+    <pathelement location="${trabalhopratico3.output.dir}"/>
+    <path refid="library.snmp4j-2.3.0.classpath"/>
+    <path refid="library.snmp4j-agent-2.5.3-javadoc.classpath"/>
+    <path refid="library.snmp4j-agent-2.5.3.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.trabalhopratico3">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.trabalhopratico3">
+    <patternset refid="excluded.from.module.trabalhopratico3"/>
+  </patternset>
+  
+  <path id="trabalhopratico3.module.sourcepath">
+    <dirset dir="${module.trabalhopratico3.basedir}">
+      <include name="src"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.trabalhopratico3" depends="compile.module.trabalhopratico3.production,compile.module.trabalhopratico3.tests" description="Compile module TrabalhoPratico3"/>
+  
+  <target name="compile.module.trabalhopratico3.production" depends="register.custom.compilers" description="Compile module TrabalhoPratico3; production classes">
+    <mkdir dir="${trabalhopratico3.output.dir}"/>
+    <javac2 destdir="${trabalhopratico3.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.trabalhopratico3}/javac">
+      <compilerarg line="${compiler.args.trabalhopratico3}"/>
+      <bootclasspath refid="trabalhopratico3.module.bootclasspath"/>
+      <classpath refid="trabalhopratico3.module.production.classpath"/>
+      <src refid="trabalhopratico3.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.trabalhopratico3"/>
+    </javac2>
+    
+    <copy todir="${trabalhopratico3.output.dir}">
+      <fileset dir="${module.trabalhopratico3.basedir}/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.trabalhopratico3.tests" depends="register.custom.compilers,compile.module.trabalhopratico3.production" description="compile module TrabalhoPratico3; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.trabalhopratico3" description="cleanup module">
+    <delete dir="${trabalhopratico3.output.dir}"/>
+    <delete dir="${trabalhopratico3.testoutput.dir}"/>
+  </target>
+</project>

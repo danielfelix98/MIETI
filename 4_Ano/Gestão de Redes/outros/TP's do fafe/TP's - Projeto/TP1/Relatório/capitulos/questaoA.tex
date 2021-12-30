@@ -1,0 +1,80 @@
+\documentclass[../momento_1.tex]{subfiles}
+
+\begin{document}
+\par De forma a resolver esta questão, foi pedido aos alunos para consultarem a bibliografia disponível sobre o Cisco IOS e descobrir os comandos necessários para efetivar os seguintes requisitos:
+
+\begin{itemize}
+\item Permissão de leitura pública dos valores das instâncias de todos os objetos da MIB-2; 
+\item Permissão de alteração das instâncias dos objetos do grupo snmp para a comunidade
+gestaoderedes20162017, a partir da rede local.
+\end{itemize}
+
+\par Após uma leitura cuidada da bibliografia referida acima, cheguei à conclusão que os comandos
+necessários para a implementação do que é requerido são os seguintes, representados no Exemplo \ref{lst:comandos}.\par
+
+{\setstretch{1.1}
+\begin{lstlisting}[caption={Comandos para implementação das permissões.},label={lst:comandos},language=JAVA]
+	snmp-server view
+	snmp-server community
+\end{lstlisting}}
+
+\setstretch{1.1}
+\par Através do estudo percebi que era necessário recorrer a “view’s” para permitir a uma determinada comunidade obter acesso a um ramo de OIDs de uma árvore SNMP. Este comando permite criar ou atualizar uma “view”. Também é possível remover uma "view" introduzindo "no" no inicio do comando. A sintaxe pode ser visualizada no Exemplo \ref{lst:sintax}. \par
+
+{\setstretch{1.1}
+\begin{lstlisting}[caption={Sintaxe do comando snmp-server view.},label={lst:sintax},language=JAVA]
+	snmp-server view view-name oid-tree included | excluded
+	no snmp-server view view-name
+\end{lstlisting}}
+
+Na Tabela \ref{tabela} podemos ver em detalhe o que significa cada uma das
+partes constituintes do comando.\par
+
+
+\begin{table}[H]
+\centering
+\caption{Significado do comando snmp-server view}
+\label{tabela}
+\begin{tabular}{|l|l|}
+\hline
+view-name           & Identifica o nome da view que está a ser criada ou atualizada.     \\ \hline
+oid-tree            & Especifica o OID da subtree para ser incluída ou excluída da view. \\ \hline
+included | excluded & Indica se o tipo de view é incluído ou excluído.                   \\ \hline
+\end{tabular}
+\end{table}
+
+\par Quanto ao segundo comando referido acima no Exemplo \ref{lst:comandos}, é utilizado para configurar a \textit{community string} de acesso ao protocolo SNMP. Tal como o comando anterior, podemos eliminar uma \textit{community string} sendo para isso necessário introduzir “no”
+no inicio do comando. A respetiva sintaxe pode ser visualizada no Exemplo \ref{lst:lel}.\par 
+
+{\setstretch{1.1}
+\begin{lstlisting}[caption={Sintaxe do comando snmp-server community.},label={lst:lel},language=JAVA]
+	snmp-server community string [view view-name] [ro | rw] [number]
+\end{lstlisting}}
+
+\par A Tabela \ref{tabelaW} apresenta as opções que podem ser usadas.
+
+\begin{table}[H]
+\centering
+\caption{Significado do comando snmp-server community}
+\label{tabelaW}
+\begin{tabular}{|l|l|}
+\hline
+string    & Atua como password e permite o acesso ao protocolo SNMP.                                                                                                                                                \\ \hline
+view-name & Nome da view definida anteriormente. (opcional)                                                                                                                                                         \\ \hline
+ro | rw   & \begin{tabular}[c]{@{}l@{}}Especifica o tipo de acesso para leitura ou para leitura-escrita, \\ caso seja utilizado a opção de rw. (opcional)\end{tabular}                                              \\ \hline
+number    & \begin{tabular}[c]{@{}l@{}}Inteiro de 1 a 99 que especifica uma tabela de IP's que que estão autorizados \\ a utilizar a string de comunidade para obter acesso ao agente SNMP. (opcional)\end{tabular} \\ \hline
+\end{tabular}
+\end{table}
+
+\par Concluindo, de forma a responder corretamente ao enunciado desta questão, os comandos finais estão apresentados no Exemplo \ref{lst:final}.
+
+{\setstretch{1.1}
+\begin{lstlisting}[caption={Comandos para responder ao enunciado.},label={lst:final},language=JAVA]
+	snmp-server view view1 mib-2 included
+	snmp-server community public view view1 ro
+    	snmp-server view view2 snmp included
+    	snmp-server community gestaoderedes20162017 view view2 rw
+\end{lstlisting}}
+
+\par O primeiro comando cria uma "view" de nome view1 com acesso ao grupo mib-2. Já o segundo, cria a comunidade pública que tem acesso apenas de leitura à view1. O terceiro comando cria uma "view" de nome view2 com o grupo snmp. Por fim, cria-se uma comunidade de nome gestaoderedes20162017 com acesso de leitura e escrita à view2.
+\end{document}

@@ -1,0 +1,1 @@
+V	281204161100Z		1000	unknown	/C=PT/ST=Braga/O=Universidade do Minho/OU=Departamento de Certificados/CN=Inter/emailAddress=email-inter@uminho.pt

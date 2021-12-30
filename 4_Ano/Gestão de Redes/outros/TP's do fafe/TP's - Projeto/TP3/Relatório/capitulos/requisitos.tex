@@ -1,0 +1,11 @@
+\documentclass[../momento_1.tex]{subfiles}
+
+\begin{document}
+
+\par Como requisito para o desenvolvimento do projeto prático é necessário um sistema com um agente SNMPv2c instalado (preferencialmente o NET-SNMP) e um pacote de desenvolvimento numa linguagem de programação que disponibilize APIs para construção de gestores e agentes SNMPv2c (como por exemplo o SNMP4J).\par
+
+\par  Os requisitos funcionais deste trabalho passam pela geração de números aleatórios de acordo com as parametrizações definidas pelos utilizadores. Para isso é necessário o desenvolvimento de uma MIB que permita uma semântica e sintaxe adequadas à correta abstração dos requisitos funcionais. Por último, deve ser construído um agente que implemente o serviço SNMPv2c. \par
+Este agente quando executado, deve consultar um ficheiro de configuração com os parâmetros de inicialização e construir uma matriz $M_{t,k}$ com as sementes do ficheiro indicado no ficheiro de configuração. A matriz $M_{t,k}$ será usada para gerar a tabela de números aleatórios a implementar como instância de MIB do agente, ou seja, a tabela da MIB conterá N linhas a que equivalem N números aleatórios (um número de D dígitos por cada linha). \par
+Cada número aleatório i da tabela da MIB corresponde à concatenação circular de D elementos de cada linha i da sub-matriz $L_{N,D}$(p,q,M), em que p e q são calculados dinamicamente a cada refrescamento da tabela de números aleatórios.\par
+Como argumento do programa (na linha de comandos ou através dum interface dinâmico) deve ser indicada a chave de configuração para autorização da operação de \textit{reset} do agente através do SNMP.
+\end{document}

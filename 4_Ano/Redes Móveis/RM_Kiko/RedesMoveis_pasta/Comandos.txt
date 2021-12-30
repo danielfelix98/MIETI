@@ -1,0 +1,3 @@
+
+
+java -jar osm2wkt.jar mapa.osm

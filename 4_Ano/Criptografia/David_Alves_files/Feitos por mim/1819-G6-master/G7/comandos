@@ -1,0 +1,12 @@
+
+openssl pkcs12 -in Servidor.p12 -out file_serv.pem
+openssl pkcs12 -in Cliente.p12 -out file_cli.pem
+openssl x509 -inform der -in CA.cer -out certificate.pem
+
+
+cat file_serv.pem certificate.pem > trust_serv.pem
+cat file_cli.pem certificate.pem > trust_cli.pem
+
+
+openssl verify -CAfile trust_serv.pem certificate.pem
+openssl verify -CAfile trust_cli.pem certificate.pem

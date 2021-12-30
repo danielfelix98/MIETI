@@ -1,0 +1,13 @@
+3.2. Resolução prática
+	.1 Adicionar certificado ao browser (FIGURA adicionarCert)
+	   	.1 Aceder ao servidor ADSS (FIGURA entrarSite)
+	   	.2 Consola do servidor ADSS (FIGURA consola)
+           	.3 Tentar aceder com alguém já conectado ao servidor ADSS (FIGURA kickGrupo)
+	   	.4 Logout do servidor ADSS (FIGURA logoutConsola)
+	.2 Update ao OpenSSL (explicar comando caso não se tenha sudo apt-get install openssl)
+	.3 Criar par de chaves (FIGURA gerarPriv)
+		.1 Confirmar o bom estado (FIGURA checkPriv)
+	.4 Pedir certificado
+		.1 Formulario pedido (FIGURA form)
+		.2 Pedido certificado visivel (FIGURA cert + cert2)
+		.3 Verificar estado do pedido do certificado (FIGURA checkCert + checkCert2)

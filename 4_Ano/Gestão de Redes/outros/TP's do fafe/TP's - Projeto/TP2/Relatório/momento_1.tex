@@ -1,0 +1,193 @@
+\documentclass[12pt,a4paper,table]{report}
+\usepackage[top=2cm,bottom=2cm,left=3cm,right=3cm]{geometry}
+\usepackage[portuguese]{babel}
+\hyphenation{mate-mática recu-perar}
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{titlesec}
+\usepackage{etoolbox}
+\usepackage{epigraph}
+
+\makeatletter
+\patchcmd{\ttlh@hang}{\parindent\z@}{\parindent\z@\leavevmode}{}{}
+\patchcmd{\ttlh@hang}{\noindent}{}{}{}
+\makeatother
+\usepackage{fixltx2e}
+\usepackage{siunitx}
+\usepackage{listings}
+\usepackage{subfiles}
+\usepackage[titletoc,title]{appendix}
+\usepackage[hidelinks]{hyperref} %Hiperligações
+\usepackage{indentfirst}
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage[makeroom]{cancel}
+\usepackage{amssymb}
+\usepackage{gensymb}
+\usepackage{url}
+\usepackage{pgfplots}
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+%\usepackage[]{algorithm2e}
+\pgfplotsset{every axis legend/.append style={
+at={(1,0)},
+anchor=south east}}
+\usepackage{color}
+\usepackage[singlelinecheck=false,hypcap]{caption}
+\usepackage{multirow}
+\usepackage[normalem]{ulem}
+\usepackage{textcomp}
+
+
+\lstset{
+  columns=flexible,
+  numbers=left,
+  numbersep=5pt,
+  numberstyle=\scriptsize\color{black},
+  backgroundcolor=\color{white},   			% choose the background color
+  basicstyle=\footnotesize\ttfamily,        % size of fonts used for the code
+  breaklines=true,                 			% automatic line breaking only at whitespace
+  captionpos=t,                    			% sets the caption-position to bottom
+  commentstyle=\color{cinza},     			% comment style
+  escapeinside={\%*}{*)},          			% if you want to add LaTeX within your code
+  keywordstyle=\color{blue},       			% keyword style
+  stringstyle=\color{mygreen},     			% string literal style
+  showspaces=false,
+  upquote=true,
+  showstringspaces=false,
+}
+
+\lstset{emph={%  
+    @Override, function, placeholder, String, Exception, catch, then, var%
+    },emphstyle={\color{blue}}%
+}%
+
+\definecolor{cinza}{RGB}{78,75,73}
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+
+\usepackage{caption}
+\DeclareCaptionFont{white}{\color{white}}
+\DeclareCaptionFormat{listing}{\colorbox{cinza}{\parbox{\textwidth}{#1#2#3}}}
+\captionsetup[lstlisting]{format=listing,labelfont=white,textfont=white}
+
+
+
+
+\usepackage{caption}
+\DeclareCaptionFont{white}{\color{white}}
+\DeclareCaptionFormat{listing}{\colorbox{cinza}{\parbox{\textwidth}{#1#2#3}}}
+\captionsetup[lstlisting]{format=listing,labelfont=white,textfont=white}
+
+
+\usepackage[normalem]{ulem}%usar sublinhado nas chaves estrangeiras
+
+\usepackage{cite}
+
+
+\graphicspath{{imagens/}{../imagens/}} % caminho das imagens
+\renewcommand{\listfigurename}{Lista de Figuras} % Altera o título da listagem de figuras
+\renewcommand{\listtablename}{Lista de Tabelas} % Altera o título da listagem de figuras
+\renewcommand{\lstlistlistingname}{Lista de exemplos}% Alterar título das listagens
+
+\addto\captionsportuguese{\renewcommand{\contentsname}{Índice}}
+
+
+\renewcommand{\figurename}{Figura} % Altera o formato das figuras
+\renewcommand{\tablename}{Tabela} % Altera o formato das figuras
+\renewcommand{\chaptername}{Capítulo}
+\renewcommand{\appendixname}{Apêndice}
+\renewcommand{\lstlistingname}{Exemplo}% Mudar formato das Listagens
+
+
+\setlength\parindent{1cm}  %escolher aqui a formatação do TAB, dependendo do tamanho mudar o valor do %espaço do chapter abaixo
+%\setlength{\parindent}{4em}
+\setlength{\parskip}{1em}
+\renewcommand{\baselinestretch}{1.5}
+
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd{\thebibliography}{%
+  \chapter*{\bibname}\@mkboth{\MakeUppercase\bibname}{\MakeUppercase\bibname}}{%
+  \chapter{Referências}}{}{}
+\makeatother
+
+
+\titlespacing*{\chapter}{0pt}{0pt}{10pt}
+
+\titleformat{\chapter}{\normalfont\huge\bfseries}{\thechapter.}{5pt}{\huge}
+
+\usepackage{setspace}
+
+\usepackage[section]{placeins}
+
+\renewcommand\thetable{\arabic{table}}
+\setcounter{table}{0}
+
+\renewcommand\thefigure{\arabic{figure}}
+\setcounter{figure}{0}
+
+\usepackage{array}
+\usepackage{pdflscape}
+
+\usepackage{chngcntr}
+\counterwithout{table}{chapter}
+\counterwithout{figure}{chapter}
+
+\newcommand*{\fullref}[1]{\hyperref[{#1}]{\autoref*{#1} \nameref*{#1}}}
+
+%-----------------------------------------------------------------------------------------
+\begin{document}
+\subfile{capitulos/capa} 
+
+\newgeometry{top=2cm,bottom=2cm,left=3cm,right=3cm}
+
+\counterwithout{lstlisting}{chapter}
+
+{\setstretch{0.5}
+\tableofcontents
+\addtocontents{toc}{~\hfill\textbf{Página}\par}
+}
+
+{\setstretch{0.5}
+\let\origaddvspace\addvspace
+ \renewcommand{\addvspace}[1]{}
+ \addtocontents{lof}{~\hfill\textbf{Página}\par}
+ \listoffigures
+ \addtocontents{lot}{~\hfill\textbf{Página}\par}
+ \listoftables
+ \addtocontents{lol}{~\hfill\textbf{Página}\par}
+ \lstlistoflistings
+ \renewcommand{\addvspace}[1]{\origaddvspace{#1}}
+ }
+ 
+\chapter{Introdução}
+\subfile{capitulos/introducao}
+
+\chapter{Objetivos}
+\subfile{capitulos/objetivos}
+
+\chapter{Requisitos}
+\subfile{capitulos/requisitos}
+
+\chapter{Ferramenta SNMP para Monitorização IP}
+\subfile{capitulos/parteA}
+
+\section{Arquitetura da Solução}
+\subfile{capitulos/arq}
+
+\section{Conceção}
+\subfile{capitulos/concecao}
+
+\section{Resultados Obtidos}
+\subfile{capitulos/result}
+
+\chapter{Conclusão}
+\subfile{capitulos/lel}
+
+\restoregeometry
+\end{document}

@@ -1,0 +1,125 @@
+
+Q1.
+1.Não.Uma vez que se a segurança do RSA se baseia na capacidade de o adversario conseguir factorizar um numero em dois numeros primos, com a evolucao dos processadores
+e do processamento quantico, estes calculos vao ser muito faceis de ser feitos, o que a curto ou medio prazo torna o RSA impossivel de se utilizar como forma de 
+encriptacao segura.Além disto, se escolher-se uma mensagem arbitrária, "acredita-se" que nao é possivel derivar essa mensagem do criptograma respectivo, no entanto
+é muito simples derivar a mensagem cifrada se se souber que ela pertence a conjunto pequeno de possibilidades(um bit, p.e.), isto deve-se ao facto de o RSA ser uma
+técnica deterministica(ou seja uma mensagem encriptadas varias vezes, ira sempre dar no mesmo criptograma),o que compromete imenso a segurança do RSA.Para colmatar estas
+falhas de segurança criaram-se outras técnicas/cifras baseadas no RSA, que acrescentam fatores aleatorios na producao do criptograma:RSA-PSS e RSA-OAEP
+
+
+Q2.
+1.Os certificados X509,sao usados em muitos protocolos da Internet(TLS,SSL,HTTPS), bem como em aplicaçoes offline(assinaturas
+eletronicas de documentos).Um certificado X.509, contem uma chave publica e uma identidade(nome de host,organizaçãoou individuo
+) e é assinado por uma entidade de certificacao, ou pode ser auto-assinado caso se trate de um certificado assinado pela entidade
+de certificacao raiz.Quando um certificado é assinado por uma entidade de certificado confiavel ou validade segundo uma cadeia
+de certificacao alguem que detem esse certificado pode confiar na chave publica que ele contem para establecer comunicacoes
+seguras, ou validar documentos assinados digitalmente pela chave privada correspondente.Os certificados X509 podem ter tambem
+listas de revogacao de certificado, que sao um meio de distribuir informacoes sobre certificados invalidos por uma autoridade
+de assinatura.
+Estes certificados vêm colmatar a falha que havia nas comunicacoes quando havia a troca de chaves entre agentes, nas quais 
+nao se podia ter a certeza sobre a origem dessas chaves, e se consequentemente se essas eram de confianca.A solução presente
+neste tipo de certificados, é a de que em cada agente existe previamente um conjunto de certificados de autoridade de confiança.
+
+
+2.Sim,primeiro verifica-se a validade da assinatura, depois a 
+aplicabilidade do certificado, e por fim verifica-se se nao foi revogado.A raiz da cadeia de certificacao deve ser uma
+EC na qual ja deva conhecer previamente a sua chave publica, esta tem o nome de Root EC, ou ancora de confianca.A convencao 
+é de que na Root EC os seus certificado sao auto-assinados, ou seja, subject é igual ao issuer.
+
+3.Primeiro convem dizer que se se trata de uma comunicao via correio eletronico, o protocolo usado à partida sera o S/MIME, ou OpenPGP
+e os certificados usados na comunicação sao os certificados X509.A comunicacao pode ser esquematizada nos seguinte passos:
+	1-Alice cria uma assinatura digital para a mensagem usando a sua chave privada e assina a sua mensagem de correio eletronico;
+	2-Alice encripta a sua mensagem com uma secret Key(diferente da chave privada) e envia-a para o Bob pelo canal de comunicacao	
+	3-Para criar um canal de comunicacao seguro, Alice encripta a sua secret key com a chave publica do Bob
+que retirou do certificado recebido do Bob,verificando primeiro se este estava valido e era autentitico, e envia-a pelo canal de comunicacao.
+	4-O Bob obtem a secret key da Alice desencriptando com a sua chave privada, o criptograma que lhe foi enviado, e que contem a secret key da Alice.
+	5-Tendo a secret key da Alice, o Bob pode agora desencriptar a mensagem encriptada enviada pela Alice
+	6-Bob verifica a integridade e autenticidade da mensagem, verificando a assinatura digital usando a chave publica da Alice, que
+é retirada do certificado que recebe da Alice.
+
+Q3.
+1.As propriedades de segurança das assinaturas digitais sao:
+	-Integridade:a mensagem não é modificada após a assinatura.
+	-Autenticidade:a identidade do assinante pode ser confirmada.
+	-Nao repudio:é possivel demonstrar a identidade do assinante
+Sao estas as propriedades que caracterizam as assinaturas digitais dado que:
+	-O verificador e o assinante têm capacidades assimetricas,o verificador deve estar habilitado a verificar as
+	assinaturas produzidas pelo assinante, mesmo que ele nao disponha da capacidade de as produzir.
+	-Os MAC's garantem os 2 primeiros requisitos mas falham no ultimo(nao repudio),nesse aspecto o verificador dispoe
+	de tanta informacao como o assinante.
+	-A producao da assinatura é exclusiva do signatario.
+	-A verificacao é publica.
+2.
+Antes de mais, relembremos em que consiste o processo de assinar digitalmente uma mensagem/documento.:
+	1-A,coloca o texto limpo numa  funcao de hash(funcao de sentido unico) e obtem uma message digest.
+	2-A encripta com a sua chave privada essa message digest e obtem assim uma assinatura digital.
+	3-A encripta a o texto limpo concatenado/assinado com a assinatura digital da sua mensagem, com a chave publica de B.
+	4-A envia para B o texto assinado encriptado mais a sua assinatura digital.
+	5-B desencripta o texto assinado encriptado, com a sua chave privada e divide-o em texto limpo e assinatura digital
+	6-B desencripta a assinatura digital presente no texto assinado, com a chave publica de A e obtem assim a message digest e fica a saber que foi A que lhe mandou a mensagem.
+	7-B desencripta a assinatura digital recebida separamente, com a chave publica de A e obtem assim a message digest e fica a saber se alguem alterou a assinatura, comparando esta com a message digest anteriormente desencriptada
+	8-B faz um hash do texto limpo, e verifica se a message digest que obtem é igual a message digest que desencriptou no passo 6,
+e se forem iguais sabera que a mensagem de texto limpo nao sofreu alteracoes.
+
+Posto isto, se I substituir a assinatura enviada por uma dele, nao poderia fazer nada, porque:
+	-ao B desencriptar a assinatura usara a chave publica de A e nao de I.
+	-ainda que I consiga por B a ler a sua chave publica e que B obtenha a message digest de I, no passo 8 descrito acima, B irá verificar um erro, dado que 
+por muito que consiga I por B a ler e a desencriptar a sua assinatura, I nao podera alterar a assinatura no documento  assinado, dado que este documento
+é assinado usando a chave publica de B e so B podera desencripta-lo e ver o texto limpo e a assinatura.
+Além disso, I só estara a delatar a si mesmo dado que ao alterar a assinatura enviada, A e B ficarao a saber que existem alguem
+a tentar espia-los.
+
+Q4
+3.O esqueleto de codigo seria o seguinte para a verificacao de uma assinatura digital:
+	1-desencriptar o texto assinado encriptado, com a sua chave privada e divide-o em texto limpo e assinatura digital
+	2-desencriptar a assinatura digital presente no texto assinado, com a chave publica de quem enviou e obtem assim a message digest e fica a saber que foi quem se presume que lhe mandou a mensagem.
+	3-desencriptar a assinatura digital recebida separamente, com a chave publica de quem enviou e obtem assim a message digest e fica a saber se alguem alterou a assinatura, comparando esta com a message digest anteriormente desencriptada
+	4-fazer um hash do texto limpo, e verifica se a message digest que obtem é igual a message digest que desencriptou no passo 2,
+e se forem iguais sabera que a mensagem de texto limpo nao sofreu alteracoes.
+	5-mostrar o nome do signatario.(opcionalmente) caso a assinatura seja valida.
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

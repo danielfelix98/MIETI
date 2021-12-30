@@ -1,0 +1,9 @@
+ipv4 - 99.11%
+	tcp - 94.31%
+		htp - 15.45%
+		telnet - 5.68%
+		NetBIOS - 13.68%
+			SMB - == (possivel falha de segurança)
+				SMB is one of the primary attack vectors for intrusion attempts
+		UDP - 3.20%
+			data - 2.66%

@@ -1,0 +1,10 @@
+\documentclass[../momento_1.tex]{subfiles}
+
+\begin{document}
+
+\par Neste relatório é descrita a solução apresentada para resolução do terceiro trabalho prático proposto para a unidade curricular de Gestão de Redes.\par
+
+De acordo os requisitos estabelecidos inicialmente, este trabalho foi implementado com sucesso, ou seja, tanto MIB (grupos e sintaxe) como o agente SNMP foram concessionados de forma correta e encontram-se a executar sem quaisquer problema. O agente foi construído com o serviço SNMPv2c e quando é executado utiliza os parâmetros do ficheiro de configuração e o ficheiro de sementes nele definido para gerar a matriz $M_{t,k}$. A tabela de números aleatórios é guardada no grupo \textit{unpredicatbleTable} e os parâmetros de inicialização são guardados no grupo \textit{unpredictableParam} da UMINHOGRMIB. O utilizador também pode ativar a ação de \textit{reset} que reiniciará a matriz $M_{t,k}$ com as sementes do ficheiro indicado no ficheiro de configuração se a \textit{string} utilizada no comando \textit{snmpset} for igual à \textit{string} utilizada como argumento na altura de execução do agente. Um aspeto menos conseguido foi o processo refrescamento da matriz $M_{t,k}$ e, por consequência, da tabela de números aleatórios, uma vez que não foi implementada devido a diversas dúvidas por parte do grupo sobre o que era requerido no enunciado do projeto prático.\par
+
+Por último, foi um trabalho que abordou vários aspetos do protocolo SNMP que permitiu obter um maior conhecimento do seu funcionamento e a implementação de um agente com base neste neste serviço.
+\end{document}

@@ -1,0 +1,67 @@
+Questao1
+1.O facto da cifra one-time-pad exibir segurança absoluta deve-se ao facto de a cifra ser de uso único, e significa que, 
+mesmo que o adversário tenha capacidade computacional infinita a cifra continua sendo segura.Por um lado torna-a mais segura, mas por outro dificil de implementar a uma escala global uma vez
+que exige mais recursos no processo de encriptação(como memória,tempo de processamento,etc).
+
+2.Nao se pode afirmar que as cifras sequencias exibem o mesmo nivel de segurança que a cifra one-time-pad, uma vez que nas
+cifras sequenciais, estas geram as suas chaves através de uma funcao geradora com base numa key determinada pelo utilizador.Este gerador
+vai ter uma certa sequencia de chaves que se vao repetir, ou seja a sequencia de chaves vai ser ciclica, isto torna as cifras
+sequenciais menos seguras, mas possiveis de implementar a uma maior escala que a cifra one-time-pad.Esta cifra é desenhada a pensar que
+o adversario tem limitacoes computacionais, ao contrario da cifra one-time-pad.Esta cifra portanto pode-se dizer que exibe 
+segurança computacional.
+
+3.
+a)Este método(CFB) permite emular uma cifra sequencial a partir de uma cifra por blocos, uma vez que divide o texto limpo
+em blocos,combinando esses blocos com a saída da funcao de encriptacao para esse bloco, que caso seja o primeiro bloco,
+na funcao estarao presentes a key e o iv, que tal como referido depois de combinados numa funcao de encriptacao, o que dai
+resulta é combinado através de um xor com o primeiro bloco de texto limpo, obtendo-se assim o primeiro bloco de texto
+cifrado.No seguinte bloco a funcao de encriptacao recebe a key e o texto cifrado do bloco anterior , o que sai dessa funcao,
+é combinado através de um xor com o texto limpo e obtem-se o 2º bloco de texto cifrado.
+A cifra resultante vai ser o resultado dos varios blocos de texto cifrado.Neste método não é permitido encriptar em paralelo,
+no entanto sim é possivel desencriptar em paralelo.
+ 
+b)Neste modo, o iv, na minha opiniao deve ser aleatório e nao apenas um contador.Se assim nao fosse a confidencialidade das mensagens ficaria comprometida
+No caso de um adversario ter acesso ao canal de comunicacao e se esta souber qual o numero de mensagem que esta a ser enviada,se nesta tecnica se usasse um contador a mensagem estaria mais
+vulnerável a um ataque.Um contador é usado no modo CTR, e mesmo aí é usado em conjunto com um numero aleatório(nonce).
+
+
+Questao2
+1.
+As caracteristicas das mensagens de hash criptograficas, sao:
+-As mensagens de comprimento arbitrário sao mapeadas num contra-dominio de tamanho fixo.
+-O seu desenho é baseado em funcoes de compressao(funcoes de sentido unico nas quais é possivel obter a saida do mesmo tamanho de duas entradas(ambas do mesmo tamanho),sao de sentido unico,
+uma vez que sabendo a saida é dificil calcular as entradas,por isso devem tambem ser resitente a colisoes)
+-Dado um valor h de hash, deverá ser inviavel conseguir obter uma mensagem m tal que hash(m)=h
+-Dada uma mensagem m1,devera ser inviavel obter uma mensagem m2,diferente de m1 tal que
+hash(m2)=hash(m1)
+-Não é viavel encontrar mensagens diferentes m1 e m2 tais que hash(m2)=hash(m1)
+-Servem para: armazenamento de passwords,amplificacao da entropia dos criptogramas(exemplo:kdf),
+componentes de outras tecnicas(exemplo,MAC's).
+-Apesar de tudo as mensagens de hash "sozinhas", nao garantem nem a integridade nem
+a autenticidade(por isso se usa MAC).
+-Exemplos:MD5,SHA-1,SHA-256,SHA-3
+
+2.
+a) As propriedades que se espera de um MAC sao fundamentalmente autenticidade e integridade das mensagens.
+b) Nas propriedades das mensagens de hash, era possivel observar que uma funcao de hash "sozinha" nao podia garantir
+a integridade nem autenticidade das mensagens, e por isso o hmac veio resolver esse problema,para isso combina um "segredo"
+criptografico com a funcao de hash.
+c)O hmac deve ser usado depois de encriptada a mensagem com a funcao de hash(normalmente kdf), usando assim o método
+encrypt_then_mac.
+
+Questao3
+Esta forma de combinacao (encrypt-and-mac),consiste em produzir um mac atraves de uma funcao de hash baseada no 
+texto limpo, o texto limpo é criptografado sem o MAC, o MAC do texto simples e o texto cifrado sao enviados
+juntos.Este método é usado no SSH(protocolo usado em redes informaticas).Uma das principais falhas deste metodo
+é que nao ha integridade no texto cifrado,uma vez que o mac é gerado atraves do texto limpo,isto abre caminho
+a ataques ao texto cifrado.Além disso em alguns casos pode revelar informacoes do texto simples no MAC.
+
+Questao4
+
+NAO SAI  NO TESTE 1
+
+
+
+ 
+
+

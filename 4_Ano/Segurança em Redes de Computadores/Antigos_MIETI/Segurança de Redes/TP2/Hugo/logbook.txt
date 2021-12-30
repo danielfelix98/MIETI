@@ -1,0 +1,148 @@
+2)
+
+RSA key ok
+-----BEGIN RSA PRIVATE KEY-----
+MIIEpgIBAAKCAQEA4lNhFXaq7CZZqa+d79jC2UHXhDrTQT3oxYBaJSW7CzzNcCzP
+QSEpAZJxyCwPRXoacmGcKKalJ90tC7KSK+Dz3A17jFFnVjxZStqfSuulpmgRCk29
+1yVfh0gPxqFFlRAuO+vlma+R7CHjG5fZmFi17zNLf/aintWccRpMn6BpYtlZIPze
+BhPinKyJDkTnX9S8Iq/ZTzn4385NXjQWztqsBkRnFb0q2uuNQqUhZ8prY5oykDtB
+An1hgE/Gx6226mmd3MN0E5jeom70zPYMSYe666K5Kc/UK5YCaBfxRagwSsotnZJl
+VFfNmaowQkHEYCrdBKE6j2XnVwYH/+lYiGwMYwIDAQABAoIBAQDcmnke+rRPynHL
+PCquBpKmQc9YTB5ukXG6UQmM++H9ah61IHhD+5aEucG+Y3PfPM1agFo+JXEGEkg+
+BqkDrBkGfP3YH+Ch5eEDXWW3GUo1kWpKqMxKUVtz+YGnErtIOKVYMu9xhfiuObms
+w66NGKr9pPoKmNSaDYyXkhLt5OXUOkFvy9LvaxA+m2mdCZp1hIj1Ba64T0zgeOKb
+AKeAuwQQSG8UT+JWt8AK0AUnQHDC4HpdoH5yjyDAnYBJTbpIAOssZOwjDbpM8X2f
+14Y8dk/dXoRuTI3pBrXp0H9gC6LQRf/NiTxyixWxzHueGfjALNQuIOmXKzygBN84
+en/4miiBAoGBAPihujOt39B7A83VYWkByUQl79PzJANvF7jdFzcxKpmGC8TXBCQf
+dkuqdeSTg7J7RBV7c14MCcaUgPV18ucTW2puuityEjNSjW2cufvhe0Cj+YlmDwCF
+FEZt15Gkgik0Zm6tuGaK6pS1gAIGaBtS3G9SDJMwNd378Ewxw6XGGkXpAoGBAOkI
+bK9t2hyLWL2PkPkQn6gacXVq+DfeqAMxPOxvOPtXGiWsJehos9ewjMoGXSHb7JUv
+momI6XHinRa78+26q2D/fhvPnvs6KTx7psSRe/cjqfLlMB9i12c1YG3MQeBgD33X
+OaeZqLFahaBbgNOOGf4mCnGbUCVEYV3QzSV9YbRrAoGBAOTpahk4pc8540e4hOX8
+KgUfdI7M1kR/HPUsQbqj/te4jc9eM8baXLzPpZmco21JhmbM8WwOY1W81nqobMqJ
+jOoSJj/n14//Go1n9ehNMoBSOGZjW76byA4MBaRnNRugzgpq0VM/5TijXsb+hQ1b
+He80OLWvdnj6A8TzMHHJUdk5AoGBAJbbJ1Dh8oLsCoScviMeidzPUYfLueihMW7v
+nxsIXYEIQBsHOHsd3N7SojHesMfMkXl6mbZTdZyOMVeYUS8i2vMuMrtaSvckDbHj
+8m/qJrA03D4r9F09JWjg+w3ZXwQb66txexdut/AoQ70tv1Y09cq7YaNuAhI+FDIh
+i8yrQGcFAoGBAPPDaFMxeBYNw+331NlNf1ybOsEFgnyiZRsQipOOvTlO9HO5yVjI
+jM5BmbrJFDNyECjs4vnSAI2rGBaByPwxTQvSSu/LVQ6XjIw/Yp7+6fkR5m6mHOPk
+9HS5ZUA2T5Kv55XL22nimzM9t7Us+mLNEJ7TQV1Z2i9GJPXqAu96+4UM
+-----END RSA PRIVATE KEY-----
+
+3) openssl req -new -key HPKey.pem -out HPcert.csr
+
+You are about to be asked to enter information that will be incorporated
+into your certificate request.
+What you are about to enter is what is called a Distinguished Name or a DN.
+There are quite a few fields but you can leave some blank
+For some fields there will be a default value,
+If you enter '.', the field will be left blank.
+-----
+Country Name (2 letter code) [AU]:PT
+State or Province Name (full name) [Some-State]:Braga
+Locality Name (eg, city) []:Guimaraes
+Organization Name (eg, company) [Internet Widgits Pty Ltd]:Universidade do Minho
+Organizational Unit Name (eg, section) []:Seguranca de Redes
+Common Name (e.g. server FQDN or YOUR name) []:Grupo2
+Email Address []:A48319@alunos.uminho.pt
+
+Please enter the following 'extra' attributes
+to be sent with your certificate request
+A challenge password []:HP12354 
+An optional company name []:
+
+
+4) openssl req -text -noout -verify -in HPcert.csr
+
+verify OK
+Certificate Request:
+    Data:
+        Version: 0 (0x0)
+        Subject: C=PT, ST=Braga, L=Guimaraes, O=Universidade do Minho, OU=Seguranca de Redes, CN=Grupo2/emailAddress=A48319@alunos.uminho.pt
+        Subject Public Key Info:
+            Public Key Algorithm: rsaEncryption
+                Public-Key: (2048 bit)
+                Modulus:
+                    00:e2:53:61:15:76:aa:ec:26:59:a9:af:9d:ef:d8:
+                    c2:d9:41:d7:84:3a:d3:41:3d:e8:c5:80:5a:25:25:
+                    bb:0b:3c:cd:70:2c:cf:41:21:29:01:92:71:c8:2c:
+                    0f:45:7a:1a:72:61:9c:28:a6:a5:27:dd:2d:0b:b2:
+                    92:2b:e0:f3:dc:0d:7b:8c:51:67:56:3c:59:4a:da:
+                    9f:4a:eb:a5:a6:68:11:0a:4d:bd:d7:25:5f:87:48:
+                    0f:c6:a1:45:95:10:2e:3b:eb:e5:99:af:91:ec:21:
+                    e3:1b:97:d9:98:58:b5:ef:33:4b:7f:f6:a2:9e:d5:
+                    9c:71:1a:4c:9f:a0:69:62:d9:59:20:fc:de:06:13:
+                    e2:9c:ac:89:0e:44:e7:5f:d4:bc:22:af:d9:4f:39:
+                    f8:df:ce:4d:5e:34:16:ce:da:ac:06:44:67:15:bd:
+                    2a:da:eb:8d:42:a5:21:67:ca:6b:63:9a:32:90:3b:
+                    41:02:7d:61:80:4f:c6:c7:ad:b6:ea:69:9d:dc:c3:
+                    74:13:98:de:a2:6e:f4:cc:f6:0c:49:87:ba:eb:a2:
+                    b9:29:cf:d4:2b:96:02:68:17:f1:45:a8:30:4a:ca:
+                    2d:9d:92:65:54:57:cd:99:aa:30:42:41:c4:60:2a:
+                    dd:04:a1:3a:8f:65:e7:57:06:07:ff:e9:58:88:6c:
+                    0c:63
+                Exponent: 65537 (0x10001)
+        Attributes:
+            challengePassword        :unable to print attribute
+    Signature Algorithm: sha256WithRSAEncryption
+         80:f0:31:9b:f8:21:ac:c1:cd:3f:96:00:a2:46:c6:a3:29:08:
+         a2:f6:91:33:bb:1b:f4:f4:ca:e1:91:3b:be:39:51:a8:04:4a:
+         9b:91:05:28:d1:65:b7:5d:fd:6d:c5:9e:17:0b:21:0a:33:6c:
+         e8:b6:4b:6a:eb:2a:0a:c8:0f:bd:a2:47:9c:ab:62:ab:2f:28:
+         05:38:c8:d5:80:bb:d6:9c:10:16:a8:80:0a:e2:f8:61:44:0c:
+         c1:d9:bf:77:0a:58:83:90:89:42:36:12:db:e4:77:e5:f6:0a:
+         fe:d9:66:5e:e0:96:7c:bc:ad:b2:34:ee:4f:60:55:0c:40:f9:
+         95:0e:5f:2f:db:90:37:57:32:d4:ff:95:64:90:a0:1a:f9:42:
+         cd:a6:2c:f6:0a:22:38:16:7a:83:eb:24:4a:a3:10:1d:44:ef:
+         73:50:d3:aa:af:e2:46:72:af:e0:f5:be:1f:e7:10:73:12:35:
+         34:87:df:53:24:be:26:1f:5c:20:25:8e:bc:18:89:cf:81:7f:
+         1b:4d:0f:cb:c0:96:89:be:d7:05:36:36:b7:01:51:56:32:8a:
+         b6:3d:ff:f4:c3:7f:e8:3f:2e:25:43:ca:9a:d7:74:9c:96:b2:
+         58:d2:85:6f:da:b2:69:96:38:f5:d2:dd:58:fd:25:64:40:15:
+         a9:51:12:72
+
+5) openssl x509 -req -in HPcert.csr -signkey HPKey.pem -out HPprivcert.crt
+
+Signature ok
+subject=/C=PT/ST=Braga/L=Guimaraes/O=Universidade do Minho/OU=Seguranca de Redes/CN=Grupo2/emailAddress=A48319@alunos.uminho.pt
+Getting Private key
+
+11)
+
+	Version : 3
+	Serial No : 021e3203f0442f2bfe9b5de09643c30271213756
+	Subject DN :
+ 	
+Email :	 A48319@alunos.uminho.pt
+Common Name :	 Grupo2
+Organisation Unit :	 Seguranca de Redes
+Organisation :	 Universidade do Minho
+Locality :	 Guimaraes
+State :	 Braga
+Country :	 PT
+	Issuer DN :
+ 	
+Common Name :	 ADSS Default
+Organisation Unit :	 DSI
+Organisation :	 UMinhho
+Email :	 A75121@alunos.uminho.pt
+Country :	 PT
+	Signature Algorithm : sha256WithRSAEncryption
+	Validity :
+ From : 2018-03-15 15:55:37
+ To : 2019-03-15 15:55:37
+	
+Public Key : RSA ( 2048 Bits ) 
+
+30:82:01:22:30:0D:06:09:2A:86:48:86:F7:0D:01:01:01:05:00:03:82:01:0F:00:30:82:01:0A:02:82:01:01:00:E2:53:61:15:76:AA:EC:26:59:A9:AF:9D:EF:D8:C2:D9:41:D7:84:3A:D3:41:3D:E8:C5:80:5A:25:25:BB:0B:3C:CD:70:2C:CF:41:21:29:01:92:71:C8:2C:0F:45:7A:1A:72:61:9C:28:A6:A5:27:DD:2D:0B:B2:92:2B:E0:F3:DC:0D:7B:8C:51:67:56:3C:59:4A:DA:9F:4A:EB:A5:A6:68:11:0A:4D:BD:D7:25:5F:87:48:0F:C6:A1:45:95:10:2E:3B:EB:E5:99:AF:91:EC:21:E3:1B:97:D9:98:58:B5:EF:33:4B:7F:F6:A2:9E:D5:9C:71:1A:4C:9F:A0:69:62:D9:59:20:FC:DE:06:13:E2:9C:AC:89:0E:44:E7:5F:D4:BC:22:AF:D9:4F:39:F8:DF:CE:4D:5E:34:16:CE:DA:AC:06:44:67:15:BD:2A:DA:EB:8D:42:A5:21:67:CA:6B:63:9A:32:90:3B:41:02:7D:61:80:4F:C6:C7:AD:B6:EA:69:9D:DC:C3:74:13:98:DE:A2:6E:F4:CC:F6:0C:49:87:BA:EB:A2:B9:29:CF:D4:2B:96:02:68:17:F1:45:A8:30:4A:CA:2D:9D:92:65:54:57:CD:99:AA:30:42:41:C4:60:2A:DD:04:A1:3A:8F:65:E7:57:06:07:FF:E9:58:88:6C:0C:63:02:03:01:00:01
+	Basic Constraints : Type=End Entity
+	Key Usage : nonRepudiation, keyEncipherment, digitalSignature
+	Extended Key Usage : emailProtection
+	
+Authority Key Identifier :	
+52:EB:89:1F:07:7D:77:85:EB:6C:22:25:A0:EC:31:64:C8:C9:11:AC
+	
+Subject Key Identifier :	
+0E:58:FF:67:4B:00:EC:AE:D6:7A:53:BE:88:E2:04:84:CD:D9:5A:F6
+	Thumbprint Algorithm : sha1
+	Thumbprint : D0AmkPlnwfVtUmjpkUKGrQ==

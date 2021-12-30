@@ -1,0 +1,27 @@
+SMB errors - Stream 23
+
+_____________________________________________________________________________
+
+Pacotes - {471,479,507}
+	Error: STATUS_MORE_PROCESSING_REQUIRED
+	Cod: 0xC0000016
+	Descr: There is more data available to read on the designated named pipe.
+	AddInfo: Session Setup AndX Response, NTLMSSP_CHALLENGE	_____________________________________________________________________________	
+	
+Pacotes - {475,512}
+	Error: STATUS_ACCESS_DENIED
+	Cod: 0xC0000022
+	Descr: Access Denied
+	AddInfo: Tree Connect AndX Response
+_____________________________________________________________________________
+	
+Pacotes - {485,503,505}
+	Error: STATUS_OBJECT_NAME_NOT_FOUND
+	Cod: 0xC0000034
+	Descr: File not found
+	AddInfo: Trans2 Response, QUERY PATH INFO
+_____________________________________________________________________________
+
+Pacotes - {542,547}
+	Error: STATUS_CANCELLED
+	Descr: Directory changed

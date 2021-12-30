@@ -1,0 +1,6 @@
+UDP-PORT:6666
+COMMUNITY-STRING:unpredictable
+REFRESH-RATE:1
+TABLE-SIZE:256
+NUMBER-SIZE:8
+FIRST-SEED:/home/luisf99/Documentos/Universidade do Minho/Gestão de Redes/Aulas Práticas/TP3/Final/TrabalhoPratico3/1st-seed

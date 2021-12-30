@@ -1,0 +1,83 @@
+1.
+	a.
+		Pespada = 1/4		Informação = log2(1/(1/4)) = log2(4) = 2 bits
+
+	b.
+		Pás = 4/52 = 1/13	Informação = log2(13) = 3.70043971814 bits
+
+	c.
+		Pásespada = 1/52	Informação = log2(52) = 5.70043971814 bits
+
+
+2.
+*4*4 = 	Pp = 2/3 ; Pt = 1/3			;		rs = 3.75 simb/seg
+
+	(complicando) H(x) = (2/3)*log2(3/2) + (1/3)*log2(3) = 0.91829583405	;	R = 3.75 * 0.91829583405 = 3.44360937769
+
+
+3. 
+	H(x) = Σ((1/n)log2(n)) = n(1/n)log2(n) = log2(n)
+
+	No caso de todos os elementos terem a mesma probabilidade a entropia é o log2 da probabilidade, ou seja o numero de bits necessários para representar o número de mensagens.
+	O que isto quer dizer não sei.
+
+
+4.
+	P(A)=1/2, P(B)=P(C)=P(D)=1/12, P(E)= P(F)=P(G)=P(H)=1/16
+
+	a.
+		H(x) = (1/2)*log2(2) + 3*(1/12)*log2(12) + 4*(1/16)*log2(16) = .5 + (1/4)log2(12) + 1 = 2.39624062518
+
+	b.	
+		8 simb -> 2³ -> comprimento fixo minimo = 3
+
+		p = 2.8962/3 = 0.96541354172 -> ~97%
+
+	c.
+		x	p(x)	cod
+											Ñ = .5*1 + .083*3 + .083*4*2 + .0625*4*4 = 2.413 
+		A 	.5		0						
+		B 	.083	100						(rendimento) p = H(x)/Ñ = 0,993054548 -> 99%
+		C 	.083	1010
+		D 	.083	1011					(compressão obtida) c = (3 - 2.413) / 3 = 0,195666667 -> 20%
+		E 	.0625	1100					
+		F 	.0625	1101
+		G 	.0625	1110					
+		H 	.0625	1111
+
+	d. 
+		Nos códigos remover os zeros à direita. 
+
+
+5.	
+	B2 D4
+
+6.
+	A1 C3 
+
+7. 
+	P0 = 3/8	;	P1 = 5/8	;	P0|1 = 1/16	;	P1|0 = 3/4
+
+	a.
+		econdicional
+		H(X|0) = P(1|0)log2(1/(P(1|0))) + P(0|0)log2(1/(P(0|0))) = (3/4)log2(4/3) + (15/16)log2(16/15) = 0.39856819107
+		H(X|1) = P(1|1)log2(1/(P(1|1))) + P(0|1)log2(1/(P(0|1))) = (1/4)log2(4) + (1/16)log2(16) = 0.75
+
+		ereal
+		H(X) = P(0)H(X|0) + P(1)H(X|1) = 3/8 * 0.39856819107 + 5/8 * .75 = 0,618213072
+
+	b. 
+		entropia sem memória
+		H(X) = (3/8)*log2(8/3) + (5/8)log2(8/5) = 0.95443400292
+
+	c. 
+		P00 = (3/8)(15/16) = 0,3515625
+		P01 = (3/8)(1/16) = 0,0234375
+		P10 = (5/8)(3/4) = 0,46875 
+		P11 = (5/8)(1/4) = 0,15625
+		
+		x 	c 			
+		10	0				Ñ = .46875 + 2*.3515625 + 3*.15625 + 3*.0234375 = 1,7109375
+		00	10
+		11	110				p = 0,618213072/1,7109375 = 0,361330015
+		01	111

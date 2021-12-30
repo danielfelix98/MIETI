@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="pt_br">
+  <head>
+    <meta charset="utf-8">
+
+    <!-- Always force latest IE rendering engine or request Chrome Frame -->
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Use title if it's in the page YAML frontmatter -->
+    <title>XAMPP FAQs for Linux</title>
+
+    <meta name="description" content="Instructions on how to install XAMPP for Linux distributions." />
+    
+
+    <link href="/dashboard/stylesheets/normalize.css" rel="stylesheet" type="text/css" /><link href="/dashboard/stylesheets/all.css" rel="stylesheet" type="text/css" />
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/3.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+
+    <script src="/dashboard/javascripts/modernizr.js" type="text/javascript"></script>
+
+
+    <link href="/dashboard/images/favicon.png" rel="icon" type="image/png" />
+
+
+  </head>
+
+  <body class="pt_br pt_br_faq">
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=277385395761685";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+    <div class="contain-to-grid">
+      <nav class="top-bar" data-topbar>
+        <ul class="title-area">
+          <li class="name">
+            <h1><a href="/dashboard/pt_br/index.html">Apache Friends</a></h1>
+          </li>
+          <li class="toggle-topbar menu-icon">
+            <a href="#">
+              <span>Menu</span>
+            </a>
+          </li>
+        </ul>
+
+        <section class="top-bar-section">
+          <!-- Right Nav Section -->
+          <ul class="right">
+              <li class=""><a href="/applications.html">Applications</a></li>
+              <li class="active"><a href="/dashboard/pt_br/faq.html">Perguntas Frequentes</a></li>
+              <li class=""><a href="/dashboard/pt_br/howto.html">HOW-TO Guides</a></li>
+              <li class=""><a target="_blank" href="/dashboard/phpinfo.php">PHPInfo</a></li>
+              <li class=""><a href="/phpmyadmin/">phpMyAdmin</a></li>
+          </ul>
+        </section>
+      </nav>
+    </div>
+
+    <div id="wrapper">
+      <div class="hero">
+  <div class="row">
+    <div class="large-12 columns">
+      <h1>Linux <span>Perguntas Mais Frequentes</span></h1>
+    </div>
+  </div>
+</div>
+<div class="row">
+    <div class="large-8 columns">
+    <dl class="accordion">
+      <dt> Como instalo o XAMPP?</dt>
+      <dd>
+        <p>Como inicio o XAMPP?</p>
+        <p>Altere as permissões do instalador</p>
+        <p><code>chmod 755 xampp-linux-*-installer.run</code></p>
+        <p>Execute o instalador</p>
+        <p><code>sudo ./xampp-linux-*-installer.run</code></p>
+        <p>Isto é Tudo. O XAMPP está instalado no diretório /opt/lampp.</p>
+      </dd>
+      <dt>Does XAMPP include MySQL or MariaDB?</dt>
+      <dd>
+      <p>Since XAMPP 5.5.30 and 5.6.14, XAMPP ships MariaDB instead of MySQL. The commands and tools are the same for both.</p>
+      </dd>
+      <dt>Como inicio o XAMPP?               </dt>
+      <dd>
+        <p>Para iniciar o XAMPP, simplesmente execute este comando:</p>
+        <p><code>sudo /opt/lampp/lampp start</code></p>
+        <p>Agora você deve ver algo como isso em sua tela:</p>
+        <p><code>Starting XAMPP 1.8.2...<br />
+          LAMPP: Starting Apache...<br />
+          LAMPP: Starting MySQL...<br />
+          LAMPP started.<br /><br />
+          Ready. Apache and MySQL are running.</code></p>
+        <p>Se você receber alguma mensagem de erro, visite  <a href="/community.html">Páginas da nossa comunidade</a> para obter ajuda. </p>
+        <p>Além disso, note que há uma ferramenta gráfica que você pode usar para gerenciar seus servidores facilmente. Você pode iniciar esta ferramenta com os seguintes comandos:</p>
+        <p><code>cd /opt/lampp<br>
+          sudo ./manager-linux.run (or manager-linux-x64.run)</code></p> 
+      </dd>
+      <dt>Como paro o XAMPP?</dt>
+      <dd>
+        <p>Para parar o XAMPP, simplesmente execute este comando:</p>
+        <p><code>sudo /opt/lampp/lampp stop</code></p>
+        <p>Agora você deve ver algo como isso em sua tela:</p>
+        <p><code>Stopping XAMPP 1.8.2...<br />
+          LAMPP: Stopping Apache...<br />
+          LAMPP: Stopping MySQL...<br />
+          LAMPP stopped.<br /><br /></code></p>
+        <p>Se você receber alguma mensagem de erro, visite  <a href="/community.html">Páginas da nossa comunidade</a> para obter ajuda. </p>
+        <p>Além disso, note que há uma ferramenta gráfica que você pode usar para parar iniciar/parar seus servidores facilmente. Você pode iniciar esta ferramenta com os seguintes comandos:</p>
+        <p><code>cd /opt/lampp<br>
+          sudo ./manager-linux.run (or manager-linux-x64.run)</code></p> 
+      </dd>
+      <dt>Como posso testar se tudo funcionou corretamente?</dt>
+      <dd>
+        <p>Escreva o seguinte URL no seu navegador favorito:</p>
+        <p><code>http://localhost</code></p>
+        <p>You should see the XAMPP start page, as shown below.</p>
+        <img src="/dashboard/images/screenshots/xampp-linux-start.jpg" />
+      </dd>
+      <dt>XAMPP está pronto para produção?</dt>
+      <dd>
+        <p>XAMPP não é destinado para uso em produção, mas apenas para ambientes de desenvolvimento. O XAMPP é configurado para ser o mais aberto possível para permitir ao desenvolvedor qualquer coisa que ele/ela quiser. Para ambientes de desenvolvimento ele é ótimo, mas em um ambiente de produção , ele pode ser fatal.                </p>
+        <p>Aqui uma lista de segurança que faltava no XAMPP:</p>
+        <ol>
+          <li>O administrador (root) do MySQL não tem senha.</li>
+          <li>O daemon do MySQL está acessível pela rede.                </li>
+          <li>ProFTPD usa a senha "lampp" para o usuário "daemon".</li>
+        </ol>
+        <p>Para reparar a maioria das falhas de segurança, simplesmente execute o seguinte comando:</p>
+        <p><code>sudo /opt/lampp/lampp security</code></p>
+        <p>Iniciar uma pequena checagem de segurança e deixar segura sua instalação do XAMPP. Por exemplo essa página XAMPP de demonstração protegida por uma combinação de usuário ('lampp') e senha.                </p>
+      </dd>
+      <dt>Qual é o significado das mensagens de erro que vejo quando inicio o XAMPP?</dt>
+      <dd>
+        <p>Você pode se deparar com várias mensagens de erro ao iniciar o XAMPP:</p>
+        <p><code>LAMPP-Apache is already running.<br />
+          An Apache daemon is already running.</code></p>
+        <p>O script de inicialização LAMPP não iniciou o XAMPP-Apache, porque há uma instância do Apache já em execução. Para iniciar o XAMPP corretamente, primeiro você tem que parar este daemon.                </p>
+        <p><code>LAMPP-MySQL is already running.<br />
+          A MySQL daemon is already running.</code></p>
+        <p>Principalmente devido às mesmas razões que o erro acima, o script de inicialização LAMPP encontrou um daemon MySQL já em execução em seu sistema. Para iniciar LAMPP corretamente, você tem que parar este daemon primeiro.</p>
+      </dd>
+      <dt>Apache doesn't seem to start. What can I do?</dt>
+      <dd>
+        <p>Este erro pode acontecer por várias razões. O Apache mostra esse erro pra várias circunstâncias. Para encontrar razão exata, nós temos que fazer uma pesquisa:</p>
+        <p><code>tail -2 /opt/lampp/logs/error_log</code></p>
+        <p>Se você receber alguma mensagem de erro, visite  <a href="/community.html">Páginas da nossa comunidade</a> para obter ajuda. </p>
+      </dd>
+      <dt>O que eu faço se a mensagem de erro é "Não foi possível restaurar o segmento prot após reloc: Permissão negada?"                </dt>
+      <dd>
+        <p>Algumas distribuições de Linux têm SELinux ativado por padrão, e isso está impedindo o início bem sucedido do XAMPP. Você deve desativá-lo para iniciar os servidores do XAMPP:                </p>
+        <p><code>sudo /usr/sbin/setenforce 0</code></p>
+        <p>Agora XAMPP deve funcionar bem novamente.</p>
+      </dd>
+      <dt>Depois de eu reiniciar meu Linux, o XAMPP parou de funcionar! Como posso corrigir isto?</dt>
+      <dd>
+        <p>Correto. Isso é um comportamento normal do Linux (que se aplica a qualquer outro sistema de base UNIX). É trabalho do administrador certificar-se que uma determinada aplicação é iniciada na inicialização.</p>
+        <p>Não há realmente nenhum modo padrão para configurar o processo de inicialização de um sistema Linux, mas a maioria deles deve permitir-lhe iniciar o XAMPP no momento da inicialização usando os seguintes passos.</p>
+        <p><strong>Debian, Ubuntu.</strong> </p>
+        <p><code>sudo ln -s /opt/lampp/lampp /etc/init.d/lampp</br>
+          sudo update-rc.d lampp start 80 2 3 4 5 . stop 30 0 1 6 .</code></p>
+        <p><strong>RedHat, Fedora, CentOS.</strong> Se a sua distribuição Linux usa ferramenta "chkconfig" para instalar os serviços, você pode executar os seguintes comandos:</p>
+        <p><code>sudo ln -s /opt/lampp/lampp /etc/init.d/lampp<br/>
+          sudo chkconfig --add lampp</code></p>
+        <p><strong>SUSE</strong></p>
+        <p><code>sudo ln -s /opt/lampp/lampp /etc/init.d/lampp</br>
+          sudo chkconfig lampp 2345</code></p>
+      </dd>
+      <dt>Como eu posso tornar minha instalação do XAMPP mais segura?</dt>
+      <dd>
+        <p>Na instalação padrão, XAMPP não tem senhas definidas, e não é recomendado rodar XAMPP com essas configurações se acessíveis por outros.</p>
+        <p>Basta digitar o seguinte comando (como root) para iniciar uma simples verificação de segurança:</p>
+        <p><code>sudo /opt/lampp/lampp security</code></p>
+        <p>Agora você deve ver a seguinte mensagem em sua tela:</p>
+        <p><code>
+          XAMPP: Quick security check...</br>
+          XAMPP: MySQL is accessable via network.</br>
+          XAMPP: Normaly that's not recommended. Do you want me to turn it off? [yes] yes</br>
+          XAMPP: Turned off.</br>
+          XAMPP: Stopping MySQL...</br>
+          XAMPP: Starting MySQL...</br>
+          XAMPP: The MySQL/phpMyAdmin user pma has no password set!!!</br>
+          XAMPP: Do you want to set a password? [yes] yes</br>
+          XAMPP: Password: ******</br>
+          XAMPP: Password (again): ******</br>
+          XAMPP: Setting new MySQL pma password.</br>
+          XAMPP: Setting phpMyAdmin's pma password to the new one.</br>
+          XAMPP: MySQL has no root passwort set!!!</br>
+          XAMPP: Do you want to set a password? [yes] yes</br>
+          XAMPP: Write the passworde somewhere down to make sure you won't forget it!!!</br>
+          XAMPP: Password: ******</br>
+          XAMPP: Password (again): ******</br>
+          XAMPP: Setting new MySQL root password.</br>
+          XAMPP: Setting phpMyAdmin's root password to the new one.</br>
+          XAMPP: The FTP password for user 'nobody' is still set to 'lampp'.</br>
+          XAMPP: Do you want to change the password? [yes] yes</br>
+          XAMPP: Password: ******</br>
+          XAMPP: Password (again): ******</br>
+          XAMPP: Reload ProFTPD...</br>
+          XAMPP: Done.</br>
+        </code></p>
+        <p>(1) Definir uma senha protegera as páginas de demonstração do XAMPP (http://localhost/xampp/) usando esta senha. O nome do usuário é "lampp '!</p>
+        <p>Depois de executar esse comando sua instalação do XAMPP deve ficar mais segura.</p>
+      </dd>
+      
+      <dt>Como faço para ativar o eAccelerator?</dt>
+      <dd>
+        <p>Para ativar o eAccelerator simplesmente encontre as seguintes linhas no seu /opt/lampp/etc/php.ini:</p>
+        <p><code>;extension="eaccelerator.so"</br>
+          ;eaccelerator.shm_size="16"</br>
+          ;eaccelerator.cache_dir="/opt/lampp/tmp/eaccelerator"</br>
+          ;eaccelerator.enable="1"</br>
+          ;eaccelerator.optimizer="1"</br>
+          ;eaccelerator.check_mtime="1"</br>
+          ;eaccelerator.debug="0"</br>
+          ;eaccelerator.filter=""</br>
+          ;eaccelerator.shm_max="0"</br>
+          ;eaccelerator.shm_ttl="0"</br>
+          ;eaccelerator.shm_prune_period="0"</br>
+          ;eaccelerator.shm_only="0"</br>
+          ;eaccelerator.compress="1"</br>
+          ;eaccelerator.compress_level="9"</code></p>
+        <p>Remova o ponto e vírgula no início de cada linha e reinicie o XAMPP. O eAccelerator agora está ativo. Para mais informações sobre eAccelerator, verifique a página inicial eAccelerator: <a href="http://eaccelerator.net">http://eaccelerator.net</a>                </p>
+      </dd>
+      <dt>Como faço para ativar a extensão OCI8/Oracle para PHP?</dt>
+      <dd>
+        <p>Para ativar a extensão OCI8/Oracle para PHP por favor, execute o seguinte comando:</p>
+        <p><code>sudo /opt/lampp/lampp oci8</code></p>
+        <p>O seguinte diálogo será iniciado:</p>
+        <p><code>Please enter the path to your Oracle or Instant Client installation:</br>
+          [/opt/lampp/lib/instantclient-11.2.0.3.0] </br>
+          installing symlinks...</br>
+          patching php.ini...</br>
+          OCI8 add-on activation likely successful.</br>
+          LAMPP: Stopping Apache with SSL...</br>
+          LAMPP: Starting Apache with SSL...</code></p>
+        <p>Agora, a extensão deve estar ativa.</p>
+      </dd>
+      <dt>XAMPP funciona, mas por que nenhuma das imagens estão sendo exibidas?</dt>
+      <dd>
+        <p>Isso é um problema especial com alguns sistemas Linux. Por favor, abra o /opt/lampp/etc/httpd.conf e procure por estas duas linhas:</p>
+        <p><code>#EnableMMAP off</br>
+          #EnableSendfile off</code></p>
+        <p>Remova o "#" em ambas linhas e reinicie seu Apache. Suas imagens devem voltar.</p>
+      </dd>
+
+      <dt>How do I enable access to phpMyAdmin from the outside?</dt>
+      <dd>
+      <p>In the basic configuration of XAMPP, phpMyAdmin is accessible only from the same host that XAMPP is running on, at http://127.0.0.1 or http://localhost.</p>
+      <p>IMPORTANT: Enabling external access for phpMyAdmin in production environments is a significant security risk. You are strongly advised to only allow access from localhost. A remote attacker could take advantage of any existing vulnerability for executing code or for modifying your data.</p>
+      <p>To enable remote access to phpMyAdmin, follow these steps:</p>
+      <ul>
+        <li>Edit the etc/extra/httpd-xampp.conf file in your XAMPP installation directory.</li>
+        <li>Within this file, find the lines below. 
+          <p><code>
+              Alias /phpmyadmin "/opt/lampp/phpmyadmin/"
+              &lt;Directory "/opt/lampp/phpmyadmin"&gt;
+                AllowOverride AuthConfig
+                Require local
+          </code></p>
+        </li>
+        <li>Then replace 'Require local' with 'Require all granted'.</li>
+          <p><code>
+              Alias /phpmyadmin "/opt/lampp/phpmyadmin/"
+              &lt;Directory "/opt/lampp/phpMyAdmin"&gt;
+                AllowOverride AuthConfig
+                Require all granted
+          </code></p>
+        <li>Restart the Apache server using the XAMPP control panel.</li>
+      </ul>
+      </dd>      
+      
+      <dt>Como faço uma cópia de segurança/restauro meu XAMPP?</dt>
+      <dd>
+        <p><strong>Alerta:</strong> A função de backup e restauração ainda está em desenvolvimento e pode não funcionar corretamente.</p>
+        <p>Você pode criar o backup chamando:</p>
+        <p><code>sudo /opt/lampp/lampp backup</code></p>
+        <p>ou</p>
+        <p><code>sudo /opt/lampp/lampp backup secret</code></p>
+        <p>Onde "secret" é sua senha de root no MySQL. Este comando vai gerar o seguinte resultado:</p>
+        <p><code>Backing up databases...</br>
+          Backing up configuration, log and htdocs files...</br>
+          Calculating checksums...</br>
+          Building final backup file...</br>
+          Backup finished.</br>
+          Take care of /opt/lampp/backup/xampp-backup-22-01-14.sh</code></p>
+
+        <p>O arquivo /opt/lampp/backup/xampp-backup-22-01-14.sh (no exemplo acima) contém os dados de backup. Guarde este arquivo em um local seguro.</p>
+        <p>Na nova máquina, você precisa da mesma versão do XAMPP da sua máquina original/fonte.</p>
+        <p><code>sudo sh xampp-backup-22-01-14.sh</code></p>
+        <p>Você deve ver algo parecido com isso:</p>
+        <p><code>Checking integrity of files...</br>
+          Restoring configuration, log and htdocs files...</br>
+          Checking versions...</br>
+          Installed: XAMPP 1.4.2</br>
+          Backup from: XAMPP 1.4.2</br>
+          Restoring MySQL databases...</br>
+          Restoring MySQL user databases...</br>
+          Backup complete. Have fun!</br>
+          You may need to restart XAMPP to complete the restore.</br>
+        </code></p>
+        <p>Isso é tudo. Tenha em mente que é um recurso em versão beta.</p>
+      </dd>
+    </dl>
+  </div>
+</div>
+
+    </div>
+
+    <footer>
+      <div class="row">
+        <div class="large-12 columns">
+          <div class="row">
+            <div class="large-8 columns">
+              <ul class="social">
+  <li class="twitter"><a href="https://twitter.com/apachefriends">Follow us on Twitter</a></li>
+  <li class="facebook"><a href="https://www.facebook.com/we.are.xampp">Like us on Facebook</a></li>
+  <li class="google"><a href="https://plus.google.com/+xampp/posts">Add us to your G+ Circles</a></li>
+</ul>
+
+              <ul class="inline-list">
+                <li><a href="https://www.apachefriends.org/blog.html">Blog</a></li>
+                <li><a href="https://www.apachefriends.org/privacy_policy.html">Política de Privacidade</a></li>
+                <li>
+<a target="_blank" href="http://www.fastly.com/">                    CDN fornecida pela
+                    <img width="48" data-2x="/dashboard/images/fastly-logo@2x.png" src="/dashboard/images/fastly-logo.png" />
+</a>                </li>
+              </ul>
+            </div>
+            <div class="large-4 columns">
+              <p class="text-right">Copyright (c) 2017, Apache Friends</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JS Libraries -->
+    <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="/dashboard/javascripts/all.js" type="text/javascript"></script>
+  </body>
+</html>

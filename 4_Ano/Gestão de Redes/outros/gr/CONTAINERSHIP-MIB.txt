@@ -1,0 +1,218 @@
+CONTAINERSHIP-MIB DEFINITIONS ::= BEGIN
+
+--
+-- Containership MIB para a execucao da TP3
+--
+
+IMPORTS
+    MODULE-IDENTITY, OBJECT-TYPE, Integer32, experimental, TimeTicks         FROM SNMPv2-SMI
+    DisplayString   FROM SNMPv2-TC
+;
+
+containershipMIB  MODULE-IDENTITY
+    LAST-UPDATED "201901250000Z"
+    ORGANIZATION "www.mieti.uminho.pt"
+    CONTACT-INFO    
+	 "postal:   Azurem 
+          email:    mieti@eng.uminho.pt"
+    DESCRIPTION
+	"Example MIB objects for agent module example implementations"
+    REVISION     "201901250000Z"
+    DESCRIPTION
+	"Corrected notification example definitions"
+    REVISION     "201901240000Z"
+    DESCRIPTION
+	"First draft"
+    ::= { experimental 2018 }
+
+containershipParam OBJECT IDENTIFIER ::= {containershipMIB 1}
+
+containershipImageTable OBJECT IDENTIFIER ::= {containershipMIB 2}
+
+containershipContainerTable OBJECT IDENTIFIER ::= {containershipMIB 3}
+
+containershipStatus OBJECT IDENTIFIER ::= {containershipMIB 4}
+
+--
+-- top level structure
+--
+
+indicecont OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"Identifica o indice da imagem a ser usada pelo container"
+    ::= { containershipParam 1 }
+
+nomecont OBJECT-TYPE
+    SYNTAX      DisplayString
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"Identifica o nome da imagem a ser usada pelo container"
+    ::= { containershipParam 2 }
+
+flagcont OBJECT-TYPE
+    SYNTAX      OCTET STRING
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+    "Flag a indicar que o container devera ser criado"
+    ::= { containershipParam 3 }
+
+--
+--
+--
+--
+--
+--
+--
+--
+--
+--
+
+--
+--  Tabela de containershipImage 
+--
+
+tableContainershipImage OBJECT-TYPE
+    SYNTAX      SEQUENCE OF ContainershipImageTableEntry
+    MAX-ACCESS  not-accessible
+    STATUS      current
+    DESCRIPTION
+    "Esta tabela contem as imagens disponiveis"
+    ::= { containershipImageTable 1 }
+
+tableEntryContainershipImage OBJECT-TYPE
+    SYNTAX      ContainershipImageTableEntry
+    MAX-ACCESS  not-accessible
+    STATUS      current
+    DESCRIPTION
+    "Uma linha da tabela com o indice da imagem (chave da tabela) e o nome da imagem"
+    INDEX   { indiceimg }
+    ::= { tableContainershipImage 1 }
+
+ContainershipImageTableEntry ::= SEQUENCE {
+    indiceimg  Integer32,
+    nomeimg   DisplayString
+}
+
+indiceimg OBJECT-TYPE
+    SYNTAX      Integer32 (1..32)
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+    "Indice da imagem"
+    ::= { tableEntryContainershipImage 1 }
+
+nomeimg OBJECT-TYPE
+    SYNTAX      DisplayString
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+    "Nome da imagem"
+    ::= { tableEntryContainershipImage 2 }
+
+--
+--
+--
+--
+--
+--
+--
+--
+--
+--
+
+--
+--  Tabela de containershipContainer
+--
+
+tableContainershipContainer OBJECT-TYPE
+    SYNTAX      SEQUENCE OF ContainershipContainerTableEntry
+    MAX-ACCESS  not-accessible
+    STATUS      current
+    DESCRIPTION
+    "Esta tabela contem os containers criados"
+    ::= { containershipContainerTable 1 }
+
+tableEntryContainershipContainer OBJECT-TYPE
+    SYNTAX      ContainershipContainerTableEntry
+    MAX-ACCESS  not-accessible
+    STATUS      current
+    DESCRIPTION
+    "Uma linha da tabela com o indice do container (chave da tabela), o nome do container, o indice da imagem que o originou, o estado do container e a percentagem de utilizacao do processador desse container"
+    INDEX   { indexcontainer }
+    ::= { tableContainershipContainer 1 }
+
+ContainershipContainerTableEntry ::= SEQUENCE {
+    indexcontainer  Integer32,
+    nomecontainer   DisplayString,
+    indeximg   Integer32,
+    statuscontainer DisplayString,
+    percentageproc Integer32
+}
+
+indexcontainer OBJECT-TYPE
+    SYNTAX      Integer32 (1..32)
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+    "Index do container"
+    ::= { tableEntryContainershipContainer 1 }
+
+nomecontainer OBJECT-TYPE
+    SYNTAX      DisplayString
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+    "Nome do container"
+    ::= { tableEntryContainershipContainer 2 }
+
+indeximg OBJECT-TYPE
+    SYNTAX      Integer32 (1..32)
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+    "Index da imagem que origiou o container"
+    ::= { tableEntryContainershipContainer 3 }
+
+statuscontainer OBJECT-TYPE
+    SYNTAX      DisplayString
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+    "Estado do container"
+    ::= { tableEntryContainershipContainer 4 }
+
+percentageproc OBJECT-TYPE
+    SYNTAX      Integer32 (1..32)
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+    "Percentagem de utilizacao do processador desse container"
+    ::= { tableEntryContainershipContainer 5 }
+
+--
+--
+--
+--
+--
+--
+--
+--
+--
+--
+--
+-- top level structure
+--
+
+dateinic OBJECT-TYPE
+    SYNTAX      TimeTicks
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+    "Data de quando o sistema quando o agente foi iniciado"
+    ::= { containershipStatus 1 }
+END

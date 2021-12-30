@@ -1,0 +1,27 @@
+--exercicio1
+
+select (100 * preco_km) as "Preço total"
+From precario
+Where lim_inf <= 100 and lim_sup >= 100 
+
+--exercicio 2
+select cod_agencia,designacao, (select matricula
+                                from alugueres al1
+                                where ag.cod_agencia = al.agencia_entrada and
+                                        al.valor_kms = (select max(valor_kms)
+                                                        from alugueres al2
+                                                        where  al2.agencia_entrada = al.agencia_entrada)) as matricula
+from agencias ag
+
+--exercicio 3
+
+create view alugueres_iniciados_por_agencia_ (agencia, num_alugueres=
+    as select agencia_saida, count(*)
+        from alugueres
+        group by agencia_saida
+select a.desginacao, a.localizacao
+from agencia a, alugueres_iniciados_por_agencia aipa
+where a.cod_gencia = aipa.agencia and
+      aipa.num_alugueres = select max(num_alugueres)
+                           from alugueres_iniciados_por_agencia)
+

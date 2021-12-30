@@ -1,0 +1,8 @@
+delete from clientes 
+where num_cliente='300';
+
+delete from alojamentos 
+where num_alojamento='0000';
+
+delete from estadias
+where num_reserva='01';

@@ -1,0 +1,18 @@
+drop procedure if exists abrir_aluguer;
+DELIMITER @
+CREATE PROCEDURE abrir_aluguer(in mat char(8),cod_cl char(10),filial_exit char(1),ban decimal(5,2),ikms int)
+begin
+declare mat char(8);
+declare cod_cl char(10);
+declare filial_exit(1);
+declare ikms int;
+declare ban decimal(5,2);
+select matricula
+into mat from viaturas where viaturas.matricula=mat;
+select cod_cli into cod_cl from clientes where clientes.cod_cli=cod_cl;
+select cod_filial into filial_exit from filiais where cod_filial.filiais=filial_exit;
+select bandeirada into ban from viaturas where viaturas.matricula=mat;
+select kms_acumulados into ikms from viaturas where viaturas.matricula=mat;
+insert into alugueres values(max(num_aluguer+1),'mat',cod_cl,null,'filial_exit',null,band,null,now(),'ikms',null);
+end;
+@ delimiter ;

@@ -1,0 +1,33 @@
+{
+  "name": "lti2",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "luis araujo",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.0",
+    "http-status": "^1.3.2",
+    "jsonwebtoken": "^8.5.1",
+    "mysql": "^2.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.0"
+  },
+  "description": "lti2",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/luispedroaraujo/lti2-1819.git"
+  },
+  "bugs": {
+    "url": "https://github.com/luispedroaraujo/lti2-1819/issues"
+  },
+  "homepage": "https://github.com/luispedroaraujo/lti2-1819#readme"
+}

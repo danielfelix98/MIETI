@@ -1,0 +1,68 @@
+drop database if exists Lince;
+
+create database Lince;
+
+use ProjetoLince;
+
+create table tecnicos(
+    n_func          int auto_increment,
+    funcionario     varchar(30),
+    
+    primary key (n_func),
+    unique (funcionario)
+);
+
+create table linces(
+    id_lince    int auto_increment,
+    lince       varchar(10),
+    genero      char(1),
+    data_nasc   date,
+    data_obito  date,
+    id_pai      int,
+    id_mae      int,
+    
+    primary key (id_lince),
+    
+    constraint generos
+        check (genero in ("F", "M")),
+    
+    foreign key (id_pai)
+    references linces (id_lince),
+    
+    foreign key (id_mae)
+    references linces (id_lince)
+);
+
+create table localizacoes(
+    id_lince    int,
+    data        date,
+    hora        time,
+    latitude    decimal(10,8),
+    longitude   decimal(10,8),
+
+    primary key (id_lince, data, hora),
+    
+    foreign key (id_lince)
+    references linces (id_lince)
+);
+
+create table controlos(
+    id_lince        int,
+    data            date,
+    n_func          int ,
+    peso            decimal(3,1),
+    estado_saude    varchar(8),
+    
+    primary key (id_lince, data),
+    
+    foreign key (id_lince)
+    references linces (id_lince),
+    
+    foreign key (n_func)
+    references tecnicos (n_func),
+    
+    constraint estados_saude
+        check (estado_saude in ("saudavel", "doente"))
+);
+
+

@@ -1,0 +1,1769 @@
+node n1 {
+    type router
+    model router
+    network-config {
+	hostname n1
+	!
+	interface eth2
+	 ip address 10.4.0.1/16
+	!
+    }
+    canvas c1
+    iconcoords {643.0 208.0}
+    labelcoords {643.0 240.0}
+    interface-peer {eth2 n9}
+    interface-peer {eth0 n2}
+    interface-peer {eth1 n7}
+}
+
+node n2 {
+    type router
+    model router
+    network-config {
+	hostname n2
+	!
+	interface eth4
+	 ip address 10.2.0.1/16
+	!
+    }
+    canvas c1
+    iconcoords {1005.0 302.0}
+    labelcoords {1005.0 334.0}
+    interface-peer {eth4 n20}
+    interface-peer {eth1 n8}
+    interface-peer {eth3 n1}
+    interface-peer {eth0 n5}
+    interface-peer {eth2 n7}
+}
+
+node n3 {
+    type router
+    model router
+    network-config {
+	hostname n3
+	!
+	interface eth1
+	 ip address 10.1.0.13/30
+	!
+	interface eth0
+	 ip address 10.1.0.2/30
+	!
+    }
+    canvas c1
+    iconcoords {582.0 503.0}
+    labelcoords {582.0 535.0}
+    interface-peer {eth0 n4}
+    interface-peer {eth1 n5}
+    interface-peer {eth2 n7}
+    custom-config {
+	custom-config-id service:zebra
+	custom-command zebra
+	config {
+	files=('/usr/local/etc/quagga/Quagga.conf', 'quaggaboot.sh', '/usr/local/etc/quagga/vtysh.conf', )
+	}
+    }
+    custom-config {
+	custom-config-id service:zebra:/usr/local/etc/quagga/Quagga.conf
+	custom-command /usr/local/etc/quagga/Quagga.conf
+	config {
+	interface eth0
+	  ip address 10.1.0.2/30
+	 ip ospf authentication message-digest
+	 ip ospf message-digest-key 1 md5 net0area0
+	!
+	interface eth1
+	  ip address 10.1.0.13/30
+	 ip ospf authentication message-digest
+	 ip ospf message-digest-key 1 md5 net12area0
+	!
+	interface eth2
+	  
+	!
+	router ospf
+	  router-id 10.1.0.2
+	  network 10.1.0.0/30 area 0
+	  network 10.1.0.12/30 area 0
+	!
+	
+	}
+    }
+    services {zebra OSPFv2 vtysh IPForward}
+}
+
+node n4 {
+    type router
+    model router
+    network-config {
+	hostname n4
+	!
+	interface eth2
+	 ip address 10.1.0.5/30
+	!
+	interface eth3
+	 ip address 10.1.0.9/30
+	!
+	interface eth1
+	 ip address 10.1.0.1/30
+	!
+    }
+    canvas c1
+    iconcoords {262.0 502.0}
+    labelcoords {262.0 534.0}
+    interface-peer {eth0 n6}
+    interface-peer {eth1 n3}
+    interface-peer {eth3 n10}
+    interface-peer {eth2 n5}
+    custom-config {
+	custom-config-id service:zebra
+	custom-command zebra
+	config {
+	files=('/usr/local/etc/quagga/Quagga.conf', 'quaggaboot.sh', '/usr/local/etc/quagga/vtysh.conf', )
+	}
+    }
+    custom-config {
+	custom-config-id service:zebra:/usr/local/etc/quagga/Quagga.conf
+	custom-command /usr/local/etc/quagga/Quagga.conf
+	config {
+	interface eth0
+	  
+	  
+	!
+	interface eth1
+	  ip address 10.1.0.1/30
+	 ip ospf authentication message-digest
+	 ip ospf message-digest-key 1 md5 net0area0
+	  
+	!
+	interface eth2
+	  ip address 10.1.0.5/30
+	 ip ospf authentication message-digest
+	 ip ospf message-digest-key 1 md5 net4area0
+	  
+	!
+	interface eth3
+	  ip address 10.1.0.9/30
+	 ip ospf authentication message-digest
+	 ip ospf message-digest-key 1 md5 net8area0
+	  
+	!
+	router ospf
+	  router-id 10.1.0.1
+	  network 10.1.0.0/30 area 0
+	  network 10.1.0.4/30 area 0
+	  network 10.1.0.8/30 area 0
+	!
+	
+	}
+    }
+    services {zebra OSPFv2 vtysh IPForward}
+}
+
+node n5 {
+    type router
+    model router
+    network-config {
+	hostname n5
+	!
+	interface eth1
+	 ip address 10.1.0.14/30
+	!
+	interface eth5
+	 ip address 10.1.0.37/30
+	!
+	interface eth0
+	 ip address 10.1.0.6/30
+	!
+	interface eth4
+	 ip address 10.1.0.22/30
+	!
+    }
+    canvas c1
+    iconcoords {598.0 601.0}
+    labelcoords {598.0 633.0}
+    interface-peer {eth4 n12}
+    interface-peer {eth2 n2}
+    interface-peer {eth3 n8}
+    interface-peer {eth0 n4}
+    interface-peer {eth5 n24}
+    interface-peer {eth1 n3}
+    custom-config {
+	custom-config-id service:zebra
+	custom-command zebra
+	config {
+	files=('/usr/local/etc/quagga/Quagga.conf', 'quaggaboot.sh', '/usr/local/etc/quagga/vtysh.conf', )
+	}
+    }
+    custom-config {
+	custom-config-id service:zebra:/usr/local/etc/quagga/Quagga.conf
+	custom-command /usr/local/etc/quagga/Quagga.conf
+	config {
+	interface eth0
+	  ip address 10.1.0.6/30
+	 ip ospf authentication message-digest
+	 ip ospf message-digest-key 1 md5 net4area0
+	!
+	interface eth1
+	  ip address 10.1.0.14/30
+	 ip ospf authentication message-digest
+	 ip ospf message-digest-key 1 md5 net12area0
+	!
+	interface eth2
+	  
+	!
+	interface eth3
+	  
+	!
+	interface eth4
+	  ip address 10.1.0.22/30
+	 ip ospf authentication message-digest
+	 ip ospf message-digest-key 1 md5 net20area0
+	!
+	interface eth5
+	  ip address 10.1.0.37/30
+	  ip ospf authentication message-digest
+	  ip ospf message-digest-key 1 md5 net36area2
+	!
+	router ospf
+	  router-id 10.1.0.6
+	  network 10.1.0.4/30 area 0
+	  network 10.1.0.12/30 area 0
+	  network 10.1.0.20/30 area 0
+	  network 10.1.0.36/30 area 2
+	!
+	
+	}
+    }
+    services {zebra OSPFv2 vtysh IPForward}
+}
+
+node n6 {
+    type router
+    model router
+    network-config {
+	hostname n6
+	!
+	interface eth0
+	 ip address 10.3.255.1/30
+	!
+	interface eth2
+	 ip address 10.3.0.1/24
+	!
+    }
+    canvas c1
+    iconcoords {246.0 359.0}
+    labelcoords {246.0 391.0}
+    interface-peer {eth2 n22}
+    interface-peer {eth0 n7}
+    interface-peer {eth1 n4}
+}
+
+node n7 {
+    type router
+    model router
+    network-config {
+	hostname n7
+	!
+	interface eth0
+	 ip address 10.3.255.2/30
+	!
+	interface eth4
+	 ip address 10.3.1.1/24
+	!
+    }
+    canvas c1
+    iconcoords {282.0 235.0}
+    labelcoords {282.0 267.0}
+    interface-peer {eth4 n23}
+    interface-peer {eth0 n6}
+    interface-peer {eth3 n1}
+    interface-peer {eth2 n2}
+    interface-peer {eth1 n3}
+}
+
+node n8 {
+    type router
+    model router
+    network-config {
+	hostname n8
+	!
+    }
+    canvas c1
+    iconcoords {1110.0 619.0}
+    labelcoords {1110.0 651.0}
+    interface-peer {eth0 n2}
+    interface-peer {eth3 n31}
+    interface-peer {eth2 n30}
+    interface-peer {eth1 n5}
+}
+
+node n9 {
+    type lanswitch
+    network-config {
+	hostname n9
+	!
+    }
+    canvas c1
+    iconcoords {637.0 100.0}
+    labelcoords {637.0 124.0}
+    interface-peer {e0 n1}
+    interface-peer {e1 n11}
+    interface-peer {e2 n13}
+    interface-peer {e3 n14}
+}
+
+node n10 {
+    type router
+    model router
+    network-config {
+	hostname n10
+	!
+	interface eth2
+	 ip address 10.1.0.25/30
+	!
+	interface eth1
+	 ip address 10.1.0.17/30
+	!
+	interface eth0
+	 ip address 10.1.0.10/30
+	!
+    }
+    canvas c1
+    iconcoords {231.0 609.0}
+    labelcoords {231.0 641.0}
+    interface-peer {eth0 n4}
+    interface-peer {eth1 n12}
+    interface-peer {eth2 n27}
+    custom-config {
+	custom-config-id service:zebra
+	custom-command zebra
+	config {
+	files=('/usr/local/etc/quagga/Quagga.conf', 'quaggaboot.sh', '/usr/local/etc/quagga/vtysh.conf', )
+	}
+    }
+    custom-config {
+	custom-config-id service:zebra:/usr/local/etc/quagga/Quagga.conf
+	custom-command /usr/local/etc/quagga/Quagga.conf
+	config {
+	interface eth0
+	  ip address 10.1.0.10/30
+	 ip ospf authentication message-digest
+	 ip ospf message-digest-key 1 md5 net8area0
+	!
+	interface eth1
+	  ip address 10.1.0.17/30
+	 ip ospf authentication message-digest
+	 ip ospf message-digest-key 1 md5 net16area0
+	!
+	interface eth2
+	  ip address 10.1.0.25/30
+	 ip ospf authentication message-digest
+	 ip ospf message-digest-key 1 md5 net24area1
+	!
+	router ospf
+	  router-id 10.1.0.10
+	  network 10.1.0.8/30 area 0
+	  network 10.1.0.16/30 area 0
+	  network 10.1.0.24/30 area 1
+	!
+	
+	}
+    }
+    services {zebra OSPFv2 vtysh IPForward}
+}
+
+node n11 {
+    type router
+    model PC
+    network-config {
+	hostname n11
+	!
+	interface eth0
+	 ip address 10.4.0.2/16
+	!
+    }
+    canvas c1
+    iconcoords {482.0 144.0}
+    labelcoords {482.0 176.0}
+    interface-peer {eth0 n9}
+}
+
+node n12 {
+    type router
+    model router
+    network-config {
+	hostname n12
+	!
+	interface eth1
+	 ip address 10.1.0.18/30
+	!
+	interface eth0
+	 ip address 10.1.0.21/30
+	!
+    }
+    canvas c1
+    iconcoords {426.0 630.0}
+    labelcoords {426.0 662.0}
+    interface-peer {eth0 n5}
+    interface-peer {eth1 n10}
+    custom-config {
+	custom-config-id service:zebra
+	custom-command zebra
+	config {
+	files=('/usr/local/etc/quagga/Quagga.conf', 'quaggaboot.sh', '/usr/local/etc/quagga/vtysh.conf', )
+	}
+    }
+    custom-config {
+	custom-config-id service:zebra:/usr/local/etc/quagga/Quagga.conf
+	custom-command /usr/local/etc/quagga/Quagga.conf
+	config {
+	interface eth0
+	  ip address 10.1.0.21/30
+	 ip ospf authentication message-digest
+	 ip ospf message-digest-key 1 md5 net20area0
+	  
+	!
+	interface eth1
+	  ip address 10.1.0.18/30
+	 ip ospf authentication message-digest
+	 ip ospf message-digest-key 1 md5 net16area0
+	  
+	!
+	router ospf
+	  router-id 10.1.0.21
+	  network 10.1.0.20/30 area 0
+	  network 10.1.0.16/30 area 0
+	!
+	
+	}
+    }
+    services {zebra OSPFv2 vtysh IPForward}
+}
+
+node n13 {
+    type router
+    model PC
+    network-config {
+	hostname n13
+	!
+	interface eth0
+	 ip address 10.4.0.3/16
+	!
+    }
+    canvas c1
+    iconcoords {513.0 36.0}
+    labelcoords {513.0 68.0}
+    interface-peer {eth0 n9}
+}
+
+node n14 {
+    type router
+    model PC
+    network-config {
+	hostname n14
+	!
+	interface eth0
+	 ip address 10.4.0.4/16
+	!
+    }
+    canvas c1
+    iconcoords {740.0 52.0}
+    labelcoords {740.0 84.0}
+    interface-peer {eth0 n9}
+}
+
+node n15 {
+    type router
+    model PC
+    network-config {
+	hostname n15
+	!
+	interface eth0
+	 ip address 10.3.1.2/24
+	!
+    }
+    canvas c1
+    iconcoords {63.0 211.0}
+    labelcoords {63.0 243.0}
+    interface-peer {eth0 n23}
+}
+
+node n16 {
+    type router
+    model PC
+    network-config {
+	hostname n16
+	!
+	interface eth0
+	 ip address 10.2.0.3/16
+	!
+    }
+    canvas c1
+    iconcoords {1183.0 139.0}
+    labelcoords {1183.0 171.0}
+    interface-peer {eth0 n20}
+}
+
+node n17 {
+    type router
+    model PC
+    network-config {
+	hostname n17
+	!
+	interface eth0
+	 ip address 10.2.0.3/16
+	!
+    }
+    canvas c1
+    iconcoords {1186.0 319.0}
+    labelcoords {1186.0 351.0}
+    interface-peer {eth0 n20}
+}
+
+node n18 {
+    type router
+    model PC
+    network-config {
+	hostname n18
+	!
+	interface eth0
+	 ip address 10.3.0.3/24
+	!
+    }
+    canvas c1
+    iconcoords {43.0 323.0}
+    labelcoords {43.0 355.0}
+    interface-peer {eth0 n22}
+}
+
+node n19 {
+    type router
+    model PC
+    network-config {
+	hostname n19
+	!
+	interface eth0
+	 ip address 10.2.0.2/16
+	!
+    }
+    canvas c1
+    iconcoords {929.0 140.0}
+    labelcoords {929.0 172.0}
+    interface-peer {eth0 n20}
+}
+
+node n20 {
+    type lanswitch
+    network-config {
+	hostname n20
+	!
+    }
+    canvas c1
+    iconcoords {1080.0 230.0}
+    labelcoords {1080.0 254.0}
+    interface-peer {e0 n19}
+    interface-peer {e1 n16}
+    interface-peer {e2 n17}
+    interface-peer {e3 n2}
+}
+
+node n21 {
+    type router
+    model PC
+    network-config {
+	hostname n21
+	!
+	interface eth0
+	 ip address 10.3.0.2/24
+	!
+    }
+    canvas c1
+    iconcoords {60.0 385.0}
+    labelcoords {60.0 417.0}
+    interface-peer {eth0 n22}
+}
+
+node n22 {
+    type lanswitch
+    network-config {
+	hostname n22
+	!
+    }
+    canvas c1
+    iconcoords {163.0 315.0}
+    labelcoords {163.0 339.0}
+    interface-peer {e0 n21}
+    interface-peer {e1 n18}
+    interface-peer {e2 n6}
+}
+
+node n23 {
+    type lanswitch
+    network-config {
+	hostname n23
+	!
+    }
+    canvas c1
+    iconcoords {152.0 272.0}
+    labelcoords {152.0 296.0}
+    interface-peer {e0 n15}
+    interface-peer {e1 n7}
+}
+
+node n24 {
+    type router
+    model router
+    network-config {
+	hostname n24
+	!
+	interface eth0
+	 ip address 10.1.0.38/30
+	!
+	interface eth2
+	 ip address 10.1.0.41/30
+	!
+	interface eth1
+	 ip address 10.1.0.45/30
+	!
+    }
+    canvas c1
+    iconcoords {630.0 710.0}
+    labelcoords {630.0 742.0}
+    interface-peer {eth1 n25}
+    interface-peer {eth2 n26}
+    interface-peer {eth0 n5}
+    custom-config {
+	custom-config-id service:zebra
+	custom-command zebra
+	config {
+	files=('/usr/local/etc/quagga/Quagga.conf', 'quaggaboot.sh', '/usr/local/etc/quagga/vtysh.conf', )
+	}
+    }
+    custom-config {
+	custom-config-id service:zebra:/usr/local/etc/quagga/Quagga.conf
+	custom-command /usr/local/etc/quagga/Quagga.conf
+	config {
+	interface eth0
+	  ip address 10.1.0.38/30
+	 ip ospf authentication message-digest
+	 ip ospf message-digest-key 1 md5 net36area2
+	!
+	interface eth1
+	  ip address 10.1.0.45/30
+	 ip ospf authentication message-digest
+	 ip ospf message-digest-key 1 md5 net44area2
+	!
+	interface eth2
+	  ip address 10.1.0.41/30
+	 ip ospf authentication message-digest
+	 ip ospf message-digest-key 40 md5 net40area2
+	!
+	router ospf
+	  router-id 10.1.0.38
+	  network 10.1.0.36/30 area 2
+	  network 10.1.0.44/30 area 2
+	  network 10.1.0.40/30 area 2
+	!
+	
+	}
+    }
+    services {zebra OSPFv2 vtysh IPForward}
+}
+
+node n25 {
+    type router
+    model router
+    network-config {
+	hostname n25
+	!
+	interface eth0
+	 ip address 10.1.0.46/30
+	!
+	interface eth1
+	 ip address 10.1.4.1/24
+	!
+    }
+    canvas c1
+    iconcoords {812.0 699.0}
+    labelcoords {812.0 731.0}
+    interface-peer {eth1 n38}
+    interface-peer {eth0 n24}
+    custom-config {
+	custom-config-id service:zebra
+	custom-command zebra
+	config {
+	files=('/usr/local/etc/quagga/Quagga.conf', 'quaggaboot.sh', '/usr/local/etc/quagga/vtysh.conf', )
+	}
+    }
+    custom-config {
+	custom-config-id service:zebra:/usr/local/etc/quagga/Quagga.conf
+	custom-command /usr/local/etc/quagga/Quagga.conf
+	config {
+	interface eth0
+	  ip address 10.1.0.46/30
+	
+	 ip ospf authentication message-digest
+	 ip ospf message-digest-key 1 md5 net44area2
+	!
+	interface eth1
+	  ip address 10.1.4.1/24
+	
+	 ip ospf authentication message-digest
+	 ip ospf message-digest-key 1 md5 net0area2
+	!
+	router ospf
+	  router-id 10.1.0.46
+	  network 10.1.0.44/30 area 2
+	  network 10.1.4.0/24 area 2
+	!
+	
+	}
+    }
+    services {zebra OSPFv2 vtysh IPForward}
+}
+
+node n26 {
+    type router
+    model router
+    network-config {
+	hostname n26
+	!
+	interface eth0
+	 ip address 10.1.0.42/30
+	!
+	interface eth1
+	 ip address 10.1.3.1/24
+	!
+    }
+    canvas c1
+    iconcoords {511.0 758.0}
+    labelcoords {511.0 790.0}
+    interface-peer {eth1 n37}
+    interface-peer {eth0 n24}
+    custom-config {
+	custom-config-id service:zebra
+	custom-command zebra
+	config {
+	files=('/usr/local/etc/quagga/Quagga.conf', 'quaggaboot.sh', '/usr/local/etc/quagga/vtysh.conf', )
+	}
+    }
+    custom-config {
+	custom-config-id service:zebra:/usr/local/etc/quagga/Quagga.conf
+	custom-command /usr/local/etc/quagga/Quagga.conf
+	config {
+	interface eth0
+	  ip address 10.1.0.42/30
+	 ip ospf authentication message-digest
+	 ip ospf message-digest-key 1 md5 net40area2
+	!
+	interface eth1
+	  ip address 10.1.3.1/24
+	 ip ospf authentication message-digest
+	 ip ospf message-digest-key 1 md5 net0area2
+	!
+	router ospf
+	  router-id 10.1.0.42
+	  network 10.1.0.40/30 area 2
+	  network 10.1.3.0/24 area 2
+	!
+	
+	}
+    }
+    services {zebra OSPFv2 vtysh IPForward}
+}
+
+node n27 {
+    type router
+    model router
+    network-config {
+	hostname n27
+	!
+	interface eth0
+	 ip address 10.1.0.26/30
+	!
+	interface eth1
+	 ip address 10.1.0.33/30
+	!
+	interface eth2
+	 ip address 10.1.0.29/30
+	!
+    }
+    canvas c1
+    iconcoords {219.0 782.0}
+    labelcoords {219.0 814.0}
+    interface-peer {eth2 n29}
+    interface-peer {eth1 n28}
+    interface-peer {eth0 n10}
+    custom-config {
+	custom-config-id service:zebra
+	custom-command zebra
+	config {
+	files=('/usr/local/etc/quagga/Quagga.conf', 'quaggaboot.sh', '/usr/local/etc/quagga/vtysh.conf', )
+	}
+    }
+    custom-config {
+	custom-config-id service:zebra:/usr/local/etc/quagga/Quagga.conf
+	custom-command /usr/local/etc/quagga/Quagga.conf
+	config {
+	interface eth0
+	  ip address 10.1.0.26/30
+	  ip ospf authentication message-digest
+	  ip ospf message-digest-key 1 md5 net24area1
+	!
+	interface eth1
+	  ip address 10.1.0.33/30
+	  ip ospf authentication message-digest
+	  ip ospf message-digest-key 1 md5 net32area1
+	!
+	interface eth2
+	 ip address 10.1.0.29/30
+	 ip ospf authentication message-digest
+	 ip ospf message-digest-key 1 md5 net28area1
+	!
+	router ospf
+	  router-id 10.1.0.26
+	  network 10.1.0.24/30 area 1
+	  network 10.1.0.28/30 area 1
+	  network 10.1.0.32/30 area 1
+	
+	!
+	
+	}
+    }
+    services {zebra OSPFv2 vtysh IPForward}
+}
+
+node n28 {
+    type router
+    model router
+    network-config {
+	hostname n28
+	!
+	interface eth0
+	 ip address 10.1.0.34/30
+	!
+	interface eth1
+	 ip address 10.1.2.1/30
+	!
+    }
+    canvas c1
+    iconcoords {348.0 701.0}
+    labelcoords {348.0 733.0}
+    interface-peer {eth1 n36}
+    interface-peer {eth0 n27}
+    custom-config {
+	custom-config-id service:zebra
+	custom-command zebra
+	config {
+	files=('/usr/local/etc/quagga/Quagga.conf', 'quaggaboot.sh', '/usr/local/etc/quagga/vtysh.conf', )
+	}
+    }
+    custom-config {
+	custom-config-id service:zebra:/usr/local/etc/quagga/Quagga.conf
+	custom-command /usr/local/etc/quagga/Quagga.conf
+	config {
+	interface eth0
+	  ip address 10.1.0.34/30
+	  ip ospf authentication message-digest
+	  ip ospf message-digest-key 1 md5 net32area1
+	!
+	interface eth1
+	  ip address 10.1.2.1/30
+	 ip ospf authentication message-digest
+	 ip ospf message-digest-key 1 md5 net0area1
+	!
+	router ospf
+	  router-id 10.1.0.34
+	  network 10.1.0.32/30 area 1
+	  network 10.1.2.0/30 area 1
+	!
+	
+	}
+    }
+    services {zebra OSPFv2 vtysh IPForward}
+}
+
+node n29 {
+    type router
+    model router
+    network-config {
+	hostname n29
+	!
+	interface eth0
+	 ip address 10.1.0.30/30
+	!
+	interface eth1
+	 ip address 10.1.1.1/24
+	!
+    }
+    canvas c1
+    iconcoords {79.0 731.0}
+    labelcoords {79.0 763.0}
+    interface-peer {eth1 n35}
+    interface-peer {eth0 n27}
+    custom-config {
+	custom-config-id service:zebra
+	custom-command zebra
+	config {
+	files=('/usr/local/etc/quagga/Quagga.conf', 'quaggaboot.sh', '/usr/local/etc/quagga/vtysh.conf', )
+	}
+    }
+    custom-config {
+	custom-config-id service:zebra:/usr/local/etc/quagga/Quagga.conf
+	custom-command /usr/local/etc/quagga/Quagga.conf
+	config {
+	
+	interface eth0
+	  ip address 10.1.0.30/30
+	  ip ospf authentication message-digest
+	  ip ospf message-digest-key 1 md5 net28area1
+	  !
+	
+	interface eth1
+	  ip address 10.1.1.1/24
+	 ip ospf authentication message-digest
+	 ip ospf message-digest-key 1 md5 net0area1
+	  !ipv6 nd suppress-ra
+	!
+	interface lo
+	!
+	router ospf
+	  router-id 10.1.0.30
+	  network 10.1.0.28/30 area 1
+	  network 10.1.1.0/24 area 1
+	!
+	
+	!area 1 authentication
+	}
+    }
+    services {zebra OSPFv2 vtysh IPForward}
+}
+
+node n30 {
+    type router
+    model router
+    network-config {
+	hostname n30
+	!
+    }
+    canvas c1
+    iconcoords {1014.0 710.0}
+    labelcoords {1014.0 742.0}
+    interface-peer {eth2 n32}
+    interface-peer {eth1 n31}
+    interface-peer {eth0 n8}
+}
+
+node n31 {
+    type router
+    model router
+    network-config {
+	hostname n31
+	!
+    }
+    canvas c1
+    iconcoords {1355.0 691.0}
+    labelcoords {1355.0 723.0}
+    interface-peer {eth1 n8}
+    interface-peer {eth0 n30}
+}
+
+node n32 {
+    type router
+    model router
+    network-config {
+	hostname n32
+	!
+    }
+    canvas c1
+    iconcoords {1009.0 907.0}
+    labelcoords {1009.0 939.0}
+    interface-peer {eth0 n30}
+}
+
+node n33 {
+    type router
+    model router
+    network-config {
+	hostname n33
+	!
+    }
+    canvas c1
+    iconcoords {1100.0 865.0}
+    labelcoords {1100.0 897.0}
+}
+
+node n34 {
+    type router
+    model router
+    network-config {
+	hostname n34
+	!
+    }
+    canvas c1
+    iconcoords {1236.0 856.0}
+    labelcoords {1236.0 888.0}
+}
+
+node n35 {
+    type lanswitch
+    network-config {
+	hostname n35
+	!
+    }
+    canvas c1
+    iconcoords {78.0 823.0}
+    labelcoords {78.0 847.0}
+    interface-peer {e0 n47}
+    interface-peer {e1 n39}
+    interface-peer {e2 n40}
+    interface-peer {e3 n29}
+}
+
+node n36 {
+    type lanswitch
+    network-config {
+	hostname n36
+	!
+    }
+    canvas c1
+    iconcoords {343.0 798.0}
+    labelcoords {343.0 822.0}
+    interface-peer {e0 n41}
+    interface-peer {e1 n42}
+    interface-peer {e2 n48}
+    interface-peer {e3 n28}
+}
+
+node n37 {
+    type lanswitch
+    network-config {
+	hostname n37
+	!
+    }
+    canvas c1
+    iconcoords {587.0 857.0}
+    labelcoords {587.0 881.0}
+    interface-peer {e0 n26}
+    interface-peer {e1 n44}
+    interface-peer {e2 n43}
+    interface-peer {e3 n49}
+}
+
+node n38 {
+    type lanswitch
+    network-config {
+	hostname n38
+	!
+    }
+    canvas c1
+    iconcoords {810.0 795.0}
+    labelcoords {810.0 819.0}
+    interface-peer {e0 n46}
+    interface-peer {e1 n50}
+    interface-peer {e2 n45}
+    interface-peer {e3 n25}
+}
+
+node n39 {
+    type router
+    model PC
+    network-config {
+	hostname n39
+	!
+    }
+    canvas c1
+    iconcoords {62.0 939.0}
+    labelcoords {62.0 971.0}
+    interface-peer {eth0 n35}
+    services {DefaultRoute DHCPClient}
+}
+
+node n40 {
+    type router
+    model PC
+    network-config {
+	hostname n40
+	!
+    }
+    canvas c1
+    iconcoords {123.0 945.0}
+    labelcoords {123.0 977.0}
+    interface-peer {eth0 n35}
+    services {DefaultRoute DHCPClient}
+}
+
+node n41 {
+    type router
+    model PC
+    network-config {
+	hostname n41
+	!
+    }
+    canvas c1
+    iconcoords {241.0 943.0}
+    labelcoords {241.0 975.0}
+    interface-peer {eth0 n36}
+    services {DefaultRoute DHCPClient}
+}
+
+node n42 {
+    type router
+    model PC
+    network-config {
+	hostname n42
+	!
+    }
+    canvas c1
+    iconcoords {320.0 935.0}
+    labelcoords {320.0 967.0}
+    interface-peer {eth0 n36}
+    services {DefaultRoute DHCPClient}
+}
+
+node n43 {
+    type router
+    model PC
+    network-config {
+	hostname n43
+	!
+    }
+    canvas c1
+    iconcoords {510.0 929.0}
+    labelcoords {510.0 961.0}
+    interface-peer {eth0 n37}
+    services {DefaultRoute DHCPClient}
+}
+
+node n44 {
+    type router
+    model PC
+    network-config {
+	hostname n44
+	!
+    }
+    canvas c1
+    iconcoords {563.0 934.0}
+    labelcoords {563.0 966.0}
+    interface-peer {eth0 n37}
+    services {DefaultRoute DHCPClient}
+}
+
+node n45 {
+    type router
+    model PC
+    network-config {
+	hostname n45
+	!
+    }
+    canvas c1
+    iconcoords {837.0 899.0}
+    labelcoords {837.0 931.0}
+    interface-peer {eth0 n38}
+    services {DefaultRoute DHCPClient}
+}
+
+node n46 {
+    type router
+    model PC
+    network-config {
+	hostname n46
+	!
+    }
+    canvas c1
+    iconcoords {781.0 946.0}
+    labelcoords {781.0 978.0}
+    interface-peer {eth0 n38}
+    services {DefaultRoute DHCPClient}
+}
+
+node n47 {
+    type router
+    model host
+    network-config {
+	hostname n47
+	!
+	interface eth0
+	 ip address 10.1.1.2/24
+	!
+    }
+    canvas c1
+    iconcoords {196.0 911.0}
+    labelcoords {196.0 943.0}
+    interface-peer {eth0 n35}
+    custom-config {
+	custom-config-id service:DHCP:/etc/dhcp/dhcpd.conf
+	custom-command /etc/dhcp/dhcpd.conf
+	config {
+	# auto-generated by DHCP service (utility.py)
+	# NOTE: move these option lines into the desired pool { } block(s) below
+	#option domain-name "test.com";
+	#option domain-name-servers 10.0.0.1;
+	#option routers 10.0.0.1;
+	
+	log-facility local6;
+	
+	default-lease-time 600;
+	max-lease-time 7200;
+	
+	ddns-update-style none;
+	
+	subnet 10.1.1.0 netmask 255.255.255.0 {
+	  pool {
+	    range 10.1.1.3 10.1.1.254;
+	    default-lease-time 600;
+	    option routers 10.1.1.1;
+	  }
+	}
+	
+	
+	}
+    }
+    custom-config {
+	custom-config-id service:DHCP
+	custom-command DHCP
+	config {
+	dirs=('/etc/dhcp',)
+	files=('/etc/dhcp/dhcpd.conf',)
+	startidx=80
+	cmdup=('dhcpd',)
+	cmddown=('killall dhcpd',)
+	cmdval=('pidof dhcpd',)
+	meta=
+	starttime=
+	}
+    }
+    services {DefaultRoute DHCP}
+}
+
+node n48 {
+    type router
+    model host
+    network-config {
+	hostname n48
+	!
+	interface eth0
+	 ip address 10.1.2.2/24
+	!
+    }
+    canvas c1
+    iconcoords {370.0 895.0}
+    labelcoords {370.0 927.0}
+    interface-peer {eth0 n36}
+    custom-config {
+	custom-config-id service:DHCP:/etc/dhcp/dhcpd.conf
+	custom-command /etc/dhcp/dhcpd.conf
+	config {
+	# auto-generated by DHCP service (utility.py)
+	# NOTE: move these option lines into the desired pool { } block(s) below
+	#option domain-name "test.com";
+	#option domain-name-servers 10.0.0.1;
+	#option routers 10.0.0.1;
+	
+	log-facility local6;
+	
+	default-lease-time 600;
+	max-lease-time 7200;
+	
+	ddns-update-style none;
+	
+	subnet 10.1.2.0 netmask 255.255.255.0 {
+	  pool {
+	    range 10.1.2.3 10.1.2.254;
+	    default-lease-time 600;
+	    option routers 10.1.2.1;
+	  }
+	}
+	
+	
+	}
+    }
+    custom-config {
+	custom-config-id service:DHCP
+	custom-command DHCP
+	config {
+	dirs=('/etc/dhcp',)
+	files=('/etc/dhcp/dhcpd.conf',)
+	startidx=80
+	cmdup=('dhcpd',)
+	cmddown=('killall dhcpd',)
+	cmdval=('pidof dhcpd',)
+	meta=
+	starttime=
+	}
+    }
+    services {DefaultRoute DHCP}
+}
+
+node n49 {
+    type router
+    model host
+    network-config {
+	hostname n49
+	!
+	interface eth0
+	 ip address 10.1.3.2/24
+	!
+    }
+    canvas c1
+    iconcoords {655.0 938.0}
+    labelcoords {655.0 970.0}
+    interface-peer {eth0 n37}
+    custom-config {
+	custom-config-id service:DHCP:/etc/dhcp/dhcpd.conf
+	custom-command /etc/dhcp/dhcpd.conf
+	config {
+	# auto-generated by DHCP service (utility.py)
+	# NOTE: move these option lines into the desired pool { } block(s) below
+	#option domain-name "test.com";
+	#option domain-name-servers 10.0.0.1;
+	#option routers 10.0.0.1;
+	
+	log-facility local6;
+	
+	default-lease-time 600;
+	max-lease-time 7200;
+	
+	ddns-update-style none;
+	
+	subnet 10.1.3.0 netmask 255.255.255.0 {
+	  pool {
+	    range 10.1.3.2 10.1.3.254;
+	    default-lease-time 600;
+	    option routers 10.1.3.1;
+	  }
+	}
+	
+	
+	}
+    }
+    custom-config {
+	custom-config-id service:DHCP
+	custom-command DHCP
+	config {
+	dirs=('/etc/dhcp',)
+	files=('/etc/dhcp/dhcpd.conf',)
+	startidx=80
+	cmdup=('dhcpd',)
+	cmddown=('killall dhcpd',)
+	cmdval=('pidof dhcpd',)
+	meta=
+	starttime=
+	}
+    }
+    services {DefaultRoute DHCP}
+}
+
+node n50 {
+    type router
+    model host
+    network-config {
+	hostname n50
+	!
+	interface eth0
+	 ip address 10.1.4.2/24
+	!
+    }
+    canvas c1
+    iconcoords {697.0 866.0}
+    labelcoords {697.0 898.0}
+    interface-peer {eth0 n38}
+    custom-config {
+	custom-config-id service:DHCP:/etc/dhcp/dhcpd.conf
+	custom-command /etc/dhcp/dhcpd.conf
+	config {
+	# auto-generated by DHCP service (utility.py)
+	# NOTE: move these option lines into the desired pool { } block(s) below
+	#option domain-name "test.com";
+	#option domain-name-servers 10.0.0.1;
+	#option routers 10.0.0.1;
+	
+	log-facility local6;
+	
+	default-lease-time 600;
+	max-lease-time 7200;
+	
+	ddns-update-style none;
+	
+	subnet 10.1.4.0 netmask 255.255.255.0 {
+	  pool {
+	    range 10.1.4.3 10.1.4.254;
+	    default-lease-time 600;
+	    option routers 10.1.4.1;
+	  }
+	}
+	
+	
+	}
+    }
+    custom-config {
+	custom-config-id service:DHCP
+	custom-command DHCP
+	config {
+	dirs=('/etc/dhcp',)
+	files=('/etc/dhcp/dhcpd.conf',)
+	startidx=80
+	cmdup=('dhcpd',)
+	cmddown=('killall dhcpd',)
+	cmdval=('pidof dhcpd',)
+	meta=
+	starttime=
+	}
+    }
+    services {DefaultRoute DHCP}
+}
+
+link l1 {
+    nodes {n9 n1}
+}
+
+link l2 {
+    nodes {n9 n11}
+}
+
+link l3 {
+    nodes {n9 n13}
+}
+
+link l4 {
+    nodes {n9 n14}
+}
+
+link l5 {
+    nodes {n20 n19}
+}
+
+link l6 {
+    nodes {n20 n16}
+}
+
+link l7 {
+    nodes {n20 n17}
+}
+
+link l8 {
+    nodes {n20 n2}
+}
+
+link l9 {
+    nodes {n22 n21}
+}
+
+link l10 {
+    nodes {n22 n18}
+}
+
+link l11 {
+    nodes {n22 n6}
+}
+
+link l12 {
+    nodes {n23 n15}
+}
+
+link l13 {
+    nodes {n23 n7}
+}
+
+link l14 {
+    nodes {n35 n47}
+}
+
+link l15 {
+    nodes {n35 n39}
+}
+
+link l16 {
+    nodes {n35 n40}
+}
+
+link l17 {
+    nodes {n35 n29}
+}
+
+link l18 {
+    nodes {n36 n41}
+}
+
+link l19 {
+    nodes {n36 n42}
+}
+
+link l20 {
+    nodes {n36 n48}
+}
+
+link l21 {
+    nodes {n36 n28}
+}
+
+link l22 {
+    nodes {n37 n26}
+}
+
+link l23 {
+    nodes {n37 n44}
+}
+
+link l24 {
+    nodes {n37 n43}
+}
+
+link l25 {
+    nodes {n37 n49}
+}
+
+link l26 {
+    nodes {n38 n46}
+}
+
+link l27 {
+    nodes {n38 n50}
+}
+
+link l28 {
+    nodes {n38 n45}
+}
+
+link l29 {
+    nodes {n38 n25}
+}
+
+link l30 {
+    nodes {n2 n8}
+}
+
+link l31 {
+    nodes {n30 n32}
+}
+
+link l32 {
+    nodes {n2 n1}
+}
+
+link l33 {
+    nodes {n6 n7}
+}
+
+link l34 {
+    nodes {n27 n29}
+}
+
+link l35 {
+    nodes {n27 n28}
+}
+
+link l36 {
+    nodes {n31 n8}
+}
+
+link l37 {
+    nodes {n6 n4}
+}
+
+link l38 {
+    nodes {n5 n12}
+}
+
+link l39 {
+    nodes {n24 n25}
+}
+
+link l40 {
+    nodes {n7 n1}
+}
+
+link l41 {
+    nodes {n30 n31}
+}
+
+link l42 {
+    nodes {n5 n2}
+}
+
+link l43 {
+    nodes {n4 n3}
+}
+
+link l44 {
+    nodes {n24 n26}
+}
+
+link l45 {
+    nodes {n4 n10}
+}
+
+link l46 {
+    nodes {n8 n30}
+}
+
+link l47 {
+    nodes {n10 n12}
+}
+
+link l48 {
+    nodes {n5 n8}
+}
+
+link l49 {
+    nodes {n10 n27}
+}
+
+link l50 {
+    nodes {n7 n2}
+}
+
+link l51 {
+    nodes {n4 n5}
+}
+
+link l52 {
+    nodes {n5 n24}
+}
+
+link l53 {
+    nodes {n5 n3}
+}
+
+link l54 {
+    nodes {n3 n7}
+}
+
+annotation a7 {
+    iconcoords {477.0 655.0 866.0 988.0}
+    type rectangle
+    label {ospf area 2}
+    labelcolor black
+    fontfamily {Arial}
+    fontsize {12}
+    color #c0e9ac
+    width 2
+    border black
+    rad 25
+    canvas c1
+}
+
+annotation a6 {
+    iconcoords {30 658 392 979}
+    type rectangle
+    label {ospf area 1}
+    labelcolor black
+    fontfamily {Arial}
+    fontsize {12}
+    color #c0eed4
+    width 2
+    border black
+    rad 25
+    canvas c1
+}
+
+annotation a5 {
+    iconcoords {19.0 430.0 866.0 988.0}
+    type rectangle
+    label {AS 65100}
+    labelcolor black
+    fontfamily {Arial}
+    fontsize {12}
+    color #c0f9ff
+    width 2
+    border black
+    rad 25
+    canvas c1
+}
+
+annotation a4 {
+    iconcoords {2 171 335 419}
+    type rectangle
+    label {AS 65300}
+    labelcolor black
+    fontfamily {Arial}
+    fontsize {12}
+    color #c0e0b9
+    width 2
+    border #000800
+    rad 25
+    canvas c1
+}
+
+annotation a3 {
+    iconcoords {900 559 1483 972}
+    type rectangle
+    label {AS 65000}
+    labelcolor black
+    fontfamily {Arial}
+    fontsize {12}
+    color #ffcb0b
+    width 2
+    border #000000
+    rad 25
+    canvas c1
+}
+
+annotation a2 {
+    iconcoords {883.0 93.0 1242.0 381.0}
+    type rectangle
+    label {AS 65200}
+    labelcolor black
+    fontfamily {Arial}
+    fontsize {12}
+    color #c0cbd8
+    width 2
+    border #000000
+    rad 25
+    canvas c1
+}
+
+annotation a1 {
+    iconcoords {425.0 2.0 840.0 269.0}
+    type rectangle
+    label {AS 65400}
+    labelcolor black
+    fontfamily {Arial}
+    fontsize {12}
+    color #c0dcff
+    width 2
+    border #000000
+    rad 25
+    canvas c1
+}
+
+annotation a8 {
+    iconcoords {187.0 465.0 642.0 655.0}
+    type rectangle
+    label {ospf area 0}
+    labelcolor black
+    fontfamily {Arial}
+    fontsize {12}
+    color #d0d496
+    width 2
+    border black
+    rad 25
+    canvas c1
+}
+
+canvas c1 {
+    name {Canvas1}
+    refpt {0 0 47.5791667 -122.132322 2.0}
+    scale {150.0}
+    size {1500 1000}
+}
+
+option global {
+    interface_names yes
+    ip_addresses yes
+    ipv6_addresses yes
+    node_labels yes
+    link_labels yes
+    show_api no
+    background_images no
+    annotations yes
+    grid yes
+    traffic_start 0
+}
+
+option session {
+    controlnet=
+    enablerj45=1
+    enablesdt=0
+    preservedir=0
+}
+

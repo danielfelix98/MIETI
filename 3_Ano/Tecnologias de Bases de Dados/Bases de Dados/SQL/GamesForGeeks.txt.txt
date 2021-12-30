@@ -1,0 +1,171 @@
+drop database if exists GamesForGeeks; 
+
+create database GamesForGeeks; 
+
+use GamesForGeeks;
+
+ 
+create table clientes (
+    num_cliente int primary key,
+    nome varchar(20),
+    morada varchar(20),
+    nif varchar(20) not null,
+    data_nasc date,
+    data_insc date,
+    unique(nome)
+    );
+
+create table editoras (
+    cod_editora varchar(10) primary key, 
+    designacao varchar(10)
+    );
+
+create table jogos (
+    cod_jogo varchar(10) primary key,
+    titulo varchar(20),
+    cod_editora varchar(10),
+    preco_aluguer double,
+    multa_diaria double
+    );
+    
+create table exemplares (
+    num_exemplar int primary key, 
+    cod_jogo varchar(10),
+    consola varchar(10),
+    data_compra date,
+    preco_compra double,
+    foreign key (cod_jogo)
+    references jogos (cod_jogo)
+    on update cascade 
+    on delete restrict 
+    );
+    
+create table alugueres (
+    num_aluguer int primary key, 
+    num_cliente int,
+    cod_jogo varchar(10),
+    num_exemplar int,
+    data_aluguer date,
+    data_entrega date,
+    preco double,
+    multa double,
+    foreign key (num_cliente)
+    references clientes (num_cliente),
+    foreign key (cod_jogo)
+    references jogos (cod_jogo),
+    foreign key (num_exemplar)
+    references exemplares (num_exemplar)
+    on update cascade 
+    on delete restrict 
+    ); 
+
+insert into clientes 
+     values (123, "Pedro Alves", "Guimaraes", "23214312", "1998-10-29", "2016-03-13");   
+              
+insert into editoras 
+     values ("XPTO", "empresa");   
+     
+insert into jogos 
+    values ("X123", "HORIZON", "XPTO", 15.50, 2.00);
+    
+insert into exemplares 
+    values (234, "X123", "XBOX", "2016-03-17", 50.70),
+           (173, "X123", "PS4", "2016-03-18", 45.70);
+ 
+insert into alugueres 
+    values (7, 123, "X123", 234, "2016-03-26", "2016-04-12", 17.00, 3.40);
+      
+commit;
+
+
+-- Q1 (jogos com exemplares para XBOX)
+Select j.cod_jogo, j.titulo, e.num_exemplar
+From jogos j, exemplares e
+Where e.consola = "XBOX" and e.cod_jogo = j.cod_jogo and (e.cod_jogo, e.num_exemplar) not in (select cod_jogo, num_exemplar
+                                                                                              from alugueres 
+                                                                                              where data_entrega is null)
+                                                                                              
+
+-- Q2 (jogos com exemplares para PS4 e numero de exemplares)
+Select j.cod_jogo, j.titulo, count(*)
+From jogos j, exemplares e
+Where e.consola = "PS4" and e.cod_jogo = j.cod_jogo 
+group by j.cod_jogo
+
+
+
+
+-- Q3 (numero de exemplares para as diversas consolas)
+select cod_jogo, titulo, (select count(*) 
+                         from exemplares e 
+                         where e.cod_jogo = j.cod_jogo and
+                               e.consola  = "PS3") as "PS3",
+                            (select count(*) 
+                            from exemplares e 
+                            where e.cod_jogo = j.cod_jogo and
+                                  e.consola  = "PS4") as "PS4",
+                                (select count(*) 
+                                from exemplares e 
+                                where e.cod_jogo = j.cod_jogo and
+                                      e.consola  = "XBOX") as "XBOX"
+from jogos j
+
+
+
+
+-- Q4 (cliente com mais multas)
+create view num_multas_por_cliente(cliente, multas)
+    as select num_cliente, count(*)
+        from alugueres 
+        where multa > 0
+        group by num_cliente
+        
+select c.num_cliente, c.nome 
+from clientes c, num_multas_por_cliente n
+where c.num_cliente = n.cliente and 
+      n.multas = (select max(multas)
+                  from num_multas_por_cliente)
+
+
+
+-- Q5 (jogos ordem desc de rentabilidade - titulo e lucro até ao momento)
+create view custo_por_jogo(jogo, custo)
+    as select cod_jogo, sum(preco_compra)
+        from exemplares 
+        group by cod_jogo 
+       
+create view rendimento_por_jogo(jogo, rendimento)
+    as select cod_jogo, sum(preco + ifnull(multa,0))
+        from alugueres
+        group by cod_jogo
+        
+        
+select * from custo_por_jogo 
+select * from rendimento_por_jogo
+
+
+create view lucro_por_jogo(jogo, lucro)
+    as select c.jogo, (rendimento - custo) 
+        from custo_por_jogo c
+        left outer join rendimento_por_jogo r
+        on c.jogo = r.jogo
+        
+select * from lucro_por_jogo        
+
+select jogo, titulo, lucro 
+    from lucro_por_jogo, jogos
+    where jogo = cod_jogo
+    order by lucro desc
+
+
+
+
+
+
+
+
+
+
+
+
+

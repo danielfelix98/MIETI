@@ -1,0 +1,1468 @@
+node n1 {
+    type router
+    model router
+    network-config {
+	hostname A
+	!
+	interface eth0
+	 ip address 10.0.1.2/27
+	!
+	interface eth2
+	 ip address 192.168.1.17/30
+	!
+	interface eth1
+	 ip address 192.168.1.1/30
+	!
+    }
+    canvas c1
+    iconcoords {311.0 232.0}
+    labelcoords {311.0 264.0}
+    interface-peer {eth0 n20}
+    interface-peer {eth1 n2}
+    interface-peer {eth2 n4}
+    services {zebra vtysh}
+    custom-config {
+	custom-config-id service:zebra
+	custom-command zebra
+	config {
+	files=('/usr/local/etc/quagga/Quagga.conf', 'quaggaboot.sh', '/usr/local/etc/quagga/vtysh.conf', )
+	}
+    }
+    custom-config {
+	custom-config-id service:zebra:/usr/local/etc/quagga/Quagga.conf
+	custom-command /usr/local/etc/quagga/Quagga.conf
+	config {
+	interface eth0
+	  ip address 10.0.1.2/27
+	!
+	interface eth1
+	  ip address 192.168.1.1/30
+	!
+	interface eth2
+	  ip address 192.168.1.17/30
+	!
+	
+	ip route 10.0.1.32/27 192.168.1.2
+	ip route 10.0.1.64/27 192.168.1.2
+	ip route 10.0.1.96/27 192.168.1.2
+	ip route 10.0.1.128/27 192.168.1.18
+	ip route 10.0.1.160/27 192.168.1.18
+	ip route 10.0.1.192/27 192.168.1.18
+	ip route 10.0.1.224/27 192.168.1.18
+	ip route 192.168.2.0/24 192.168.1.18
+	
+	ip forwarding
+	}
+    }
+}
+
+node n2 {
+    type router
+    model router
+    network-config {
+	hostname B
+	!
+	interface eth3
+	 ip address 10.0.1.35/27
+	!
+	interface eth4
+	 ip address 192.168.1.5/30
+	!
+	interface eth0
+	 ip address 192.168.1.2/30
+	!
+    }
+    canvas c1
+    iconcoords {529.0 221.0}
+    labelcoords {529.0 253.0}
+    interface-peer {eth0 n1}
+    interface-peer {eth3 n17}
+    interface-peer {eth4 n6}
+    services {zebra vtysh}
+    custom-config {
+	custom-config-id service:zebra
+	custom-command zebra
+	config {
+	files=('/usr/local/etc/quagga/Quagga.conf', 'quaggaboot.sh', '/usr/local/etc/quagga/vtysh.conf', )
+	}
+    }
+    custom-config {
+	custom-config-id service:zebra:/usr/local/etc/quagga/Quagga.conf
+	custom-command /usr/local/etc/quagga/Quagga.conf
+	config {
+	interface eth0
+	ip address 192.168.1.2/30
+	!
+	interface eth3
+	ip address 10.0.1.35/27
+	!
+	interface eth4
+	ip address 192.168.1.5/30
+	!
+	ip route 10.0.1.0/27 192.168.1.1
+	ip route 10.0.1.64/27 192.168.1.6
+	ip route 10.0.1.96/27 192.168.1.6
+	ip route 10.0.1.128/27 192.168.1.1
+	ip route 10.0.1.160/27 192.168.1.1
+	ip route 10.0.1.192/27 192.168.1.1
+	ip route 10.0.1.224/27 192.168.1.1
+	ip route 192.168.2.0/24 192.168.1.1
+	
+	ip forwarding
+	}
+    }
+}
+
+node n3 {
+    type router
+    model router
+    network-config {
+	hostname D
+	!
+	interface eth2
+	 ip address 10.0.1.194/27
+	!
+	interface eth1
+	 ip address 10.0.1.226/27
+	!
+	interface eth0
+	 ip address 192.168.1.13/30
+	!
+    }
+    canvas c1
+    iconcoords {235.0 382.0}
+    labelcoords {235.0 414.0}
+    interface-peer {eth1 n13}
+    interface-peer {eth2 n14}
+    interface-peer {eth0 n4}
+    services {zebra vtysh}
+    custom-config {
+	custom-config-id service:zebra
+	custom-command zebra
+	config {
+	files=('/usr/local/etc/quagga/Quagga.conf', 'quaggaboot.sh', '/usr/local/etc/quagga/vtysh.conf', )
+	}
+    }
+    custom-config {
+	custom-config-id service:zebra:/usr/local/etc/quagga/Quagga.conf
+	custom-command /usr/local/etc/quagga/Quagga.conf
+	config {
+	interface eth0
+	ip address 192.168.1.13/30
+	!
+	interface eth1
+	ip address 10.0.1.226/27
+	!
+	interface eth2
+	ip address 10.0.1.194/27
+	!
+	
+	ip route 10.0.1.0/27 192.168.1.14
+	ip route 10.0.1.32/27 192.168.1.14
+	ip route 10.0.1.64/27 192.168.1.14
+	ip route 10.0.1.96/27 192.168.1.14
+	ip route 10.0.1.128/27 192.168.1.14
+	ip route 10.0.1.160/27 192.168.1.14
+	ip route 192.168.2.0/24 192.168.1.14
+	
+	ip forwarding
+	}
+    }
+}
+
+node n4 {
+    type router
+    model router
+    network-config {
+	hostname E
+	!
+	interface eth3
+	 ip address 10.0.1.130/27
+	!
+	interface eth2
+	 ip address 10.0.1.162/27
+	!
+	interface eth0
+	 ip address 192.168.1.18/30
+	!
+	interface eth1
+	 ip address 192.168.1.14/30
+	!
+    }
+    canvas c1
+    iconcoords {524.0 375.0}
+    labelcoords {524.0 407.0}
+    interface-peer {eth0 n1}
+    interface-peer {eth2 n15}
+    interface-peer {eth3 n16}
+    interface-peer {eth1 n3}
+    services {zebra vtysh}
+    custom-config {
+	custom-config-id service:zebra
+	custom-command zebra
+	config {
+	files=('/usr/local/etc/quagga/Quagga.conf', 'quaggaboot.sh', '/usr/local/etc/quagga/vtysh.conf', )
+	}
+    }
+    custom-config {
+	custom-config-id service:zebra:/usr/local/etc/quagga/Quagga.conf
+	custom-command /usr/local/etc/quagga/Quagga.conf
+	config {
+	interface eth0
+	 ip address 192.168.1.18/30 
+	!
+	interface eth1
+	 ip address 192.168.1.14/30
+	!
+	interface eth2
+	 ip address 10.0.1.162/27
+	!
+	interface eth3
+	 ip address 10.0.1.130/27
+	!
+	
+	ip route 10.0.1.0/27 192.168.1.17
+	ip route 10.0.1.32/27 192.168.1.17
+	ip route 10.0.1.64/27 192.168.1.17
+	ip route 10.0.1.96/27 192.168.1.17
+	ip route 10.0.1.192/27 192.168.1.13
+	ip route 10.0.1.224/27 192.168.1.13
+	ip route 192.168.2.0/24 10.0.1.163
+	
+	ip forwarding
+	}
+    }
+}
+
+node n5 {
+    type router
+    model PC
+    network-config {
+	hostname n5
+	!
+	interface eth0
+	 ip address 10.0.1.1/27
+	!
+    }
+    canvas c1
+    iconcoords {88.0 43.0}
+    labelcoords {88.0 75.0}
+    interface-peer {eth0 n20}
+    services {DefaultRoute}
+    custom-config {
+	custom-config-id service:DefaultRoute
+	custom-command DefaultRoute
+	config {
+	files=('defaultroute.sh', )
+	}
+    }
+    custom-config {
+	custom-config-id service:DefaultRoute:defaultroute.sh
+	custom-command defaultroute.sh
+	config {
+	#!/bin/sh
+	# auto-generated by DefaultRoute service (utility.py)
+	ip route add default via 10.0.1.2
+	
+	}
+    }
+}
+
+node n7 {
+    type router
+    model PC
+    network-config {
+	hostname n7
+	!
+	interface eth0
+	 ip address 10.0.1.33/27
+	!
+    }
+    canvas c1
+    iconcoords {430.0 89.0}
+    labelcoords {430.0 121.0}
+    interface-peer {eth0 n17}
+    custom-config {
+	custom-config-id service:DefaultRoute
+	custom-command DefaultRoute
+	config {
+	files=('defaultroute.sh', )
+	}
+    }
+    custom-config {
+	custom-config-id service:DefaultRoute:defaultroute.sh
+	custom-command defaultroute.sh
+	config {
+	#!/bin/sh
+	# auto-generated by DefaultRoute service (utility.py)
+	ip route add default via 10.0.1.35
+	
+	}
+    }
+    services {DefaultRoute}
+}
+
+node n8 {
+    type router
+    model PC
+    network-config {
+	hostname n8
+	!
+	interface eth0
+	 ip address 10.0.1.34/27
+	!
+    }
+    canvas c1
+    iconcoords {601.0 62.0}
+    labelcoords {601.0 94.0}
+    interface-peer {eth0 n17}
+    custom-config {
+	custom-config-id service:DefaultRoute
+	custom-command DefaultRoute
+	config {
+	files=('defaultroute.sh', )
+	}
+    }
+    custom-config {
+	custom-config-id service:DefaultRoute:defaultroute.sh
+	custom-command defaultroute.sh
+	config {
+	#!/bin/sh
+	# auto-generated by DefaultRoute service (utility.py)
+	ip route add default via 10.0.1.35
+	
+	}
+    }
+    services {DefaultRoute}
+}
+
+node n9 {
+    type router
+    model PC
+    network-config {
+	hostname n9
+	!
+	interface eth0
+	 ip address 10.0.1.225/27
+	!
+    }
+    canvas c1
+    iconcoords {58.0 405.0}
+    labelcoords {58.0 437.0}
+    interface-peer {eth0 n13}
+    custom-config {
+	custom-config-id service:DefaultRoute
+	custom-command DefaultRoute
+	config {
+	files=('defaultroute.sh', )
+	}
+    }
+    custom-config {
+	custom-config-id service:DefaultRoute:defaultroute.sh
+	custom-command defaultroute.sh
+	config {
+	#!/bin/sh
+	# auto-generated by DefaultRoute service (utility.py)
+	ip route add default via 10.0.1.226
+	
+	}
+    }
+    services {DefaultRoute}
+}
+
+node n10 {
+    type router
+    model PC
+    network-config {
+	hostname n10
+	!
+	interface eth0
+	 ip address 10.0.1.193/27
+	!
+    }
+    canvas c1
+    iconcoords {194.0 590.0}
+    labelcoords {194.0 622.0}
+    interface-peer {eth0 n14}
+    custom-config {
+	custom-config-id service:DefaultRoute
+	custom-command DefaultRoute
+	config {
+	files=('defaultroute.sh', )
+	}
+    }
+    custom-config {
+	custom-config-id service:DefaultRoute:defaultroute.sh
+	custom-command defaultroute.sh
+	config {
+	#!/bin/sh
+	# auto-generated by DefaultRoute service (utility.py)
+	ip route add default via 10.0.1.194
+	
+	}
+    }
+    services {DefaultRoute}
+}
+
+node n11 {
+    type router
+    model PC
+    network-config {
+	hostname n11
+	!
+	interface eth0
+	 ip address 10.0.1.161/27
+	!
+    }
+    canvas c1
+    iconcoords {462.0 592.0}
+    labelcoords {462.0 624.0}
+    interface-peer {eth0 n15}
+    custom-config {
+	custom-config-id service:DefaultRoute
+	custom-command DefaultRoute
+	config {
+	files=('defaultroute.sh', )
+	}
+    }
+    custom-config {
+	custom-config-id service:DefaultRoute:defaultroute.sh
+	custom-command defaultroute.sh
+	config {
+	#!/bin/sh
+	# auto-generated by DefaultRoute service (utility.py)
+	ip route add default via 10.0.1.162
+	
+	}
+    }
+    services {DefaultRoute}
+}
+
+node n12 {
+    type router
+    model PC
+    network-config {
+	hostname n12
+	!
+	interface eth0
+	 ip address 10.0.1.129/27
+	!
+    }
+    canvas c1
+    iconcoords {742.0 549.0}
+    labelcoords {742.0 581.0}
+    interface-peer {eth0 n16}
+    custom-config {
+	custom-config-id service:DefaultRoute
+	custom-command DefaultRoute
+	config {
+	files=('defaultroute.sh', )
+	}
+    }
+    custom-config {
+	custom-config-id service:DefaultRoute:defaultroute.sh
+	custom-command defaultroute.sh
+	config {
+	#!/bin/sh
+	# auto-generated by DefaultRoute service (utility.py)
+	ip route add default via 10.0.1.130
+	
+	}
+    }
+    services {DefaultRoute}
+}
+
+node n13 {
+    type hub
+    network-config {
+	hostname n13
+	!
+    }
+    canvas c1
+    iconcoords {122.0 441.0}
+    labelcoords {122.0 465.0}
+    interface-peer {e0 n3}
+    interface-peer {e1 n9}
+    interface-peer {e2 n24}
+}
+
+node n14 {
+    type hub
+    network-config {
+	hostname n14
+	!
+    }
+    canvas c1
+    iconcoords {248.0 488.0}
+    labelcoords {248.0 512.0}
+    interface-peer {e0 n3}
+    interface-peer {e1 n10}
+}
+
+node n15 {
+    type hub
+    network-config {
+	hostname n15
+	!
+    }
+    canvas c1
+    iconcoords {467.0 489.0}
+    labelcoords {467.0 513.0}
+    interface-peer {e0 n4}
+    interface-peer {e1 n11}
+    interface-peer {e2 n26}
+}
+
+node n16 {
+    type hub
+    network-config {
+	hostname n16
+	!
+    }
+    canvas c1
+    iconcoords {654.0 487.0}
+    labelcoords {654.0 511.0}
+    interface-peer {e0 n4}
+    interface-peer {e1 n12}
+    interface-peer {e2 n25}
+}
+
+node n17 {
+    type hub
+    network-config {
+	hostname n17
+	!
+    }
+    canvas c1
+    iconcoords {544.0 131.0}
+    labelcoords {544.0 155.0}
+    interface-peer {e0 n8}
+    interface-peer {e1 n7}
+    interface-peer {e2 n2}
+}
+
+node n20 {
+    type hub
+    network-config {
+	hostname n20
+	!
+    }
+    canvas c1
+    iconcoords {169.0 133.0}
+    labelcoords {169.0 157.0}
+    interface-peer {e0 n5}
+    interface-peer {e1 n1}
+}
+
+node n6 {
+    type router
+    model router
+    network-config {
+	hostname C
+	!
+	interface eth2
+	 ip address 10.0.1.66/27
+	!
+	interface eth1
+	 ip address 192.168.1.9/30
+	!
+	interface eth0
+	 ip address 192.168.1.6/30
+	!
+    }
+    canvas c1
+    iconcoords {797.0 222.0}
+    labelcoords {797.0 254.0}
+    interface-peer {eth0 n2}
+    interface-peer {eth1 n18}
+    interface-peer {eth2 n19}
+    services {zebra vtysh}
+    custom-config {
+	custom-config-id service:zebra
+	custom-command zebra
+	config {
+	files=('/usr/local/etc/quagga/Quagga.conf', 'quaggaboot.sh', '/usr/local/etc/quagga/vtysh.conf', )
+	}
+    }
+    custom-config {
+	custom-config-id service:zebra:/usr/local/etc/quagga/Quagga.conf
+	custom-command /usr/local/etc/quagga/Quagga.conf
+	config {
+	interface eth0
+	ip address 192.168.1.6/30 
+	!
+	interface eth1
+	ip address 192.168.1.9/30
+	!
+	interface eth2
+	ip address 10.0.1.66/27
+	!
+	
+	ip route 10.0.1.0/27 192.168.1.5
+	ip route 10.0.1.32/27 192.168.1.5
+	ip route 10.0.1.96/27 192.168.1.10
+	ip route 10.0.1.128/27 192.168.1.5
+	ip route 10.0.1.160/27 192.168.1.5
+	ip route 10.0.1.192/27 192.168.1.5
+	ip route 10.0.1.224/27 192.168.1.5
+	ip route 192.168.2.0/24 192.168.1.5
+	
+	ip forwarding
+	}
+    }
+}
+
+node n18 {
+    type router
+    model router
+    network-config {
+	hostname F
+	!
+	interface eth2
+	 ip address 10.0.1.98/27
+	!
+	interface eth0
+	 ip address 192.168.1.10/30
+	!
+    }
+    canvas c1
+    iconcoords {790.0 371.0}
+    labelcoords {790.0 403.0}
+    interface-peer {eth0 n6}
+    interface-peer {eth2 n21}
+    services {zebra vtysh}
+    custom-config {
+	custom-config-id service:zebra
+	custom-command zebra
+	config {
+	files=('/usr/local/etc/quagga/Quagga.conf', 'quaggaboot.sh', '/usr/local/etc/quagga/vtysh.conf', )
+	}
+    }
+    custom-config {
+	custom-config-id service:zebra:/usr/local/etc/quagga/Quagga.conf
+	custom-command /usr/local/etc/quagga/Quagga.conf
+	config {
+	interface eth0
+	ip address 192.168.1.10/30
+	!
+	interface eth2
+	ip address 10.0.1.98/27
+	!
+	
+	ip route 10.0.1.0/27 192.168.1.9
+	ip route 10.0.1.32/27 192.168.1.9
+	ip route 10.0.1.64/27 192.168.1.9
+	ip route 10.0.1.128/27 192.168.1.9
+	ip route 10.0.1.160/27 192.168.1.9
+	ip route 10.0.1.192/27 192.168.1.9
+	ip route 10.0.1.224/27 192.168.1.9
+	ip route 192.168.2.0/24 192.168.1.9
+	
+	ip forwarding
+	}
+    }
+}
+
+node n19 {
+    type lanswitch
+    network-config {
+	hostname n19
+	!
+    }
+    canvas c1
+    iconcoords {862.0 152.0}
+    labelcoords {862.0 176.0}
+    interface-peer {e0 n6}
+    interface-peer {e1 n22}
+}
+
+node n21 {
+    type lanswitch
+    network-config {
+	hostname n21
+	!
+    }
+    canvas c1
+    iconcoords {894.0 367.0}
+    labelcoords {894.0 391.0}
+    interface-peer {e0 n18}
+    interface-peer {e1 n23}
+}
+
+node n22 {
+    type router
+    model PC
+    network-config {
+	hostname n22
+	!
+	interface eth0
+	 ip address 10.0.1.65/27
+	!
+    }
+    canvas c1
+    iconcoords {913.0 70.0}
+    labelcoords {913.0 102.0}
+    interface-peer {eth0 n19}
+    custom-config {
+	custom-config-id service:DefaultRoute
+	custom-command DefaultRoute
+	config {
+	files=('defaultroute.sh', )
+	}
+    }
+    custom-config {
+	custom-config-id service:DefaultRoute:defaultroute.sh
+	custom-command defaultroute.sh
+	config {
+	#!/bin/sh
+	# auto-generated by DefaultRoute service (utility.py)
+	ip route add default via 10.0.1.66
+	
+	}
+    }
+    services {DefaultRoute}
+}
+
+node n23 {
+    type router
+    model PC
+    network-config {
+	hostname n23
+	!
+	interface eth0
+	 ip address 10.0.1.97/27
+	!
+    }
+    canvas c1
+    iconcoords {969.0 315.0}
+    labelcoords {969.0 347.0}
+    interface-peer {eth0 n21}
+    custom-config {
+	custom-config-id service:DefaultRoute
+	custom-command DefaultRoute
+	config {
+	files=('defaultroute.sh', )
+	}
+    }
+    custom-config {
+	custom-config-id service:DefaultRoute:defaultroute.sh
+	custom-command defaultroute.sh
+	config {
+	#!/bin/sh
+	# auto-generated by DefaultRoute service (utility.py)
+	ip route add default via 10.0.1.98
+	
+	}
+    }
+    services {DefaultRoute}
+}
+
+node n24 {
+    type router
+    model host
+    network-config {
+	hostname n24
+	!
+	interface eth0
+	 ip address 10.0.1.228/27
+	!
+    }
+    canvas c1
+    iconcoords {58.0 490.0}
+    labelcoords {58.0 522.0}
+    interface-peer {eth0 n13}
+    custom-config {
+	custom-config-id service:FTP
+	custom-command FTP
+	config {
+	cmdup=('chmod a-w /var/run/vsftpd/empty', 'chmod a-w /var/ftp', 'vsftpd ./vsftpd.conf', )
+	}
+    }
+    custom-config {
+	custom-config-id service:DefaultRoute
+	custom-command DefaultRoute
+	config {
+	files=('defaultroute.sh', )
+	}
+    }
+    custom-config {
+	custom-config-id service:DefaultRoute:defaultroute.sh
+	custom-command defaultroute.sh
+	config {
+	ip route add default via 10.0.1.226
+	
+	}
+    }
+    services {DefaultRoute FTP}
+}
+
+node n25 {
+    type router
+    model host
+    network-config {
+	hostname n25
+	!
+	interface eth0
+	 ip address 10.0.1.131/27
+	!
+    }
+    canvas c1
+    iconcoords {788.3333333333334 473.3333333333333}
+    labelcoords {786.3333333333334 455.3333333333333}
+    interface-peer {eth0 n16}
+    custom-config {
+	custom-config-id service:HTTP
+	custom-command HTTP
+	config {
+	dirs=('/etc/apache2', '/var/run/apache2', '/var/log/apache2', '/var/lock/apache2', '/var/www', '/run/lock', )
+	cmdup=('mkdir -p /run/lock', 'mkdir -p /var/log/apache2', 'apache2ctl start', )
+	}
+    }
+    custom-config {
+	custom-config-id service:DefaultRoute
+	custom-command DefaultRoute
+	config {
+	files=('defaultroute.sh', )
+	}
+    }
+    custom-config {
+	custom-config-id service:DefaultRoute:defaultroute.sh
+	custom-command defaultroute.sh
+	config {
+	#!/bin/sh
+	# auto-generated by DefaultRoute service (utility.py)
+	ip route add default via 10.0.1.130
+	
+	}
+    }
+    services {DefaultRoute HTTP}
+}
+
+node n26 {
+    type router
+    model router
+    network-config {
+	hostname n26
+	!
+	interface eth2
+	 ip address 192.168.2.1/24
+	!
+	interface eth0
+	 ip address 10.0.1.163/27
+	!
+    }
+    canvas c1
+    iconcoords {595.0 654.0}
+    labelcoords {595.0 686.0}
+    services {zebra vtysh IPForward Firewall}
+    custom-config {
+	custom-config-id service:zebra
+	custom-command zebra
+	config {
+	files=('/usr/local/etc/quagga/Quagga.conf', 'quaggaboot.sh', '/usr/local/etc/quagga/vtysh.conf', )
+	}
+    }
+    custom-config {
+	custom-config-id service:zebra:/usr/local/etc/quagga/Quagga.conf
+	custom-command /usr/local/etc/quagga/Quagga.conf
+	config {
+	interface eth0
+	ip address 10.0.1.163/27
+	!
+	interface eth2
+	ip address 192.168.2.1/24
+	!
+	
+	ip route 10.0.1.0/27 10.0.1.162
+	ip route 10.0.1.32/27 10.0.1.162
+	ip route 10.0.1.64/27 10.0.1.162
+	ip route 10.0.1.96/27 10.0.1.162
+	ip route 10.0.1.128/27 10.0.1.162
+	ip route 10.0.1.192/27 10.0.1.162
+	ip route 10.0.1.224/27 10.0.1.162
+	
+	ip forwarding
+	}
+    }
+    custom-config {
+	custom-config-id service:Firewall
+	custom-command Firewall
+	config {
+	files=('firewall.sh', )
+	}
+    }
+    custom-config {
+	custom-config-id service:Firewall:firewall.sh
+	custom-command firewall.sh
+	config {
+	iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+	iptables -A FORWARD -i eth2 -j ACCEPT
+	}
+    }
+    interface-peer {eth0 n15}
+    interface-peer {eth2 n28}
+}
+
+node n27 {
+    type router
+    model PC
+    network-config {
+	hostname n27
+	!
+	interface eth1
+	 ip address 192.168.2.2/24
+	!
+    }
+    canvas c1
+    iconcoords {750.0 681.0}
+    labelcoords {750.0 713.0}
+    custom-config {
+	custom-config-id service:DefaultRoute
+	custom-command DefaultRoute
+	config {
+	files=('defaultroute.sh', )
+	}
+    }
+    custom-config {
+	custom-config-id service:DefaultRoute:defaultroute.sh
+	custom-command defaultroute.sh
+	config {
+	ip route add default via 192.168.2.1
+	
+	}
+    }
+    services {DefaultRoute}
+    interface-peer {eth1 n28}
+}
+
+node n28 {
+    type hub
+    network-config {
+	hostname n28
+	!
+    }
+    canvas c1
+    iconcoords {663.0 678.0}
+    labelcoords {663.0 702.0}
+    interface-peer {e0 n27}
+    interface-peer {e1 n26}
+    interface-peer {e2 n29}
+}
+
+node n29 {
+    type router
+    model host
+    network-config {
+	hostname n29
+	!
+	interface eth0
+	 ip address 192.168.2.3/24
+	!
+    }
+    canvas c1
+    iconcoords {611.0 712.0}
+    labelcoords {611.0 744.0}
+    interface-peer {eth0 n28}
+    custom-config {
+	custom-config-id service:FTP
+	custom-command FTP
+	config {
+	files=('vsftpd.conf', )
+	cmdup=('chmod a-w /var/run/vsftpd/empty', 'chmod a-w /var/ftp', 'vsftpd ./vsftpd.conf', )
+	}
+    }
+    custom-config {
+	custom-config-id service:FTP:vsftpd.conf
+	custom-command vsftpd.conf
+	config {
+	# vsftpd.conf auto-generated by FTP service (utility.py)
+	listen=YES
+	anonymous_enable=YES
+	local_enable=YES
+	dirmessage_enable=YES
+	use_localtime=YES
+	xferlog_enable=YES
+	connect_from_port_20=YES
+	xferlog_file=/var/log/vsftpd.log
+	ftpd_banner=Welcome to the CORE FTP service
+	secure_chroot_dir=/var/run/vsftpd/empty
+	anon_root=/var/ftp
+	
+	
+	}
+    }
+    custom-config {
+	custom-config-id service:DefaultRoute
+	custom-command DefaultRoute
+	config {
+	files=('defaultroute.sh', )
+	}
+    }
+    custom-config {
+	custom-config-id service:DefaultRoute:defaultroute.sh
+	custom-command defaultroute.sh
+	config {
+	ip route add default via 192.168.2.1
+	}
+    }
+    services {DefaultRoute FTP}
+}
+
+link l1 {
+    nodes {n5 n20}
+    bandwidth 0
+}
+
+link l2 {
+    nodes {n20 n1}
+    bandwidth 0
+}
+
+link l3 {
+    nodes {n1 n2}
+    bandwidth 0
+}
+
+link l4 {
+    nodes {n1 n4}
+    bandwidth 0
+}
+
+link l7 {
+    nodes {n3 n13}
+    bandwidth 0
+}
+
+link l8 {
+    nodes {n13 n9}
+    bandwidth 0
+}
+
+link l9 {
+    nodes {n3 n14}
+    bandwidth 0
+}
+
+link l10 {
+    nodes {n14 n10}
+    bandwidth 0
+}
+
+link l11 {
+    nodes {n4 n15}
+    bandwidth 0
+}
+
+link l12 {
+    nodes {n15 n11}
+    bandwidth 0
+}
+
+link l13 {
+    nodes {n4 n16}
+    bandwidth 0
+}
+
+link l14 {
+    nodes {n16 n12}
+    bandwidth 0
+}
+
+link l15 {
+    nodes {n8 n17}
+    bandwidth 0
+}
+
+link l16 {
+    nodes {n7 n17}
+    bandwidth 0
+}
+
+link l17 {
+    nodes {n17 n2}
+    bandwidth 0
+}
+
+link l18 {
+    nodes {n2 n6}
+    bandwidth 0
+}
+
+link l19 {
+    nodes {n6 n18}
+    bandwidth 0
+}
+
+link l21 {
+    nodes {n18 n21}
+    bandwidth 0
+}
+
+link l22 {
+    nodes {n21 n23}
+    bandwidth 0
+}
+
+link l23 {
+    nodes {n19 n6}
+    bandwidth 0
+}
+
+link l24 {
+    nodes {n19 n22}
+    bandwidth 0
+}
+
+link l5 {
+    nodes {n3 n4}
+    bandwidth 0
+}
+
+link l6 {
+    nodes {n24 n13}
+    bandwidth 0
+}
+
+link l20 {
+    nodes {n25 n16}
+    bandwidth 0
+}
+
+link l25 {
+    nodes {n15 n26}
+    bandwidth 0
+}
+
+link l27 {
+    nodes {n27 n28}
+    bandwidth 0
+}
+
+link l28 {
+    nodes {n28 n26}
+    bandwidth 0
+}
+
+link l26 {
+    nodes {n29 n28}
+    bandwidth 0
+}
+
+annotation a1 {
+    iconcoords {18.0 119.0}
+    type text
+    label {Subrede 1}
+    labelcolor black
+    fontfamily {Arial}
+    fontsize {12}
+    effects {bold}
+    canvas c1
+}
+
+annotation a2 {
+    iconcoords {13.0 8.0 261.0 224.0}
+    type oval
+    label {}
+    labelcolor black
+    fontfamily {Arial}
+    fontsize {12}
+    color #CFCFFF
+    width 0
+    border black
+    canvas c1
+}
+
+annotation a3 {
+    iconcoords {400.0 5.0 683.0 193.0}
+    type oval
+    label {}
+    labelcolor black
+    fontfamily {Arial}
+    fontsize {12}
+    color #CFCFFF
+    width 0
+    border black
+    canvas c1
+}
+
+annotation a4 {
+    iconcoords {727.0 15.0 978.0 215.0}
+    type oval
+    label {}
+    labelcolor black
+    fontfamily {Arial}
+    fontsize {12}
+    color #CFCFFF
+    width 0
+    border black
+    canvas c1
+}
+
+annotation a5 {
+    iconcoords {820.0 282.0 1000.0 440.0}
+    type oval
+    label {}
+    labelcolor black
+    fontfamily {Arial}
+    fontsize {12}
+    color #CFCFFF
+    width 0
+    border black
+    canvas c1
+}
+
+annotation a6 {
+    iconcoords {582.0 412.0 810.0 586.0}
+    type oval
+    label {}
+    labelcolor black
+    fontfamily {Arial}
+    fontsize {12}
+    color #cfcf00
+    width 0
+    border #00cc00
+    canvas c1
+}
+
+annotation a7 {
+    iconcoords {520.0 519.0 522.0 519.0}
+    type oval
+    label {}
+    labelcolor black
+    fontfamily {Arial}
+    fontsize {12}
+    color #CFCFFF
+    width 0
+    border black
+    canvas c1
+}
+
+annotation a8 {
+    iconcoords {366.0 447.0 538.0 639.0}
+    type oval
+    label {}
+    labelcolor black
+    fontfamily {Arial}
+    fontsize {12}
+    color #CFCFFF
+    width 0
+    border black
+    canvas c1
+}
+
+annotation a9 {
+    iconcoords {16 348 204 552}
+    type oval
+    label {}
+    labelcolor black
+    fontfamily {Arial}
+    fontsize {12}
+    color #cfcf13
+    width 0
+    border black
+    canvas c1
+}
+
+annotation a10 {
+    iconcoords {151 531 299 631}
+    type oval
+    label {}
+    labelcolor black
+    fontfamily {Arial}
+    fontsize {12}
+    color #CFCFFF
+    width 0
+    border black
+    canvas c1
+}
+
+annotation a11 {
+    iconcoords {585.0 115.0}
+    type text
+    label {Subrede 2}
+    labelcolor black
+    fontfamily {Arial}
+    fontsize {12}
+    effects {bold}
+    canvas c1
+}
+
+annotation a12 {
+    type text
+    iconcoords {650.0 150.0}
+    label {}
+    canvas c1
+}
+
+annotation a13 {
+    iconcoords {737.0 106.0}
+    type text
+    label {Subrede 3}
+    labelcolor black
+    fontfamily {Arial}
+    fontsize {12}
+    effects {bold}
+    canvas c1
+}
+
+annotation a14 {
+    iconcoords {884.0 414.0}
+    type text
+    label {Subrede 4}
+    labelcolor black
+    fontfamily {Arial}
+    fontsize {12}
+    effects {bold}
+    canvas c1
+}
+
+annotation a15 {
+    iconcoords {662.0 437.0}
+    type text
+    label {Subrede 5}
+    labelcolor black
+    fontfamily {Arial}
+    fontsize {12}
+    effects {bold}
+    canvas c1
+}
+
+annotation a16 {
+    iconcoords {370.0 524.0}
+    type text
+    label {Subrede 6}
+    labelcolor black
+    fontfamily {Arial}
+    fontsize {12}
+    effects {bold}
+    canvas c1
+}
+
+annotation a17 {
+    iconcoords {222.0 588.0}
+    type text
+    label {Subrede 7}
+    labelcolor black
+    fontfamily {Arial}
+    fontsize {12}
+    effects {bold}
+    canvas c1
+}
+
+annotation a18 {
+    type text
+    iconcoords {285.0 615.0}
+    label {}
+    canvas c1
+}
+
+annotation a19 {
+    iconcoords {105.0 498.0}
+    type text
+    label {Subrede 8}
+    labelcolor black
+    fontfamily {Arial}
+    fontsize {12}
+    effects {bold}
+    canvas c1
+}
+
+annotation a20 {
+    iconcoords {23.0 528.0}
+    type text
+    label {Servidor FTP}
+    labelcolor black
+    fontfamily {Arial}
+    fontsize {8}
+    canvas c1
+}
+
+annotation a21 {
+    type text
+    iconcoords {37.0 522.0}
+    label {}
+    canvas c1
+}
+
+annotation a22 {
+    iconcoords {736.0 502.0}
+    type text
+    label {Servidor HTTP}
+    labelcolor black
+    fontfamily {Arial}
+    fontsize {8}
+    canvas c1
+}
+
+annotation a23 {
+    type text
+    iconcoords {780.0 457.0}
+    label {}
+    canvas c1
+}
+
+annotation a24 {
+    type text
+    iconcoords {781.0 512.0}
+    label {}
+    canvas c1
+}
+
+annotation a25 {
+    type text
+    iconcoords {750.0 513.0}
+    label {}
+    canvas c1
+}
+
+annotation a26 {
+    iconcoords {549 597 755 744}
+    type oval
+    label {}
+    labelcolor black
+    fontfamily {Arial}
+    fontsize {12}
+    color #cf70ff
+    width 0
+    border black
+    canvas c1
+}
+
+annotation a27 {
+    iconcoords {625.0 634.0}
+    type text
+    label {Subrede NAT}
+    labelcolor black
+    fontfamily {Arial}
+    fontsize {12}
+    effects {bold}
+    canvas c1
+}
+
+annotation a28 {
+    type text
+    iconcoords {708.0 626.0}
+    label {}
+    canvas c1
+}
+
+canvas c1 {
+    name {Canvas1}
+}
+
+option global {
+    interface_names no
+    ip_addresses yes
+    ipv6_addresses yes
+    node_labels yes
+    link_labels yes
+    show_api no
+    background_images no
+    annotations yes
+    grid yes
+    traffic_start 0
+}
+
+option session {
+}
+

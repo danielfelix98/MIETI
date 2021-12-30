@@ -1,0 +1,40 @@
+!
+key chain test
+ key 1
+   key-string test
+!
+interface eth0
+  ip address 192.168.1.38/30
+!
+interface eth1
+  ip address 10.0.0.1/16
+  ip rip authentication mode md5
+  ip rip authentication key-chain test
+!
+interface eth2
+  ip address 192.168.1.46/30
+!
+
+router rip
+ version 2
+ redistribute bgp
+ network 10.0.0.0/30
+ network 10.0.0.4/30
+ network 10.0.0.16/30
+ network 10.0.1.0/24
+ network 10.0.2.0/24
+ network 10.0.3.0/24
+!
+router bgp 65000
+ bgp router-id 10.0.0.1
+ network 10.0.0.0/16
+ neighbor 192.168.1.37 remote-as 65200
+ neighbor 192.168.1.37 route-map localonly out
+ neighbor 192.168.1.45 remote-as 65100
+ neighbor 192.168.1.45 route-map localonly out
+!
+ip as-path access-list 1 permit ^$
+!
+route-map localonly permit 1
+ match as-path 1
+!

@@ -1,0 +1,41 @@
+DROP FUNCTION IF EXISTS valor_por_km;
+DELIMITER @
+Create function valor_por_km(km int)
+returns int 
+begin 
+declare pr_km decimal(4,2);
+declare fkms int;
+declare ikms int;
+declare total;
+select kms_i into ikms from alugueres;
+select kms_devolucao into fkms from alugueres;
+select preco_km into pr_km from precos;
+total=(fkms-ikms);
+if (total>minkms and total<maxkms) then
+return pr_km WHERE alugueres.cod_preco=preco.cod_preco;
+end if;
+end;
+@
+DELIMITER ;
+
+Drop function if exists valor_kilometragem
+DELIMITER @
+create function valor_kilometragem(nalug)
+returns decimal(5,2)
+begin
+
+declare pr decimal(4,2);
+declare band decimal(4,2);
+declare consumo int;
+declare idade int;
+select euros_consumo into consumo from alugueres;
+select pr_km into pr from valor_por_km;
+select ano into idade from viaturas;
+if((curdate() -ano)>3) then
+select euros_bandeirada into band from alugueres where num_aluguer=nalug
+ return (band+pr+consumo);
+ else return (pr+consumo);
+ end if;
+ end;
+ @
+ DELIMITER ;

@@ -1,0 +1,52 @@
+interface eth0
+  ip address 192.168.1.9/30
+!
+interface eth1
+  ip address 192.168.1.2/30
+!
+interface eth2
+  ip address 192.168.1.13/30
+!
+interface eth3
+  ip address 10.3.1.1/24 
+!
+interface eth4
+  ip address 192.168.1.41/30
+!
+router bgp 65300
+ bgp router-id 10.3.1.1
+ network 10.3.0.0/16
+ neighbor 192.168.1.1 remote-as 65400
+ neighbor 192.168.1.1 route-map deny65000 out
+ neighbor 192.168.1.10 remote-as 65300
+ neighbor 192.168.1.10 next-hop-self
+ neighbor 192.168.1.10 route-map rm1 in
+ neighbor 192.168.1.14 remote-as 65100
+ neighbor 192.168.1.42 remote-as 65200
+!
+ip route 10.3.0.0/24 192.168.1.10
+!
+ip as-path access-list 6 permit _65000$
+ip as-path access-list 7 permit .* 
+! esta access-list deixa passar TUDO
+!
+route-map deny65000 deny 5
+    match as-path 6
+!
+route-map deny65000 permit 10
+    match as-path 7
+!
+ip prefix-list pf1 seq 5 permit 10.1.0.0/16
+ip prefix-list pftudo1 seq 5 permit 10.0.0.0/16
+ip prefix-list pftudo1 seq 10 permit 10.2.0.0/16
+ip prefix-list pftudo1 seq 15 permit 10.3.0.0/16
+ip prefix-list pftudo1 seq 20 permit 10.4.0.0/16
+!
+route-map rm1 permit 15
+ match ip address prefix-list pftudo1
+!
+!---para 100 vai por R5
+route-map rm1 permit 20
+ match ip address prefix-list pf1
+ set local-preference 500
+!

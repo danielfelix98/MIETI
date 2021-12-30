@@ -1,0 +1,7 @@
+/*
+mkfifo() - named pipes
+
+exemplo: 
+	$ mkfifo fifo
+	$ cat ficheiro > fifo
+*/

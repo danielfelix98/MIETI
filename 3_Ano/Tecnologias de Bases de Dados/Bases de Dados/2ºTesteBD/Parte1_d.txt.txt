@@ -1,0 +1,5 @@
+select num_alojameto,data_entrada,data_saida sum(valor_pago)
+from estadias
+where (num_alojameto='5678' and data_entrada>'01-01-2916' and data_saida<'31-03-2016');
+
+

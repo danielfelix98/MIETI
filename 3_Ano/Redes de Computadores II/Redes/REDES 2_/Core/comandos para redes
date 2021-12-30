@@ -1,0 +1,6 @@
+comandos para redes 
+
+nestat -n -r : mostra os dados da tabela de encaminhamento 
+% ifconfig –a
+% arp –a
+% ping <host> 

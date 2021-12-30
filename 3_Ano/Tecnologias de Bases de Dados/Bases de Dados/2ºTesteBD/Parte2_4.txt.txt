@@ -1,0 +1,16 @@
+drop procedure if exists fechar_aluguer;
+DELIMITER @
+CREATE PROCEDURE fechar_aluguer(num_aluguer)
+begin
+declare cod_pre int;
+declare fil_entr int;
+select cod_filial
+into fil_entr
+from filiais;
+select cod_preco
+into cod_pre
+from precos;
+
+Update alugueres values(null,null,null,cod_pre,null,fil_entr,euros_consumo,euros_bandeirada,null,now(),null,kms_devolucao);
+end@
+DELIMITER;

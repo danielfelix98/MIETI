@@ -1,0 +1,23 @@
+interface eth0
+  ip address 192.168.1.6/30
+!
+interface eth1
+  ip address 192.168.1.34/30
+!
+interface eth2
+  ip address 192.168.1.37/30
+!
+interface eth3
+  ip address 10.2.0.1/16
+!
+interface eth4
+  ip address 192.168.1.42/30
+!
+router bgp 65200
+ bgp router-id 10.2.0.1
+ network 10.2.0.0/16
+ neighbor 192.168.1.5 remote-as 65400
+ neighbor 192.168.1.33 remote-as 65100
+ neighbor 192.168.1.38 remote-as 65000
+ neighbor 192.168.1.41 remote-as 65300
+!

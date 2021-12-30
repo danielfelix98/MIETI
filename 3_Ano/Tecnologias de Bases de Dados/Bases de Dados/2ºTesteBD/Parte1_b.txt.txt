@@ -1,0 +1,89 @@
+drop database if exists fugaspt;
+create database fugaspt;
+use fugaspt;
+
+create table tipos_de_alojamento(
+num_tipo int,
+tipo varchar(20),
+primary key(num_tipo)
+);
+create table regioes(
+num_regiao int,
+nome varchar(50) unique,
+primary key (num_regiao)
+);
+create table proprietarios(
+num_proprietario int,
+nome varchar(50),
+email varchar(50),
+telfone int,
+primary key(num_proprietario)
+);
+create table clientes(
+num_cliente int,
+nome varchar(50),
+morada varchar(50),
+email varchar(50),
+nif '999999999',
+telefone int,
+primary key(num_cliente)
+);
+
+create table alojamentos(
+num_alojamento int,
+nome varchar(50),
+morada varchar(50),
+num_regiao int,
+num_tipo int,
+num_proprietario int,
+estrelas int null,
+capacidade int,
+descricao varchar(100),
+preco1 float(5,2),
+preco2 float(5,2),
+preco3 float(5,2),
+primary key(num_alojamento),
+foreign key(num_regiao) references regioes(num_regiao),
+foreign key(num_tipo) references tipos_de_alojamento(num_tipo),
+foreign key(num_proprietario) references proprietarios(num_proprietario)
+);
+create table estadias(
+num_reserva int,
+num_cliente int,
+num_alojamento int,
+data_reserva date,
+data_entrada date,
+data_saida date,
+valor_pago float(5,2),
+primary key (num_reserva),
+foreign key(num_cliente) references clientes(num_cliente),
+foreign key(num_alojamento) references alojamentos(num_alojamento)
+);
+create table apreciacoes(
+num_reserva int,
+email_ocupante varchar(50),
+nome_ocupante varchar(50),
+apreciacao varchar(200),
+primary key(num_reserva,email_ocupante),
+foreign key(num_reserva) references estadias(num_reserva)
+);
+insert into regioes values('1','douro');
+insert into regioes values('2','minho');
+insert into tipos_de_alojamento values('1','classico');
+insert into tipos_de_alojamento values('2','rustico');
+insert into proprietarios values('1','joao sousa','joao@gmail.com','919919299');
+insert into proprietarios values('2','ricardo sousa','ricardo@gmail.com','915519299');
+insert into proprietarios values('3','helder sousa','helder@gmail.com','919779299');
+insert into clientes values('300','rui silva','2569685','rui@gmail.com','123456789');
+insert into clientes values('301','helder silva','2569686','helder@gmail.com','123356789');
+insert into estadias values('01','300','0000','2017-01-01','2017-01-15','2017-01-26','45');
+insert into estadias values('02','300','0000','2017-01-02','2017-02-16','2017-02-27','60');
+insert into estadias values('03','301','0000','2017-01-03','2017-01-17','2017-01-28','100');
+insert into alojamentos values('0000','vistaboa','rua da azenha','1','1','1','4','100','boa vista para o rio','45','60','100');
+insert into alojamentos values('0000','vistaboa','rua da liberdade','2','1','1','4','100','boa vista para o rio','45','60','100');
+insert into alojamentos values('0000','vistaboa','rua 25 abril','1','2','1','4','100','boa vista para o rio','45','60','100');
+insert into alojamentos values('0000','vistaboa','rua dos combatentes','1','1','1','4','100','boa vista a montanha','45','60','100');
+insert into apreciacoes values('01','rui@gmail','rui','gostei');
+insert into apreciacoes values('01','rui@gmail','rui','gostei');
+insert into apreciacoes values('02','rui@gmail','rui','nao gostei');
+insert into apreciacoes values('03','helder@gmail','helder','gostei muito');

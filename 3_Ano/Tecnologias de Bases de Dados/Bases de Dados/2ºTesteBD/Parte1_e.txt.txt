@@ -1,0 +1,11 @@
+select num_cliente
+from clientes
+alter num_cliente where num_cliente='300';
+
+select email_ocupante
+from apreciacoes
+alter email_ocupante where email_ocupante='helder@gmail.com';
+
+select num_regiao
+from regioes
+alter num_regiao where num_regiao='1';

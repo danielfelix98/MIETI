@@ -1,0 +1,24 @@
+drop trigger if exists clientes_vip;
+DELIMITER @
+CREATE TRIGGER clientes_vip
+before insert on alugueres
+for each row
+begin
+declare num_alug_fin int;
+declare band decimal(5,2);
+
+select cod_cli,count(*)
+into num_alug_fin
+from alugueres
+where data_devolucao is not null
+group by cod_cli;
+
+IF(num_alug_fin >3) then
+select bandeirada 
+into band 
+from viaturas 
+where viaturas.matricula=alugueres.matricula;
+set new.bandeirada=null;
+end if;
+end@ 
+DELIMITER ;

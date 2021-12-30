@@ -1,0 +1,135 @@
+drop database if exists aluga_carros;
+create database aluga_carros;
+use aluga_carros;
+
+create table viaturas (
+	matricula char(8),
+	marca char(20),
+     modelo char(30),
+	ano int,
+        cilindrada char(5),
+        combustivel char(15),
+        bandeirada decimal(5,2),
+        kms_acumulados int,
+     	primary key (matricula) 
+);
+create table clientes (
+	cod_cli char(10),
+	nome char(30) not null,
+	morada char(50),
+	primary key(cod_cli)
+);  
+create table precos (
+	cod_preco char(1),
+	min_kms int,
+    max_kms int,
+	preco_km decimal(3,2),
+	primary key(cod_preco)
+);
+create table filiais (
+	cod_filial char(1),
+	designacao char(30),
+        local char(30),
+	primary key(cod_filial)
+);
+create table disponibilidades (
+        cod_filial char(1),
+        matricula char(8),
+        primary key (cod_filial, matricula),
+        foreign key (cod_filial) 
+        references filiais(cod_filial),
+	foreign key (matricula)
+        references viaturas (matricula)
+	on update cascade 
+	);
+create table alugueres (
+	num_aluguer int,
+        matricula char(8),
+        cod_cli char(10),
+        cod_preco char(1),
+        filial_saida char(1),
+        filial_entrega char(1),
+        euros_consumo decimal(6,1),
+        euros_bandeirada decimal(5,2),
+        data_aluguer date,
+        data_devolucao date,
+        kms_i int,
+        kms_devolucao int,
+        primary key (num_aluguer),
+	foreign key (matricula)
+        references viaturas (matricula),
+        foreign key (cod_cli) 
+        references clientes(cod_cli),
+        foreign key (cod_preco)
+        references precos(cod_preco),
+        foreign key (filial_saida)
+        references filiais(cod_filial)
+);
+insert into viaturas values 
+       ('20-88-AZ','Opel','Corsa','2009',1400,'gasolio',15,45000),
+       ('45-HH-23','Ford','Focus','2011',1600,'gasolina',30,50000),
+       ('10-JG-23','Lancia','Lybra','2001',1900,'gasolio',10,200000),
+       ('99-BH-50','BMW','320SL','2008',2000,'gasolio',null,150000),
+       ('25-83-SO','Fiat','Punto','2010',1200,'gasolina',20, 20000),
+       ('26-45-GT','Audi','A6','2011',3000,'gasolina',100,30000),
+       ('34-24-TT','Citroen','C4','2009',1600,'gasolio',15,20000)
+;
+
+insert into clientes values 
+       ('111111','nome do primeiro', 'morada do primeiro'),
+       ('222222','nome do segundo', 'morada do segundo'),
+       ('333333','nome do terceiro', 'morada do terceiro'),
+       ('444444','nome do quarto', 'morada do quarto'),
+       ('555555','nome do quinto', 'morada do quinto'),
+       ('666666','nome do sexto', 'morada do sexto'),
+       ('777777','nome do setimo', 'morada do setimo'),
+       ('888888','nome do oitavo', 'morada do oitavo'),
+       ('999999','nome do nono', 'morada do nono')
+;
+
+insert into precos values 
+       ('1',1,100,1),
+       ('2',101,200,0.8),
+       ('3',201, 500, 0.75),
+       ('4',501,1000,0.6),
+       ('5',1001,100000000,0.5)
+;
+
+insert into filiais values 
+       ('1','Filial de Guimaraes', 'Guimaraes'),
+       ('2','Filial de Lisboa', 'Lisboa'),
+       ('3','Filial do Porto', 'Porto'),
+       ('4','Filial de Faro', 'Faro'),
+       ('5','Filial de Coimbra', 'Coimbra'),
+       ('6','Filial de Braga','Braga'),
+       ('7','Filial de Aveiro','Aveiro')
+;
+
+insert into disponibilidades values 
+       ('1','25-83-SO'),
+       ('2','26-45-GT'),
+       ('3','45-HH-23'),
+       ('4','10-JG-23'),
+       ('5','99-BH-50'),
+       ('6','34-24-TT'),
+       ('7','20-88-AZ')
+;     
+insert into alugueres values 
+       (1,'25-83-SO','111111','1','1','2',50,20,'2012-05-01','2012-05-05',15000,15700),
+       (2,'10-JG-23','222222','1','1','2',60,10,'2011-05-10','2011-05-15',150000,150700),
+       (3,'45-HH-23','333333','2','2','2',55,30,'2011-06-01','2011-06-05',150000,150700),
+       (4,'20-88-AZ','444444','3','3','2',40,15,'2012-01-01','2012-01-03',32000,32600),
+       (5,'25-83-SO','111111','1','1','3',50,20,'2012-05-01','2012-05-05',15000,15700),
+       (6,'10-JG-23','222222','1','1','3',60,10,'2011-05-10','2011-05-15',150000,150700),
+       (7,'45-HH-23','333333','2','2','3',55,30,'2011-06-01','2011-06-05',150000,150700),
+       (8,'20-88-AZ','444444','3','3','3',40,15,'2012-01-01','2012-01-03',32000,32600),
+       (9,'25-83-SO','111111','1','1','3',50,20,'2012-05-01','2012-05-05',15000,15700),
+       (10,'10-JG-23','222222','1','1','3',60,10,'2011-05-10','2011-05-15',150000,150700),
+       (11,'45-HH-23','333333','2','2','3',55,30,'2011-06-01','2011-06-05',150000,150700),
+       (12,'99-BH-50','444444','3','3','3',40,null,'2012-01-01','2012-01-03',32000,32600)
+;
+
+
+
+
+ 

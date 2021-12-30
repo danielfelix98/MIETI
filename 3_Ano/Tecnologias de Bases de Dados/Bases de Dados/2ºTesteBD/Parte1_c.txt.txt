@@ -1,0 +1,3 @@
+select count(*)
+from estadias
+where num_alojamento='1234';

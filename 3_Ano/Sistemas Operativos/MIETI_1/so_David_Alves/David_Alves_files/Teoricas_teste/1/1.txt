@@ -1,0 +1,49 @@
+								I
+1.
+Antes de mais convem recordar, que tanto a segmentacao como a paginacao, vêm ajudar a resolver o problema da fragmentação
+(externa e interna) que ocorre na memória dos sistemas operativos.
+Na paginação, A memoria é divida em blocos de tamanho fixo chamados frames. O espaço de endereçamento
+lógico tambem é dividido em blocos de tamnho fixo, chamados paginas.Quando um programa entra na memoria, as paginas sao escritas
+em frames de memoria livre.Para facilitar a transferencia de programas entre o disco e memoria, o disco está tambem dividido
+em frames de tamanho igual ao da memoria.O funcionamento é o seguinte:Quando um programa é aceite para execucao, o tamanho dele é calculado,em numero de paginas 
+necessario. Se um numero suficiente de frames esta livre, o processo é gravado na memoria, por cada pagina. Ao mesmo tempo, o
+nr dos frames em que cada pagina é escrita entram numa tabela de frames.
+Na segmentação,os programas e os seus dados podem ser divididos em segmentos.Os segmentos podem ser tamanho variavel, no entanto
+existe um tamanho maximo para cada um ter.A segmentação resolve o problema da fragmentacao interna, no entanto a externa
+continua.Ao contrário da paginação que é invisivel, está técnica é visivel para o programador. A desvantagem disto é que 
+isto faz com o que o programador tenha que conhecer as limite do tamanho max do segmento.Tal como na paginação, a tecnica da segmentacao
+tambem usa uma tabela(tabela de segmentos ) para cada processo e  lista os blocos disponiveis na memoria. 
+Em termos de eficiencia no uso da memória, a paginacao, que é invisivel para o programador,elimina a fragmentacao externa
+e isso aumenta a eficiencia.
+Paginação:
+	-paginas de tamanho fixo
+	-invisivel para o programador
+	-As páginas físicas não são necessariamente contíguas
+        -Existe fragmentação interna
+	-Apenas um espaço de endereçamento
+Segmentacao:
+	 -Ocorre fragmentação externa
+ 	 -Nao é transparente para o programador
+	 -Varios espacos de endereçamento
+	 -O codigo e dados podem ser diferentes e protegidos separadamente
+	 -As tabelas de tamanho variavel podem ser geridas facilmente
+	 -A partilha de codigo é facilitada
+
+Sempre que uma pagina necessária à execução de um processo não se encontra numa frame, ocorre uma "page fault".
+ Embora as faults sejam normais, quando ocorrem constantemente acontece o "thrashing" que é o fenómeno que 
+causa um impacto grande no desempenho da máquina uma vez que é gasto tempo de CPU a efetuar reposição de páginas.
+
+2. Sendo assim, num sistema operativo convem dizer q este é um conjunto de processos de kernel e de utilizador.
+A grande diferenca entre o rr e os algoritmos de filas, é a de q no rr todos os processos sao executados ao mesmo tempo,e assim
+todos tem a mesma prioridade,isto faz com que nao haja starvation(porque a todos os processos é lhes dado um tempo de execucao
+,nao ficando nenhum por executar), enquanto que nos algoritmos de filas, aquilo que acontece é que  os processos tem todos um grau de prioridade
+e sao executados de acordo com esse grau, aquilo q acontece nos so's é q neste tipo de algoritmos é dada prioridade a proocessos
+do kernel, aumentando assim a efienciencia  em relacao ao rr, no entanto nos algoritmos de filas, os processos de maior prioridade
+são executados, inclusive antes de um processo de baixa prioridade que ja estava em execucao, fazendo com que o processo de menor
+prioridade fique a espera que o processo de maior prioridade acabe a sua execucao, havendo por isso starvarion.
+
+
+							II
+
+
+   

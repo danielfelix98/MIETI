@@ -1,0 +1,34 @@
+1.A conveniência de um sistema operativo, está relacionada com o facto de este, tornar a comunicaçao entre o user e o hardware
+mais fácil, alguns exemplos relacionados com este aspecto sao:O facto de os sistemas operativos forneceram uma interface
+gráfica(GUI),tornando mais apelativo para o user utilizar o seu computador, outro exemplo é o facto de os sistemas operativos
+permitirem que haja maior portabilidade de programas, fazendo que por exemplo um programa criado num computador com um dado
+sistema opertativo, possa ser executado noutros computadores.
+A eficiencia de um sistema operativo, está relacionada com o facto de que de este usar os recursos disponíveis num 
+computador de forma rapida e eficaz, um exemplo disso, é o facto de os sistemas operativos poderem executarem vários programas ou processos
+de forma simples para o user, usando para isso algoritmos de escalonamento, determinando quais os processos que devem ser
+executados, bem como algoritmos de gestao da memoria, tais como a paginaçao e segmentacao, tornando assim uma experiencia
+mais agradavel para o user, outro exemplo onde é importante a eficiencia é no facto de num sistema operativo, este permitir 
+a programação concorrente, o que para programadores, é algo bastante importante sobretudo porque se podem estar a testar
+programas enquanto se fazem outros,poupando assim imenso tempo e trabalho, que existiam antes dos sistemas operativos.
+
+2.Num sistema de memoria virtual, que recorre à paginacao, tem como objetivo primeiro, eliminar a fragmentação externa, e como
+consequencia disto aumentar a eficiência da memoria central, no entanto tem o custo de aumentar a fragmentacao interna,
+e isto acontece por exemplo quando, uma pagina de 8 bytes de tamanho, um processo de 55 bytes requer 6 paginas + 7 bytes.Isto 
+iria fazer com que fossem alocados 7  bytes especificamente para esse processo, havendo assim um page fault, que 
+embora sejam normais, quando acontecem muito,tem o nome de trashing, causando um grande impacto no desempenho do sistema,
+uma vez que é gasto tempo de CPU, para a reposição de paginas. Para reduzir esta desvantagem a solução
+passa por reduzir o tamanho de cada pagina o mais possivel, apesar de esta ser a melhor soluçao tambem aumenta os overheads, sendo
+que o tamanho recomendavel é de 1 a 4KB por pagina.
+
+3.		-
+A CPU,tem um endereço na memoria, onde espera encontrar uma tabela de descritores de interrupçoes(tabela de vetores),
+existindo um vector para cada excepcao possivel.Quando a CPU encontra uma excepcao, guarda os sinalizadores e o ponteiro 
+de instrucao atual numa "pilha", e em seguida salta para o endereço especificado pelo vector. Em Unix, esse vetor aponta sempre
+para o kernel, onde existe um controlador de excepcoes.A CPU esta pronta e o kernel assume o controlo.Posto isto é possivel esquematizar 
+o funcionamento de sinais em Unix da seguinte forma:
+	1.Um sinal é gerado pelo kernel ou por um programa usando a syscall kill
+	2.Se o sinal for SIGKILL ou SIGSTOP o kernel atua imediatamente sem que receber qualquer input do processo alvo
+	3.Se nao forem nenhum destes dois, o kernel escolhe o que fazer com o sinal de acordo com os inputs que recebe do 
+programa.Por exemplo, se num programa estiver definido que após haver um SIGALRM, o programa executa determina função, é exatamente
+que acontece, quando esse sinal é recebido.Neste caso poderia se provocar um SIGALRM, usando a função alarm().
+

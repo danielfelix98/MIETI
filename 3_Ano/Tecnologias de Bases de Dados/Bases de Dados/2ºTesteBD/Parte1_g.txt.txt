@@ -1,0 +1,4 @@
+drop table tipos_de_alojamento;
+drop table regioes;
+drop table proprietarios;
+drop table clientes;

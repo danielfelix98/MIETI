@@ -1,0 +1,2 @@
+ISu;Nome_area
+1;area1;2;area2

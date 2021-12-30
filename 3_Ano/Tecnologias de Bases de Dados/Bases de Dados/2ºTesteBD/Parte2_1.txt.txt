@@ -1,0 +1,10 @@
+drop view if exists filial_mais_saidas;
+delimiter @
+create view filial_mais_saidas(filial_saida)
+AS SELECT Count(filial_saida)
+from alugueres
+group by filial_saida;
+@
+delimiter ;
+Select max(filial_saida)
+	from filial_mais_saidas;

@@ -1,0 +1,10 @@
+set grid
+set title 'Grafico'
+
+set xlabel 'tempo (em milis)'
+set datafile separator ","
+set format y "%.2f"
+plot 'graphAcc.csv' u 1:2 w lp t 'acelerometro', 'graphGyro.csv' u 1:2 w lp t 'giroscopio'
+pause 1
+reread
+replot

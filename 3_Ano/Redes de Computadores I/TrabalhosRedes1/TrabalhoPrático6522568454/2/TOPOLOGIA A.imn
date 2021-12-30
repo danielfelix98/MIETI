@@ -1,0 +1,119 @@
+node n1 {
+    type hub
+    network-config {
+	hostname HUB
+	!
+    }
+    canvas c1
+    iconcoords {337.0 244.0}
+    labelcoords {337.0 268.0}
+    interface-peer {e0 n2}
+    interface-peer {e1 n3}
+    interface-peer {e2 n4}
+    interface-peer {e3 n5}
+}
+
+node n2 {
+    type router
+    model PC
+    network-config {
+	hostname pc1
+	!
+	interface eth0
+	 ip address 10.0.0.21/24
+	!
+    }
+    canvas c1
+    iconcoords {338.0 159.0}
+    labelcoords {338.0 191.0}
+    interface-peer {eth0 n1}
+}
+
+node n3 {
+    type router
+    model PC
+    network-config {
+	hostname pc2
+	!
+	interface eth0
+	 ip address 10.0.0.22/24
+	!
+    }
+    canvas c1
+    iconcoords {216.0 246.0}
+    labelcoords {216.0 278.0}
+    interface-peer {eth0 n1}
+}
+
+node n4 {
+    type router
+    model PC
+    network-config {
+	hostname pc3
+	!
+	interface eth0
+	 ip address 10.0.0.23/24
+	!
+    }
+    canvas c1
+    iconcoords {336.0 331.0}
+    labelcoords {336.0 363.0}
+    interface-peer {eth0 n1}
+}
+
+node n5 {
+    type router
+    model PC
+    network-config {
+	hostname pc4
+	!
+	interface eth0
+	 ip address 10.0.0.20/24
+	!
+    }
+    canvas c1
+    iconcoords {458.0 242.0}
+    labelcoords {458.0 274.0}
+    interface-peer {eth0 n1}
+}
+
+link l1 {
+    nodes {n1 n2}
+}
+
+link l2 {
+    nodes {n1 n3}
+}
+
+link l3 {
+    nodes {n1 n4}
+}
+
+link l4 {
+    nodes {n1 n5}
+}
+
+canvas c1 {
+    name {Canvas1}
+}
+
+option global {
+    interface_names no
+    ip_addresses yes
+    ipv6_addresses yes
+    node_labels yes
+    link_labels yes
+    show_api no
+    background_images no
+    annotations yes
+    grid yes
+    traffic_start 0
+}
+
+option session {
+    controlnet=
+    enablerj45=1
+    enablesdt=0
+    preservedir=0
+}
+

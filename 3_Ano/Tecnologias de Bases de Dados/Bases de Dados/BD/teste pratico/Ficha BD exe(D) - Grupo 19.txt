@@ -1,0 +1,27 @@
+Base de Dados
+Grupo19
+João Moniz 73854
+Diogo Araújo 73539
+João Carlos Cunha 74312
+Afonso Costa 76399
+
+D1)
+Select categoria, Count(*) From Animal 
+Group by categoria
+                                
+D2)
+Select An.nome_ani,Ci.n_cirurgia, Count(*) From Animal An, Cirurgia Ci 
+Where An.nome_ani = (Select nome_ani From Animal
+                     Where categoria = "felinos"
+                     Group by Animal.nome_ani);
+
+D3)
+SELECT n_cirurgia,dia,mes,ano,n_ani
+FROM cirurgia
+WHERE n_vet IN (SELECT n_vet
+			FROM veterinario
+			WHERE nome_vet="Dra. Marta Leao")
+AND n_aux IN (SELECT n_aux
+			FROM auxiliar
+			WHERE nome_aux ="Antonio Melro");
+

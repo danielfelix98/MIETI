@@ -1,0 +1,84 @@
+-- comentario de uma linha
+/*
+comentario de varias linhas
+*/
+
+drop database if exists BD1;
+
+create database BD1;
+
+use BD1;
+
+
+create table Cartoes_Credito (
+	ncartao char(30),
+	tipo char(5),
+	ncliente char(30),
+	nconta char(30),
+	data_emissao date,
+	prazo_validade date,
+	valor_em_credito decimal,
+	
+	Primary key (ncartao)
+
+	Foreign key (ncliente)
+	References Clientes (ncliente)
+	on update cascade
+	on delete restrict,
+	Foreign key (tipo)
+	References Tipos_cartao (tipo)
+	on update cascade
+	on delete restrict,
+	Foreign key (nconta)
+	References Contas_bancarias (nconta)
+	on update cascade
+	on delete restrict
+	
+);
+
+create table Tipos_cartao (
+	tipo char(5),
+	condicoes_pagamento char(20),
+	limite_credito decimal,
+
+	Primary key (tipo)
+	
+);
+
+create table Contas_bancarias (
+	nconta char(30),
+	ncliente char(30),
+	saldo_contab decimal,
+	saldo_dispon decimal,
+
+	Primary key (nconta),
+	
+	foreign key (ncliente)
+	references Clientes (ncliente)
+	on update cascade
+	on update restrict
+	
+);
+
+create table Clientes (
+	ncliente char(30),
+	nome char(100),
+	morada char(100),
+	telefone char(9),
+	BIdentidade char(11),
+	NContribuinte char(11),
+
+	Primary key (ncliente),
+	
+	unique (BIdentidade),
+	unique (NContribuinte)
+	
+);
+
+insert into Clientes
+	values 	(01, 'Rui Cadete', 'Urgeses', 913815870, 11680873, 1256789),
+			(02, 'Anselmo Abilio', 'Carvalhos', 966779423, 11680950, 1256783),
+			(03, 'Filipe Fernandes', 'Creixomil', 966495629, 11680873, 1256784),
+			(04, 'Rui das Aves', 'Aves', 916782095, 11450546, 125623),
+			(05, 'bate codigo', 'Famalicao', 913813670, 11680563, 1245789),		
+			(06, 'fifas', 'Lousada', 984576235, 12345678, 124346754);

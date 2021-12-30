@@ -1,0 +1,48 @@
+Os coeficientes da SFTD são periódicos, com período igual a 2pi. F 
+Os coeficientes da SFTD são periódicos, com período igual a 2pi/N. V
+
+Tal como na SFTC, na SFTD os coeficientes |ak| = |a-k| desde que o sinal seja real. V
+Tal como na SFTC, na SFTD os coeficientes |ak| = |a-k| desde que o sinal seja par. F
+
+Caso o sinal seja real e observe uma simetria par, então os coeficientes da sua SFTD serão sempre positivos. F
+Caso o sinal seja real e observe uma simetria ímpar, então os coeficientes da sua SFTD serão puramente imaginários. V 
+Caso o sinal seja real e observe uma simetria impar, então os coeficientes da sua SFTD serão sempre impares, também. F 
+
+A TFTC pode ser usada caso o sinal seja aperiódico ou periódico. V
+A TFTC só pode ser usada caso o sinal seja aperiódico. F
+
+O espetro de um sinal constante corresponde um impulso de Dirac(escalado). V 
+O espetro de um sinal contínuo corresponde um impulso de Dirac(escalado). V
+
+Da propriedade da dualidade da TFTC conclui-se que se um sinal do tipo constante tem um espetro do tipo impulso, então um sinal do tipo impulso terá um espetro do tipo constante. V
+
+A energia do sinal pode ser calculada pela sua evolução no tempo, ou usando o conteúdo espetral que resulta do cálculo da TFTC . V
+
+O espetro de um sinal em tempo contínuo que foi amostrado é sempre periódico, com período igual a 2pi. V
+
+O resultado da TFTD apenas é periódico se o sinal também for periódico. F
+O resultado da TFTD é sempre discreto, pois estamos a tratar de tempo discreto. F
+O resultado da TFTD é sempre discreto e periódico. F
+O resultado da TFTC de um sinal é sempre periódico, mesmo que o sinal não o seja. V
+
+Um sinal amostrado pode ser recuperado desde que usemos uma  fa igual ou superior a duas vezes a largura de banda do sinal. F
+Um sinal amostrado pode ser recuperado desde que usemos uma fa superior a duas vezes a largura de banda do sinal. V
+
+A recuperação de um sinal convenientemente amostrado pode ser efectuada por um filtro passa-baixo ideal, com frequência de corte igual a metade de fa. F
+
+Se a  fa for inferior a duas vezes a largura de banda do sinal, então podemos recuperar o sinal usando um filtro passa-baixo ideal. F  
+
+O espetro de um sinal que foi amostrado só é periódico se o sinal original também o era. F
+O espetro de um sinal que foi amostrado é periódico apenas se a amostragem ocorrer em tempo discreto. F
+
+O aliasing pode ser evitado usando filtros passa-banda. F
+O aliasing pode ser evitado usando filtros passa-baixo ideais com frequência de corte igual à frequência de amostragem. V
+
+Se um sinal pode ser decimado sem gerar aliasing, então significa que foi sobreamostrado. V
+
+Para evitar o efeito de aliasing devemos usar uma frequência de amostragem superior a duas vezes a maior frequência do sinal. V
+
+A decimação (após amostragem com período N) equivale a reduzir a frequência de amostragem de um fator de N. V
+
+Num processo de interpolação, a recuperação do sinal faz-se usando um filtro passa-baixo. V
+Num processo de interpolação, a recuperação do sinal faz-se usando um filtro passa-alto. F

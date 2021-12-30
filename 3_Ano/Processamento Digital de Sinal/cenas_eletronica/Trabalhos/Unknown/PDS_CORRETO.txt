@@ -1,0 +1,63 @@
+ fsamp = 8000;
+>> recObj = audiorecorder(fsamp,8,1);
+>> recordblocking(recObj, 5);
+>> play(recObj);
+>> myRecording = getaudiodata(recObj);
+>> plot(myRecording);
+>> N=2;
+>> wc=pi./N;
+>> ws=1.2*pi./N;
+>> M=ceil((60-8)/(2.285*(ws-wc)))
+M=73
+
+>> beta=0.1102*(60-8.7)
+
+beta =
+
+    5.6533
+
+hd=ideal_lp(wc,M);
+w=(kaiser(M,beta))';
+freqz(hd);
+freqz(w);
+h=hd.*w;
+freqz(h);
+audio = myRecording;
+y=decimacao(N,audio);
+
+ans =
+
+    0.5000
+
+
+y =
+
+     0
+
+f=filter(h,1,myRecording);
+plot(myRecording,'g');
+hold on
+plot(f,'r');
+
+
+
+decimacao.m
+
+function y=decimacao(N,audio)
+y=0;
+for i=1; length(y)/N
+  y(i)=audio(i*N)
+   
+end 
+
+
+
+ideal_lp.m
+
+
+function hd=ideal_lp(wc,M)
+alpha=(M-1)/2;
+n =(0:1:(M-1));
+m=n-alpha+eps;
+hd=sin(wc*m)./(pi*m);
+end

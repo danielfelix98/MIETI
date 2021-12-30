@@ -1,0 +1,1 @@
+assert fd == 0 -> garante que o fd deveria ser 0, e se não for crasha o programa

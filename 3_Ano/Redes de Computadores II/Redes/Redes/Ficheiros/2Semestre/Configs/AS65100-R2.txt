@@ -1,0 +1,84 @@
+interface eth0
+  ip address 192.168.1.33/30
+!
+interface eth1
+  ip address 192.168.1.30/30
+  ip ospf authentication message-digest
+  ip ospf message-digest-key 1 md5 rc2fln
+!
+interface eth2
+  ip address 192.168.1.26/30
+  ip ospf authentication message-digest
+  ip ospf message-digest-key 1 md5 rc2fln
+!
+interface eth3
+  ip address 192.168.1.45/30
+!
+interface eth4
+  ip address 10.1.0.25/30
+  ip ospf authentication message-digest
+  ip ospf message-digest-key 1 md5 rc2fln
+!
+interface eth5
+  ip address 10.1.0.53/30
+  ip ospf authentication message-digest
+  ip ospf message-digest-key 1 md5 rc2fln
+!
+
+router ospf
+ network 10.1.0.24/30 area 0.0.0.0
+ network 10.1.0.52/30 area 0.0.0.0
+ network 192.168.1.24/30 area 0.0.0.0
+ network 192.168.1.28/30 area 0.0.0.0
+ area 0.0.0.0 authentication message-digest
+ redistribute bgp
+!
+
+router bgp 65100
+ bgp router-id 10.1.0.1
+ network 10.1.0.0/16
+ neighbor 192.168.1.25 remote-as 65100
+ neighbor 192.168.1.25 next-hop-self
+ neighbor 192.168.1.25 route-map rm3 in
+ neighbor 192.168.1.29 remote-as 65100
+ neighbor 192.168.1.29 next-hop-self
+ neighbor 192.168.1.29 route-map rm4 in
+ neighbor 192.168.1.34 remote-as 65200
+ neighbor 192.168.1.34 route-map RMtransit out
+ neighbor 192.168.1.46 remote-as 65000
+ neighbor 192.168.1.46 route-map RMtransit out
+!
+ip prefix-list pf012 seq 5 permit 10.0.0.0/16
+ip prefix-list pf012 seq 10 permit 10.1.0.0/16
+ip prefix-list pf012 seq 15 permit 10.2.0.0/16
+ip prefix-list pf3 seq 5 permit 10.3.0.0/16
+ip prefix-list pf4 seq 5 permit 10.4.0.0/16
+ip prefix-list pftudo3 seq 5 permit 10.0.0.0/16
+ip prefix-list pftudo3 seq 10 permit 10.1.0.0/16
+ip prefix-list pftudo3 seq 15 permit 10.2.0.0/16
+ip prefix-list pftudo3 seq 20 permit 10.4.0.0/16
+ip prefix-list pftudo4 seq 5 permit 10.0.0.0/16
+ip prefix-list pftudo4 seq 10 permit 10.1.0.0/16
+ip prefix-list pftudo4 seq 15 permit 10.2.0.0/16
+ip prefix-list pftudo4 seq 20 permit 10.3.0.0/16
+!
+!transito entre AS 0 e 2
+route-map RMtransit permit 5
+ match ip address prefix-list pf012
+!
+route-map rm4 permit 10
+ match ip address prefix-list pftudo4
+!
+!---para 400 vai por R4
+route-map rm4 permit 15
+ match ip address prefix-list pf4
+ set local-preference 500
+!
+route-map rm3 permit 20
+ match ip address prefix-list pftudo3
+!
+!---para 300 vai por R3
+route-map rm3 permit 25
+ match ip address prefix-list pf3
+ set local-preference 500
+!

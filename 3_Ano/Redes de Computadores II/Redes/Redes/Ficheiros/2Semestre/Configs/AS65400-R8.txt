@@ -1,0 +1,30 @@
+interface eth0
+  ip address 192.168.1.1/30  
+!
+interface eth1
+  ip address 192.168.1.5/30
+!
+interface eth2
+  ip address 10.4.0.1/16
+!
+router bgp 65400
+ bgp router-id 10.4.0.1
+ network 10.4.0.0/16
+ neighbor 192.168.1.2 remote-as 65300
+ neighbor 192.168.1.2 route-map rm1 in
+ neighbor 192.168.1.6 remote-as 65200
+!
+ip prefix-list pf1 seq 5 permit 10.1.0.0/16
+ip prefix-list pftudo1 seq 5 permit 10.0.0.0/16
+ip prefix-list pftudo1 seq 10 permit 10.2.0.0/16
+ip prefix-list pftudo1 seq 15 permit 10.3.0.0/16
+ip prefix-list pftudo1 seq 20 permit 10.4.0.0/16
+!
+route-map rm1 permit 5
+ match ip address prefix-list pftudo1
+!
+!---para 100 vai por 300
+route-map rm1 permit 10
+ match ip address prefix-list pf1
+ set local-preference 500
+!

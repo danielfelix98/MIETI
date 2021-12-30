@@ -1,0 +1,42 @@
+1)  	SELECT lince,genero FROM LINCES
+	WHERE id_mae IN (SELECT id_lince FROM LINCES
+			WHERE data_obito IS NULL)
+
+	AND id_pai IN (SELECT id_lince FROM LINCES
+			WHERE data_obito IS NULL);
+
+2)	SELECT lince,genero FROM LINCES
+	WHERE (id_mae IN (SELECT id_lince FROM LINCES
+			WHERE data_obito IS NULL)
+
+	AND id_pai IN (SELECT id_lince FROM LINCES
+			WHERE data_obito IS NOT NULL))
+	OR
+	(id_mae IN (SELECT id_lince FROM LINCES
+			WHERE data_obito IS NOT NULL)
+	
+	AND id_pai IN (SELECT id_lince FROM LINCES
+			WHERE data_obito IS NULL));
+
+3)	CREATE VIEW  FILHOTES_POR_LINCE (id_lince,filhotes)
+	AS SELECT id_pai,COUNT(*) FROM LINCES
+		WHERE id_pai IS NOT NULL
+		GROUP BY id_pai;
+	
+	SELECT L.id_lince, L.lince, FPL.filhotes
+	FROM LINCES L, FILHOTES_POR_LINCE FPL
+	WHERE L.genero="M" AND L.id_lince=FPL.id_lince;
+
+4)	CREATE VIEW PESO_MEDIO_LINCE (id_lince,peso_medio)
+	AS SELECT id_lince,AVG(peso) FROM CONTROLOS
+	GROUP BY id_lince;
+
+	SELECT id_lince,lince FROM LINCES L
+	WHERE genero="F"
+	AND (SELECT peso_medio FROM PESO_MEDIO_LINCE PML
+		WHERE PML.lince=L.id_lince)
+	<
+	(SELECT peso FROM CONTROLOS C1
+	WHERE C1.id_lince=L.id_lince
+	AND C1.data=(SELECT MAX(C2.data) FROM CONTROLOS C2
+			WHERE C2.id_lince=L.id_lince));

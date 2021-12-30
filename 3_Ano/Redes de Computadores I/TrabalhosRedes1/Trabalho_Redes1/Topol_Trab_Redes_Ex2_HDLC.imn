@@ -1,0 +1,201 @@
+node n1 {
+    type lanswitch
+    network-config {
+	hostname n1
+	!
+    }
+    canvas c1
+    iconcoords {378.0 293.0}
+    labelcoords {378.0 317.0}
+    interface-peer {e0 n2}
+    interface-peer {e1 n7}
+    interface-peer {e2 n6}
+    interface-peer {e3 n5}
+    interface-peer {e5 n4}
+    interface-peer {e4 n3}
+}
+
+node n2 {
+    type router
+    model PC
+    network-config {
+	hostname n2
+	!
+	interface eth0
+	!
+    }
+    canvas c1
+    iconcoords {286.0 183.0}
+    labelcoords {286.0 215.0}
+    interface-peer {eth0 n1}
+    custom-config {
+	custom-config-id service:DHCPClient
+	custom-command DHCPClient
+	config {
+	files=('startdhcpclient.sh', )
+	starttime=15
+	}
+    }
+    custom-config {
+	custom-config-id service:DHCPClient:startdhcpclient.sh
+	custom-command startdhcpclient.sh
+	config {
+	/sbin/dhclient -nw -pf /var/run/dhclient-eth0.pid -lf /var/run/dhclient-eth0.lease eth0
+	
+	}
+    }
+    services {DefaultRoute DHCPClient}
+}
+
+node n4 {
+    type router
+    model PC
+    network-config {
+	hostname n4
+	!
+	interface eth0
+	!
+    }
+    canvas c1
+    iconcoords {530.0 263.0}
+    labelcoords {530.0 297.0}
+    interface-peer {eth0 n1}
+}
+
+node n5 {
+    type router
+    model PC
+    network-config {
+	hostname n5
+	!
+	interface eth0
+	!
+    }
+    canvas c1
+    iconcoords {495.0 392.0}
+    labelcoords {499.0 435.0}
+    interface-peer {eth0 n1}
+}
+
+node n6 {
+    type router
+    model PC
+    network-config {
+	hostname n6
+	!
+	interface eth0
+	!
+    }
+    canvas c1
+    iconcoords {340.0 411.0}
+    labelcoords {340.0 443.0}
+    interface-peer {eth0 n1}
+}
+
+node n7 {
+    type router
+    model PC
+    network-config {
+	hostname n7
+	!
+	interface eth0
+	!
+    }
+    canvas c1
+    iconcoords {206.0 323.0}
+    labelcoords {206.0 355.0}
+    interface-peer {eth0 n1}
+}
+
+node n3 {
+    type router
+    model host
+    network-config {
+	hostname n3
+	!
+	interface eth0
+	 ip address 192.168.0.1/24
+	!
+    }
+    canvas c1
+    iconcoords {435.0 159.0}
+    labelcoords {435.0 191.0}
+    interface-peer {eth0 n1}
+    services {DefaultRoute DHCP}
+    custom-config {
+	custom-config-id service:DHCP
+	custom-command DHCP
+	config {
+	files=('/etc/dhcp/dhcpd.conf', )
+	starttime=10
+	}
+    }
+    custom-config {
+	custom-config-id service:DHCP:/etc/dhcp/dhcpd.conf
+	custom-command /etc/dhcp/dhcpd.conf
+	config {
+	
+	default-lease-time 600;
+	max-lease-time 7200;
+	
+	option subnet-mask 255.255.255.0;
+	option broadcast-address 192.168.1.255;
+	option routers 192.168.1.1;
+	
+	subnet 192.168.1.0 netmask 255.255.255.0 {
+	   range 192.168.1.2 192.168.1.10;
+	}
+	}
+    }
+}
+
+link l1 {
+    nodes {n2 n1}
+    bandwidth 0
+}
+
+link l2 {
+    nodes {n7 n1}
+    bandwidth 0
+}
+
+link l3 {
+    nodes {n6 n1}
+    bandwidth 0
+}
+
+link l4 {
+    nodes {n5 n1}
+    bandwidth 0
+}
+
+link l6 {
+    nodes {n4 n1}
+    bandwidth 0
+}
+
+link l5 {
+    nodes {n3 n1}
+    bandwidth 0
+}
+
+canvas c1 {
+    name {Canvas1}
+}
+
+option global {
+    interface_names no
+    ip_addresses yes
+    ipv6_addresses yes
+    node_labels yes
+    link_labels yes
+    show_api no
+    background_images no
+    annotations yes
+    grid yes
+    traffic_start 0
+}
+
+option session {
+}
+

@@ -1,0 +1,53 @@
+create funcrion agencia_calida(agencia int)
+return bool
+begin
+    
+    declare kms varchar(20)
+    
+    select designacao
+    into kms
+    from alugueres
+    where cod_agencia = agencia;
+    
+    
+    if (kms is null= then
+        declare (false);
+    else 
+        return(true);
+    end if    
+end;
+
+create procedure fechar_contrato aluguer int, agencia int, kme int, valor_comb decimal(10,0))
+
+    declare kms, km_percorridos int,
+    declare data_ent date,
+    declare matric char(9),
+    
+    select km_daida, data_entrada,matricula
+    into km, data_ent,matric
+    from alugueres
+    where naluguer =aluguer;
+    
+    if(kms is not null and data_ent is null) then --contrato e valido e esta aberto
+        set km_percorridos = kme - kms;
+        if (km_percorridos > 0 and agencia_valida(agencia)) then        --km percorridos positivos 
+            update alugueres
+                set agencia_entrada = agencia,
+                    km_entrada = kme,
+                    data_entrada= now(),
+                    valor_combustivel = valor_comb,
+                    valor_kms =valor_kilometragem(km_percorridos)
+            update naluguer= aluguer;
+                set  km_total=kme,
+                    cond_agencia= agencia
+                where matricula = matric;
+                
+                commit;
+        
+        
+        end if
+        
+    end if
+    
+    
+end ;   

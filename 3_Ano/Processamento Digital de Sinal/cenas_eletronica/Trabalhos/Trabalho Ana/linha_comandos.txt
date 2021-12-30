@@ -1,0 +1,36 @@
+% Record your voice for 4 seconds.
+x = audiorecorder;
+disp('Start speaking.')
+recordblocking(x,4);
+disp('End of Recording.');
+
+% Play back the recording.
+play(x);
+
+% Store data in double-precision array.
+fich_audio = getaudiodata(x);
+
+[fala,ruido]=detetor_fala(fiche_audio,5000,50,100);
+
+sound(fich_audio);
+sound(fala);
+sound(ruido);
+
+subplot(3,1,1), plot (fich_audio);
+subplot(3,1,2), plot (fala);
+subplot(3,1,3), plot (ruido);
+
+>> x=audiorecorder;
+>> recordblocking(x,4);
+>> play(x);
+>> fich_audio=getaudiodata(x);
+>> sound(fich_audio);
+>> [fala,ruido]=detetor_fala(fich_audio,5000,50,250);
+>> subplot(3,1,1); plot(fich_audio);
+>> title('Sinal original');
+>> subplot(3,1,2); plot(fala);
+>> title('Sinal "sem ruido"';)
+>> subplot(3,1,3); plot(ruido);
+>> title('Sinal com apenas ruído');
+>> sound(fala);
+>> sound(ruido);

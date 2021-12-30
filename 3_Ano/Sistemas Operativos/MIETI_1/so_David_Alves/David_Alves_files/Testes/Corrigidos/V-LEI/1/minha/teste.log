@@ -1,0 +1,12 @@
+3
+3.c
+Teste_2008-09_SO_LEI.pdf
+teste.log
+xlo
+xlog
+xlog.c
+xlog.log
+   PID TTY          TIME CMD
+ 15523 pts/4    00:00:00 bash
+ 15627 pts/4    00:00:00 xlog
+ 15629 pts/4    00:00:00 ps

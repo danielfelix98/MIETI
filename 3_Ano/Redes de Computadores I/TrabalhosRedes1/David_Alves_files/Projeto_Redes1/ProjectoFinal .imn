@@ -1,0 +1,1948 @@
+node n1 {
+    type router
+    model router
+    network-config {
+	hostname R1
+	!
+	interface eth0
+	 ip address 192.168.0.1/30
+	!
+	interface eth1
+	 ip address 192.168.0.22/30
+	 mac address 00:00:00:aa:00:0b
+	!
+	interface eth2
+	 ip address 10.0.0.190/27
+	 mac address 00:00:00:aa:00:19
+	!
+    }
+    canvas c1
+    iconcoords {314.0 258.0}
+    labelcoords {314.0 290.0}
+    services {zebra vtysh IPForward}
+    interface-peer {eth2 n8}
+    interface-peer {eth1 n3}
+    interface-peer {eth0 n2}
+    custom-config {
+	custom-config-id service:zebra
+	custom-command zebra
+	config {
+	files=('/usr/local/etc/quagga/Quagga.conf', 'quaggaboot.sh', '/usr/local/etc/quagga/vtysh.conf', )
+	}
+    }
+    custom-config {
+	custom-config-id service:zebra:/usr/local/etc/quagga/Quagga.conf
+	custom-command /usr/local/etc/quagga/Quagga.conf
+	config {
+	interface eth0
+	  ip address 192.168.0.1/30
+	!
+	interface eth1
+	  ip address 192.168.0.22/30
+	!
+	interface eth2
+	  ip address 10.0.0.126/25
+	  ip address 10.0.0.190/27
+	!
+	ip route 10.0.0.240/28 192.168.0.21
+	ip route 10.0.0.128/27 192.168.0.2
+	ip route 10.0.0.224/28 192.168.0.2
+	ip route 10.0.0.192/27 192.168.0.21
+	
+	
+	}
+    }
+}
+
+node n2 {
+    type router
+    model router
+    network-config {
+	hostname R2
+	!
+	interface eth2
+	 ip address 192.168.0.30/30
+	!
+	interface eth1
+	 ip address 192.168.0.5/30
+	!
+	interface eth3
+	 ip address 10.0.0.238/28
+	!
+	interface eth0
+	 ip address 192.168.0.2/30
+	!
+    }
+    canvas c1
+    iconcoords {652.0 264.0}
+    labelcoords {652.0 296.0}
+    services {zebra vtysh IPForward}
+    interface-peer {eth3 n9}
+    interface-peer {eth1 n5}
+    interface-peer {eth0 n1}
+    interface-peer {eth2 n4}
+    custom-config {
+	custom-config-id service:zebra
+	custom-command zebra
+	config {
+	files=('/usr/local/etc/quagga/Quagga.conf', 'quaggaboot.sh', '/usr/local/etc/quagga/vtysh.conf', )
+	}
+    }
+    custom-config {
+	custom-config-id service:zebra:/usr/local/etc/quagga/Quagga.conf
+	custom-command /usr/local/etc/quagga/Quagga.conf
+	config {
+	interface eth0
+	  ip address 192.168.0.2/30
+	  
+	!
+	interface eth1
+	  ip address 192.168.0.5/30
+	  
+	!
+	interface eth2
+	  ip address 192.168.0.30/30
+	  
+	!
+	interface eth3
+	  ip address 10.0.0.158/27
+	  ip adress  10.0.0.238/28
+	  
+	!
+	ip route 10.0.0.240/28 192.168.0.6
+	ip route 10.0.0.0/25 192.168.0.1
+	ip route 10.0.0.160/27 192.168.0.1
+	ip route 10.0.0.192/27 192.168.0.29
+	
+	
+	
+	}
+    }
+}
+
+node n3 {
+    type router
+    model router
+    network-config {
+	hostname R5
+	!
+	interface eth1
+	 ip address 192.168.0.21/30
+	!
+	interface eth0
+	 ip address 192.168.0.17/30
+	!
+    }
+    canvas c1
+    iconcoords {199.0 376.0}
+    labelcoords {199.0 408.0}
+    services {zebra vtysh IPForward}
+    interface-peer {eth0 n6}
+    interface-peer {eth1 n1}
+    custom-config {
+	custom-config-id service:zebra:/usr/local/etc/quagga/Quagga.conf
+	custom-command /usr/local/etc/quagga/Quagga.conf
+	config {
+	interface eth0
+	  ip address 192.168.0.17/30
+	  
+	!
+	interface eth1
+	  ip address 192.168.0.21/30
+	  
+	!
+	ip route 10.0.0.192/27 192.168.0.18
+	ip route 10.0.0.0/25   192.168.0.22
+	ip route 10.0.0.160/27 192.168.0.22
+	ip route 10.0.0.128/27 192.168.0.22
+	ip route 10.0.0.240/28 192.168.0.18
+	ip route 10.0.0.224/28 192.168.0.22
+	
+	}
+    }
+    custom-config {
+	custom-config-id service:zebra
+	custom-command zebra
+	config {
+	dirs=('/usr/local/etc/quagga', '/var/run/quagga')
+	files=('/usr/local/etc/quagga/Quagga.conf', 'quaggaboot.sh', '/usr/local/etc/quagga/vtysh.conf')
+	startidx=35
+	cmdup=('sh quaggaboot.sh zebra',)
+	cmddown=('killall zebra',)
+	cmdval=('pidof zebra',)
+	meta=
+	starttime=
+	}
+    }
+}
+
+node n4 {
+    type router
+    model router
+    network-config {
+	hostname R6
+	!
+	interface eth1
+	 ip address 192.168.0.29/30
+	!
+	interface eth0
+	 ip address 192.168.0.26/30
+	!
+    }
+    canvas c1
+    iconcoords {466.0 373.0}
+    labelcoords {466.0 405.0}
+    services {zebra vtysh IPForward}
+    interface-peer {eth0 n6}
+    interface-peer {eth1 n2}
+    custom-config {
+	custom-config-id service:zebra:/usr/local/etc/quagga/Quagga.conf
+	custom-command /usr/local/etc/quagga/Quagga.conf
+	config {
+	interface eth0
+	  ip address 192.168.0.26/30
+	  
+	!
+	interface eth1
+	  ip address 192.168.0.29/30
+	  
+	!
+	ip route 10.0.0.192/27 192.168.0.25
+	ip route 10.0.0.128/27 192.168.0.30
+	ip route 10.0.0.224/28 192.168.0.30
+	ip route 10.0.0.0/25   192.168.0.30
+	ip route 10.0.0.160/27 192.168.0.30
+	ip route 10.0.0.240/28 192.168.0.25
+	}
+    }
+    custom-config {
+	custom-config-id service:zebra
+	custom-command zebra
+	config {
+	dirs=('/usr/local/etc/quagga', '/var/run/quagga')
+	files=('/usr/local/etc/quagga/Quagga.conf', 'quaggaboot.sh', '/usr/local/etc/quagga/vtysh.conf')
+	startidx=35
+	cmdup=('sh quaggaboot.sh zebra',)
+	cmddown=('killall zebra',)
+	cmdval=('pidof zebra',)
+	meta=
+	starttime=
+	}
+    }
+}
+
+node n5 {
+    type router
+    model router
+    network-config {
+	hostname R7
+	!
+	interface eth1
+	 ip address 192.168.0.9/30
+	!
+	interface eth0
+	 ip address 192.168.0.6/30
+	!
+    }
+    canvas c1
+    iconcoords {718.0 377.0}
+    labelcoords {718.0 409.0}
+    services {zebra vtysh IPForward}
+    interface-peer {eth0 n2}
+    interface-peer {eth1 n7}
+    custom-config {
+	custom-config-id service:zebra
+	custom-command zebra
+	config {
+	files=('/usr/local/etc/quagga/Quagga.conf', 'quaggaboot.sh', '/usr/local/etc/quagga/vtysh.conf', )
+	}
+    }
+    custom-config {
+	custom-config-id service:zebra:/usr/local/etc/quagga/Quagga.conf
+	custom-command /usr/local/etc/quagga/Quagga.conf
+	config {
+	interface eth0
+	  ip address 192.168.0.6/30
+	  
+	!
+	interface eth1
+	  ip address 192.168.0.9/30
+	  
+	!
+	ip route 10.0.0.192/27 192.168.0.10
+	ip route 10.0.0.240/28 192.168.0.10
+	ip route 10.0.0.128/27 192.168.0.5
+	ip route 10.0.0.224/28 192.168.0.5
+	ip route 10.0.0.0/25   192.168.0.5
+	ip route 10.0.0.160/27 192.168.0.5
+	
+	}
+    }
+}
+
+node n6 {
+    type router
+    model router
+    network-config {
+	hostname R3
+	!
+	interface eth0
+	 ip address 192.168.0.13/30
+	!
+	interface eth2
+	 ip address 192.168.0.25/30
+	!
+	interface eth1
+	 ip address 192.168.0.18/30
+	!
+	interface eth3
+	 ip address 10.0.0.222/27
+	!
+    }
+    canvas c1
+    iconcoords {315.0 505.0}
+    labelcoords {315.0 537.0}
+    services {zebra vtysh IPForward}
+    interface-peer {eth3 n10}
+    interface-peer {eth1 n3}
+    interface-peer {eth2 n4}
+    interface-peer {eth0 n7}
+    custom-config {
+	custom-config-id service:zebra
+	custom-command zebra
+	config {
+	files=('/usr/local/etc/quagga/Quagga.conf', 'quaggaboot.sh', '/usr/local/etc/quagga/vtysh.conf', )
+	}
+    }
+    custom-config {
+	custom-config-id service:zebra:/usr/local/etc/quagga/Quagga.conf
+	custom-command /usr/local/etc/quagga/Quagga.conf
+	config {
+	interface eth0
+	  ip address 192.168.0.13/30
+	  
+	!
+	interface eth1
+	  ip address 192.168.0.18/30
+	  
+	!
+	interface eth2
+	  ip address 192.168.0.25/30
+	  
+	!
+	interface eth3
+	  ip address 10.0.0.222/27
+	  
+	!
+	ip route 10.0.0.0/25   192.168.0.17
+	ip route 10.0.0.160/27 192.168.0.17
+	ip route 10.0.0.128/27 192.168.0.26
+	ip route 10.0.0.224/28 192.168.0.26
+	ip route 10.0.0.240/28 192.168.0.14
+	
+	}
+    }
+}
+
+node n7 {
+    type router
+    model router
+    network-config {
+	hostname R4
+	!
+	interface eth0
+	 ip address 192.168.0.10/30
+	!
+	interface eth1
+	 ip address 192.168.0.14/30
+	!
+	interface eth2
+	 ip address 10.0.0.254/28
+	!
+    }
+    canvas c1
+    iconcoords {633.0 506.0}
+    labelcoords {633.0 538.0}
+    services {zebra vtysh IPForward}
+    interface-peer {eth2 n11}
+    interface-peer {eth1 n6}
+    interface-peer {eth0 n5}
+    custom-config {
+	custom-config-id service:zebra
+	custom-command zebra
+	config {
+	files=('/usr/local/etc/quagga/Quagga.conf', 'quaggaboot.sh', '/usr/local/etc/quagga/vtysh.conf', )
+	}
+    }
+    custom-config {
+	custom-config-id service:zebra:/usr/local/etc/quagga/Quagga.conf
+	custom-command /usr/local/etc/quagga/Quagga.conf
+	config {
+	interface eth0
+	  ip address 192.168.0.10/30
+	  
+	!
+	interface eth1
+	  ip address 192.168.0.14/30
+	  
+	!
+	interface eth2
+	  ip address 10.0.0.254/28
+	  
+	!
+	ip route 10.0.0.192/27 192.168.0.13
+	ip route 10.0.0.0/25   192.168.0.13
+	ip route 10.0.0.160/27 192.168.0.13
+	ip route 10.0.0.128/27 192.168.0.9
+	ip route 10.0.0.224/28 192.168.0.9
+	
+	
+	}
+    }
+}
+
+node n8 {
+    type lanswitch
+    network-config {
+	hostname Sw1
+	!
+    }
+    canvas c1
+    iconcoords {182.0 126.0}
+    labelcoords {182.0 150.0}
+    interface-peer {e0 n36}
+    interface-peer {e1 n12}
+    interface-peer {e2 n13}
+    interface-peer {e3 n1}
+}
+
+node n9 {
+    type lanswitch
+    network-config {
+	hostname Sw2
+	!
+    }
+    canvas c1
+    iconcoords {763.0 140.0}
+    labelcoords {764.0 165.0}
+    interface-peer {e0 n14}
+    interface-peer {e1 n37}
+    interface-peer {e2 n2}
+    interface-peer {e3 n15}
+}
+
+node n10 {
+    type lanswitch
+    network-config {
+	hostname Sw3
+	!
+    }
+    canvas c1
+    iconcoords {200.0 605.0}
+    labelcoords {200.0 629.0}
+    interface-peer {e0 n6}
+    interface-peer {e1 n39}
+    interface-peer {e2 n18}
+    interface-peer {e3 n19}
+}
+
+node n11 {
+    type lanswitch
+    network-config {
+	hostname Sw4
+	!
+    }
+    canvas c1
+    iconcoords {679.0 641.0}
+    labelcoords {679.0 665.0}
+    interface-peer {e0 n7}
+    interface-peer {e1 n16}
+    interface-peer {e2 n17}
+    interface-peer {e3 n38}
+    interface-peer {e4 n40}
+}
+
+node n12 {
+    type hub
+    network-config {
+	hostname Hub1
+	!
+    }
+    canvas c1
+    iconcoords {184.0 64.0}
+    labelcoords {184.0 88.0}
+    interface-peer {e0 n8}
+    interface-peer {e1 n20}
+    interface-peer {e2 n21}
+}
+
+node n13 {
+    type hub
+    network-config {
+	hostname Hub2
+	!
+    }
+    canvas c1
+    iconcoords {178.0 183.0}
+    labelcoords {178.0 207.0}
+    interface-peer {e0 n8}
+    interface-peer {e1 n22}
+    interface-peer {e2 n23}
+}
+
+node n14 {
+    type hub
+    network-config {
+	hostname Hub3
+	!
+    }
+    canvas c1
+    iconcoords {763.0 89.0}
+    labelcoords {763.0 113.0}
+    interface-peer {e0 n9}
+    interface-peer {e1 n25}
+    interface-peer {e2 n24}
+}
+
+node n15 {
+    type hub
+    network-config {
+	hostname Hub4
+	!
+    }
+    canvas c1
+    iconcoords {765.0 189.0}
+    labelcoords {765.0 213.0}
+    interface-peer {e0 n9}
+    interface-peer {e1 n26}
+    interface-peer {e2 n27}
+}
+
+node n16 {
+    type hub
+    network-config {
+	hostname Hub7
+	!
+    }
+    canvas c1
+    iconcoords {621.0 647.0}
+    labelcoords {621.0 671.0}
+    interface-peer {e0 n11}
+    interface-peer {e1 n31}
+    interface-peer {e2 n30}
+}
+
+node n17 {
+    type hub
+    network-config {
+	hostname Hub8
+	!
+    }
+    canvas c1
+    iconcoords {760.0 658.0}
+    labelcoords {760.0 682.0}
+    interface-peer {e0 n11}
+    interface-peer {e1 n29}
+    interface-peer {e2 n28}
+}
+
+node n18 {
+    type hub
+    network-config {
+	hostname Hub6
+	!
+    }
+    canvas c1
+    iconcoords {231.0 670.0}
+    labelcoords {231.0 694.0}
+    interface-peer {e0 n10}
+    interface-peer {e1 n33}
+    interface-peer {e2 n32}
+}
+
+node n19 {
+    type hub
+    network-config {
+	hostname Hub5
+	!
+    }
+    canvas c1
+    iconcoords {104.0 648.0}
+    labelcoords {104.0 672.0}
+    interface-peer {e0 n34}
+    interface-peer {e1 n35}
+    interface-peer {e2 n10}
+}
+
+node n20 {
+    type router
+    model PC
+    network-config {
+	hostname n20
+	!
+	interface eth0
+	 ip address 10.0.0.2/25
+	 mac address 00:00:00:aa:00:15
+	!
+    }
+    canvas c1
+    iconcoords {315.0 53.0}
+    labelcoords {315.0 85.0}
+    services {DefaultRoute SSH}
+    interface-peer {eth0 n12}
+    custom-config {
+	custom-config-id service:DefaultRoute:defaultroute.sh
+	custom-command defaultroute.sh
+	config {
+	#!/bin/sh
+	# auto-generated by DefaultRoute service (utility.py)
+	ip route add default via 10.0.0.126
+	
+	}
+    }
+    custom-config {
+	custom-config-id service:DefaultRoute
+	custom-command DefaultRoute
+	config {
+	dirs=()
+	files=('defaultroute.sh',)
+	startidx=80
+	cmdup=('sh defaultroute.sh',)
+	cmddown=()
+	cmdval=()
+	meta=
+	starttime=
+	}
+    }
+}
+
+node n21 {
+    type router
+    model PC
+    network-config {
+	hostname n21
+	!
+	interface eth0
+	 ip address 10.0.0.1/25
+	 mac address 00:00:00:aa:00:16
+	!
+    }
+    canvas c1
+    iconcoords {51.0 41.0}
+    labelcoords {51.0 73.0}
+    services {DefaultRoute SSH}
+    interface-peer {eth0 n12}
+    custom-config {
+	custom-config-id service:DefaultRoute:defaultroute.sh
+	custom-command defaultroute.sh
+	config {
+	#!/bin/sh
+	# auto-generated by DefaultRoute service (utility.py)
+	ip route add default via 10.0.0.126
+	
+	}
+    }
+    custom-config {
+	custom-config-id service:DefaultRoute
+	custom-command DefaultRoute
+	config {
+	dirs=()
+	files=('defaultroute.sh',)
+	startidx=80
+	cmdup=('sh defaultroute.sh',)
+	cmddown=()
+	cmdval=()
+	meta=
+	starttime=
+	}
+    }
+}
+
+node n22 {
+    type router
+    model PC
+    network-config {
+	hostname n22
+	!
+	interface eth0
+	 ip address 10.0.0.161/27
+	 mac address 00:00:00:aa:00:18
+	!
+    }
+    canvas c1
+    iconcoords {54.0 158.0}
+    labelcoords {54.0 190.0}
+    services {DefaultRoute SSH}
+    interface-peer {eth0 n13}
+    custom-config {
+	custom-config-id service:DefaultRoute:defaultroute.sh
+	custom-command defaultroute.sh
+	config {
+	#!/bin/sh
+	# auto-generated by DefaultRoute service (utility.py)
+	ip route add default via 10.0.0.190
+	
+	}
+    }
+    custom-config {
+	custom-config-id service:DefaultRoute
+	custom-command DefaultRoute
+	config {
+	dirs=()
+	files=('defaultroute.sh',)
+	startidx=80
+	cmdup=('sh defaultroute.sh',)
+	cmddown=()
+	cmdval=()
+	meta=
+	starttime=
+	}
+    }
+}
+
+node n23 {
+    type router
+    model PC
+    network-config {
+	hostname n23
+	!
+	interface eth0
+	 ip address 10.0.0.162/27
+	 mac address 00:00:00:aa:00:25
+	!
+    }
+    canvas c1
+    iconcoords {55.0 209.0}
+    labelcoords {55.0 241.0}
+    services {DefaultRoute SSH}
+    interface-peer {eth0 n13}
+    custom-config {
+	custom-config-id service:DefaultRoute:defaultroute.sh
+	custom-command defaultroute.sh
+	config {
+	#!/bin/sh
+	# auto-generated by DefaultRoute service (utility.py)
+	ip route add default via 10.0.0.190
+	
+	}
+    }
+    custom-config {
+	custom-config-id service:DefaultRoute
+	custom-command DefaultRoute
+	config {
+	dirs=()
+	files=('defaultroute.sh',)
+	startidx=80
+	cmdup=('sh defaultroute.sh',)
+	cmddown=()
+	cmdval=()
+	meta=
+	starttime=
+	}
+    }
+}
+
+node n24 {
+    type router
+    model PC
+    network-config {
+	hostname n24
+	!
+	interface eth0
+	 ip address 10.0.0.130/27
+	 mac address 00:00:00:aa:00:14
+	!
+    }
+    canvas c1
+    iconcoords {892.0 59.0}
+    labelcoords {892.0 91.0}
+    services {DefaultRoute SSH}
+    interface-peer {eth0 n14}
+    custom-config {
+	custom-config-id service:DefaultRoute:defaultroute.sh
+	custom-command defaultroute.sh
+	config {
+	#!/bin/sh
+	# auto-generated by DefaultRoute service (utility.py)
+	ip route add default via 10.0.0.158
+	
+	}
+    }
+    custom-config {
+	custom-config-id service:DefaultRoute
+	custom-command DefaultRoute
+	config {
+	dirs=()
+	files=('defaultroute.sh',)
+	startidx=80
+	cmdup=('sh defaultroute.sh',)
+	cmddown=()
+	cmdval=()
+	meta=
+	starttime=
+	}
+    }
+}
+
+node n25 {
+    type router
+    model PC
+    network-config {
+	hostname n25
+	!
+	interface eth0
+	 ip address 10.0.0.129/27
+	 mac address 00:00:00:aa:00:13
+	!
+    }
+    canvas c1
+    iconcoords {654.0 65.0}
+    labelcoords {654.0 97.0}
+    services {DefaultRoute SSH}
+    interface-peer {eth0 n14}
+    custom-config {
+	custom-config-id service:DefaultRoute:defaultroute.sh
+	custom-command defaultroute.sh
+	config {
+	#!/bin/sh
+	# auto-generated by DefaultRoute service (utility.py)
+	ip route add default via 10.0.0.158
+	
+	}
+    }
+    custom-config {
+	custom-config-id service:DefaultRoute
+	custom-command DefaultRoute
+	config {
+	dirs=()
+	files=('defaultroute.sh',)
+	startidx=80
+	cmdup=('sh defaultroute.sh',)
+	cmddown=()
+	cmdval=()
+	meta=
+	starttime=
+	}
+    }
+}
+
+node n26 {
+    type router
+    model PC
+    network-config {
+	hostname n26
+	!
+	interface eth0
+	 ip address 10.0.0.225/28
+	 mac address 00:00:00:aa:00:10
+	!
+    }
+    canvas c1
+    iconcoords {897.0 167.0}
+    labelcoords {897.0 199.0}
+    services {DefaultRoute SSH}
+    interface-peer {eth0 n15}
+    custom-config {
+	custom-config-id service:DefaultRoute:defaultroute.sh
+	custom-command defaultroute.sh
+	config {
+	#!/bin/sh
+	# auto-generated by DefaultRoute service (utility.py)
+	ip route add default via 10.0.0.238
+	
+	}
+    }
+    custom-config {
+	custom-config-id service:DefaultRoute
+	custom-command DefaultRoute
+	config {
+	dirs=()
+	files=('defaultroute.sh',)
+	startidx=80
+	cmdup=('sh defaultroute.sh',)
+	cmddown=()
+	cmdval=()
+	meta=
+	starttime=
+	}
+    }
+}
+
+node n27 {
+    type router
+    model PC
+    network-config {
+	hostname n27
+	!
+	interface eth0
+	 ip address 10.0.0.226/28
+	 mac address 00:00:00:aa:00:11
+	!
+    }
+    canvas c1
+    iconcoords {892.0 227.0}
+    labelcoords {892.0 259.0}
+    services {DefaultRoute SSH}
+    interface-peer {eth0 n15}
+    custom-config {
+	custom-config-id service:DefaultRoute:defaultroute.sh
+	custom-command defaultroute.sh
+	config {
+	#!/bin/sh
+	# auto-generated by DefaultRoute service (utility.py)
+	ip route add default via 10.0.0.238
+	
+	}
+    }
+    custom-config {
+	custom-config-id service:DefaultRoute
+	custom-command DefaultRoute
+	config {
+	dirs=()
+	files=('defaultroute.sh',)
+	startidx=80
+	cmdup=('sh defaultroute.sh',)
+	cmddown=()
+	cmdval=()
+	meta=
+	starttime=
+	}
+    }
+}
+
+node n28 {
+    type router
+    model PC
+    network-config {
+	hostname n28
+	!
+	interface eth0
+	 ip address 10.0.0.242/28
+	!
+    }
+    canvas c1
+    iconcoords {815.0 712.0}
+    labelcoords {815.0 744.0}
+    services {DefaultRoute SSH}
+    interface-peer {eth0 n17}
+    custom-config {
+	custom-config-id service:DefaultRoute:defaultroute.sh
+	custom-command defaultroute.sh
+	config {
+	#!/bin/sh
+	# auto-generated by DefaultRoute service (utility.py)
+	ip route add default via 10.0.0.254
+	
+	}
+    }
+    custom-config {
+	custom-config-id service:DefaultRoute
+	custom-command DefaultRoute
+	config {
+	dirs=()
+	files=('defaultroute.sh',)
+	startidx=80
+	cmdup=('sh defaultroute.sh',)
+	cmddown=()
+	cmdval=()
+	meta=
+	starttime=
+	}
+    }
+}
+
+node n29 {
+    type router
+    model PC
+    network-config {
+	hostname n29
+	!
+	interface eth0
+	 ip address 10.0.0.241/28
+	!
+    }
+    canvas c1
+    iconcoords {631.0 713.0}
+    labelcoords {631.0 745.0}
+    services {DefaultRoute SSH}
+    interface-peer {eth0 n17}
+    custom-config {
+	custom-config-id service:DefaultRoute:defaultroute.sh
+	custom-command defaultroute.sh
+	config {
+	#!/bin/sh
+	# auto-generated by DefaultRoute service (utility.py)
+	ip route add default via 10.0.0.254
+	
+	}
+    }
+    custom-config {
+	custom-config-id service:DefaultRoute
+	custom-command DefaultRoute
+	config {
+	dirs=()
+	files=('defaultroute.sh',)
+	startidx=80
+	cmdup=('sh defaultroute.sh',)
+	cmddown=()
+	cmdval=()
+	meta=
+	starttime=
+	}
+    }
+}
+
+node n30 {
+    type router
+    model PC
+    network-config {
+	hostname n30
+	!
+	interface eth0
+	 ip address 10.0.0.245/28
+	!
+    }
+    canvas c1
+    iconcoords {514.0 702.0}
+    labelcoords {514.0 734.0}
+    services {DefaultRoute SSH}
+    interface-peer {eth0 n16}
+    custom-config {
+	custom-config-id service:DefaultRoute:defaultroute.sh
+	custom-command defaultroute.sh
+	config {
+	#!/bin/sh
+	# auto-generated by DefaultRoute service (utility.py)
+	ip route add default via 10.0.0.254
+	
+	}
+    }
+    custom-config {
+	custom-config-id service:DefaultRoute
+	custom-command DefaultRoute
+	config {
+	dirs=()
+	files=('defaultroute.sh',)
+	startidx=80
+	cmdup=('sh defaultroute.sh',)
+	cmddown=()
+	cmdval=()
+	meta=
+	starttime=
+	}
+    }
+}
+
+node n31 {
+    type router
+    model PC
+    network-config {
+	hostname n31
+	!
+	interface eth0
+	 ip address 10.0.0.244/28
+	!
+    }
+    canvas c1
+    iconcoords {521.0 622.0}
+    labelcoords {521.0 654.0}
+    services {DefaultRoute SSH}
+    interface-peer {eth0 n16}
+    custom-config {
+	custom-config-id service:DefaultRoute:defaultroute.sh
+	custom-command defaultroute.sh
+	config {
+	#!/bin/sh
+	# auto-generated by DefaultRoute service (utility.py)
+	ip route add default via 10.0.0.254
+	
+	}
+    }
+    custom-config {
+	custom-config-id service:DefaultRoute
+	custom-command DefaultRoute
+	config {
+	dirs=()
+	files=('defaultroute.sh',)
+	startidx=80
+	cmdup=('sh defaultroute.sh',)
+	cmddown=()
+	cmdval=()
+	meta=
+	starttime=
+	}
+    }
+}
+
+node n32 {
+    type router
+    model PC
+    network-config {
+	hostname n32
+	!
+	interface eth0
+	!
+    }
+    canvas c1
+    iconcoords {312.0 694.0}
+    labelcoords {312.0 726.0}
+    services {DefaultRoute SSH DHCPClient}
+    interface-peer {eth0 n18}
+    custom-config {
+	custom-config-id service:DefaultRoute:defaultroute.sh
+	custom-command defaultroute.sh
+	config {
+	#!/bin/sh
+	# auto-generated by DefaultRoute service (utility.py)
+	ip route add default via 10.0.0.222
+	
+	}
+    }
+    custom-config {
+	custom-config-id service:DefaultRoute
+	custom-command DefaultRoute
+	config {
+	dirs=()
+	files=('defaultroute.sh',)
+	startidx=80
+	cmdup=('sh defaultroute.sh',)
+	cmddown=()
+	cmdval=()
+	meta=
+	starttime=
+	}
+    }
+}
+
+node n33 {
+    type router
+    model PC
+    network-config {
+	hostname n33
+	!
+	interface eth0
+	!
+    }
+    canvas c1
+    iconcoords {290.0 597.0}
+    labelcoords {290.0 629.0}
+    services {DefaultRoute SSH DHCPClient}
+    interface-peer {eth0 n18}
+    custom-config {
+	custom-config-id service:DefaultRoute:defaultroute.sh
+	custom-command defaultroute.sh
+	config {
+	#!/bin/sh
+	# auto-generated by DefaultRoute service (utility.py)
+	ip route add default via 10.0.0.222
+	
+	}
+    }
+    custom-config {
+	custom-config-id service:DefaultRoute
+	custom-command DefaultRoute
+	config {
+	dirs=()
+	files=('defaultroute.sh',)
+	startidx=80
+	cmdup=('sh defaultroute.sh',)
+	cmddown=()
+	cmdval=()
+	meta=
+	starttime=
+	}
+    }
+}
+
+node n34 {
+    type router
+    model PC
+    network-config {
+	hostname n34
+	!
+	interface eth0
+	!
+    }
+    canvas c1
+    iconcoords {115.0 577.0}
+    labelcoords {115.0 609.0}
+    services {DefaultRoute SSH DHCPClient}
+    interface-peer {eth0 n19}
+    custom-config {
+	custom-config-id service:DefaultRoute:defaultroute.sh
+	custom-command defaultroute.sh
+	config {
+	#!/bin/sh
+	# auto-generated by DefaultRoute service (utility.py)
+	ip route add default via 10.0.0.222
+	
+	}
+    }
+    custom-config {
+	custom-config-id service:DefaultRoute
+	custom-command DefaultRoute
+	config {
+	dirs=()
+	files=('defaultroute.sh',)
+	startidx=80
+	cmdup=('sh defaultroute.sh',)
+	cmddown=()
+	cmdval=()
+	meta=
+	starttime=
+	}
+    }
+}
+
+node n35 {
+    type router
+    model PC
+    network-config {
+	hostname n35
+	!
+	interface eth0
+	!
+    }
+    canvas c1
+    iconcoords {75.0 702.0}
+    labelcoords {75.0 734.0}
+    services {DefaultRoute SSH DHCPClient}
+    interface-peer {eth0 n19}
+    custom-config {
+	custom-config-id service:DefaultRoute:defaultroute.sh
+	custom-command defaultroute.sh
+	config {
+	#!/bin/sh
+	# auto-generated by DefaultRoute service (utility.py)
+	ip route add default via 10.0.0.222
+	
+	}
+    }
+    custom-config {
+	custom-config-id service:DefaultRoute
+	custom-command DefaultRoute
+	config {
+	dirs=()
+	files=('defaultroute.sh',)
+	startidx=80
+	cmdup=('sh defaultroute.sh',)
+	cmddown=()
+	cmdval=()
+	meta=
+	starttime=
+	}
+    }
+}
+
+node n36 {
+    type router
+    model host
+    network-config {
+	hostname n36
+	!
+	interface eth0
+	 ip address 10.0.0.2/25
+	 mac address 00:00:00:aa:00:17
+	!
+    }
+    canvas c1
+    iconcoords {59.0 104.0}
+    labelcoords {59.0 136.0}
+    services {DefaultRoute SSH}
+    interface-peer {eth0 n8}
+    custom-config {
+	custom-config-id service:DefaultRoute:defaultroute.sh
+	custom-command defaultroute.sh
+	config {
+	#!/bin/sh
+	# auto-generated by DefaultRoute service (utility.py)
+	ip route add default via 10.0.0.126
+	
+	}
+    }
+    custom-config {
+	custom-config-id service:DefaultRoute
+	custom-command DefaultRoute
+	config {
+	dirs=()
+	files=('defaultroute.sh',)
+	startidx=80
+	cmdup=('sh defaultroute.sh',)
+	cmddown=()
+	cmdval=()
+	meta=
+	starttime=
+	}
+    }
+}
+
+node n37 {
+    type router
+    model host
+    network-config {
+	hostname HTTP
+	!
+	interface eth0
+	 ip address 10.0.0.131/27
+	!
+    }
+    canvas c1
+    iconcoords {904.0 102.0}
+    labelcoords {904.0 134.0}
+    services {DefaultRoute SSH HTTP}
+    interface-peer {eth0 n9}
+    custom-config {
+	custom-config-id service:HTTP
+	custom-command HTTP
+	config {
+	dirs=('/etc/apache2', '/var/run/apache2', '/var/log/apache2', '/var/lock/apache2', '/var/www', '/run/lock', )
+	cmdup=('apache2ctl start', 'mkdir -p /run/lock', 'mkdir -p /var/log/apache2', )
+	}
+    }
+    custom-config {
+	custom-config-id service:DefaultRoute:defaultroute.sh
+	custom-command defaultroute.sh
+	config {
+	#!/bin/sh
+	# auto-generated by DefaultRoute service (utility.py)
+	ip route add default via 10.0.0.158
+	
+	}
+    }
+    custom-config {
+	custom-config-id service:DefaultRoute
+	custom-command DefaultRoute
+	config {
+	dirs=()
+	files=('defaultroute.sh',)
+	startidx=80
+	cmdup=('sh defaultroute.sh',)
+	cmddown=()
+	cmdval=()
+	meta=
+	starttime=
+	}
+    }
+}
+
+node n38 {
+    type router
+    model host
+    network-config {
+	hostname FTP
+	!
+	interface eth0
+	 ip address 10.0.0.243/28
+	!
+    }
+    canvas c1
+    iconcoords {836.0 626.0}
+    labelcoords {836.0 658.0}
+    services {DefaultRoute SSH FTP}
+    interface-peer {eth0 n11}
+    custom-config {
+	custom-config-id service:FTP
+	custom-command FTP
+	config {
+	cmdup=('vsftpd ./vsftpd.conf', 'chmod a-w /var/run/vsftpd/empty', 'chmod a-w /var/ftp', )
+	}
+    }
+    custom-config {
+	custom-config-id service:DefaultRoute:defaultroute.sh
+	custom-command defaultroute.sh
+	config {
+	#!/bin/sh
+	# auto-generated by DefaultRoute service (utility.py)
+	ip route add default via 10.0.0.254
+	
+	}
+    }
+    custom-config {
+	custom-config-id service:DefaultRoute
+	custom-command DefaultRoute
+	config {
+	dirs=()
+	files=('defaultroute.sh',)
+	startidx=80
+	cmdup=('sh defaultroute.sh',)
+	cmddown=()
+	cmdval=()
+	meta=
+	starttime=
+	}
+    }
+}
+
+node n39 {
+    type router
+    model host
+    network-config {
+	hostname DHCP
+	!
+	interface eth0
+	 ip address 10.0.0.193/27
+	!
+    }
+    canvas c1
+    iconcoords {160.0 690.0}
+    labelcoords {160.0 722.0}
+    services {DefaultRoute SSH DHCP}
+    interface-peer {eth0 n10}
+    custom-config {
+	custom-config-id service:DHCP
+	custom-command DHCP
+	config {
+	files=('/etc/dhcp/dhcpd.conf', )
+	}
+    }
+    custom-config {
+	custom-config-id service:DHCP:/etc/dhcp/dhcpd.conf
+	custom-command /etc/dhcp/dhcpd.conf
+	config {
+	# auto-generated by DHCP service (utility.py)
+	# NOTE: move these option lines into the desired pool { } block(s) below
+	#option domain-name "test.com";
+	#option domain-name-servers 10.0.0.1;
+	#option routers 10.0.0.1;
+	
+	log-facility local6;
+	
+	default-lease-time 600;
+	max-lease-time 7200;
+	
+	ddns-update-style none;
+	
+	subnet 10.0.0.192 netmask 255.255.255.224 {
+	  pool {
+	    range 10.0.0.194 10.0.0.221;
+	    default-lease-time 600;
+	    option routers 10.0.0.222;
+	  }
+	}
+	
+	
+	}
+    }
+    custom-config {
+	custom-config-id service:DefaultRoute:defaultroute.sh
+	custom-command defaultroute.sh
+	config {
+	#!/bin/sh
+	# auto-generated by DefaultRoute service (utility.py)
+	ip route add default via 10.0.0.222
+	
+	}
+    }
+    custom-config {
+	custom-config-id service:DefaultRoute
+	custom-command DefaultRoute
+	config {
+	dirs=()
+	files=('defaultroute.sh',)
+	startidx=80
+	cmdup=('sh defaultroute.sh',)
+	cmddown=()
+	cmdval=()
+	meta=
+	starttime=
+	}
+    }
+}
+
+node n40 {
+    type router
+    model router
+    network-config {
+	hostname NAT
+	!
+	interface eth1
+	 ip address 192.168.1.254/24
+	!
+	interface eth0
+	 ip address 10.0.0.253/28
+	!
+    }
+    canvas c1
+    iconcoords {809.0 516.0}
+    labelcoords {809.0 548.0}
+    interface-peer {eth0 n11}
+    interface-peer {eth1 n41}
+    services {zebra vtysh IPForward DefaultRoute Firewall}
+    custom-config {
+	custom-config-id service:Firewall
+	custom-command Firewall
+	config {
+	files=('firewall.sh', )
+	}
+    }
+    custom-config {
+	custom-config-id service:Firewall:firewall.sh
+	custom-command firewall.sh
+	config {
+	iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+	iptables -A FOWARD -i eth1 -j ACCEPT
+	
+	#HTTP
+	iptables -t nat -A PREROUTING -p tcp --dport 80 -j DNAT --to-destination 192.168.1.3
+	iptables -t nat -A POSTROUTING -p tcp -d 192.168.1.3 --dport 80 -j SNAT --to-source 10.0.0.254
+	
+	#FTP
+	iptables -t nat -A PREROUTING -p tcp --dport 21 -j DNAT --to-destination 192.168.1.3
+	iptables -t nat -A POSTROUTING -p tcp -d 192.168.1.3 --dport 21 -j SNAT --to-source 10.0.0.254
+	}
+    }
+    custom-config {
+	custom-config-id service:zebra
+	custom-command zebra
+	config {
+	files=('/usr/local/etc/quagga/Quagga.conf', 'quaggaboot.sh', '/usr/local/etc/quagga/vtysh.conf', )
+	}
+    }
+    custom-config {
+	custom-config-id service:zebra:/usr/local/etc/quagga/Quagga.conf
+	custom-command /usr/local/etc/quagga/Quagga.conf
+	config {
+	interface eth0
+	  ip address 10.0.0.253/28
+	  
+	!
+	interface eth1
+	  ip address 192.168.1.254/24
+	  
+	!
+	
+	
+	
+	}
+    }
+    custom-config {
+	custom-config-id service:DefaultRoute
+	custom-command DefaultRoute
+	config {
+	files=('defaultroute.sh', )
+	}
+    }
+    custom-config {
+	custom-config-id service:DefaultRoute:defaultroute.sh
+	custom-command defaultroute.sh
+	config {
+	#!/bin/sh
+	# auto-generated by DefaultRoute service (utility.py)
+	ip route add default via 10.0.0.254
+	
+	}
+    }
+}
+
+node n41 {
+    type lanswitch
+    network-config {
+	hostname n41
+	!
+    }
+    canvas c1
+    iconcoords {863.0 432.0}
+    labelcoords {863.0 456.0}
+    interface-peer {e0 n40}
+    interface-peer {e1 n42}
+    interface-peer {e2 n43}
+    interface-peer {e3 n44}
+}
+
+node n42 {
+    type router
+    model host
+    network-config {
+	hostname FTP-HTTP
+	!
+	interface eth0
+	 ip address 192.168.1.3/24
+	!
+    }
+    canvas c1
+    iconcoords {948.0 536.0}
+    labelcoords {948.0 568.0}
+    interface-peer {eth0 n41}
+    custom-config {
+	custom-config-id service:DefaultRoute
+	custom-command DefaultRoute
+	config {
+	files=('defaultroute.sh', )
+	}
+    }
+    custom-config {
+	custom-config-id service:DefaultRoute:defaultroute.sh
+	custom-command defaultroute.sh
+	config {
+	#!/bin/sh
+	# auto-generated by DefaultRoute service (utility.py)
+	ip route add default via 192.168.1.254
+	
+	}
+    }
+    custom-config {
+	custom-config-id service:HTTP
+	custom-command HTTP
+	config {
+	dirs=('/etc/apache2', '/var/run/apache2', '/var/log/apache2', '/var/lock/apache2', '/var/www', '/run/lock', )
+	cmdup=('apache2ctl start', 'mkdir -p /run/lock', 'mkdir -p /var/log/apache2', )
+	}
+    }
+    custom-config {
+	custom-config-id service:FTP
+	custom-command FTP
+	config {
+	cmdup=('vsftpd ./vsftpd.conf', 'chmod a-w /var/run/vsftpd/empty', 'chmod a-w /var/ftp', )
+	}
+    }
+    services {DefaultRoute SSH FTP HTTP}
+}
+
+node n43 {
+    type router
+    model PC
+    network-config {
+	hostname n43
+	!
+	interface eth0
+	 ip address 192.168.1.2/24
+	!
+    }
+    canvas c1
+    iconcoords {941.0 372.0}
+    labelcoords {941.0 404.0}
+    interface-peer {eth0 n41}
+    custom-config {
+	custom-config-id service:DefaultRoute
+	custom-command DefaultRoute
+	config {
+	files=('defaultroute.sh', )
+	}
+    }
+    custom-config {
+	custom-config-id service:DefaultRoute:defaultroute.sh
+	custom-command defaultroute.sh
+	config {
+	#!/bin/sh
+	# auto-generated by DefaultRoute service (utility.py)
+	ip route add default via 192.168.1.254
+	}
+    }
+    services {DefaultRoute}
+}
+
+node n44 {
+    type router
+    model PC
+    network-config {
+	hostname n44
+	!
+	interface eth0
+	 ip address 192.168.1.1/24
+	!
+    }
+    canvas c1
+    iconcoords {779.0 402.0}
+    labelcoords {779.0 434.0}
+    interface-peer {eth0 n41}
+    custom-config {
+	custom-config-id service:DefaultRoute
+	custom-command DefaultRoute
+	config {
+	files=('defaultroute.sh', )
+	}
+    }
+    custom-config {
+	custom-config-id service:DefaultRoute:defaultroute.sh
+	custom-command defaultroute.sh
+	config {
+	#!/bin/sh
+	# auto-generated by DefaultRoute service (utility.py)
+	ip route add default via 192.168.1.254
+	
+	}
+    }
+    services {DefaultRoute}
+}
+
+link l1 {
+    nodes {n8 n36}
+}
+
+link l2 {
+    nodes {n8 n12}
+}
+
+link l3 {
+    nodes {n8 n13}
+}
+
+link l4 {
+    nodes {n8 n1}
+}
+
+link l5 {
+    nodes {n9 n14}
+}
+
+link l6 {
+    nodes {n9 n37}
+}
+
+link l7 {
+    nodes {n9 n2}
+}
+
+link l8 {
+    nodes {n10 n6}
+}
+
+link l9 {
+    nodes {n10 n39}
+}
+
+link l10 {
+    nodes {n10 n18}
+}
+
+link l11 {
+    nodes {n11 n7}
+}
+
+link l12 {
+    nodes {n11 n16}
+}
+
+link l13 {
+    nodes {n11 n17}
+}
+
+link l14 {
+    nodes {n11 n38}
+}
+
+link l15 {
+    nodes {n12 n20}
+}
+
+link l16 {
+    nodes {n12 n21}
+}
+
+link l17 {
+    nodes {n13 n22}
+}
+
+link l18 {
+    nodes {n13 n23}
+}
+
+link l19 {
+    nodes {n14 n25}
+}
+
+link l20 {
+    nodes {n14 n24}
+}
+
+link l21 {
+    nodes {n15 n9}
+}
+
+link l22 {
+    nodes {n15 n26}
+}
+
+link l23 {
+    nodes {n15 n27}
+}
+
+link l24 {
+    nodes {n16 n31}
+}
+
+link l25 {
+    nodes {n16 n30}
+}
+
+link l26 {
+    nodes {n17 n29}
+}
+
+link l27 {
+    nodes {n17 n28}
+}
+
+link l28 {
+    nodes {n18 n33}
+}
+
+link l29 {
+    nodes {n18 n32}
+}
+
+link l30 {
+    nodes {n19 n34}
+}
+
+link l31 {
+    nodes {n19 n35}
+}
+
+link l32 {
+    nodes {n19 n10}
+}
+
+link l33 {
+    nodes {n2 n5}
+}
+
+link l34 {
+    nodes {n6 n3}
+}
+
+link l35 {
+    nodes {n3 n1}
+}
+
+link l36 {
+    nodes {n1 n2}
+}
+
+link l37 {
+    nodes {n6 n4}
+}
+
+link l38 {
+    nodes {n7 n6}
+}
+
+link l39 {
+    nodes {n4 n2}
+}
+
+link l40 {
+    nodes {n5 n7}
+}
+
+link l41 {
+    nodes {n11 n40}
+    bandwidth 0
+}
+
+link l42 {
+    nodes {n40 n41}
+    bandwidth 0
+}
+
+link l43 {
+    nodes {n41 n42}
+    bandwidth 0
+}
+
+link l44 {
+    nodes {n41 n43}
+    bandwidth 0
+}
+
+link l45 {
+    nodes {n41 n44}
+    bandwidth 0
+}
+
+annotation a1 {
+    iconcoords {25.0 22.0 352.0 235.0}
+    type rectangle
+    label {Rede1}
+    labelcolor black
+    fontfamily {Arial}
+    fontsize {12}
+    color #C0C0FF
+    width 0
+    border #00dc00
+    rad 25
+    canvas c1
+}
+
+annotation a2 {
+    iconcoords {621.0 24.0 951.0 260.0}
+    type rectangle
+    label {Rede2}
+    labelcolor black
+    fontfamily {Arial}
+    fontsize {12}
+    color #21c0ff
+    width 0
+    border black
+    rad 25
+    canvas c1
+}
+
+annotation a3 {
+    iconcoords {752.0 338.0 994.0 576.0}
+    type rectangle
+    label {Rede NAT}
+    labelcolor black
+    fontfamily {Arial}
+    fontsize {12}
+    color #24ec30
+    width 0
+    border black
+    rad 25
+    canvas c1
+}
+
+annotation a4 {
+    iconcoords {59.0 532.0 346.0 736.0}
+    type rectangle
+    label {Rede3/DHCP}
+    labelcolor black
+    fontfamily {Arial}
+    fontsize {12}
+    color #eee17b
+    width 0
+    border black
+    rad 25
+    canvas c1
+}
+
+annotation a5 {
+    iconcoords {485.0 589.0 868.0 746.0}
+    type rectangle
+    label {Rede4}
+    labelcolor black
+    fontfamily {Arial}
+    fontsize {12}
+    color #d37819
+    width 0
+    border black
+    rad 25
+    canvas c1
+}
+
+canvas c1 {
+    name {Canvas1}
+}
+
+option global {
+    interface_names no
+    ip_addresses yes
+    ipv6_addresses yes
+    node_labels yes
+    link_labels yes
+    show_api no
+    background_images no
+    annotations yes
+    grid yes
+    traffic_start 0
+}
+
+option session {
+    controlnet=
+    controlnet_updown_script=
+    enablerj45=1
+    enablesdt=0
+    preservedir=0
+    sdturl=tcp://127.0.0.1:50000/
+}
+

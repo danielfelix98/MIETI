@@ -1,0 +1,81 @@
+create function preco_por_km (km int)
+return decimal (3,2)
+begin
+	declare ppkm decimal (3,2);
+
+	Select preco_km
+	into ppkm
+	from precario
+	where lim_inf <= km and lim_sup >= km;
+
+	return ppkm;
+end;
+
+
+create function valor_kilometragem (km int)
+returns decimal (6,2)
+begin
+
+	returnn (km * preco_por_km (km));
+
+end;
+select valor_kilometragem (200)
+select preco_por_km (5000)
+
+
+
+create function preco_por_km (km int)
+return decimal (3,2)
+begin
+	
+	declare ppkm decimal (3,2);
+	case
+		if (km >= 0 and km <= 100) then get ppkm =1;
+		elseif (km >= 101 and km <= 200) then get ppkm =0.8;
+		elseif (km >= 201 and km <= 500) then get ppkm =0.75;
+		elseif (km >= 501 and km <= 1000) then get ppkm =0.6;
+		else set ppkm = 0.5;
+	end if
+	return ppkm;
+end;
+select valor_kilometragem(200)
+select preco_por_km2(50)
+
+create funcrion cliente_existe(lic_cond char(10))
+returns bool
+begin
+
+	declare result bool;
+	declare nome_cli varchar(50);
+
+	select nome
+	into nome_cli	
+	
+
+
+
+end;
+
+
+create procedure abrir_contrato (in lic_cond char(19), matric char(0))
+begin
+	
+	declare band decimal (4,2);
+	declare agencia, kmt  int;
+
+	
+	select bandeirada, km_total, cod_agencia
+	into band, kmt, agencia
+	from viaturas
+	where matricula = matric;
+
+	if(agencia is not null and clientes_ecist(lic_cond=
+	insert into alugueres (lic_conducao, matricula, agencia_saida,km_saida,data_saida,bandeirada)
+	values (lic_cond,matric,agencia,kmt,now(),band);
+
+update viaturas
+	set cond_agencia = null
+	where matricula=matric;
+end;
+
+desc viaturas

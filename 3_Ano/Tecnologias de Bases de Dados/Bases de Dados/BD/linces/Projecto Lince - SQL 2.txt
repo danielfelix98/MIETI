@@ -1,0 +1,28 @@
+1)  	
+	SELECT Distinct L1.id_pai,  L2.lince, L1.id_mae,L3.lince
+	FROM LINCES L1,Linces L2, LINCES L3
+	WHERE L1.id_pai=L2.id_lince AND L1.id_mae=L3.id_lince;
+
+2)
+
+SELECT n_func, funcionario from TECNICOS
+	WHERE n_func IN (Select C.n_func from CONTROLOS C, LINCES L
+			WHere C.id_lince=L.id_lince
+			AND L.genero="M"
+			AND C.data BETWEEN "2014-02-01" AND "2014-02-28")
+	AND n_func NOT IN (SELECT C.n_func FROM CONTROLOS C,LINCES L
+			WHERE C.id_lince=L.id_lince 
+			AND L.genero="F"
+			AND C.data BETWEEN "2014-02-01" AND "2014-02-28");
+3)
+SELECT id_lince,lince,n_func,funcionario
+FROM Linces,Tecnicos
+WHERE (id_lince,n_func) not IN (SELECT id_lince,n_func
+				                FROM Controlos);
+
+4)
+SELECT Li.id_lince, Li.lince 
+FROM Linces Li
+WHERE (Select COUNT (DISTINCT latitude,longitude)
+	FROM LOCALIZACOES.Lo
+	WHERE Li.id_lince=Lo.id_lince AND Lo.data=NOW())=1;

@@ -1,0 +1,38 @@
+Um sistema causal tem que ser sem memória. F
+Um sistema causal tem que ter memória. F  
+
+Se um sinal é real então |ak|=|a-k|(relativamente aos coeficientes da série de Fourier). V 
+Se um sinal é real então ak=a-k(relativamente aos coeficientes da série de Fourier). F
+
+Um sistema linear verifica sempre a propriedade da aditividade e da homogeneidade. V
+Um sistema linear verifica sempre a propriedade da aditividade e da homogeneidade. V
+
+Se o (integral)h(t) dt  = 3, então o sistema com resposta impulsional h(t) é instável. F
+Se o (integral)h(t) dt  = -30, então o sistema com resposta impulsional h(t) é estável. V
+
+O  sistema  em  tempo  discreto  definido  por  y[n]=(n+1).x[n]-1  é  um  sistema  sem  memória - V
+O  sistema  em  tempo  discreto  definido  por  y[n]=(n+1).x[n]-1  é  um  sistema  sem  memória - V
+
+Se os coeficientes de Fourier de um sinal são ímpares e puramente reais, então o sinal também é ímpar e real - F
+Se os coeficientes de Fourier de um sinal são pares e puramente reais, então o sinal também é par e real - V
+
+O sistema definido pela resposta impulsional h[n]=u[1-n] é um sistema não causal - V
+O sistema definido pela resposta impulsional h[n]=u[1-n] é um sistema não causal - V
+ 
+Num sistema LIT definido pela sua resposta impulsional h(t) se a entrada é um impulso de Dirac, então a saída é h(t) - V
+Num sistema LIT definido pela sua resposta impulsional h(t) se a entrada é um impulso de Dirac, então a saída também é um impulso de Dirac - F
+
+Se um sistema é invariante no tempo, então a saída do sistema não pode ser calculada usando o integral de convolução - F
+Se um sistema é variante no tempo, então a saída do sistema não pode ser calculada usando o integral de convolução - V
+
+Um sistema tem memória se, por exemplo, h[n]=1 - V
+Um sistema não tem memória se, por exemplo, h[n]=1 - F
+
+Para que possamos calcular a saída de um sistema usando o integral de convolução, o sistema tem que verificar a propriedade da estabilidade - F
+Para que possamos calcular a saída de um sistema usando o somatório de convolução, o sistema tem que verificar a propriedade da causalidade - F
+
+A exponencial complexa é uma função própria dos sistemas LIT - V
+A impulso de Dirac é uma função própria dos sistemas LIT - F
+
+A resposta impulsional h(t) da série (ou cascata) de dois sistemas LIT (h1(t) e h2(t) respetivamente) é definida como h(t)=h1(t)+h2(t) - F
+A resposta impulsional h(t) da cascata de dois sistemas LIT (h1(t) e h2(t) respetivamente) é definida como h(t)=h1(t) * h2(t) - V

@@ -1,0 +1,17 @@
+1.Durante a execucao de processos por vezes é alocada mais memória do que necessaria.Uma vez que a memória só pode ser
+fornecida em partes expoente 2(por exemplo 4,8,16), se um programa solicitar 29 bytes, ele obterá um bloco de 32 bytes.Quando
+isto acontece, o excesso de memoria é desperdiçado(ocorre o trashing),isto faz com que qualquer processo, mesmo de 
+tamanho pequeno possa ocupar uma partição inteira.A isto chama-se fragmentacao interna.
+A fragmentacao externa surge quando a memoria livre é separada em pequenos blocos e é intercalada com a memoria alocada.O 
+resultado disto é o facto de apesar de o armazenamento livre estar disponivel, ele é inutilizavel, porque é dividido em partes
+que sao muito pequenas para satisfazer as necessidades do programa.Por exemplo, considerando uma situação em que um programa
+aloca 3 blocos continuos de memoria e depois liberta o bloco do meio.O alocador de memoria pode usar esse bloco livre de memoria
+para alocacoes futuras, no entanto ele nao pode usa-lo se a memoria a ser alocada for maior que esse bloco livre.
+Os problemas que ambos tipos de fragmentação trazem são:
+	-Falha de armazenamento(Se um bloco contiguo precisar de ser armazenado e nao puder, ocorrera uma falha.A fragmentacao 
+com q isso ocorra, mesmo que haja recursos suficientes, mas nao contiguos)
+	-Degradacao do desempenho(A fragmentacao aumenta o trabalho necessario para alocar e acessar a um recorso,isto porque
+por exemplo num disco, as leituras sequenciais de dados sao muito rapidas, mas procurar um enderço diferente é lento,além de 
+causar desgaste no disco.)
+
+2.

@@ -1,0 +1,19 @@
+time ./ex3 10mb 1
+real	0m23.377s
+user	0m2.380s
+sys		0m19.836s
+
+time ./ex3 10mb 10
+real	0m4.995s
+user	0m0.256s
+sys		0m2.508s
+
+time ./ex3 10mb 10000
+real	0m1.540s
+user	0m0.008s
+sys		0m0.084s
+
+time ./ex3 10mb 1024
+real	0m1.242s
+user	0m0.008s
+sys		0m0.104s

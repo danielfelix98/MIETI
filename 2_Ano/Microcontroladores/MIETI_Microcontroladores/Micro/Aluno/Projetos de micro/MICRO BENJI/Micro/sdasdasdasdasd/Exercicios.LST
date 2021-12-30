@@ -1,0 +1,83 @@
+A51 MACRO ASSEMBLER  EXERCICIOS                                                           11/27/2014 14:42:32 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.02b
+OBJECT MODULE PLACED IN Exercicios.OBJ
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE Exercicios.a51 SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     NAME MAIN
+                       2     
+                       3     
+                       4     EXTRN   CODE    (CONTAR1_0)
+                       5     
+----                   6     CSEG    AT      0H
+                       7     
+0000 020030            8     LJMP MAIN
+                       9     
+----                  10     CSEG AT 30H
+                      11             
+0030                  12             MAIN:
+0030 7820             13                     MOV             R0,#20H
+0032 7A00             14                     MOV             R2,#0H
+0034 7B00             15                     MOV             R3,#0H
+0036 7C00             16                     MOV             R4,#0H
+0038 7D00             17                     MOV             R5,#0H
+003A                  18             LOOP:
+003A B60002           19                     CJNE    @R0,#0H,TESTE
+003D 801C             20                     JMP             FIM
+                      21                     
+003F                  22             TESTE:
+003F 120000   F       23                     LCALL   CONTAR1_0
+0042 EE               24                     MOV             A,R6
+0043 9C               25                     SUBB    A,R4       ;se R6 > R4, o cy fica a 0
+0044 4007             26                     JC              TESTE2
+0046 E4               27                     CLR             A
+0047 EE               28                     MOV             A,R6
+0048 FC               29                     MOV             R4,A
+0049 E4               30                     CLR             A
+004A E6               31                     MOV             A,@R0
+004B FB               32                     MOV             R3,A
+004C E4               33                     CLR     A
+                      34             
+004D                  35             TESTE2:
+004D EF               36                     MOV             A,R7
+004E 9D               37                     SUBB    A,R5
+004F 4007             38                     JC              TESTE3
+0051 E4               39                     CLR             A
+0052 EF               40                     MOV             A,R7
+0053 FD               41                     MOV             R5,A
+0054 E4               42                     CLR             A
+0055 E6               43                     MOV             A,@R0
+0056 FA               44                     MOV             R2,A
+0057 08               45                     INC     R0
+                      46                     
+0058                  47             TESTE3:
+0058 08               48                     INC             R0
+0059 80DF             49                     JMP             LOOP
+                      50                     
+005B                  51             FIM:
+005B 80FE             52                     JMP             $
+                      53                     END
+A51 MACRO ASSEMBLER  EXERCICIOS                                                           11/27/2014 14:42:32 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+CONTAR1_0. . . . .  C ADDR   -----       EXT
+FIM. . . . . . . .  C ADDR   005BH   A   
+LOOP . . . . . . .  C ADDR   003AH   A   
+MAIN . . . . . . .  C ADDR   0030H   A   
+TESTE. . . . . . .  C ADDR   003FH   A   
+TESTE2 . . . . . .  C ADDR   004DH   A   
+TESTE3 . . . . . .  C ADDR   0058H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

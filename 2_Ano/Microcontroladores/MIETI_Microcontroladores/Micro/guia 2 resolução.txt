@@ -1,0 +1,4 @@
+A informação de Program Size: data=8.0 xdata=0 code=29
+data=
+xdata =0 é o espaço na memória XDATA requerido que neste caso é 0.
+Code =29 indica o tamanho do código armazenado na secção de armazenamento de código, que neste caso são 29 bytes.

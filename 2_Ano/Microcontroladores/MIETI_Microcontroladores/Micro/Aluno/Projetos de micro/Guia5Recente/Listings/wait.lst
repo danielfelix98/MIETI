@@ -1,0 +1,50 @@
+A51 MACRO ASSEMBLER  WAIT                                                                 12/02/2015 20:56:26 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.02c
+OBJECT MODULE PLACED IN .\Objects\wait.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE wait.a51 SET(SMALL) DEBUG PRINT(.\Listings\wait.lst) OBJECT(.\Objects\w
+                      ait.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1             NAME WAIT
+                       2             PUBLIC INICIOWAIT
+                       3             WAITCODE SEGMENT CODE 
+----                   4             RSEG WAITCODE
+                       5                     
+0000                   6     INICIOWAIT:
+0000 E8                7                     MOV A,R0
+0001 FD                8                     MOV R5,A
+0002                   9     D3L1:
+0002 FE               10                     MOV R6,A
+0003                  11     D3L2:
+0003 FF               12                     MOV R7,A
+                      13                     
+0004 DFFE             14                     DJNZ R7,$
+0006 DEFB             15                     DJNZ R6,D3L2
+0008 DDF8             16                     DJNZ R5,D3L1
+                      17                     
+000A                  18     FIM:
+000A 22               19                     RET
+                      20     END             
+A51 MACRO ASSEMBLER  WAIT                                                                 12/02/2015 20:56:26 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+D3L1 . . . . . . .  C ADDR   0002H   R   SEG=WAITCODE
+D3L2 . . . . . . .  C ADDR   0003H   R   SEG=WAITCODE
+FIM. . . . . . . .  C ADDR   000AH   R   SEG=WAITCODE
+INICIOWAIT . . . .  C ADDR   0000H   R   SEG=WAITCODE
+WAIT . . . . . . .  N NUMB   -----       
+WAITCODE . . . . .  C SEG    000BH       REL=UNIT
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

@@ -1,0 +1,76 @@
+A51 MACRO ASSEMBLER  NEWPASS                                                              12/27/2015 13:14:14 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.02c
+OBJECT MODULE PLACED IN .\Objects\newpass.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE newpass.a51 SET(SMALL) DEBUG PRINT(.\Listings\newpass.lst) OBJECT(.\Obj
+                      ects\newpass.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1             NAME NEWPASS
+                       2             PUBLIC INICIOPASS1
+                       3             NEWPASS SEGMENT CODE 
+----                   4             RSEG NEWPASS
+0000 8000              5             JMP INICIOPASS1
+                       6                     
+                       7             EXTRN CODE (INICIOREAD)
+                       8             EXTRN CODE (INICIOWAIT)
+                       9             EXTRN CODE (INICIODISPLAY)
+                      10                     
+                      11     
+                      12     
+0002                  13     INICIOPASS1:
+0002 7840             14             MOV R0,#40H
+0004 7A04             15             MOV R2,#4
+0006 E8               16             MOV A,R0
+0007 F9               17             MOV R1,A
+                      18             USING 0
+0008 C001             19             PUSH AR1
+000A 780D             20             MOV R0,#13
+000C 120000   F       21             LCALL INICIODISPLAY
+000F 7803             22             MOV R0,#3
+0011 120000   F       23             LCALL INICIOWAIT
+0014 D001             24             POP AR1
+0016                  25     INICIO:
+                      26             USING 0
+0016 C001             27             PUSH AR1
+                      28             USING 0
+0018 C002             29             PUSH AR2
+001A 120000   F       30             LCALL INICIOREAD
+001D D002             31             POP AR2
+001F D001             32             POP AR1
+0021 E8               33             MOV A,R0
+0022 F7               34             MOV @R1,A
+0023 09               35             INC R1
+0024 DAF0             36             DJNZ R2,INICIO
+0026                  37     FIM:
+0026 780E             38             MOV R0,#14
+0028 120000   F       39             LCALL INICIODISPLAY
+002B 7803             40             MOV R0,#3
+002D 120000   F       41             LCALL INICIOWAIT
+0030 22               42             RET
+                      43             END
+A51 MACRO ASSEMBLER  NEWPASS                                                              12/27/2015 13:14:14 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+AR1. . . . . . . .  D ADDR   0001H   A   
+AR2. . . . . . . .  D ADDR   0002H   A   
+FIM. . . . . . . .  C ADDR   0026H   R   SEG=NEWPASS
+INICIO . . . . . .  C ADDR   0016H   R   SEG=NEWPASS
+INICIODISPLAY. . .  C ADDR   -----       EXT
+INICIOPASS1. . . .  C ADDR   0002H   R   SEG=NEWPASS
+INICIOREAD . . . .  C ADDR   -----       EXT
+INICIOWAIT . . . .  C ADDR   -----       EXT
+NEWPASS. . . . . .  C SEG    0031H       REL=UNIT
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

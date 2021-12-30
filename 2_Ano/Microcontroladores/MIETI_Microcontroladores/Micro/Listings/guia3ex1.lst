@@ -1,0 +1,97 @@
+A51 MACRO ASSEMBLER  GUIA3EX1                                                             10/11/2016 21:39:57 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.5.0
+OBJECT MODULE PLACED IN .\Objects\guia3ex1.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE guia3ex1.a51 SET(SMALL) DEBUG PRINT(.\Listings\guia3ex1.lst) OBJECT(.\O
+                      bjects\guia3ex1.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     
+
+                       2     
+
+----                   3             CSEG AT 00H
+
+0000 020003            4             LJMP MAIN
+
+                       5             
+
+0003                   6     MAIN:
+
+0003 7880              7             MOV R0,#80H 
+
+0005 79A0              8             MOV R1,#0A0H 
+
+0007 7A30              9             MOV R2,#30H  
+
+0009 7B14             10             MOV R3,#20  
+
+                      11             
+
+000B                  12     LOOP:
+
+000B EA               13             MOV A,R2 
+
+000C 8000             14             JMP VERIFPAR
+
+                      15                     
+
+                      16                     
+
+000E                  17     VERIFPAR:       
+
+                      18                     
+
+000E 13               19                     RRC A 
+
+000F 4008             20                     JC VERIFIMP 
+
+0011 F6               21                     MOV @R0,A 
+
+0012 0A               22                     INC R2 
+
+0013 08               23                     INC R0
+
+0014 DBF5             24                     DJNZ R3,LOOP
+
+0016 02001E           25                     LJMP FINISH
+
+                      26                     
+
+0019                  27     VERIFIMP:
+
+0019 F7               28                     MOV @R1,A 
+
+001A 0A               29                     INC R2
+
+001B 09               30                     INC R1 
+
+001C DBED             31                     DJNZ R3, LOOP
+
+001E                  32     FINISH:
+
+001E 80FE             33                     SJMP $
+
+                      34                     END
+
+A51 MACRO ASSEMBLER  GUIA3EX1                                                             10/11/2016 21:39:57 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+FINISH . . . . . .  C ADDR   001EH   A   
+LOOP . . . . . . .  C ADDR   000BH   A   
+MAIN . . . . . . .  C ADDR   0003H   A   
+VERIFIMP . . . . .  C ADDR   0019H   A   
+VERIFPAR . . . . .  C ADDR   000EH   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

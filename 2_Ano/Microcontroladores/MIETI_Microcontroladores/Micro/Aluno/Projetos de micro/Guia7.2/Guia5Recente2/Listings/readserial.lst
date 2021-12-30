@@ -1,0 +1,51 @@
+A51 MACRO ASSEMBLER  READSERIAL                                                           01/14/2016 09:50:37 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.02c
+OBJECT MODULE PLACED IN .\Objects\readserial.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE readserial.a51 SET(SMALL) DEBUG PRINT(.\Listings\readserial.lst) OBJECT
+                      (.\Objects\readserial.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1             NAME READSERIAL
+                       2             PUBLIC INICIOSERIAL
+                       3             SERIALCODE SEGMENT CODE 
+----                   4             RSEG SERIALCODE
+0000 8000              5             JMP INICIOSERIAL
+                       6             
+0002                   7     INICIOSERIAL:
+0002 7A04              8                     MOV R2,#4
+                       9                     
+0004                  10     LOOP:   
+0004 3098FD           11                     JNB RI,LOOP
+0007 C298             12                     CLR RI
+0009 E599             13                     MOV A, SBUF
+000B F6               14                     MOV @R0,A
+000C 08               15                     INC R0
+000D DAF5             16                     DJNZ R2,LOOP
+000F                  17     FIM:
+000F 22               18             RET
+                      19     
+                      20             END
+A51 MACRO ASSEMBLER  READSERIAL                                                           01/14/2016 09:50:37 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+FIM. . . . . . . .  C ADDR   000FH   R   SEG=SERIALCODE
+INICIOSERIAL . . .  C ADDR   0002H   R   SEG=SERIALCODE
+LOOP . . . . . . .  C ADDR   0004H   R   SEG=SERIALCODE
+READSERIAL . . . .  N NUMB   -----       
+RI . . . . . . . .  B ADDR   0098H.0 A   
+SBUF . . . . . . .  D ADDR   0099H   A   
+SERIALCODE . . . .  C SEG    0010H       REL=UNIT
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

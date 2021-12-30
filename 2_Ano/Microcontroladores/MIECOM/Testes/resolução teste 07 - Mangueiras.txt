@@ -1,0 +1,82 @@
+Miniteste 2007
+
+1.
+
+i.	V
+ii.	v
+iii.	f
+iv.	f
+v.	f
+vi.	f	
+vii.	f
+viii.	f
+ix.	v
+x.	v
+xi.	v
+
+
+2.
+
+directo
+por registo
+indexado
+imediato
+directo
+longo
+absoluto
+
+
+3.
+
+i.	C:0x0030
+ii.	ROTINA: C:OX0003	
+	MAIN: C:0X0030
+iii.	salta para o endereço da própria instrução
+iv.	21
+v.	Não, porque teria primeiro de definir o valor apontado por DPTR
+vi.	21
+vii.	w
+
+
+
+4.
+
+
+MAIN:
+	MOV		R2,#19
+	MOV 	DPTR,#DADOS
+	MOV		A,#0
+	MOVC	A,@A+DPTR
+	MOV		R0,A
+	INC		DPTR
+	
+PAR:
+	MOV		A,R2
+	JZ		VALOR
+	DEC		R2
+	MOV		A,#0
+	MOVC	A,@A+DPTR
+	INC		DPTR
+	JNB		ACC.0,SAVE
+	JMP		PAR
+	
+SAVE:
+	MOV		R1,A
+	SUBB	A,R0
+	JNC		PAR
+	MOV		A,R1
+	MOV		R0,A
+	JMP		PAR
+	
+VALOR:
+	MOV		A,R0
+	
+	
+	CSEG	AT	440H
+DADOS:
+	
+	DB	58,27,6,19,7,6,45,1,23,41,6,7,5,9,4,3,6,8,5,2
+	
+	END
+
+ISTO TEM CENAS MAL

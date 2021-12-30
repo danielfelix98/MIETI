@@ -1,0 +1,61 @@
+A51 MACRO ASSEMBLER  H2A                                                                  01/08/2015 16:58:02 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.02b
+OBJECT MODULE PLACED IN h2a.OBJ
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE h2a.a51 NOMOD51 SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1                     NAME    H2A
+                       2             
+                       3             PUBLIC  INICIOH2A
+                       4             
+                       5             H2ACODE SEGMENT CODE     ;Declara segmento
+----                   6             RSEG    H2ACODE                  ;Seleciona o segmento
+                       7             ; Rotina que converte dígito hexadecimal armazenado
+                       8             ;no endereço de memória apontado por R0 para ASCII
+                       9                     
+                      10             
+0000                  11     INICIOH2A:
+                      12                     ;MOV A,@R0
+0000 C3               13                     CLR C                           
+0001 940A             14                     SUBB A,#10
+                      15                     
+                      16                     ;BD1: Bloco de decisão 1                                        
+0003 4006             17                     JC BA3_NAO                      
+                      18                     ;Carry é 0, logo é letra porque A>=0
+                      19                     ;BA2_SIM: Bloco de atribuiçao 2                                 
+0005 2441             20                     ADD A,#'A'                      
+0007 F5F0             21                     MOV B,A                         
+0009 8006             22                     JMP FIMH2A                      
+                      23                     
+                      24                     ;BA3_NAO: Bloco de atribuição 3                                 
+000B                  25     BA3_NAO:
+000B 240A             26                     ADD A,#10                       
+000D 2430             27                     ADD A,#'0'                      
+000F F5F0             28                     MOV B,A                         
+0011                  29     FIMH2A:
+0011 22               30                     RET                                     
+                      31                     
+                      32     END
+A51 MACRO ASSEMBLER  H2A                                                                  01/08/2015 16:58:02 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+B. . . . . . . . .  D ADDR   00F0H   A   
+BA3_NAO. . . . . .  C ADDR   000BH   R   SEG=H2ACODE
+FIMH2A . . . . . .  C ADDR   0011H   R   SEG=H2ACODE
+H2A. . . . . . . .  N NUMB   -----       
+H2ACODE. . . . . .  C SEG    0012H       REL=UNIT
+INICIOH2A. . . . .  C ADDR   0000H   R   SEG=H2ACODE
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

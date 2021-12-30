@@ -1,0 +1,1151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Frameset//EN">
+<!-- saved from url=(0162)http://elearning.iefp.pt/pluginfile.php/47315/mod_resource/content/0/CD-Rom/Estudo/Electr_nica_e_Electricidade_N_vel_IV/H_-_Micropr-Microcont_(Programa__o)/10.htm -->
+<html><!--(==============================================================)--><!--(Document created with RoboEditor. )============================--><!--(==============================================================)--><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+<title>10</title>
+
+<!--(Meta)==========================================================-->
+
+
+<meta name="generator" content="RoboHELP by eHelp Corporation - www.ehelp.com">
+<meta name="generator-major-version" content="0.1">
+<meta name="generator-minor-version" content="1">
+<meta name="filetype" content="kadov">
+<meta name="filetype-version" content="1">
+<meta name="page-count" content="1">
+<meta name="layout-height" content="3999">
+<meta name="layout-width" content="928">
+
+
+<!--(Links)=========================================================-->
+
+<link rel="StyleSheet" href="http://elearning.iefp.pt/pluginfile.php/47315/mod_resource/content/0/CD-Rom/Estudo/Electr_nica_e_Electricidade_N_vel_IV/H_-_Micropr-Microcont_(Programa__o)/default.css">
+
+
+
+<!--(Style Sheet)===================================================-->
+
+<style>
+<!--
+
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+
+-->
+</style>
+
+
+</head>
+
+<!--(Body)==========================================================-->
+
+
+<body>
+
+<div placeholder="" id="header" style="width: 100%; position: relative;">
+ <p style="text-align: right; font-weight: bold;" align="right"><span style="color: #000080;">mecatreino</span>.com</p>
+</div>
+<p style="margin-left: 96px; margin-right: 215px;">&nbsp;</p>
+
+<p style="margin-right: 86px; margin-left: 96px;">&nbsp;</p>
+
+<p style="margin-left: 96px;
+			font-weight: bold;
+			color: #000080;
+			font-family: Verdana, sans-serif;
+			margin-right: 148px;">Directivas do assembler</p>
+
+<p style="margin-left: 96px;
+			font-weight: bold;
+			color: #000080;
+			font-family: Verdana, sans-serif;
+			margin-right: 148px;">&nbsp;</p>
+
+<p style="margin-left: 96px;
+			font-weight: bold;
+			color: #000080;
+			font-family: Verdana, sans-serif;
+			margin-right: 148px;">&nbsp;</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">Existem oito tipos de directivas:</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">&nbsp;</p>
+
+<p style="font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-left: 136px;
+			margin-right: 148px;">• Para controlo de segmentos.</p>
+
+<p style="font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-left: 136px;
+			margin-right: 148px;">&nbsp;</p>
+
+<p style="font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-left: 136px;
+			margin-right: 148px;">• Para definição de símbolos.</p>
+
+<p style="font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-left: 136px;
+			margin-right: 148px;">&nbsp;</p>
+
+<p style="font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-left: 136px;
+			margin-right: 148px;">• Para inicialização de memória.</p>
+
+<p style="font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-left: 136px;
+			margin-right: 148px;">&nbsp;</p>
+
+<p style="font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-left: 136px;
+			margin-right: 148px;">• Para reserva de memória.</p>
+
+<p style="font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-left: 136px;
+			margin-right: 148px;">&nbsp;</p>
+
+<p style="font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-left: 136px;
+			margin-right: 148px;">• Para ligação do programa.</p>
+
+<p style="font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-left: 136px;
+			margin-right: 148px;">&nbsp;</p>
+
+<p style="font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-left: 136px;
+			margin-right: 148px;">• Para controlo de endereços.</p>
+
+<p style="font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-left: 136px;
+			margin-right: 148px;">&nbsp;</p>
+
+<p style="font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-left: 136px;
+			margin-right: 148px;">• Para definição de macros.</p>
+
+<p style="font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-left: 136px;
+			margin-right: 148px;">&nbsp;</p>
+
+<p style="font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-left: 136px;
+			margin-right: 148px;">• Outras directivas.</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">&nbsp;</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">&nbsp;</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">De seguida serão apresentadas as directivas 
+ correspondentes a cada tipo.</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">&nbsp;</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			font-weight: bold;
+			margin-right: 148px;">Directivas para controlo de segmentos</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			font-weight: bold;
+			margin-right: 148px;">&nbsp;</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">Designa-se por segmento um bloco de memória 
+ de código ou de dados criado pelo assembler.</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">&nbsp;</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">As directivas para controlo de segmentos 
+ servem para criar e seleccionar segmentos. Estão definidas cinco classes 
+ de memória que podem ser utilizadas na definição ou criação do segmento:</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">&nbsp;</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">• BIT – bit em memória interna. Endereços 
+ até de 0 a 255.</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">&nbsp;</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">• CODE – memória de código. Endereços 
+ de 0000H a 0FFFFH.</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">&nbsp;</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">• DATA – memória de dados acessíveis 
+ através de endereçamento directo. Endereços de 0 a 255 (posições genéricas 
+ de 0 a 127 e SFRs de 128 a 255).</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">&nbsp;</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">• IDATA – memória de dados interna. Endereços 
+ de 0 a 255.</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">&nbsp;</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">• XDATA – memória de dados externa. Endereços 
+ de 0000H a 0FFFFH.</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">&nbsp;</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">As directivas deste tipo são apresentadas 
+ na tabela 6.</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">&nbsp;</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">&nbsp;</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			text-align: center;
+			margin-right: 148px;" align="center"><img src="image5.gif" style="border: none;
+								width: 475px;
+								height: 133px;" width="475" height="133" border="0"></p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">&nbsp;</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			text-align: center;
+			color: #808080;
+			font-size: 8pt;
+			margin-right: 148px;" align="center">Tabela 6 - Directivas para controlo de segmentos</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">&nbsp;</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">&nbsp;</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">Exemplos:</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">&nbsp;</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">mprogr SEGMENT CODE ; define o segmento 
+ de código mprogr .</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">&nbsp;</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">RSEG mprogr ; activa o segmento mprogr.</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">&nbsp;</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">dd1 SEGMENT DATA ; define o segmento 
+ de dados dd1.</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">&nbsp;</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">mprog1 SEGMENT CODE AT 1000H ;define 
+ o segmento de código mprogr1 com início no endereço 1000H.</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">&nbsp;</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">xdd SEGMENT XDATA PAGE ; define o segmento 
+ de dados externos xdd alinhado com uma página de 256 bytes.</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">&nbsp;</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">BSEG AT 20H ; define um segmento absoluto 
+ de bit com início no endereço 20H.</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">&nbsp;</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">&nbsp;</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			font-weight: bold;
+			margin-right: 148px;">Directivas para definição de símbolos</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			font-weight: bold;
+			margin-right: 148px;">&nbsp;</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">As directivas para atribuição de símbolos 
+ atribuem determinado valor a um símbolo. </p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">&nbsp;</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">As diferenças entre as várias directivas 
+ deste tipo relacionam-se com o tipo de valor a atribuir ao símbolo. </p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">&nbsp;</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">A lista das directivas deste tipo é apresentada 
+ na tabela 7.</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">&nbsp;</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">&nbsp;</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			text-align: center;
+			margin-right: 148px;" align="center"><img src="image11.gif" style="border: none;
+								width: 474px;
+								height: 156px;" width="474" height="156" border="0"></p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">&nbsp;</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			text-align: center;
+			color: #808080;
+			font-size: 8pt;
+			margin-right: 148px;" align="center">Tabela 7 - Directivas para definição de símbolos</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">&nbsp;</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">&nbsp;</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;"><span style="font-family: Verdana, sans-serif;
+												font-weight: normal;
+												font-size: 10pt;
+												color: #000000;">Exemplos:</span></p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">pt_leitura SET R1 ;utilizar R1 como pt_leitura.</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">falso EQU 0 ; utilizar falso para representar 
+ 0.</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">flag1 BIT 50H ; utilizar o bit cujo endereço 
+ é 50H como flag1.</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">restart CODE 00H ; faz restart igual 
+ à memória de código 00H.</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">PORT1 DATA 90H ; atribui a PORT1 o valor 
+ 90H correspondente ao endereço do registo associado ao porto P1.</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">Directivas para inicialização de memória</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">As directivas para inicialização de memória 
+ permitem inicializar em memória de código posições de 8 ou 16 bits. </p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">A tabela 8 apresenta as directivas disponíveis 
+ com esta função.</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">&nbsp;</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">&nbsp;</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			text-align: center;
+			margin-right: 148px;" align="center"><img src="image12.gif" style="border: none;
+								width: 475px;
+								height: 46px;" width="475" height="46" border="0"></p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">&nbsp;</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			text-align: center;
+			color: #808080;
+			font-size: 8pt;
+			margin-right: 148px;" align="center">Tabela 8 - Directivas para inicialização de memória</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">&nbsp;</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">&nbsp;</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">Exemplos:</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">&nbsp;</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">segmento1: DB 7EH,60H,6DH,79H ; inicializa 
+ 4 posições de 8 bits, com início na posição cujo endereço corresponde 
+ à etiqueta segmento1, com os valores indicados.</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">&nbsp;</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">prompt: DB ‘Ola, como esta!’ ; neste 
+ caso a inicialização é feita com os códigos ASCII correspondentes aos 
+ caracteres entre ‘’.</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">&nbsp;</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">tab_salto: DW end1, end2, end3 ; inicializa 
+ o segmento de código com os endereços correspondentes às etiquetas end1, 
+ end2 e end3.</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">&nbsp;</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">&nbsp;</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			font-weight: bold;
+			margin-right: 148px;">Directivas para reserva de memória</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			font-weight: bold;
+			margin-right: 148px;">&nbsp;</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">Este tipo de directivas serve para reservar 
+ espaços de memória de 1 ou de 8 bits. As directivas deste tipo são apresentadas 
+ na tabela 9.</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">&nbsp;</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">&nbsp;</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			text-align: center;
+			margin-right: 148px;" align="center"><img src="image13.gif" style="border: none;
+								width: 475px;
+								height: 60px;" width="475" height="60" border="0"></p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">&nbsp;</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			text-align: center;
+			color: #808080;
+			font-size: 8pt;
+			margin-right: 148px;" align="center">Tabela 9 - Directivas para reserva de memória</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">&nbsp;</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">&nbsp;</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">Exemplos:</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">&nbsp;</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">DBIT 9 ; reserva nove bits.</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">&nbsp;</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">DS 25 ; reserva 25 bytes no segmento 
+ activo.</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">&nbsp;</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">&nbsp;</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			font-weight: bold;
+			margin-right: 148px;">Directivas para ligação do programa</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			font-weight: bold;
+			margin-right: 148px;">&nbsp;</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">As directivas para ligação do programa 
+ utilizam-se quando o programa a desenvolver se encontra distribuído por 
+ vários módulos. </p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">&nbsp;</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">Como os módulos necessitam de partilhar 
+ informação torna-se necessário identificar a origem da informação (quando 
+ externa) ou qual a informação que vai ser partilhada. </p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">&nbsp;</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">As directivas deste tipo utilizam-se 
+ para essas funções e encontram-se na tabela 10.</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">&nbsp;</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">&nbsp;</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			text-align: center;
+			margin-right: 148px;" align="center"><img src="image14.gif" style="border: none;
+								width: 480px;
+								height: 87px;" width="480" height="87" border="0"></p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">&nbsp;</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			text-align: center;
+			color: #808080;
+			font-size: 8pt;
+			margin-right: 148px;" align="center">Tabela 10 - Directivas para ligação do programa</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">&nbsp;</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">&nbsp;</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">Exemplos:</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">&nbsp;</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">PUBLIC s1, s2, s3 ; torna públicos os 
+ símbolos s1, s2 e s3.</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">&nbsp;</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">EXTRN CODE(s1, s2) ; declara que os símbolos 
+ s1 e s2 estão definidos noutro módulo.</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">&nbsp;</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">NAME módulo1 ; especifica que o módulo 
+ objecto a se deve chamar módulo1.</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">&nbsp;</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">&nbsp;</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			font-weight: bold;
+			margin-right: 148px;">Directivas para controlo de endereços</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			font-weight: bold;
+			margin-right: 148px;">&nbsp;</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">Estas directivas servem para determinar 
+ o endereço em que o código deve ser posicionado e para selecção do banco 
+ de registos a utilizar. </p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">&nbsp;</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">Estas directivas encontram-se na tabela 
+ 11.</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">&nbsp;</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">&nbsp;</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			text-align: center;
+			margin-right: 148px;" align="center"><img src="image15.gif" style="border: none;
+								width: 493px;
+								height: 67px;" width="493" height="67" border="0"></p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">&nbsp;</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			text-align: center;
+			font-size: 8pt;
+			color: #808080;
+			margin-right: 148px;" align="center">Tabela 11 - Directivas para controlo de endereços</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">&nbsp;</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">&nbsp;</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">Exemplos:</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">&nbsp;</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">ORG 2000H ; posiciona o contador de localização 
+ no endereço 2000H</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">ORG reset ; em que reset é um símbolo 
+ predefinido correspondendo a um dado endereço.</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">&nbsp;</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">USING 2 ; selecciona o banco de registo 
+ número 2.</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">&nbsp;</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">&nbsp;</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			font-weight: bold;
+			margin-right: 148px;">Directivas para definição de macros</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			font-weight: bold;
+			margin-right: 148px;">&nbsp;</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">Este tipo de directivas permite definir 
+ macros. Designa-se por macro um conjunto de instruções reunidas sob uma 
+ determinada etiqueta utilizando directivas específicas.</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">&nbsp;</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">Quando a etiqueta é referida no programa 
+ o assembler procede à sua substituição pelo código referido anteriormente. 
+ </p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">&nbsp;</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">Nem todos os assemblers suportam a utilização 
+ de macros. Estas directivas são apresentadas na tabela 12.</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">&nbsp;</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">&nbsp;</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			text-align: center;
+			margin-right: 148px;" align="center"><img src="image16.gif" style="border: none;
+								width: 442px;
+								height: 65px;" width="442" height="65" border="0"></p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">&nbsp;</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			text-align: center;
+			font-size: 8pt;
+			color: #808080;
+			margin-right: 148px;" align="center">Tabela 12 - Directivas para definição de macros</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">&nbsp;</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">&nbsp;</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">Uma macro define-se do seguinte modo:</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">&nbsp;</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">nome_macro: MACRO ard1, arg2, ... ; comentário</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">.</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">.</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">ENDM</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">&nbsp;</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">&nbsp;</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			font-weight: bold;
+			margin-right: 148px;">Outras directivas</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			font-weight: bold;
+			margin-right: 148px;">&nbsp;</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">A única directiva listada neste ponto 
+ serve para assinalar o fim do módulo e por isso corresponde sempre à última 
+ linha de um programa em linguagem assembly. O seu formato é apresentado 
+ na tabela 13.</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">&nbsp;</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">&nbsp;</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			text-align: center;
+			margin-right: 148px;" align="center"><img src="image17.gif" style="border: none;
+								width: 387px;
+								height: 43px;" width="387" height="43" border="0"></p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">&nbsp;</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			text-align: center;
+			color: #808080;
+			font-size: 8pt;
+			margin-right: 148px;" align="center">Tabela 13 - Outras directivas</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">&nbsp;</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">&nbsp;</p>
+
+<p style="margin-left: 96px;
+			font-family: Verdana, sans-serif;
+			font-size: 10pt;
+			margin-right: 148px;">&nbsp;</p>
+
+
+
+
+
+</body></html>

@@ -1,0 +1,264 @@
+A51 MACRO ASSEMBLER  SEMAFORO                                                             01/09/2015 09:18:43 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.02b
+OBJECT MODULE PLACED IN Semaforo.OBJ
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE Semaforo.a51 NOMOD51 SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     ;#include <89c51ic2.inc>
+                +1     2  +1 $save     
+                +1   203  +1 $restore 
+                     204     
+                     205     
+----                 206     CSEG AT 0H
+0000 020030          207             LJMP MAIN
+                     208     
+----                 209     CSEG AT 03H
+0003 020076          210             LJMP CONFIGT2
+                     211     
+----                 212     CSEG AT 0BH
+000B 02004E          213             LJMP LUZ
+                     214             
+----                 215     CSEG AT 13H
+0013 02008A          216             LJMP TESTEVEL
+                     217             
+----                 218     BSEG AT 9H
+0009                 219             EXCESSO: DBIT 1
+                     220     
+----                 221     CSEG AT 30H
+                     222             
+0030                 223     MAIN:
+0030 758901          224             MOV TMOD,#01H
+0033 758CD8          225             MOV TH0,#HIGH(-10000)
+0036 758AF0          226             MOV TL0,#LOW(-10000)
+0039 7E96            227             MOV R6,#150
+003B 7D96            228             MOV R5,#150
+003D 7C0A            229             MOV R4,#10
+003F 758805          230             MOV TCON,#5
+0042 D2AF            231             SETB EA
+0044 D2A9            232             SETB ET0
+0046 D28C            233             SETB TR0
+0048 D2A8            234             SETB EX0
+004A D2AA            235             SETB EX1
+                     236             
+004C                 237     LOOP:
+004C 80FE            238             JMP $
+                     239                             
+004E                 240     LUZ:
+004E 200911          241             JB EXCESSO,VERMELHO
+0051 8000            242             JMP AMARELO
+                     243                     
+0053                 244     AMARELO:
+0053 DE04            245             DJNZ R6,OUT
+0055 B291            246             CPL P1.1
+0057 7E96            247             MOV R6,#150
+0059                 248     OUT:
+0059 C28D            249             CLR TF0
+005B 758CD8          250             MOV TH0,#HIGH(-10000)
+005E 758AF0          251             MOV TL0,#LOW(-10000)
+0061 32              252             RETI
+                     253                     
+                     254             
+0062                 255     VERMELHO:
+0062 D291            256             SETB    P1.1
+0064 C290            257             CLR     P1.0
+0066 DDF1            258             DJNZ    R5,OUT
+A51 MACRO ASSEMBLER  SEMAFORO                                                             01/09/2015 09:18:43 PAGE     2
+
+0068 7D96            259             MOV     R5,#150
+006A DCED            260             DJNZ    R4,OUT
+006C 7C0A            261             MOV     R4,#10
+006E C209            262             CLR     EXCESSO
+0070 D290            263             SETB    P1.0
+0072 C291            264             CLR     P1.1
+0074 80E3            265             JMP     OUT
+                     266             
+0076                 267     CONFIGT2:
+0076 75C804          268             MOV T2CON,#04H
+0079 75CDD8          269             MOV TH2,#HIGH(-10000)
+007C 75CCF0          270             MOV TL2,#LOW(-10000)
+007F 75CBD8          271             MOV RCAP2H,#HIGH(-10000)
+0082 75CAF0          272             MOV RCAP2L,#LOW(-10000)
+0085 D2CA            273             SETB TR2
+0087 C289            274             CLR IE0
+0089 32              275             RETI
+                     276             
+008A                 277     TESTEVEL:       
+008A C2CA            278             CLR TR2
+008C 20CF02          279             JB TF2,NOTWASTED
+008F D209            280             SETB EXCESSO
+                     281             
+0091                 282     NOTWASTED:
+0091 C2CA            283             CLR TR2
+0093 C2CF            284             CLR TF2
+0095 C28B            285             CLR IE1
+0097 32              286             RETI
+                     287     
+                     288     END
+A51 MACRO ASSEMBLER  SEMAFORO                                                             01/09/2015 09:18:43 PAGE     3
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+AC . . . . . . . .  B ADDR   00D0H.6 A   
+ACC. . . . . . . .  D ADDR   00E0H   A   
+AMARELO. . . . . .  C ADDR   0053H   A   
+AUXR . . . . . . .  D ADDR   008EH   A   
+AUXR1. . . . . . .  D ADDR   00A2H   A   
+B. . . . . . . . .  D ADDR   00F0H   A   
+BDRCON . . . . . .  D ADDR   009BH   A   
+BRL. . . . . . . .  D ADDR   009AH   A   
+CCAP0H . . . . . .  D ADDR   00FAH   A   
+CCAP0L . . . . . .  D ADDR   00EAH   A   
+CCAP1H . . . . . .  D ADDR   00FBH   A   
+CCAP1L . . . . . .  D ADDR   00EBH   A   
+CCAP2H . . . . . .  D ADDR   00FCH   A   
+CCAP2L . . . . . .  D ADDR   00ECH   A   
+CCAP3H . . . . . .  D ADDR   00FDH   A   
+CCAP3L . . . . . .  D ADDR   00EDH   A   
+CCAP4H . . . . . .  D ADDR   00FEH   A   
+CCAP4L . . . . . .  D ADDR   00EEH   A   
+CCAPM0 . . . . . .  D ADDR   00DAH   A   
+CCAPM1 . . . . . .  D ADDR   00DBH   A   
+CCAPM2 . . . . . .  D ADDR   00DCH   A   
+CCAPM3 . . . . . .  D ADDR   00DDH   A   
+CCAPM4 . . . . . .  D ADDR   00DEH   A   
+CCF0 . . . . . . .  D ADDR   00D8H   A   
+CCF1 . . . . . . .  D ADDR   00D9H   A   
+CCF2 . . . . . . .  D ADDR   00DAH   A   
+CCF3 . . . . . . .  D ADDR   00DBH   A   
+CCF4 . . . . . . .  D ADDR   00DCH   A   
+CCON . . . . . . .  D ADDR   00D8H   A   
+CF . . . . . . . .  D ADDR   00DFH   A   
+CH . . . . . . . .  D ADDR   00F9H   A   
+CKCON0 . . . . . .  D ADDR   008FH   A   
+CKCON1 . . . . . .  D ADDR   00AFH   A   
+CKRL . . . . . . .  D ADDR   0096H   A   
+CKSEL. . . . . . .  D ADDR   0085H   A   
+CL . . . . . . . .  D ADDR   00E9H   A   
+CMOD . . . . . . .  D ADDR   00D9H   A   
+CONFIGT2 . . . . .  C ADDR   0076H   A   
+CP_RL2 . . . . . .  B ADDR   00C8H.0 A   
+CR . . . . . . . .  D ADDR   00DEH   A   
+CY . . . . . . . .  B ADDR   00D0H.7 A   
+C_T2 . . . . . . .  B ADDR   00C8H.1 A   
+DPH. . . . . . . .  D ADDR   0083H   A   
+DPL. . . . . . . .  D ADDR   0082H   A   
+EA . . . . . . . .  B ADDR   00A8H.7 A   
+EC . . . . . . . .  B ADDR   00A8H.6 A   
+ES . . . . . . . .  B ADDR   00A8H.4 A   
+ET0. . . . . . . .  B ADDR   00A8H.1 A   
+ET1. . . . . . . .  B ADDR   00A8H.3 A   
+ET2. . . . . . . .  B ADDR   00A8H.5 A   
+EX0. . . . . . . .  B ADDR   00A8H.0 A   
+EX1. . . . . . . .  B ADDR   00A8H.2 A   
+EXCESSO. . . . . .  B ADDR   0021H.1 A   
+EXEN2. . . . . . .  B ADDR   00C8H.3 A   
+EXF2 . . . . . . .  B ADDR   00C8H.6 A   
+F0 . . . . . . . .  B ADDR   00D0H.5 A   
+FCON . . . . . . .  D ADDR   00D1H   A   
+IE0. . . . . . . .  B ADDR   0088H.1 A   
+IE1. . . . . . . .  B ADDR   0088H.3 A   
+IEN0 . . . . . . .  D ADDR   00A8H   A   
+A51 MACRO ASSEMBLER  SEMAFORO                                                             01/09/2015 09:18:43 PAGE     4
+
+IEN1 . . . . . . .  D ADDR   00B1H   A   
+INT0 . . . . . . .  B ADDR   00B0H.2 A   
+INT1 . . . . . . .  B ADDR   00B0H.3 A   
+IPH0 . . . . . . .  D ADDR   00B7H   A   
+IPL0 . . . . . . .  D ADDR   00B8H   A   
+IPL1 . . . . . . .  D ADDR   00B2H   A   
+IT0. . . . . . . .  B ADDR   0088H.0 A   
+IT1. . . . . . . .  B ADDR   0088H.2 A   
+KBE. . . . . . . .  D ADDR   009DH   A   
+KBF. . . . . . . .  D ADDR   009EH   A   
+KBLS . . . . . . .  D ADDR   009CH   A   
+LOOP . . . . . . .  C ADDR   004CH   A   
+LUZ. . . . . . . .  C ADDR   004EH   A   
+MAIN . . . . . . .  C ADDR   0030H   A   
+NOTWASTED. . . . .  C ADDR   0091H   A   
+OSCCON . . . . . .  D ADDR   0086H   A   
+OUT. . . . . . . .  C ADDR   0059H   A   
+OV . . . . . . . .  B ADDR   00D0H.2 A   
+P. . . . . . . . .  B ADDR   00D0H.0 A   
+P0 . . . . . . . .  D ADDR   0080H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+P3 . . . . . . . .  D ADDR   00B0H   A   
+PCON . . . . . . .  D ADDR   0087H   A   
+PI2. . . . . . . .  D ADDR   00C0H   A   
+PI2_1. . . . . . .  B ADDR   00C0H.1 A   
+PI2_O. . . . . . .  B ADDR   00C0H.0 A   
+PPCL . . . . . . .  B ADDR   00B8H.6 A   
+PSL. . . . . . . .  B ADDR   00B8H.4 A   
+PSW. . . . . . . .  D ADDR   00D0H   A   
+PT0L . . . . . . .  B ADDR   00B8H.1 A   
+PT1L . . . . . . .  B ADDR   00B8H.3 A   
+PT2L . . . . . . .  B ADDR   00B8H.5 A   
+PX0L . . . . . . .  B ADDR   00B8H.0 A   
+PX1L . . . . . . .  B ADDR   00B8H.2 A   
+RB8. . . . . . . .  B ADDR   0098H.2 A   
+RCAP2H . . . . . .  D ADDR   00CBH   A   
+RCAP2L . . . . . .  D ADDR   00CAH   A   
+RCLK . . . . . . .  B ADDR   00C8H.5 A   
+RD . . . . . . . .  B ADDR   00B0H.7 A   
+REN. . . . . . . .  B ADDR   0098H.4 A   
+RI . . . . . . . .  B ADDR   0098H.0 A   
+RS0. . . . . . . .  B ADDR   00D0H.3 A   
+RS1. . . . . . . .  B ADDR   00D0H.4 A   
+RXD. . . . . . . .  B ADDR   00B0H.0 A   
+SADDR. . . . . . .  D ADDR   00A9H   A   
+SADEN. . . . . . .  D ADDR   00B9H   A   
+SBUF . . . . . . .  D ADDR   0099H   A   
+SCON . . . . . . .  D ADDR   0098H   A   
+SM0. . . . . . . .  B ADDR   0098H.7 A   
+SM1. . . . . . . .  B ADDR   0098H.6 A   
+SM2. . . . . . . .  B ADDR   0098H.5 A   
+SP . . . . . . . .  D ADDR   0081H   A   
+SPCON. . . . . . .  D ADDR   00C3H   A   
+SPDAT. . . . . . .  D ADDR   00C5H   A   
+SPSTA. . . . . . .  D ADDR   00C4H   A   
+SSADR. . . . . . .  D ADDR   0096H   A   
+SSCON. . . . . . .  D ADDR   0093H   A   
+SSCS . . . . . . .  D ADDR   0094H   A   
+SSDAT. . . . . . .  D ADDR   0095H   A   
+T0 . . . . . . . .  B ADDR   00B0H.4 A   
+T1 . . . . . . . .  B ADDR   00B0H.5 A   
+T2CON. . . . . . .  D ADDR   00C8H   A   
+T2MOD. . . . . . .  D ADDR   00C9H   A   
+TB8. . . . . . . .  B ADDR   0098H.3 A   
+TCLK . . . . . . .  B ADDR   00C8H.4 A   
+A51 MACRO ASSEMBLER  SEMAFORO                                                             01/09/2015 09:18:43 PAGE     5
+
+TCON . . . . . . .  D ADDR   0088H   A   
+TESTEVEL . . . . .  C ADDR   008AH   A   
+TF0. . . . . . . .  B ADDR   0088H.5 A   
+TF1. . . . . . . .  B ADDR   0088H.7 A   
+TF2. . . . . . . .  B ADDR   00C8H.7 A   
+TH0. . . . . . . .  D ADDR   008CH   A   
+TH1. . . . . . . .  D ADDR   008DH   A   
+TH2. . . . . . . .  D ADDR   00CDH   A   
+TI . . . . . . . .  B ADDR   0098H.1 A   
+TL0. . . . . . . .  D ADDR   008AH   A   
+TL1. . . . . . . .  D ADDR   008BH   A   
+TL2. . . . . . . .  D ADDR   00CCH   A   
+TMOD . . . . . . .  D ADDR   0089H   A   
+TR0. . . . . . . .  B ADDR   0088H.4 A   
+TR1. . . . . . . .  B ADDR   0088H.6 A   
+TR2. . . . . . . .  B ADDR   00C8H.2 A   
+TXD. . . . . . . .  B ADDR   00B0H.1 A   
+VERMELHO . . . . .  C ADDR   0062H   A   
+WDTPRG . . . . . .  D ADDR   00A7H   A   
+WDTRST . . . . . .  D ADDR   00A6H   A   
+WR . . . . . . . .  B ADDR   00B0H.6 A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

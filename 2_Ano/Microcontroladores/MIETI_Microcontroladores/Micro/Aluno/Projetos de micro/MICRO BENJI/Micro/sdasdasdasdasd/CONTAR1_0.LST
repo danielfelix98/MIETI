@@ -1,0 +1,67 @@
+A51 MACRO ASSEMBLER  CONTAR1_0                                                            11/27/2014 14:42:32 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.02b
+OBJECT MODULE PLACED IN CONTAR1_0.OBJ
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE CONTAR1_0.a51 SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     NAME CONTAR1_0
+                       2             
+                       3     PUBLIC  CONTAR1_0
+                       4             
+                       5     CONTADORCODE    SEGMENT CODE    
+----                   6     RSEG    CONTADORCODE
+                       7     
+0000                   8     CONTAR1_0:
+0000 E6                9             MOV             A,@R0
+0001 0581             10             INC             SP
+0003 8881             11             MOV             SP,R0
+0005 7808             12             MOV             R0,#8
+0007 7E00             13             MOV             R6,#0H
+0009 7F00             14             MOV             R7,#0H
+                      15             
+000B                  16     LOOP:
+000B C3               17             CLR     c
+000C 23               18             RL              A
+000D 20E703           19             JB              ACC.7,TESTE
+0010 0E               20             INC     R6
+0011 8003             21             JMP             COND
+                      22             
+0013                  23     TESTE:
+0013 0F               24             INC             R7
+0014 8000             25             JMP     COND
+                      26             
+0016                  27     COND:
+0016 18               28             DEC             R0
+0017 B800F1           29             CJNE    R0,#0H,LOOP
+001A 1581             30             DEC             SP
+001C A881             31             MOV             R0,SP
+                      32             
+001E                  33     FIM:
+001E 22               34             RET
+                      35             
+                      36             END
+A51 MACRO ASSEMBLER  CONTAR1_0                                                            11/27/2014 14:42:32 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+ACC. . . . . . . .  D ADDR   00E0H   A   
+COND . . . . . . .  C ADDR   0016H   R   SEG=CONTADORCODE
+CONTADORCODE . . .  C SEG    001FH       REL=UNIT
+CONTAR1_0. . . . .  C ADDR   0000H   R   SEG=CONTADORCODE
+FIM. . . . . . . .  C ADDR   001EH   R   SEG=CONTADORCODE
+LOOP . . . . . . .  C ADDR   000BH   R   SEG=CONTADORCODE
+SP . . . . . . . .  D ADDR   0081H   A   
+TESTE. . . . . . .  C ADDR   0013H   R   SEG=CONTADORCODE
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

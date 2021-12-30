@@ -1,0 +1,82 @@
+A51 MACRO ASSEMBLER  1                                                                    01/03/2013 03:06:00 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.02a
+OBJECT MODULE PLACED IN 1.OBJ
+ASSEMBLER INVOKED BY: C:\Keil\C51\BIN\A51.EXE 1.a51 SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+----                   1     CSEG AT 0H
+0000 802E              2     JMP MAIN
+                       3     
+----                   4     CSEG AT 230H
+0230                   5     STRING:
+0230 32303133          6             DB      "2013 OLA MUNDO !!"
+0234 204F4C41                
+0238 204D554E                
+023C 444F2021                
+0240 21                      
+                       7     
+----                   8     CSEG AT 30H
+                       9     
+0030                  10     MAIN:
+0030 900230           11             MOV DPTR, #230H
+0033 7C30             12             MOV R4, #30H
+0035 7D60             13             MOV R5, #60H
+                      14     
+0037                  15     LOOP:
+0037 753030           16             MOV 30H, #30H
+003A 7A0A             17             MOV R2,#0AH
+003C E4               18             CLR A
+003D 93               19             MOVC A, @A+DPTR
+003E                  20     COMP:
+003E B53011           21             CJNE A,30H,SALTA
+                      22             
+0041 AB82             23             MOV R3, DPL
+0043 758300           24             MOV DPH, #00H
+0046 8C82             25             MOV DPL, R4
+0048 0C               26             INC R4
+0049 F0               27             MOVX @DPTR,A
+004A 0B               28             INC R3
+004B 758302           29             MOV DPH, #02H
+004E 8B82             30             MOV DPL, R3
+0050 80E5             31             JMP LOOP
+0052                  32     SALTA:
+0052 0530             33             INC 30H
+0054 DAE8             34             DJNZ R2,COMP
+0056                  35     REPOR:
+                      36             
+0056 AB82             37             MOV R3, DPL
+0058 758300           38             MOV DPH, #00H
+005B 8D82             39             MOV DPL, R5
+005D 0D               40             INC R5
+005E F0               41             MOVX @DPTR,A
+005F 0B               42             INC R3
+0060 758302           43             MOV DPH, #02H
+0063 8B82             44             MOV DPL, R3
+0065 80D0             45             JMP LOOP
+                      46     
+                      47     END
+A51 MACRO ASSEMBLER  1                                                                    01/03/2013 03:06:00 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+COMP . . . . . . .  C ADDR   003EH   A   
+DPH. . . . . . . .  D ADDR   0083H   A   
+DPL. . . . . . . .  D ADDR   0082H   A   
+LOOP . . . . . . .  C ADDR   0037H   A   
+MAIN . . . . . . .  C ADDR   0030H   A   
+REPOR. . . . . . .  C ADDR   0056H   A   
+SALTA. . . . . . .  C ADDR   0052H   A   
+STRING . . . . . .  C ADDR   0230H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

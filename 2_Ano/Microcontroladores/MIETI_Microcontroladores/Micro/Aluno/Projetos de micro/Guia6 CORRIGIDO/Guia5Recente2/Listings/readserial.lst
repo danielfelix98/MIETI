@@ -1,0 +1,44 @@
+A51 MACRO ASSEMBLER  READSERIAL                                                           01/14/2016 09:48:10 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.02c
+OBJECT MODULE PLACED IN .\Objects\readserial.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE readserial.a51 SET(SMALL) DEBUG PRINT(.\Listings\readserial.lst) OBJECT
+                      (.\Objects\readserial.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     
+                       2     
+                       3     
+                       4     
+                       5     
+                       6     
+                       7     
+                       8     
+                       9     
+                      10     
+                      11     
+                      12     
+                      13     
+                      14     
+                      15     
+                      16     
+                      17     
+                      18     
+                      19     
+                      20             END
+A51 MACRO ASSEMBLER  READSERIAL                                                           01/14/2016 09:48:10 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

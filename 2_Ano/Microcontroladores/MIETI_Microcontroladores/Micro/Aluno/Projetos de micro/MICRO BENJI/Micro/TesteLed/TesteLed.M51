@@ -1,0 +1,70 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        12/05/2014  21:29:45  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL_V5\C51\BIN\BL51.EXE testeled.obj TO TesteLed RAMSIZE (256)
+
+
+INPUT MODULES INCLUDED:
+  testeled.obj (TESTELED)
+
+
+LINK MAP OF MODULE:  TesteLed (TESTELED)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0024H     ABSOLUTE     
+
+
+
+SYMBOL TABLE OF MODULE:  TesteLed (TESTELED)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        TESTELED
+  D:00F0H         SYMBOL        B
+  C:0017H         SYMBOL        DELAY
+  C:0006H         SYMBOL        LOOP
+  D:0090H         SYMBOL        P1
+  C:0000H         SYMBOL        START
+  C:0019H         SYMBOL        WAIT1
+  C:001BH         SYMBOL        WAIT2
+  C:001DH         SYMBOL        WAIT3
+  C:0000H         LINE#         4
+  C:0002H         LINE#         5
+  C:0004H         LINE#         6
+  C:0006H         LINE#         8
+  C:0008H         LINE#         9
+  C:0009H         LINE#         10
+  C:000BH         LINE#         11
+  C:000CH         LINE#         12
+  C:000EH         LINE#         13
+  C:0010H         LINE#         14
+  C:0011H         LINE#         15
+  C:0012H         LINE#         16
+  C:0014H         LINE#         17
+  C:0017H         LINE#         19
+  C:0019H         LINE#         20
+  C:001BH         LINE#         21
+  C:001DH         LINE#         22
+  C:001FH         LINE#         23
+  C:0021H         LINE#         24
+  C:0023H         LINE#         25
+  -------         ENDMOD        TESTELED
+
+BL51 BANKED LINKER/LOCATER V6.22                                                      12/05/2014  21:29:45  PAGE 2
+
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0024H BYTE ( 1%) *
+******************************************************************************
+
+Program Size: data=8.0 xdata=0 code=36
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

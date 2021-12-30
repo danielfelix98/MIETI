@@ -1,0 +1,117 @@
+A51 MACRO ASSEMBLER  DETECTKEYS                                                           02/02/2016 22:15:06 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.02c
+OBJECT MODULE PLACED IN .\Objects\detectkeys.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE detectkeys.a51 SET(SMALL) DEBUG PRINT(.\Listings\detectkeys.lst) OBJECT
+                      (.\Objects\detectkeys.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1             NAME DETECT
+                       2             PUBLIC INICIODETECT
+                       3             DETECTCODE SEGMENT CODE 
+----                   4             RSEG DETECTCODE
+0000 8000              5             JMP INICIODETECT
+                       6             
+                       7             EXTRN CODE (INICIOWAIT)
+                       8                     
+                       9     
+                      10             
+0002                  11     INICIODETECT:
+0002 7800             12             MOV R0,#0
+0004 7900             13             MOV R1,#0
+0006                  14     BOTOES:
+0006 30B50F           15             JNB P3.5,ENTER
+0009 30B323           16             JNB P3.3,SOMA
+000C 80F8             17             JMP BOTOES
+                      18     
+000E                  19     BOTOES2:
+000E 30B323           20             JNB P3.3,SOMA1
+0011 8031             21             JMP TESTE
+                      22             
+0013                  23     BOTOES3:
+                      24             
+0013 30B507           25             JNB P3.5,NORMAL
+0016 802C             26             JMP TESTE
+                      27     
+0018                  28     ENTER:
+0018 7801             29             MOV R0,#1
+001A 09               30             INC R1
+                      31             
+001B 80F1             32             JMP BOTOES2
+                      33             
+001D                  34     NORMAL:
+                      35             USING 0
+001D C001             36             PUSH AR1
+                      37             USING 0
+001F C000             38             PUSH AR0
+0021 7801             39             MOV R0,#1
+0023 120000   F       40             LCALL INICIOWAIT
+0026 D000             41             POP AR0
+0028 D001             42             POP AR1
+002A 7802             43             MOV R0,#2
+002C 09               44             INC R1
+                      45             
+002D 8015             46             JMP TESTE
+002F                  47     SOMA:
+002F 7802             48             MOV R0,#2
+0031 09               49             INC R1
+                      50             
+0032 80DF             51             JMP BOTOES3
+0034                  52     SOMA1:
+                      53             USING 0
+0034 C001             54             PUSH AR1
+                      55             USING 0
+0036 C000             56             PUSH AR0
+0038 7801             57             MOV R0,#1
+A51 MACRO ASSEMBLER  DETECTKEYS                                                           02/02/2016 22:15:06 PAGE     2
+
+003A 120000   F       58             LCALL INICIOWAIT
+003D D000             59             POP AR0
+003F D001             60             POP AR1
+0041 7801             61             MOV R0,#1
+0043 09               62             INC R1
+                      63             
+0044                  64     TESTE:
+0044 B90002           65             CJNE R1,#0,TESTE2
+0047 80BD             66             JMP BOTOES
+0049                  67     TESTE2:
+0049 B90202           68             CJNE R1,#2,FIM
+004C 7800             69             MOV R0,#0
+004E                  70     FIM:    
+004E 22               71             RET
+                      72             END
+                                     
+                                     
+A51 MACRO ASSEMBLER  DETECTKEYS                                                           02/02/2016 22:15:06 PAGE     3
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+AR0. . . . . . . .  D ADDR   0000H   A   
+AR1. . . . . . . .  D ADDR   0001H   A   
+BOTOES . . . . . .  C ADDR   0006H   R   SEG=DETECTCODE
+BOTOES2. . . . . .  C ADDR   000EH   R   SEG=DETECTCODE
+BOTOES3. . . . . .  C ADDR   0013H   R   SEG=DETECTCODE
+DETECT . . . . . .  N NUMB   -----       
+DETECTCODE . . . .  C SEG    004FH       REL=UNIT
+ENTER. . . . . . .  C ADDR   0018H   R   SEG=DETECTCODE
+FIM. . . . . . . .  C ADDR   004EH   R   SEG=DETECTCODE
+INICIODETECT . . .  C ADDR   0002H   R   SEG=DETECTCODE
+INICIOWAIT . . . .  C ADDR   -----       EXT
+NORMAL . . . . . .  C ADDR   001DH   R   SEG=DETECTCODE
+P3 . . . . . . . .  D ADDR   00B0H   A   
+SOMA . . . . . . .  C ADDR   002FH   R   SEG=DETECTCODE
+SOMA1. . . . . . .  C ADDR   0034H   R   SEG=DETECTCODE
+TESTE. . . . . . .  C ADDR   0044H   R   SEG=DETECTCODE
+TESTE2 . . . . . .  C ADDR   0049H   R   SEG=DETECTCODE
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

@@ -1,0 +1,95 @@
+A51 MACRO ASSEMBLER  GUIA3EX2                                                             10/25/2016 11:33:16 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.5.0
+OBJECT MODULE PLACED IN .\Objects\guia3ex2.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE guia3ex2.a51 SET(SMALL) DEBUG PRINT(.\Listings\guia3ex2.lst) OBJECT(.\O
+                      bjects\guia3ex2.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1             
+
+----                   2             CSEG AT 0H
+
+0000 020003            3             LJMP MAIN
+
+                       4     
+
+0003                   5     MAIN:
+
+0003 90A000            6             MOV DPTR,#0A000H
+
+0006 78A0              7             MOV R0,#0A0H
+
+0008 7940              8             MOV R1,#40H
+
+000A 7A28              9             MOV R2,#40
+
+                      10             
+
+000C                  11     LOOP:
+
+000C E0               12             MOVX A,@DPTR 
+
+000D 33               13             RLC A
+
+000E 4008             14             JC MAIOR
+
+                      15             
+
+                      16     
+
+0010                  17     MENOR:
+
+0010 F6               18             MOV @R0,A
+
+0011 A3               19             INC DPTR
+
+0012 08               20             INC R0
+
+0013 C3               21             CLR C
+
+0014 DAF6             22             DJNZ R2, LOOP
+
+0016 8008             23             JMP FIM
+
+                      24             
+
+0018                  25     MAIOR:
+
+0018 F7               26             MOV @R1,A 
+
+0019 09               27             INC R1
+
+001A A3               28             INC DPTR
+
+001B C3               29             CLR C
+
+001C DAEE             30             DJNZ R2, LOOP 
+
+001E 8000             31             JMP FIM
+
+0020                  32     FIM:
+
+                      33             end
+
+A51 MACRO ASSEMBLER  GUIA3EX2                                                             10/25/2016 11:33:16 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+FIM. . . . . . . .  C ADDR   0020H   A   
+LOOP . . . . . . .  C ADDR   000CH   A   
+MAIN . . . . . . .  C ADDR   0003H   A   
+MAIOR. . . . . . .  C ADDR   0018H   A   
+MENOR. . . . . . .  C ADDR   0010H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

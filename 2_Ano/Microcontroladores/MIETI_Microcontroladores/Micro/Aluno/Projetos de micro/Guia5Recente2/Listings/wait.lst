@@ -1,0 +1,57 @@
+A51 MACRO ASSEMBLER  WAIT                                                                 12/26/2015 18:29:14 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.02c
+OBJECT MODULE PLACED IN .\Objects\wait.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE wait.a51 SET(SMALL) DEBUG PRINT(.\Listings\wait.lst) OBJECT(.\Objects\w
+                      ait.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1             NAME WAIT
+                       2             PUBLIC INICIOWAIT
+                       3             WAITCODE SEGMENT CODE 
+----                   4             RSEG WAITCODE
+                       5                     
+0000                   6     INICIOWAIT:
+                       7     
+0000                   8     CARGA:
+0000 758901            9                     MOV TMOD,#01H
+0003 7906             10                     MOV R1,#6
+0005                  11     LOOP:
+0005 758C3C           12                     MOV TH0,#HIGH(-50000)
+0008 758AB0           13                     MOV TL0,#LOW(-50000)
+000B D28C             14                     SETB TR0
+000D                  15     WAIT:
+000D 308DFD           16                     JNB TF0,WAIT
+0010 C28C             17                     CLR TR0
+0012 C28D             18                     CLR TF0
+0014 D9EF             19                     DJNZ R1,LOOP
+0016                  20     FIM:
+0016 22               21                     RET
+                      22     END             
+A51 MACRO ASSEMBLER  WAIT                                                                 12/26/2015 18:29:14 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+CARGA. . . . . . .  C ADDR   0000H   R   SEG=WAITCODE
+FIM. . . . . . . .  C ADDR   0016H   R   SEG=WAITCODE
+INICIOWAIT . . . .  C ADDR   0000H   R   SEG=WAITCODE
+LOOP . . . . . . .  C ADDR   0005H   R   SEG=WAITCODE
+TF0. . . . . . . .  B ADDR   0088H.5 A   
+TH0. . . . . . . .  D ADDR   008CH   A   
+TL0. . . . . . . .  D ADDR   008AH   A   
+TMOD . . . . . . .  D ADDR   0089H   A   
+TR0. . . . . . . .  B ADDR   0088H.4 A   
+WAIT . . . . . . .  C ADDR   000DH   R   SEG=WAITCODE
+WAITCODE . . . . .  C SEG    0017H       REL=UNIT
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

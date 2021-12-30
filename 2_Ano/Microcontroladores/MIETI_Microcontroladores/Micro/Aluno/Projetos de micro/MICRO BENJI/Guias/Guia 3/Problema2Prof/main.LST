@@ -1,0 +1,254 @@
+A51 MACRO ASSEMBLER  MAIN                                                                 10/23/2014 19:11:56 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.02b
+OBJECT MODULE PLACED IN main.OBJ
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE main.a51 NOMOD51 SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1             NAME MAIN
+                       2     ;#include <89C51rx2.inc>
+                +1     3  +1 $save     
+                +1   192  +1 $restore 
+                     193     
+                     194             
+  0006               195             N_LOOPS         EQU             6
+                     196                     
+----                 197             CSEG            AT      0H                      
+0000 020003          198             LJMP            MAIN                    
+                     199             
+0003                 200     MAIN:
+                     201     
+                     202             
+0003 7BA0            203             MOV             R3, #0A0H                       ;Serve para guardar os nºos inferio
+                             res a 128 (decimal)
+0005 7C40            204             MOV             R4, #40H                        ;Serve para guardar os nºos iguais 
+                             e superiores a 128 (decimal)
+0007 7D06            205             MOV             R5, #N_LOOPS
+                     206     
+0009                 207     START:
+                     208             
+0009 90A000          209             MOV             DPTR, #0A000H
+                     210             
+                     211             
+                     212     
+000C                 213     CICLO:
+                     214             
+000C E0              215             MOVX    A, @DPTR
+000D 20E708          216             JB              Acc.7, MAIOR_OU_IGUAL
+0010 8BF0            217             MOV             B, R3
+0012 A8F0            218             MOV             R0, B
+0014 F6              219             MOV             @R0, A
+0015 0B              220             INC             R3
+0016 8006            221             JMP             INCREMENTAR_DPTR
+                     222             
+0018                 223     MAIOR_OU_IGUAL:
+                     224             
+0018 8CF0            225             MOV             B, R4
+001A A8F0            226             MOV             R0, B
+001C F6              227             MOV             @R0, A
+001D 0C              228             INC             R4
+                     229     
+001E                 230     INCREMENTAR_DPTR:
+                     231     
+001E A3              232             INC             DPTR
+                     233     
+001F                 234     LOOP_FIM:
+                     235     
+001F DDEB            236             DJNZ    R5,CICLO
+                     237             
+                     238             END
+                             
+                             
+                             
+                             
+                             ;Universidade do Minho
+                             ;MIECOM
+A51 MACRO ASSEMBLER  MAIN                                                                 10/23/2014 19:11:56 PAGE     2
+
+                             ;Microcontroladores
+                             ;Jorge Bastos a68456
+                             
+                             ;Qual o objectivo de desenvolver este programa em dois módulos?
+                             ;Diminui o tempo de execução; o programa fica mais leve em comparação se fosse feito apenas
+                              num módulo.
+                             
+                             ;As directivas para ligação do programa utilizam-se quando o programa a desenvolver se enco
+                             ntra distribuído por vários módulos.
+                             ;Como os módulos necessitam de partilhar informação torna-se necessário identificar a orige
+                             m da informação (quando externa) 
+                             ;ou qual a informação que vai ser partilhada.
+                             
+                             ;PUBLIC:Lista os símbolos que podem ser usados por outros módulos; exporta um símbolo, nest
+                             e caso módulo H2A
+                             ;EXTRN:Lista os símbolos referidos no módulo corrente e definidos noutro módulo; usa um sím
+                             bolo, neste caso módulo MAIN
+                             ;SEGMENT:Define um segmento.
+                             ;RSEG:Selecção de um segmento.
+                             ;NAME:Especifica o nomedo módulo objecto gerado pelo programa.
+                             
+                             ;Qual o endereço na memória de código das etiquetas:
+                             ;BA3_NAO: C:0x080C
+                             ;FIM_H2A: C:0x0812
+                             
+                             ;Os ficheiros '.lst' contem os codigos maquina e assembly e os respectivos endereços no cód
+                             igo.
+                             
+                             ;O objectivo de incluir a linha: #include<89C51Rx2.inc> é:
+                             
+                             ;O ficheiro com extensão '.M51' contem os endereços das etiquetas.
+A51 MACRO ASSEMBLER  MAIN                                                                 10/23/2014 19:11:56 PAGE     3
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+AC . . . . . . . .  B ADDR   00D0H.6 A   
+ACC. . . . . . . .  D ADDR   00E0H   A   
+AUXR . . . . . . .  D ADDR   008EH   A   
+AUXR1. . . . . . .  D ADDR   00A2H   A   
+B. . . . . . . . .  D ADDR   00F0H   A   
+BDRCON . . . . . .  D ADDR   009BH   A   
+BRL. . . . . . . .  D ADDR   009AH   A   
+CCAP0H . . . . . .  D ADDR   00FAH   A   
+CCAP0L . . . . . .  D ADDR   00EAH   A   
+CCAP1H . . . . . .  D ADDR   00FBH   A   
+CCAP1L . . . . . .  D ADDR   00EBH   A   
+CCAP2H . . . . . .  D ADDR   00FCH   A   
+CCAP2L . . . . . .  D ADDR   00ECH   A   
+CCAP3H . . . . . .  D ADDR   00FDH   A   
+CCAP3L . . . . . .  D ADDR   00EDH   A   
+CCAP4H . . . . . .  D ADDR   00FEH   A   
+CCAP4L . . . . . .  D ADDR   00EEH   A   
+CCAPM0 . . . . . .  D ADDR   00DAH   A   
+CCAPM1 . . . . . .  D ADDR   00DBH   A   
+CCAPM2 . . . . . .  D ADDR   00DCH   A   
+CCAPM3 . . . . . .  D ADDR   00DDH   A   
+CCAPM4 . . . . . .  D ADDR   00DEH   A   
+CCF0 . . . . . . .  D ADDR   00D8H   A   
+CCF1 . . . . . . .  D ADDR   00D9H   A   
+CCF2 . . . . . . .  D ADDR   00DAH   A   
+CCF3 . . . . . . .  D ADDR   00DBH   A   
+CCF4 . . . . . . .  D ADDR   00DCH   A   
+CCON . . . . . . .  D ADDR   00D8H   A   
+CF . . . . . . . .  D ADDR   00DFH   A   
+CH . . . . . . . .  D ADDR   00F9H   A   
+CICLO. . . . . . .  C ADDR   000CH   A   
+CKCON0 . . . . . .  D ADDR   008FH   A   
+CKCON1 . . . . . .  D ADDR   00AFH   A   
+CKRL . . . . . . .  D ADDR   0096H   A   
+CL . . . . . . . .  D ADDR   00E9H   A   
+CMOD . . . . . . .  D ADDR   00D9H   A   
+CP_RL2 . . . . . .  B ADDR   00C8H.0 A   
+CR . . . . . . . .  D ADDR   00DEH   A   
+CY . . . . . . . .  B ADDR   00D0H.7 A   
+C_T2 . . . . . . .  B ADDR   00C8H.1 A   
+DPH. . . . . . . .  D ADDR   0083H   A   
+DPL. . . . . . . .  D ADDR   0082H   A   
+EA . . . . . . . .  B ADDR   00A8H.7 A   
+EC . . . . . . . .  B ADDR   00A8H.6 A   
+ES . . . . . . . .  B ADDR   00A8H.4 A   
+ET0. . . . . . . .  B ADDR   00A8H.1 A   
+ET1. . . . . . . .  B ADDR   00A8H.3 A   
+ET2. . . . . . . .  B ADDR   00A8H.5 A   
+EX0. . . . . . . .  B ADDR   00A8H.0 A   
+EX1. . . . . . . .  B ADDR   00A8H.2 A   
+EXEN2. . . . . . .  B ADDR   00C8H.3 A   
+EXF2 . . . . . . .  B ADDR   00C8H.6 A   
+F0 . . . . . . . .  B ADDR   00D0H.5 A   
+FCON . . . . . . .  D ADDR   00D1H   A   
+IE0. . . . . . . .  B ADDR   0088H.1 A   
+IE1. . . . . . . .  B ADDR   0088H.3 A   
+IEN0 . . . . . . .  D ADDR   00A8H   A   
+IEN1 . . . . . . .  D ADDR   00B1H   A   
+INCREMENTAR_DPTR .  C ADDR   001EH   A   
+INT0 . . . . . . .  B ADDR   00B0H.2 A   
+A51 MACRO ASSEMBLER  MAIN                                                                 10/23/2014 19:11:56 PAGE     4
+
+INT1 . . . . . . .  B ADDR   00B0H.3 A   
+IPH0 . . . . . . .  D ADDR   00B7H   A   
+IPH1 . . . . . . .  D ADDR   00B3H   A   
+IPL0 . . . . . . .  D ADDR   00B8H   A   
+IPL1 . . . . . . .  D ADDR   00B2H   A   
+IT0. . . . . . . .  B ADDR   0088H.0 A   
+IT1. . . . . . . .  B ADDR   0088H.2 A   
+KBE. . . . . . . .  D ADDR   009DH   A   
+KBF. . . . . . . .  D ADDR   009EH   A   
+KBLS . . . . . . .  D ADDR   009CH   A   
+LOOP_FIM . . . . .  C ADDR   001FH   A   
+MAIN . . . . . . .  C ADDR   0003H   A   
+MAIOR_OU_IGUAL . .  C ADDR   0018H   A   
+N_LOOPS. . . . . .  N NUMB   0006H   A   
+OV . . . . . . . .  B ADDR   00D0H.2 A   
+P. . . . . . . . .  B ADDR   00D0H.0 A   
+P0 . . . . . . . .  D ADDR   0080H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+P3 . . . . . . . .  D ADDR   00B0H   A   
+PCON . . . . . . .  D ADDR   0087H   A   
+PPCL . . . . . . .  B ADDR   00B8H.6 A   
+PSL. . . . . . . .  B ADDR   00B8H.4 A   
+PSW. . . . . . . .  D ADDR   00D0H   A   
+PT0L . . . . . . .  B ADDR   00B8H.1 A   
+PT1L . . . . . . .  B ADDR   00B8H.3 A   
+PT2L . . . . . . .  B ADDR   00B8H.5 A   
+PX0L . . . . . . .  B ADDR   00B8H.0 A   
+PX1L . . . . . . .  B ADDR   00B8H.2 A   
+RB8. . . . . . . .  B ADDR   0098H.2 A   
+RCAP2H . . . . . .  D ADDR   00CBH   A   
+RCAP2L . . . . . .  D ADDR   00CAH   A   
+RCLK . . . . . . .  B ADDR   00C8H.5 A   
+RD . . . . . . . .  B ADDR   00B0H.7 A   
+REN. . . . . . . .  B ADDR   0098H.4 A   
+RI . . . . . . . .  B ADDR   0098H.0 A   
+RS0. . . . . . . .  B ADDR   00D0H.3 A   
+RS1. . . . . . . .  B ADDR   00D0H.4 A   
+RXD. . . . . . . .  B ADDR   00B0H.0 A   
+SADDR. . . . . . .  D ADDR   00A9H   A   
+SADEN. . . . . . .  D ADDR   00B9H   A   
+SBUF . . . . . . .  D ADDR   0099H   A   
+SCON . . . . . . .  D ADDR   0098H   A   
+SM0. . . . . . . .  B ADDR   0098H.7 A   
+SM1. . . . . . . .  B ADDR   0098H.6 A   
+SM2. . . . . . . .  B ADDR   0098H.5 A   
+SP . . . . . . . .  D ADDR   0081H   A   
+SPCON. . . . . . .  D ADDR   00C3H   A   
+SPDAT. . . . . . .  D ADDR   00C5H   A   
+SPSTA. . . . . . .  D ADDR   00C4H   A   
+START. . . . . . .  C ADDR   0009H   A   
+T0 . . . . . . . .  B ADDR   00B0H.4 A   
+T1 . . . . . . . .  B ADDR   00B0H.5 A   
+T2CON. . . . . . .  D ADDR   00C8H   A   
+T2MOD. . . . . . .  D ADDR   00C9H   A   
+TB8. . . . . . . .  B ADDR   0098H.3 A   
+TCLK . . . . . . .  B ADDR   00C8H.4 A   
+TCON . . . . . . .  D ADDR   0088H   A   
+TF0. . . . . . . .  B ADDR   0088H.5 A   
+TF1. . . . . . . .  B ADDR   0088H.7 A   
+TF2. . . . . . . .  B ADDR   00C8H.7 A   
+TH0. . . . . . . .  D ADDR   008CH   A   
+TH1. . . . . . . .  D ADDR   008DH   A   
+TH2. . . . . . . .  D ADDR   00CDH   A   
+TI . . . . . . . .  B ADDR   0098H.1 A   
+TL0. . . . . . . .  D ADDR   008AH   A   
+A51 MACRO ASSEMBLER  MAIN                                                                 10/23/2014 19:11:56 PAGE     5
+
+TL1. . . . . . . .  D ADDR   008BH   A   
+TL2. . . . . . . .  D ADDR   00CCH   A   
+TMOD . . . . . . .  D ADDR   0089H   A   
+TR0. . . . . . . .  B ADDR   0088H.4 A   
+TR1. . . . . . . .  B ADDR   0088H.6 A   
+TR2. . . . . . . .  B ADDR   00C8H.2 A   
+TXD. . . . . . . .  B ADDR   00B0H.1 A   
+WDTPRG . . . . . .  D ADDR   00A7H   A   
+WDTRST . . . . . .  D ADDR   00A6H   A   
+WR . . . . . . . .  B ADDR   00B0H.6 A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

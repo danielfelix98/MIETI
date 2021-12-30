@@ -1,0 +1,167 @@
+A51 MACRO ASSEMBLER  AULA20_1                                                             12/24/2016 18:23:39 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.5.0
+OBJECT MODULE PLACED IN .\Objects\aula20_1.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE ..\..\..\..\Downloads\aula20_1.a51 SET(SMALL) DEBUG PRINT(.\Listings\au
+                      la20_1.lst) OBJECT(.\Objects\aula20_1.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+----                   1     cseg at 0h
+
+0000 802E              2     jmp main
+
+----                   3     cseg at 30h
+
+                       4     
+
+0030                   5     main:
+
+                       6             
+
+0030 7905              7             mov r1,#5
+
+0032 E9                8             mov a,r1
+
+                       9             
+
+0033 113C             10             call verifica_num
+
+                      11             
+
+0035 5003             12             jnc nao_valido
+
+                      13             
+
+0037 114D             14             call fatorial
+
+0039 F8               15             mov r0,a
+
+003A                  16     nao_valido:
+
+003A 80FE             17             jmp $
+
+                      18                     
+
+                      19     
+
+003C                  20     verifica_num:
+
+                      21             
+
+                      22             
+
+003C B40600           23             cjne a,#6,check1
+
+003F                  24     check1:
+
+                      25             
+
+003F 4002             26             jc check2
+
+0041 8009             27             jmp fim_verifica_num
+
+0043                  28     check2:
+
+                      29             
+
+0043 B40103           30             cjne a,#1,not1
+
+0046                  31     valid:
+
+0046 D3               32             setb C
+
+0047 8003             33             jmp fim_verifica_num
+
+0049                  34     not1:
+
+                      35             
+
+0049 50FB             36             jnc valid
+
+004B C3               37             clr c
+
+004C                  38     fim_verifica_num:
+
+004C 22               39             ret
+
+                      40             
+
+                      41     
+
+004D                  42     fatorial:
+
+                      43             
+
+004D C0E0             44             PUSH ACC
+
+                      45             
+
+004F B40103           46             CJNE A,#1,not_one
+
+0052                  47     fim_fatorial:
+
+                      48             
+
+0052 D0E0             49             pop acc
+
+0054 22               50             ret
+
+0055                  51     not_one:
+
+                      52             
+
+0055 14               53             DEC A
+
+                      54             
+
+0056 114D             55             call fatorial
+
+                      56             
+
+0058 F5F0             57             mov b,a
+
+A51 MACRO ASSEMBLER  AULA20_1                                                             12/24/2016 18:23:39 PAGE     2
+
+                      58             
+
+005A D0E0             59             pop acc
+
+                      60             
+
+005C A4               61             mul ab
+
+005D 22               62             ret
+
+                      63     
+
+                      64     end
+
+A51 MACRO ASSEMBLER  AULA20_1                                                             12/24/2016 18:23:39 PAGE     3
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+ACC. . . . . . . .  D ADDR   00E0H   A   
+B. . . . . . . . .  D ADDR   00F0H   A   
+CHECK1 . . . . . .  C ADDR   003FH   A   
+CHECK2 . . . . . .  C ADDR   0043H   A   
+FATORIAL . . . . .  C ADDR   004DH   A   
+FIM_FATORIAL . . .  C ADDR   0052H   A   
+FIM_VERIFICA_NUM .  C ADDR   004CH   A   
+MAIN . . . . . . .  C ADDR   0030H   A   
+NAO_VALIDO . . . .  C ADDR   003AH   A   
+NOT1 . . . . . . .  C ADDR   0049H   A   
+NOT_ONE. . . . . .  C ADDR   0055H   A   
+VALID. . . . . . .  C ADDR   0046H   A   
+VERIFICA_NUM . . .  C ADDR   003CH   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

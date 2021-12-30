@@ -1,0 +1,4 @@
+"contagem.obj",
+".\serie.OBJ" 
+TO "Modelo" 
+RAMSIZE(256) 

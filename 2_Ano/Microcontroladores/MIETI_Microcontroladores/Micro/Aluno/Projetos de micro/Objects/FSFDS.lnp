@@ -1,0 +1,3 @@
+".\Objects\SAFVHAFSK.obj" 
+TO ".\Objects\FSFDS" 
+PRINT(".\Listings\FSFDS.m51") RAMSIZE(256) 

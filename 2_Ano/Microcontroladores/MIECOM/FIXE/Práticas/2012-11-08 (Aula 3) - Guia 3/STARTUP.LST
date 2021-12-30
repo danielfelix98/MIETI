@@ -1,0 +1,60 @@
+A51 MACRO ASSEMBLER  STARTUP                                                              11/15/2012 17:58:19 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.02a
+OBJECT MODULE PLACED IN STARTUP.OBJ
+ASSEMBLER INVOKED BY: C:\Keil\C51\BIN\A51.EXE STARTUP.A51 SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1                             NAME    H2A
+                       2     
+                       3                             PUBLIC  INICIOH2A
+                       4     
+                       5                             H2ACODE SEGMENT CODE
+----                   6                             RSEG    H2ACODE
+                       7                             ;ROTINA QUE CONVERTE DIGITO HEXADECIMAL ARMAZENADO
+                       8                             ;NO ENDEREÇO DE MEMORIA APONTADO POR R0 PARA ASCII
+                       9     
+0000                  10     INICIOH2A:
+                      11                             ;BA1: BLOCO DE ATRIBUIÇÃO1
+0000 E6               12                             MOV             A,@R0
+0001 C3               13                             CLR             C
+0002 940A             14                             SUBB    A,#10
+                      15     
+                      16                             ;BD1: BLOCO DE DECISÃO1
+0004 4006             17                             JC              BA3_NAO
+                      18                             ;CARRY É 0, LOGO É LETRA PORQUE A>=10
+                      19                             ;BA2_SIM: BLOCO DE ATRIBUIÇÃO 2
+0006 2441             20                             ADD             A,#'A'
+0008 F5F0             21                             MOV     B,A
+000A 8006             22                             JMP             FIMH2A
+                      23     
+                      24                             ;BA3_NAO: BLOCO DE ATRIBUIÇÃO 3
+000C                  25     BA3_NAO:
+000C 240A             26                             ADD             A,#10
+000E 2430             27                             ADD             A,#'0'
+0010 F5F0             28                             MOV             B,A
+0012                  29     FIMH2A:
+0012 22               30                             RET
+*** WARNING #A41 IN 30 (STARTUP.A51, LINE 30): MISSING 'END' STATEMENT
+A51 MACRO ASSEMBLER  STARTUP                                                              11/15/2012 17:58:19 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+B. . . . . . . . .  D ADDR   00F0H   A   
+BA3_NAO. . . . . .  C ADDR   000CH   R   SEG=H2ACODE
+FIMH2A . . . . . .  C ADDR   0012H   R   SEG=H2ACODE
+H2A. . . . . . . .  N NUMB   -----       
+H2ACODE. . . . . .  C SEG    0013H       REL=UNIT
+INICIOH2A. . . . .  C ADDR   0000H   R   SEG=H2ACODE
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  1 WARNING(S), 0 ERROR(S)

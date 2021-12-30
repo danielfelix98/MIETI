@@ -1,0 +1,86 @@
+A51 MACRO ASSEMBLER  MAIN                                                                 11/20/2014 17:49:00 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.02b
+OBJECT MODULE PLACED IN main.OBJ
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE main.a51 NOMOD51 SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     NAME MAIN
+                       2                             
+0000 020030            3             LJMP            START                   
+                       4             
+----                   5             CSEG            AT 30H  
+                       6                     
+0030                   7     START:
+0030 7800              8                     mov r0,#0
+0032 E560              9                     mov a, 60h
+                      10                     
+0034                  11                     rotina0:
+0034 30E001           12                     jnb acc.0, rotina1
+0037 08               13                     inc r0
+                      14                     
+0038                  15                     rotina1:
+0038 30E101           16                     jnb acc.1, rotina2
+003B 08               17                     inc r0
+                      18                     
+003C                  19                     rotina2:
+003C 30E201           20                     jnb acc.2, rotina3
+003F 08               21                     inc r0
+                      22                     
+0040                  23                     rotina3:
+0040 30E301           24                     jnb acc.3, rotina4
+0043 08               25                     inc r0
+                      26                     
+0044                  27                     rotina4:
+0044 30E401           28                     jnb acc.4, rotina5
+0047 08               29                     inc r0
+                      30                     
+0048                  31                     rotina5:
+0048 30E501           32                     jnb acc.5, rotina6
+004B 08               33                     inc r0
+                      34                     
+004C                  35                     rotina6:
+004C 30E601           36                     jnb acc.6, rotina7
+004F 08               37                     inc r0
+                      38                     
+0050                  39                     rotina7:
+0050 30E703           40                     jnb acc.7, fim
+0053 08               41                     inc r0
+                      42                     
+0054 8000             43                     jmp fim
+                      44                     
+                      45     
+0056                  46     fim:
+                      47     end
+                             
+                             
+                             
+                             
+A51 MACRO ASSEMBLER  MAIN                                                                 11/20/2014 17:49:00 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+ACC. . . . . . . .  D ADDR   00E0H   A   
+FIM. . . . . . . .  C ADDR   0056H   A   
+MAIN . . . . . . .  N NUMB   -----       
+ROTINA0. . . . . .  C ADDR   0034H   A   
+ROTINA1. . . . . .  C ADDR   0038H   A   
+ROTINA2. . . . . .  C ADDR   003CH   A   
+ROTINA3. . . . . .  C ADDR   0040H   A   
+ROTINA4. . . . . .  C ADDR   0044H   A   
+ROTINA5. . . . . .  C ADDR   0048H   A   
+ROTINA6. . . . . .  C ADDR   004CH   A   
+ROTINA7. . . . . .  C ADDR   0050H   A   
+START. . . . . . .  C ADDR   0030H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

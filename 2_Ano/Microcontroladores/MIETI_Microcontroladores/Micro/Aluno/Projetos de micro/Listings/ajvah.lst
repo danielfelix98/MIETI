@@ -1,0 +1,83 @@
+A51 MACRO ASSEMBLER  AJVAH                                                                12/17/2015 11:37:20 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.02c
+OBJECT MODULE PLACED IN .\Objects\ajvah.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE ajvah.a51 SET(SMALL) DEBUG PRINT(.\Listings\ajvah.lst) OBJECT(.\Objects
+                      \ajvah.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1                     NAME READ
+                       2             PUBLIC INICIOREAD
+                       3             READCODE SEGMENT CODE 
+----                   4             RSEG READCODE
+0000 8000              5             JMP INICIOREAD
+                       6                     
+                       7             
+                       8                     
+                       9             EXTRN CODE (INICIODISPLAY)
+                      10             
+                      11             EXTRN CODE (INICIODETECT)
+                      12                     
+                      13     
+                      14     
+                      15     
+0002                  16     INICIOREAD:     
+0002 7800             17                             MOV R0,#0
+0004 120000   F       18                             LCALL INICIODISPLAY
+0007 7900             19                             MOV R1,#0
+0009 7A00             20                             MOV R2,#0
+000B                  21     DETETA:                 
+                      22                             USING 0
+000B C001             23                             PUSH AR1
+000D 120000   F       24                             LCALL INICIODETECT
+0010 D001             25                             POP AR1
+0012 E8               26                             MOV A,R0
+0013 FA               27                             MOV R2,A
+0014 BA0006           28                             CJNE R2,#0,DETETA1  
+0017 790B             29                             MOV R1,#11
+0019 7A01             30                             MOV R2,#1
+001B 800E             31                             JMP DETETAFINAL
+001D                  32     DETETA1:
+001D BA020B           33                             CJNE R2,#2,DETETAFINAL  
+0020 09               34                             INC R1
+0021 B90A02           35                             CJNE R1,#10,DISWAIT
+0024 7900             36                             MOV R1,#0
+0026                  37     DISWAIT:
+0026 E9               38                             MOV A,R1
+0027 F8               39                             MOV R0,A
+0028 120000   F       40                             LCALL INICIODISPLAY
+                      41                             
+002B                  42     DETETAFINAL:
+002B BA01DD           43                             CJNE R2,#1,DETETA  
+                      44                             
+002E E9               45                             MOV A,R1
+002F F8               46                             MOV R0,A
+                      47                             
+0030 22               48                     RET     
+                      49     END
+A51 MACRO ASSEMBLER  AJVAH                                                                12/17/2015 11:37:20 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+AR1. . . . . . . .  D ADDR   0001H   A   
+DETETA . . . . . .  C ADDR   000BH   R   SEG=READCODE
+DETETA1. . . . . .  C ADDR   001DH   R   SEG=READCODE
+DETETAFINAL. . . .  C ADDR   002BH   R   SEG=READCODE
+DISWAIT. . . . . .  C ADDR   0026H   R   SEG=READCODE
+INICIODETECT . . .  C ADDR   -----       EXT
+INICIODISPLAY. . .  C ADDR   -----       EXT
+INICIOREAD . . . .  C ADDR   0002H   R   SEG=READCODE
+READ . . . . . . .  N NUMB   -----       
+READCODE . . . . .  C SEG    0031H       REL=UNIT
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

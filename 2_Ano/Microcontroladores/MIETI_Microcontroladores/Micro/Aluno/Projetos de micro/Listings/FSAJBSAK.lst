@@ -1,0 +1,57 @@
+A51 MACRO ASSEMBLER  FSAJBSAK                                                             12/17/2015 11:37:21 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.02c
+OBJECT MODULE PLACED IN .\Objects\FSAJBSAK.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE FSAJBSAK.A51 SET(SMALL) DEBUG PRINT(.\Listings\FSAJBSAK.lst) OBJECT(.\O
+                      bjects\FSAJBSAK.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1             NAME NEWPASS
+                       2             PUBLIC INICIOPASS1
+                       3             NEWPASS SEGMENT CODE 
+----                   4             RSEG NEWPASS
+0000 8000              5             JMP INICIOPASS1
+                       6                     
+                       7             EXTRN CODE (INICIOREAD)
+                       8                     
+                       9     
+                      10     
+0002                  11     INICIOPASS1:
+0002 7840             12             MOV R0,#40H
+0004 7A04             13             MOV R2,#4
+0006 E8               14             MOV A,R0
+0007 F9               15             MOV R1,A
+0008                  16     INICIO:
+                      17             USING 0
+0008 C001             18             PUSH AR1
+000A 120000   F       19             LCALL INICIOREAD
+000D D001             20             POP AR1
+000F E8               21             MOV A,R0
+0010 F7               22             MOV @R1,A
+0011 09               23             INC R1
+0012 DAF4             24             DJNZ R2,INICIO
+0014                  25     FIM:
+0014 22               26             RET
+                      27             END
+A51 MACRO ASSEMBLER  FSAJBSAK                                                             12/17/2015 11:37:21 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+AR1. . . . . . . .  D ADDR   0001H   A   
+FIM. . . . . . . .  C ADDR   0014H   R   SEG=NEWPASS
+INICIO . . . . . .  C ADDR   0008H   R   SEG=NEWPASS
+INICIOPASS1. . . .  C ADDR   0002H   R   SEG=NEWPASS
+INICIOREAD . . . .  C ADDR   -----       EXT
+NEWPASS. . . . . .  C SEG    0015H       REL=UNIT
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

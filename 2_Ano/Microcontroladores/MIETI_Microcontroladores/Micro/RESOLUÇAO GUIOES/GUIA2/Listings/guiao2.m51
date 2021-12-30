@@ -1,0 +1,70 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        12/26/2016  18:42:20  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\guia2.obj TO .\Objects\guiao2 PRINT (.\Listings\guiao2.m51) RAMSIZE (256)
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\guia2.obj (GUIA2)
+
+
+LINK MAP OF MODULE:  .\Objects\guiao2 (GUIA2)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     001DH                  *** GAP ***
+            CODE    0020H     0025H     ABSOLUTE     
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\guiao2 (GUIA2)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        GUIA2
+  C:0038H         SYMBOL        IMPSWAP
+  C:0032H         SYMBOL        LOOP
+  C:0020H         SYMBOL        MAIN
+  C:003FH         SYMBOL        POS_IMP
+  C:0043H         SYMBOL        TERMINA
+  C:0000H         LINE#         4
+  C:0020H         LINE#         8
+  C:0023H         LINE#         9
+  C:0026H         LINE#         10
+  C:0029H         LINE#         11
+  C:002CH         LINE#         13
+  C:002EH         LINE#         10
+  C:0030H         LINE#         15
+  C:0032H         LINE#         19
+  C:0033H         LINE#         20
+  C:0034H         LINE#         21
+  C:0036H         LINE#         22
+  C:0038H         LINE#         25
+  C:0039H         LINE#         26
+  C:003AH         LINE#         27
+  C:003CH         LINE#         28
+  C:003DH         LINE#         29
+  C:003FH         LINE#         32
+  C:0040H         LINE#         33
+  C:0041H         LINE#         34
+  C:0043H         LINE#         37
+  -------         ENDMOD        GUIA2
+
+BL51 BANKED LINKER/LOCATER V6.22                                                      12/26/2016  18:42:20  PAGE 2
+
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0028H BYTE ( 1%) *
+******************************************************************************
+
+Program Size: data=8.0 xdata=0 code=40
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

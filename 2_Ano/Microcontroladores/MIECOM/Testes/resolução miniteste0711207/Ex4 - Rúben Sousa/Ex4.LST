@@ -1,0 +1,90 @@
+A51 MACRO ASSEMBLER  EX4                                                                  11/25/2013 23:08:49 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.02b
+OBJECT MODULE PLACED IN Ex4.OBJ
+ASSEMBLER INVOKED BY: C:\Keil\C51\BIN\A51.EXE Ex4.a51 SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+----                   1                     CSEG    AT      0H
+0000 802E              2                     JMP     MAIN
+----                   3                     CSEG    AT      30H
+0030                   4     MAIN:
+0030 900440            5                     MOV     DPTR,#DADOS                     ; Move para DPTR o endereço do prim
+                             eiro número em DADOS
+0033                   6     TESTE:  
+0033 B81203            7                     CJNE    R0,#12H,PERCORRER       ; Se já chegou ao fim da sequência, parar d
+                             e percorrer
+0036 EA                8                     MOV             A,R2                            ; Mover para A o menor núme
+                             ro encontrado, que se encontra em R2
+0037 80FE              9                     JMP     $                                       
+0039                  10     PERCORRER:
+0039 E8               11                     MOV             A,R0
+003A 93               12                     MOVC    A,@A+DPTR                       ; Move para A o número atual
+003B 30E003           13                     JNB             ACC.0,PAR                       ; Verifica se o número é pa
+                             r. Último bit do acumulador tem de ser 0
+003E 08               14                     INC             R0                                      ; Se não for par, p
+                             assa para o próximo número
+003F 80F2             15                     JMP             TESTE                           ; Verifica o próximo número
+0041                  16     PAR:
+0041 F9               17                     MOV             R1,A                            
+0042 B90002           18                     CJNE    R1,#0,LOOP                      ; 0 não é par, por isso, não pode s
+                             er mínimo
+0045 80EC             19                     JMP             TESTE
+0047                  20     LOOP:                                                           
+0047 14               21                     DEC             A
+0048 B40002           22                     CJNE    A,#0,LOOP2                      
+004B 8009             23                     JMP             PAR2                            ; Se o número atual da sequ
+                             ência chegar primeiro a 0, é o novo mínimo
+004D                  24     LOOP2:
+004D 1B               25                     DEC             R3                                      ; Se o mínimo atual
+                              chegar primeiro a 0, continua a ser o menor até ao momento
+004E BB00F6           26                     CJNE    R3,#0,LOOP                      ; Se já chegou a 0, podemos verific
+                             ar o próximo número
+0051 EA               27                     MOV             A,R2                            
+0052 FB               28                     MOV             R3,A                            ; Transfere novamente para 
+                             R3 o mínimo que está em R2
+0053 08               29                     INC             R0                                      ; Verifica o próxim
+                             o número da sequência
+0054 80DD             30                     JMP             TESTE                           
+0056                  31     PAR2:
+0056 E9               32                     MOV             A,R1                            
+0057 FA               33                     MOV             R2,A                            ; Transferir o novo mínimo 
+                             para R2 e R3. R2 é uma cópia de segurança, visto que R3 vai ser alterado
+0058 FB               34                     MOV             R3,A
+0059 08               35                     INC             R0                                      ; Verifica o próxim
+                             o número da sequência
+005A 80D7             36                     JMP             TESTE
+----                  37                     CSEG    AT      440H                    ; Inicia o código que se segue no e
+                             ndereço 440H
+0440                  38     DADOS:
+0440 0A090802         39                     DB 10,9,8,2,4,6,7,8,9,1,14,19,20,22,14,15,28,19,0
+0444 04060708                
+0448 09010E13                
+044C 14160E0F                
+0450 1C1300                  
+                      40     END
+A51 MACRO ASSEMBLER  EX4                                                                  11/25/2013 23:08:49 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+ACC. . . . . . . .  D ADDR   00E0H   A   
+DADOS. . . . . . .  C ADDR   0440H   A   
+LOOP . . . . . . .  C ADDR   0047H   A   
+LOOP2. . . . . . .  C ADDR   004DH   A   
+MAIN . . . . . . .  C ADDR   0030H   A   
+PAR. . . . . . . .  C ADDR   0041H   A   
+PAR2 . . . . . . .  C ADDR   0056H   A   
+PERCORRER. . . . .  C ADDR   0039H   A   
+TESTE. . . . . . .  C ADDR   0033H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

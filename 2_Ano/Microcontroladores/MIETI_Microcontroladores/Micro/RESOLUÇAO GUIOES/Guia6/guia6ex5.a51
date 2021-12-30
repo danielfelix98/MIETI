@@ -1,0 +1,5 @@
+CSET AT 0H
+MAIN_CONFIG:
+			MOV R0,#LENGTH
+			MOV R1,#0
+			

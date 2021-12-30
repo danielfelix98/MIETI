@@ -1,0 +1,18 @@
+#BlueJ class context
+comment0.params=c\ cl
+comment0.target=Servico(int,\ int)
+comment1.params=
+comment1.target=int\ getCodigo()
+comment2.params=
+comment2.target=int\ getCli()
+comment3.params=
+comment3.target=java.util.List\ getListaPrest()
+comment4.params=
+comment4.target=int\ tam_presta()
+comment5.params=c
+comment5.target=void\ add(java.lang.Integer)
+comment6.params=
+comment6.target=double\ custo()
+comment7.params=
+comment7.target=Servico\ clone()
+numComments=8

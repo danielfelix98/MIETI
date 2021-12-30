@@ -1,0 +1,4 @@
+".\serie.obj",
+".\Objects\ex1.obj" 
+TO ".\Objects\ex1" 
+PRINT(".\Listings\ex1.m51") RAMSIZE(256) 

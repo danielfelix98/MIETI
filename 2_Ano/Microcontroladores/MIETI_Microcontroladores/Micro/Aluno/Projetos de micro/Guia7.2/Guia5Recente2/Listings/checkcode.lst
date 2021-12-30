@@ -1,0 +1,57 @@
+A51 MACRO ASSEMBLER  CHECKCODE                                                            02/02/2016 22:15:05 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.02c
+OBJECT MODULE PLACED IN .\Objects\checkcode.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE checkcode.a51 SET(SMALL) DEBUG PRINT(.\Listings\checkcode.lst) OBJECT(.
+                      \Objects\checkcode.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1             NAME CHECK
+                       2             PUBLIC INICIOCHECK
+                       3             CHECKCODE SEGMENT CODE 
+----                   4             RSEG CHECKCODE
+0000 8000              5             JMP INICIOCHECK
+                       6             
+                       7     
+                       8             
+0002                   9     INICIOCHECK:
+0002 7A04             10             MOV R2,#4
+0004                  11     START:
+0004 86F0             12             MOV B,@R0
+0006 E4               13             CLR A
+0007 E7               14             MOV A,@R1
+0008 B5F008           15             CJNE A,B,FALSO
+000B 09               16             INC R1
+000C 08               17             INC R0
+000D DAF5             18             DJNZ R2,START
+000F 7801             19             MOV R0,#1
+0011 8002             20             JMP FIM
+                      21     
+0013                  22     FALSO:
+0013 7800             23             MOV R0,#0
+0015                  24     FIM:
+0015 22               25              RET 
+                      26     END     
+A51 MACRO ASSEMBLER  CHECKCODE                                                            02/02/2016 22:15:05 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+B. . . . . . . . .  D ADDR   00F0H   A   
+CHECK. . . . . . .  N NUMB   -----       
+CHECKCODE. . . . .  C SEG    0016H       REL=UNIT
+FALSO. . . . . . .  C ADDR   0013H   R   SEG=CHECKCODE
+FIM. . . . . . . .  C ADDR   0015H   R   SEG=CHECKCODE
+INICIOCHECK. . . .  C ADDR   0002H   R   SEG=CHECKCODE
+START. . . . . . .  C ADDR   0004H   R   SEG=CHECKCODE
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

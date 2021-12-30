@@ -1,0 +1,92 @@
+A51 MACRO ASSEMBLER  SEMAFORO                                                             01/09/2015 09:49:04 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.02b
+OBJECT MODULE PLACED IN Semaforo.OBJ
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE Semaforo.a51 SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+----                   1     CSEG    AT      0H
+0000 020030            2             LJMP    MAIN
+                       3     
+----                   4     BSEG    AT 9H
+0009                   5     EXCESSO: DBIT 1
+                       6     
+----                   7     CSEG    AT 0BH
+000B 02004B            8             LJMP LUZ
+                       9     
+----                  10     CSEG    AT 30H
+0030                  11     MAIN:
+0030 758901           12             MOV     TMOD,#1
+0033 758CD8           13             MOV     TH0,#HIGH(-10000)
+0036 758AF0           14             MOV     TL0,#LOW(-10000)
+0039 D2AF             15             SETB    EA
+003B D2A9             16             SETB    ET0
+003D D28C             17             SETB    TR0
+003F D290             18             SETB    P1.0
+0041 D291             19             SETB    P1.1
+0043 7E96             20             MOV     R6,#150
+0045 7D96             21             MOV     R5,#150
+0047 7C0A             22             MOV     R4,#10
+                      23     
+0049                  24     LOOP:
+0049 80FE             25             JMP     $
+                      26     
+004B                  27     LUZ:
+004B 200911           28             JB              EXCESSO,VERMELHO
+004E 8000             29             JMP     AMARELO
+                      30     
+0050                  31     AMARELO:
+0050 DE04             32             DJNZ    R6,OUT
+0052 B291             33             CPL     P1.1
+0054 7E96             34             MOV     R6,#150
+                      35     
+0056                  36     OUT:
+0056 C28D             37             CLR     TF0
+0058 758CD8           38             MOV     TH0,#HIGH(-10000)
+005B 758AF0           39             MOV     TL0,#LOW(-10000)
+005E 32               40             RETI
+                      41     
+005F                  42     VERMELHO:
+005F D291             43             SETB    P1.1
+0061 C290             44             CLR     P1.0
+0063 DDF1             45             DJNZ    R5,OUT
+0065 7D96             46             MOV     R5,#150
+0067 DCED             47             DJNZ    R4,OUT
+0069 7C0A             48             MOV     R4,#10
+006B C209             49             CLR     EXCESSO
+006D D290             50             SETB    P1.0
+006F C291             51             CLR     P1.1
+0071 80E3             52             JMP     OUT
+                      53     
+                      54     END
+A51 MACRO ASSEMBLER  SEMAFORO                                                             01/09/2015 09:49:04 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+AMARELO. . . . . .  C ADDR   0050H   A   
+EA . . . . . . . .  B ADDR   00A8H.7 A   
+ET0. . . . . . . .  B ADDR   00A8H.1 A   
+EXCESSO. . . . . .  B ADDR   0021H.1 A   
+LOOP . . . . . . .  C ADDR   0049H   A   
+LUZ. . . . . . . .  C ADDR   004BH   A   
+MAIN . . . . . . .  C ADDR   0030H   A   
+OUT. . . . . . . .  C ADDR   0056H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+TF0. . . . . . . .  B ADDR   0088H.5 A   
+TH0. . . . . . . .  D ADDR   008CH   A   
+TL0. . . . . . . .  D ADDR   008AH   A   
+TMOD . . . . . . .  D ADDR   0089H   A   
+TR0. . . . . . . .  B ADDR   0088H.4 A   
+VERMELHO . . . . .  C ADDR   005FH   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

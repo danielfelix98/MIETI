@@ -1,0 +1,36 @@
+A51 MACRO ASSEMBLER  GUIA2                                                                11/26/2014 09:53:57 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.02b
+OBJECT MODULE PLACED IN guia2.OBJ
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE guia2.a51 SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+----                   1     CSEG    AT      0H
+                       2             
+                       3             
+0000                   4     repete: 
+0000 E590              5             MOV A,P1
+0002 FC                6             MOV R4,A
+0003 BC3BFA            7             CJNE R4,#3BH,repete
+                       8             
+0006 80FE              9     JMP $
+                      10             
+                      11     END
+A51 MACRO ASSEMBLER  GUIA2                                                                11/26/2014 09:53:57 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+P1 . . . . . . . .  D ADDR   0090H   A   
+REPETE . . . . . .  C ADDR   0000H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

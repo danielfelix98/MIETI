@@ -1,0 +1,68 @@
+A51 MACRO ASSEMBLER  READPASS                                                             12/26/2015 18:29:15 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.02c
+OBJECT MODULE PLACED IN .\Objects\readpass.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE readpass.a51 SET(SMALL) DEBUG PRINT(.\Listings\readpass.lst) OBJECT(.\O
+                      bjects\readpass.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1             NAME READPASS
+                       2             PUBLIC INICIOPASS
+                       3             PASSCODE SEGMENT CODE 
+----                   4             RSEG PASSCODE
+0000 8000              5             JMP INICIOPASS
+                       6             
+                       7             EXTRN CODE (INICIOREAD)
+                       8             EXTRN CODE (INICIOPASS1)
+                       9             
+0002                  10     INICIOPASS:
+0002 7A04             11             MOV R2,#4
+0004 E8               12             MOV A,R0
+0005 F9               13             MOV R1,A
+0006                  14     INICIO:
+                      15             USING 0
+0006 C002             16             PUSH AR2
+                      17             USING 0
+0008 C001             18             PUSH AR1
+000A 120000   F       19             LCALL INICIOREAD
+000D D001             20             POP AR1
+000F D002             21             POP AR2
+0011 B80B07           22             CJNE R0,#11,CONTINUA
+0014 120000   F       23             LCALL INICIOPASS1
+0017 7800             24             MOV R0,#0
+0019 8007             25             JMP FIM
+001B                  26     CONTINUA:
+001B E8               27             MOV A,R0
+001C F7               28             MOV @R1,A
+001D 09               29             INC R1
+001E DAE6             30             DJNZ R2,INICIO
+0020 7801             31             MOV R0,#1
+0022                  32     FIM:
+0022 22               33             RET
+                      34             END
+A51 MACRO ASSEMBLER  READPASS                                                             12/26/2015 18:29:15 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+AR1. . . . . . . .  D ADDR   0001H   A   
+AR2. . . . . . . .  D ADDR   0002H   A   
+CONTINUA . . . . .  C ADDR   001BH   R   SEG=PASSCODE
+FIM. . . . . . . .  C ADDR   0022H   R   SEG=PASSCODE
+INICIO . . . . . .  C ADDR   0006H   R   SEG=PASSCODE
+INICIOPASS . . . .  C ADDR   0002H   R   SEG=PASSCODE
+INICIOPASS1. . . .  C ADDR   -----       EXT
+INICIOREAD . . . .  C ADDR   -----       EXT
+PASSCODE . . . . .  C SEG    0023H       REL=UNIT
+READPASS . . . . .  N NUMB   -----       
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

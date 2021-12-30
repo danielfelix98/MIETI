@@ -1,0 +1,159 @@
+A51 MACRO ASSEMBLER  EX2                                                                  12/01/2016 15:29:26 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.5.0
+OBJECT MODULE PLACED IN .\Objects\ex2.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE ex2.a51 SET(SMALL) DEBUG PRINT(.\Listings\ex2.lst) OBJECT(.\Objects\ex2
+                      .obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     EXTRN CODE (CONFIG_RS232)
+
+                       2             EXTRN CODE (ENVIAR_RS232)
+
+                       3             EXTRN CODE (RECEBER_RS232)
+
+                       4             
+
+----                   5             CSEG AT 0H
+
+0000 802E              6             JMP MAIN
+
+----                   7             CSEG AT 30H
+
+                       8                     
+
+0030                   9     MAIN:
+
+0030 120000   F       10             CALL CONFIG_RS232
+
+0033 120000   F       11             CALL RECEBER_RS232
+
+0036 C3               12             CLR C
+
+0037 9430             13             SUBB A,#30h
+
+0039 F8               14             MOV R0,A
+
+                      15             
+
+003A                  16     DISPLAY:
+
+003A 7590FF           17                     MOV P1,#0FFH    
+
+003D                  18             ZERO:   
+
+003D B80005           19                     CJNE R0,#0h,ONE 
+
+0040 759008           20                     MOV P1,#8 
+
+0043 8045             21                     JMP FIMDISPLAY 
+
+0045                  22             ONE:
+
+0045 B80105           23                     CJNE R0,#1h,TWO
+
+0048 7590CB           24                     MOV P1,#0CBH  
+
+004B 803D             25                     JMP FIMDISPLAY 
+
+004D                  26             TWO:
+
+004D B80205           27                     CJNE R0,#2h,THREE
+
+0050 759050           28                     MOV P1,#50H   
+
+0053 8035             29                     JMP FIMDISPLAY  
+
+0055                  30             THREE:
+
+0055 B80305           31                     CJNE R0,#3h,FOUR        
+
+0058 759042           32                     MOV P1,#42H     
+
+005B 802D             33                     JMP FIMDISPLAY
+
+005D                  34             FOUR:
+
+005D B80405           35                     CJNE R0,#4h,FIVE        
+
+0060 759083           36                     MOV P1,#83H             
+
+0063 8025             37                     JMP FIMDISPLAY  
+
+0065                  38             FIVE:
+
+0065 B80505           39                     CJNE R0,#5h,SIX 
+
+0068 759022           40                     MOV P1,#22H     
+
+006B 801D             41                     JMP FIMDISPLAY 
+
+006D                  42             SIX:
+
+006D B80605           43                     CJNE R0,#6h,SEVEN       
+
+0070 759020           44                     MOV P1,#20H             
+
+0073 8015             45                     JMP FIMDISPLAY  
+
+0075                  46             SEVEN:
+
+0075 B80705           47                     CJNE R0,#7h,EIGHT       
+
+0078 75904B           48                     MOV P1,#4BH             
+
+007B 800D             49                     JMP FIMDISPLAY  
+
+007D                  50             EIGHT:
+
+007D B80805           51                     CJNE R0,#8h,NINE        
+
+0080 759000           52                     MOV P1,#0       
+
+0083 8005             53                     JMP FIMDISPLAY  
+
+0085                  54             NINE:
+
+0085 759002           55                     MOV P1,#2H              
+
+0088 8000             56                     JMP FIMDISPLAY  
+
+008A                  57     FIMDISPLAY:
+
+A51 MACRO ASSEMBLER  EX2                                                                  12/01/2016 15:29:26 PAGE     2
+
+                      58                             END
+
+A51 MACRO ASSEMBLER  EX2                                                                  12/01/2016 15:29:26 PAGE     3
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+CONFIG_RS232 . . .  C ADDR   -----       EXT
+DISPLAY. . . . . .  C ADDR   003AH   A   
+EIGHT. . . . . . .  C ADDR   007DH   A   
+ENVIAR_RS232 . . .  C ADDR   -----       EXT
+FIMDISPLAY . . . .  C ADDR   008AH   A   
+FIVE . . . . . . .  C ADDR   0065H   A   
+FOUR . . . . . . .  C ADDR   005DH   A   
+MAIN . . . . . . .  C ADDR   0030H   A   
+NINE . . . . . . .  C ADDR   0085H   A   
+ONE. . . . . . . .  C ADDR   0045H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+RECEBER_RS232. . .  C ADDR   -----       EXT
+SEVEN. . . . . . .  C ADDR   0075H   A   
+SIX. . . . . . . .  C ADDR   006DH   A   
+THREE. . . . . . .  C ADDR   0055H   A   
+TWO. . . . . . . .  C ADDR   004DH   A   
+ZERO . . . . . . .  C ADDR   003DH   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

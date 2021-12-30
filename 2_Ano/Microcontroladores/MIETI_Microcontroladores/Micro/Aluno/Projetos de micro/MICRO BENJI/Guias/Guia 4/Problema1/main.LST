@@ -1,0 +1,45 @@
+A51 MACRO ASSEMBLER  MAIN                                                                 01/08/2015 16:58:38 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.02b
+OBJECT MODULE PLACED IN main.OBJ
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE main.a51 SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+----                   1     cseg at 0h
+0000 020033            2             ljmp main
+                       3     
+                       4     
+----                   5     cseg at 33h
+                       6             
+0033                   7             main:
+0033 758902            8             mov TMOD,#2H
+0036 758C10            9             mov TH0,#10H
+0039 75A882           10             mov IE,#82h
+003C 940F             11             subb a,#15
+003E 80FE             12             jmp $
+----                  13     cseg at 0bh
+000B B291             14             cpl P1.1
+000D 32               15             reti
+                      16     
+                      17     end
+A51 MACRO ASSEMBLER  MAIN                                                                 01/08/2015 16:58:38 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+IE . . . . . . . .  D ADDR   00A8H   A   
+MAIN . . . . . . .  C ADDR   0033H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+TH0. . . . . . . .  D ADDR   008CH   A   
+TMOD . . . . . . .  D ADDR   0089H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

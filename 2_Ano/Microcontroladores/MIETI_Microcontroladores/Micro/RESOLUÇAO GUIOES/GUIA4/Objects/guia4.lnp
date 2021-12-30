@@ -1,0 +1,4 @@
+".\Objects\h2a.obj",
+".\Objects\main.obj" 
+TO ".\Objects\guia4" 
+PRINT(".\Listings\guia4.m51") RAMSIZE(256) 

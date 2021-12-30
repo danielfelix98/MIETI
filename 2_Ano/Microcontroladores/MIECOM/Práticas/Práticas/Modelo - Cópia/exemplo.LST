@@ -1,0 +1,49 @@
+A51 MACRO ASSEMBLER  EXEMPLO                                                              10/31/2013 14:35:04 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.02b
+OBJECT MODULE PLACED IN exemplo.OBJ
+ASSEMBLER INVOKED BY: C:\Keil\C51\BIN\A51.EXE exemplo.a51 SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     NAME MAIN
+                       2     
+                       3                     ;EXTRN  CODE    (ENVIAR_RS232, RECEBER_RS232, CONFIG_RS232)
+                       4     
+                       5                     ;CSEG   AT      0H
+                       6                     ;JMP            MAIN
+                       7     
+                       8                     ;CSEG   AT      30H
+0000                   9     MAIN:
+                      10                     ;CALL   CONFIG_RS232    ; configura a porta de serie(flags, bourate, etc)
+0000 7423             11                     MOV     A,#35
+0002 F8               12                     MOV             R0,A
+0003 08               13                     INC             R0
+0004 7935             14                     MOV             R1,#35h
+0006 09               15                     INC             R1
+0007 E8               16                     MOV             A,R0
+0008 89F0             17                     MOV             B,R1
+                      18                     ;MOV    R0,A
+000A E6               19                     MOV     A,@R0
+000B 87F0             20                     MOV     B,@R1
+                      21                     ;MOV    R1,A
+000D 80F1             22                     JMP             MAIN
+                      23     
+                      24     END
+A51 MACRO ASSEMBLER  EXEMPLO                                                              10/31/2013 14:35:04 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+B. . . . . . . . .  D ADDR   00F0H   A   
+MAIN . . . . . . .  C ADDR   0000H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

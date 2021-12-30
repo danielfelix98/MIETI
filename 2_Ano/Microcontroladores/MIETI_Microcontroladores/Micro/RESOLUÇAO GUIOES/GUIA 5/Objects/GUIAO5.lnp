@@ -1,0 +1,4 @@
+".\Objects\ex1.obj",
+"..\..\..\..\..\Downloads\Guia-5\Guia-5\Guia 5\Ex1\serie.obj" 
+TO ".\Objects\GUIAO5" 
+PRINT(".\Listings\GUIAO5.m51") RAMSIZE(256) 

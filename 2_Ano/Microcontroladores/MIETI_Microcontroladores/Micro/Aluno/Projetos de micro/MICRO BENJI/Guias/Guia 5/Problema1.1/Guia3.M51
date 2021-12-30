@@ -1,0 +1,91 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        01/08/2015  18:31:31  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL_V5\C51\BIN\BL51.EXE main.obj TO Guia3 RAMSIZE (256)
+
+
+INPUT MODULES INCLUDED:
+  main.obj (MAIN)
+
+
+LINK MAP OF MODULE:  Guia3 (MAIN)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+                    0008H.0   001DH.1                *** GAP ***
+            BIT     0025H.1   0000H.1   ABSOLUTE     
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     0008H                  *** GAP ***
+            CODE    000BH     0003H     ABSOLUTE     
+                    000EH     0022H                  *** GAP ***
+            CODE    0030H     0039H     ABSOLUTE     
+
+
+
+SYMBOL TABLE OF MODULE:  Guia3 (MAIN)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        MAIN
+  C:004CH         SYMBOL        AMARELO
+  B:00A8H.7       SYMBOL        EA
+  B:00A8H.1       SYMBOL        ET0
+  B:0025H.1       SYMBOL        EXCESSO
+  C:0045H         SYMBOL        LOOP
+  C:0047H         SYMBOL        LUZ
+  C:0030H         SYMBOL        MAIN
+  C:0052H         SYMBOL        OUT
+  D:0090H         SYMBOL        P1
+  B:0088H.5       SYMBOL        TF0
+  D:008CH         SYMBOL        TH0
+  D:008AH         SYMBOL        TL0
+  D:0089H         SYMBOL        TMOD
+  B:0088H.4       SYMBOL        TR0
+  C:005BH         SYMBOL        VERMELHO
+  C:0000H         LINE#         5
+  C:000BH         LINE#         8
+  C:0030H         LINE#         12
+  C:0033H         LINE#         13
+  C:0036H         LINE#         14
+  C:0039H         LINE#         15
+  C:003BH         LINE#         16
+  C:003DH         LINE#         17
+  C:003FH         LINE#         18
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/08/2015  18:31:31  PAGE 2
+
+
+  C:0041H         LINE#         19
+  C:0043H         LINE#         20
+  C:0045H         LINE#         23
+  C:0047H         LINE#         26
+  C:004AH         LINE#         27
+  C:004CH         LINE#         30
+  C:004EH         LINE#         31
+  C:0050H         LINE#         32
+  C:0052H         LINE#         35
+  C:0054H         LINE#         36
+  C:0057H         LINE#         37
+  C:005AH         LINE#         38
+  C:005BH         LINE#         41
+  C:005DH         LINE#         42
+  C:005FH         LINE#         43
+  C:0061H         LINE#         44
+  C:0063H         LINE#         45
+  C:0065H         LINE#         46
+  C:0067H         LINE#         47
+  -------         ENDMOD        MAIN
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 003FH BYTE ( 3%) *
+******************************************************************************
+
+Program Size: data=8.1 xdata=0 code=63
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

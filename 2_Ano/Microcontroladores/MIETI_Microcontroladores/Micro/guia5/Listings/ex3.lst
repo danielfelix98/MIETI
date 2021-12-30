@@ -1,0 +1,76 @@
+A51 MACRO ASSEMBLER  EX3                                                                  12/01/2016 16:44:49 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.5.0
+OBJECT MODULE PLACED IN .\Objects\ex3.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE ex3.a51 SET(SMALL) DEBUG PRINT(.\Listings\ex3.lst) OBJECT(.\Objects\ex3
+                      .obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     ; This Application polls a button and toggles a LED
+
+                       2     ; when the button is pressed (and has been "Debounced").
+
+                       3     ; The button is assumed to be debounced if it does not change
+
+                       4     ; state for 20 msecs.
+
+                       5     ; P1.0 is the LED (to light, it is pulled down)
+
+                       6     ; P1.1 is connected to a Momentary ON Switch that Pulls down the Line.
+
+0000                   7     org 0; Execution starts here
+
+0000                   8     Loop: ; Loop here forever
+
+                       9     
+
+0000                  10     PressWait:; Wait for the button to be pressed
+
+0000 2091FD           11     jb P1.1,PressWait
+
+0003 74BF             12     mov A,#191; Setup 20 msec delay
+
+0005 75F00A           13     mov B,#10
+
+0008                  14     PressDebounce:; Now, see if the button is held down
+
+0008 2091F5           15     jb P1.1,PressWait; 20 msec - if released, start delay over
+
+000B D5E0FA           16     djnz ACC,PressDebounce
+
+000E D5F0F7           17     djnz B,PressDebounce
+
+                      18     ; #### - Button press is debounced
+
+0011 B290             19     cpl P1.0; Toggle the LED state
+
+0013                  20     ReleaseWait:; Now, wait for the button to be released
+
+0013 3091FD           21     jnb P1.1,ReleaseWait
+
+0016 80E8             22     sjmp Loop
+
+*** WARNING #A41 IN 22 (ex3.a51, LINE 22): MISSING 'END' STATEMENT
+A51 MACRO ASSEMBLER  EX3                                                                  12/01/2016 16:44:49 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+ACC. . . . . . . .  D ADDR   00E0H   A   
+B. . . . . . . . .  D ADDR   00F0H   A   
+LOOP . . . . . . .  C ADDR   0000H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+PRESSDEBOUNCE. . .  C ADDR   0008H   A   
+PRESSWAIT. . . . .  C ADDR   0000H   A   
+RELEASEWAIT. . . .  C ADDR   0013H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  1 WARNING(S), 0 ERROR(S)

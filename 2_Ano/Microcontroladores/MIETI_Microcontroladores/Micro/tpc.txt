@@ -1,0 +1,12 @@
+// Hélder José Gomes Duarte A75121 MIETI MICRO
+// TIMER 8-BIT AUTO RELOAD ONDA QUADRADA PERIODO 500 US
+MOV TMOD, #02H// set up timer 0 as 8-bit auto-reload
+MOV TH0,#83H//put reload value into timer 0 high byte
+SETB TR0// start timer 0
+
+LOOP:
+	JNB TF0,$// while does not happen hoverflow int he timer 0
+	CLR TF0// clear the flag to be ready for count again
+	CLR P1.0// complement the pin
+	JMP LOOP
+	

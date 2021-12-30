@@ -1,0 +1,12 @@
+CSEG 	AT 0H
+	
+	LJMP MAIN
+
+CSEG 	AT 30H
+
+MAIN:
+	MOV 	A,P3.3
+	MOV 	P1,A
+	JMP 	MAIN
+
+END

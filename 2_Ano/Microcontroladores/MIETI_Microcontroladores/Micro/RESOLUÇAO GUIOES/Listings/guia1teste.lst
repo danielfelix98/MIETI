@@ -1,0 +1,65 @@
+A51 MACRO ASSEMBLER  GUIA1TESTE                                                           10/17/2016 20:55:49 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.5.0
+OBJECT MODULE PLACED IN .\Objects\guia1teste.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE guia1teste.a51 SET(SMALL) DEBUG PRINT(.\Listings\guia1teste.lst) OBJECT
+                      (.\Objects\guia1teste.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     
+
+                       2     
+
+----                   3     CSEG AT 0H
+
+                       4     
+
+0000 D2B3              5     SETB P3.3
+
+0002 D2B5              6     SETB P3.5
+
+                       7     
+
+0004                   8     CICLO:
+
+0004 30B305            9             JNB P3.3,ACENDE1
+
+0007 30B507           10             JNB P3.5,ACENDE2
+
+000A 80F8             11             JMP CICLO
+
+000C                  12     ACENDE1:
+
+000C 759008           13                     MOV P1,#8
+
+000F 80F3             14                     JMP CICLO
+
+0011                  15     ACENDE2:
+
+0011 7590CB           16                     MOV P1,#0CBH
+
+0014 80EE             17                     JMP CICLO
+
+                      18     END
+
+A51 MACRO ASSEMBLER  GUIA1TESTE                                                           10/17/2016 20:55:49 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+ACENDE1. . . . . .  C ADDR   000CH   A   
+ACENDE2. . . . . .  C ADDR   0011H   A   
+CICLO. . . . . . .  C ADDR   0004H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+P3 . . . . . . . .  D ADDR   00B0H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

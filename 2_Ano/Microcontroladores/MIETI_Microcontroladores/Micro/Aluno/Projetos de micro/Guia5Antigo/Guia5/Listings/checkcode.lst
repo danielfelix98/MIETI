@@ -1,0 +1,47 @@
+A51 MACRO ASSEMBLER  CHECKCODE                                                            11/24/2015 10:26:28 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.02c
+OBJECT MODULE PLACED IN .\Objects\checkcode.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE checkcode.a51 SET(SMALL) DEBUG PRINT(.\Listings\checkcode.lst) OBJECT(.
+                      \Objects\checkcode.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1             NAME CHECK
+                       2             PUBLIC INICIOCHECK
+                       3             CHECKCODE SEGMENT CODE 
+----                   4             RSEG CHECKCODE
+                       5                     
+0000                   6     INICIOCHECK:
+0000 BB010D            7                                             CJNE R3,#1,FALSO
+0003 BA020A            8                                             CJNE R2,#2,FALSO
+0006 B90307            9                                             CJNE R1,#3,FALSO
+0009 B80404           10                                             CJNE R0,#4,FALSO
+                      11                                             
+000C 7801             12             MOV R0,#1
+000E 8002             13             JMP FIM 
+0010                  14     FALSO:
+0010 7800             15                     MOV R0,#0
+0012                  16                     FIM:
+0012 22               17                      RET 
+                      18     END     
+A51 MACRO ASSEMBLER  CHECKCODE                                                            11/24/2015 10:26:28 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+CHECK. . . . . . .  N NUMB   -----       
+CHECKCODE. . . . .  C SEG    0013H       REL=UNIT
+FALSO. . . . . . .  C ADDR   0010H   R   SEG=CHECKCODE
+FIM. . . . . . . .  C ADDR   0012H   R   SEG=CHECKCODE
+INICIOCHECK. . . .  C ADDR   0000H   R   SEG=CHECKCODE
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

@@ -1,0 +1,63 @@
+A51 MACRO ASSEMBLER  WAIT2                                                                01/25/2016 15:18:32 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.02c
+OBJECT MODULE PLACED IN .\Objects\wait2.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE wait2.a51 SET(SMALL) DEBUG PRINT(.\Listings\wait2.lst) OBJECT(.\Objects
+                      \wait2.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1             NAME WAIT2
+                       2             PUBLIC WAIT2
+                       3             WAIT2CODE SEGMENT CODE 
+----                   4             RSEG WAIT2CODE
+0000 8000              5             JMP WAIT2
+                       6             
+                       7             EXTRN DATA(TRINCO)
+                       8             EXTRN CODE (ISR)
+                       9     
+                      10     
+0002                  11     WAIT2:
+0002 758901           12             MOV TMOD,#01H  
+0005 7DFF             13             MOV R5,#0FFH
+0007 7CFF             14             MOV R4,#0FFH 
+0009 D2AF             15             SETB EA
+000B D2A9             16             SETB ET0
+000D 750001   F       17             MOV TRINCO,#1
+0010 758C3C           18             MOV TH0,#HIGH(-50000)
+0013 758AB0           19             MOV TL0,#LOW(-50000)
+0016 D28C             20             SETB TR0
+0018 22               21     RET
+                      22             
+----                  23             CSEG AT 00BH
+000B 8000             24             JMP ISRTIMER
+000D                  25     ISRTIMER:
+000D 120000   F       26             CALL ISR
+0010 32               27             RETI
+                      28             END
+A51 MACRO ASSEMBLER  WAIT2                                                                01/25/2016 15:18:32 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+EA . . . . . . . .  B ADDR   00A8H.7 A   
+ET0. . . . . . . .  B ADDR   00A8H.1 A   
+ISR. . . . . . . .  C ADDR   -----       EXT
+ISRTIMER . . . . .  C ADDR   000DH   A   
+TH0. . . . . . . .  D ADDR   008CH   A   
+TL0. . . . . . . .  D ADDR   008AH   A   
+TMOD . . . . . . .  D ADDR   0089H   A   
+TR0. . . . . . . .  B ADDR   0088H.4 A   
+TRINCO . . . . . .  D ADDR   -----       EXT
+WAIT2. . . . . . .  C ADDR   0002H   R   SEG=WAIT2CODE
+WAIT2CODE. . . . .  C SEG    0019H       REL=UNIT
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

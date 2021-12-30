@@ -1,0 +1,458 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        12/26/2015  18:29:16  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\main.obj, .\Objects\Display.obj, .\Objects\wait.obj, .\Objects\readchar.obj, .\Obj
+>> ects\checkcode.obj, .\Objects\readpass.obj, .\Objects\detectkeys.obj, .\Objects\newpass.obj TO .\Objects\guia5 PRINT 
+>> (.\Listings\guia5.m51) RAMSIZE (256)
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\main.obj (MAIN)
+  .\Objects\Display.obj (DISPLAY)
+  .\Objects\wait.obj (WAIT)
+  .\Objects\readchar.obj (READ)
+  .\Objects\checkcode.obj (CHECK)
+  .\Objects\readpass.obj (READPASS)
+  .\Objects\detectkeys.obj (DETECT)
+  .\Objects\newpass.obj (NEWPASS)
+
+
+LINK MAP OF MODULE:  .\Objects\guia5 (MAIN)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+                    0008H     0028H                  *** GAP ***
+            DATA    0030H     0004H     ABSOLUTE     
+                    0034H     000CH                  *** GAP ***
+            DATA    0040H     0004H     ABSOLUTE     
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0037H     ABSOLUTE     
+                    0037H     0009H                  *** GAP ***
+            CODE    0040H     0004H     ABSOLUTE     
+                    0044H     0019H                  *** GAP ***
+            CODE    005DH     0015H     ABSOLUTE     
+                    0072H     078EH                  *** GAP ***
+            CODE    0800H     0040H     UNIT         READCODE
+            CODE    0840H     0035H     UNIT         DETECTCODE
+            CODE    0875H     0023H     UNIT         PASSCODE
+            CODE    0898H     0019H     UNIT         NEWPASS
+            CODE    08B1H     0017H     UNIT         WAITCODE
+            CODE    08C8H     0016H     UNIT         CHECKCODE
+            CODE    08DEH     0003H     UNIT         DISPLAYCODE
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\guia5 (MAIN)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        MAIN
+  B:00D0H.6       SYMBOL        AC
+  D:00E0H         SYMBOL        ACC
+  D:008EH         SYMBOL        AUXR
+  D:00A2H         SYMBOL        AUXR1
+  D:00F0H         SYMBOL        B
+BL51 BANKED LINKER/LOCATER V6.22                                                      12/26/2015  18:29:16  PAGE 2
+
+
+  D:009BH         SYMBOL        BDRCON
+  D:009AH         SYMBOL        BRL
+  D:00FAH         SYMBOL        CCAP0H
+  D:00EAH         SYMBOL        CCAP0L
+  D:00FBH         SYMBOL        CCAP1H
+  D:00EBH         SYMBOL        CCAP1L
+  D:00FCH         SYMBOL        CCAP2H
+  D:00ECH         SYMBOL        CCAP2L
+  D:00FDH         SYMBOL        CCAP3H
+  D:00EDH         SYMBOL        CCAP3L
+  D:00FEH         SYMBOL        CCAP4H
+  D:00EEH         SYMBOL        CCAP4L
+  D:00DAH         SYMBOL        CCAPM0
+  D:00DBH         SYMBOL        CCAPM1
+  D:00DCH         SYMBOL        CCAPM2
+  D:00DDH         SYMBOL        CCAPM3
+  D:00DEH         SYMBOL        CCAPM4
+  D:00D8H         SYMBOL        CCF0
+  D:00D9H         SYMBOL        CCF1
+  D:00DAH         SYMBOL        CCF2
+  D:00DBH         SYMBOL        CCF3
+  D:00DCH         SYMBOL        CCF4
+  D:00D8H         SYMBOL        CCON
+  D:00DFH         SYMBOL        CF
+  D:00F9H         SYMBOL        CH
+  D:008FH         SYMBOL        CKCON0
+  D:00AFH         SYMBOL        CKCON1
+  D:0096H         SYMBOL        CKRL
+  D:0085H         SYMBOL        CKSEL
+  D:00E9H         SYMBOL        CL
+  D:00D9H         SYMBOL        CMOD
+  C:0040H         SYMBOL        COD
+  D:0040H         SYMBOL        COD1
+  C:0000H         SYMBOL        COPY
+  C:0007H         SYMBOL        CPY
+  B:00C8H.0       SYMBOL        CP_RL2
+  D:00DEH         SYMBOL        CR
+  B:00D0H.7       SYMBOL        CY
+  B:00C8H.1       SYMBOL        C_T2
+  D:0083H         SYMBOL        DPH
+  D:0082H         SYMBOL        DPL
+  B:00A8H.7       SYMBOL        EA
+  B:00A8H.6       SYMBOL        EC
+  B:00A8H.4       SYMBOL        ES
+  B:00A8H.1       SYMBOL        ET0
+  B:00A8H.3       SYMBOL        ET1
+  B:00A8H.5       SYMBOL        ET2
+  B:00A8H.0       SYMBOL        EX0
+  B:00A8H.2       SYMBOL        EX1
+  B:00C8H.3       SYMBOL        EXEN2
+  B:00C8H.6       SYMBOL        EXF2
+  B:00D0H.5       SYMBOL        F0
+  C:0024H         SYMBOL        FALSE
+  D:00D1H         SYMBOL        FCON
+  C:002AH         SYMBOL        FIM
+  C:0030H         SYMBOL        FIM2
+  B:0088H.1       SYMBOL        IE0
+BL51 BANKED LINKER/LOCATER V6.22                                                      12/26/2015  18:29:16  PAGE 3
+
+
+  B:0088H.3       SYMBOL        IE1
+  D:00A8H         SYMBOL        IEN0
+  D:00B1H         SYMBOL        IEN1
+  C:0010H         SYMBOL        INICIO
+  B:00B0H.2       SYMBOL        INT0
+  B:00B0H.3       SYMBOL        INT1
+  D:00B7H         SYMBOL        IPH0
+  D:00B3H         SYMBOL        IPH1
+  D:00B8H         SYMBOL        IPL0
+  D:00B2H         SYMBOL        IPL1
+  B:0088H.0       SYMBOL        IT0
+  B:0088H.2       SYMBOL        IT1
+  D:009DH         SYMBOL        KBE
+  D:009EH         SYMBOL        KBF
+  D:009CH         SYMBOL        KBLS
+  D:0030H         SYMBOL        LER
+  C:0012H         SYMBOL        MAIN
+  D:0086H         SYMBOL        OSCCON
+  B:00D0H.2       SYMBOL        OV
+  B:00D0H.0       SYMBOL        P
+  D:0080H         SYMBOL        P0
+  D:0090H         SYMBOL        P1
+  D:00A0H         SYMBOL        P2
+  D:00B0H         SYMBOL        P3
+  D:0087H         SYMBOL        PCON
+  D:00C0H         SYMBOL        PI2
+  B:00C0H.1       SYMBOL        PI2_1
+  B:00C0H.0       SYMBOL        PI2_O
+  B:00B8H.6       SYMBOL        PPCL
+  B:00B8H.4       SYMBOL        PSL
+  D:00D0H         SYMBOL        PSW
+  B:00B8H.1       SYMBOL        PT0L
+  B:00B8H.3       SYMBOL        PT1L
+  B:00B8H.5       SYMBOL        PT2L
+  B:00B8H.0       SYMBOL        PX0L
+  B:00B8H.2       SYMBOL        PX1L
+  B:0098H.2       SYMBOL        RB8
+  D:00CBH         SYMBOL        RCAP2H
+  D:00CAH         SYMBOL        RCAP2L
+  B:00C8H.5       SYMBOL        RCLK
+  B:00B0H.7       SYMBOL        RD
+  B:0098H.4       SYMBOL        REN
+  B:0098H.0       SYMBOL        RI
+  B:00D0H.3       SYMBOL        RS0
+  B:00D0H.4       SYMBOL        RS1
+  B:00B0H.0       SYMBOL        RXD
+  D:00A9H         SYMBOL        SADDR
+  D:00B9H         SYMBOL        SADEN
+  D:0099H         SYMBOL        SBUF
+  D:0098H         SYMBOL        SCON
+  B:0098H.7       SYMBOL        SM0
+  B:0098H.6       SYMBOL        SM1
+  B:0098H.5       SYMBOL        SM2
+  D:0081H         SYMBOL        SP
+  D:00C3H         SYMBOL        SPCON
+  D:00C5H         SYMBOL        SPDAT
+  D:00C4H         SYMBOL        SPSTA
+BL51 BANKED LINKER/LOCATER V6.22                                                      12/26/2015  18:29:16  PAGE 4
+
+
+  D:0096H         SYMBOL        SSADR
+  D:0093H         SYMBOL        SSCON
+  D:0094H         SYMBOL        SSCS
+  D:0095H         SYMBOL        SSDAT
+  B:00B0H.4       SYMBOL        T0
+  B:00B0H.5       SYMBOL        T1
+  D:00C8H         SYMBOL        T2CON
+  D:00C9H         SYMBOL        T2MOD
+  B:0098H.3       SYMBOL        TB8
+  B:00C8H.4       SYMBOL        TCLK
+  D:0088H         SYMBOL        TCON
+  C:001AH         SYMBOL        TESTE1
+  B:0088H.5       SYMBOL        TF0
+  B:0088H.7       SYMBOL        TF1
+  B:00C8H.7       SYMBOL        TF2
+  D:008CH         SYMBOL        TH0
+  D:008DH         SYMBOL        TH1
+  D:00CDH         SYMBOL        TH2
+  B:0098H.1       SYMBOL        TI
+  D:008AH         SYMBOL        TL0
+  D:008BH         SYMBOL        TL1
+  D:00CCH         SYMBOL        TL2
+  D:0089H         SYMBOL        TMOD
+  B:0088H.4       SYMBOL        TR0
+  B:0088H.6       SYMBOL        TR1
+  B:00C8H.2       SYMBOL        TR2
+  C:0028H         SYMBOL        TRUE
+  B:00B0H.1       SYMBOL        TXD
+  D:00A7H         SYMBOL        WDTPRG
+  D:00A6H         SYMBOL        WDTRST
+  B:00B0H.6       SYMBOL        WR
+  C:0000H         LINE#         20
+  C:0002H         LINE#         21
+  C:0004H         LINE#         22
+  C:0007H         LINE#         24
+  C:0008H         LINE#         25
+  C:0009H         LINE#         26
+  C:000AH         LINE#         27
+  C:000BH         LINE#         28
+  C:000CH         LINE#         29
+  C:000EH         LINE#         30
+  C:0010H         LINE#         34
+  C:0012H         LINE#         36
+  C:0015H         LINE#         37
+  C:0018H         LINE#         38
+  C:001AH         LINE#         42
+  C:001CH         LINE#         43
+  C:001EH         LINE#         44
+  C:0021H         LINE#         45
+  C:0022H         LINE#         46
+  C:0024H         LINE#         48
+  C:0026H         LINE#         49
+  C:0028H         LINE#         52
+  C:002AH         LINE#         56
+  C:002DH         LINE#         57
+  C:0030H         LINE#         60
+  C:0032H         LINE#         61
+BL51 BANKED LINKER/LOCATER V6.22                                                      12/26/2015  18:29:16  PAGE 5
+
+
+  C:0035H         LINE#         62
+  -------         ENDMOD        MAIN
+
+  -------         MODULE        DISPLAY
+  C:08DEH         SEGMENT       DISPLAYCODE
+  C:006AH         PUBLIC        INICIODISPLAY
+  N:0000H         SYMBOL        DISPLAY
+  C:0071H         SYMBOL        FIM
+  D:0090H         SYMBOL        P1
+  C:005DH         SYMBOL        TABLE
+  C:08DEH         LINE#         5
+  C:006AH         LINE#         11
+  C:006DH         LINE#         12
+  C:006EH         LINE#         13
+  C:006FH         LINE#         14
+  C:0071H         LINE#         17
+  -------         ENDMOD        DISPLAY
+
+  -------         MODULE        WAIT
+  C:08B1H         SEGMENT       WAITCODE
+  C:08B1H         PUBLIC        INICIOWAIT
+  C:08B1H         SYMBOL        CARGA
+  C:08C7H         SYMBOL        FIM
+  C:08B6H         SYMBOL        LOOP
+  B:0088H.5       SYMBOL        TF0
+  D:008CH         SYMBOL        TH0
+  D:008AH         SYMBOL        TL0
+  D:0089H         SYMBOL        TMOD
+  B:0088H.4       SYMBOL        TR0
+  C:08BEH         SYMBOL        WAIT
+  C:08B1H         LINE#         9
+  C:08B4H         LINE#         10
+  C:08B6H         LINE#         12
+  C:08B9H         LINE#         13
+  C:08BCH         LINE#         14
+  C:08BEH         LINE#         16
+  C:08C1H         LINE#         17
+  C:08C3H         LINE#         18
+  C:08C5H         LINE#         19
+  C:08C7H         LINE#         21
+  -------         ENDMOD        WAIT
+
+  -------         MODULE        READ
+  C:0800H         SEGMENT       READCODE
+  C:0800H         PUBLIC        INICIOREAD
+  C:0809H         SYMBOL        DETETA
+  C:081EH         SYMBOL        DETETA1
+  C:0833H         SYMBOL        DETETAFINAL
+  C:0827H         SYMBOL        DISWAIT
+  N:0000H         SYMBOL        READ
+  C:0800H         LINE#         14
+  C:0802H         LINE#         15
+  C:0805H         LINE#         16
+  C:0807H         LINE#         17
+  C:0809H         LINE#         20
+  C:080BH         LINE#         21
+  C:080EH         LINE#         22
+BL51 BANKED LINKER/LOCATER V6.22                                                      12/26/2015  18:29:16  PAGE 6
+
+
+  C:080FH         LINE#         23
+  C:0812H         LINE#         24
+  C:0814H         LINE#         26
+  C:0815H         LINE#         27
+  C:0818H         LINE#         28
+  C:081AH         LINE#         29
+  C:081CH         LINE#         30
+  C:081EH         LINE#         32
+  C:0821H         LINE#         33
+  C:0822H         LINE#         34
+  C:0825H         LINE#         35
+  C:0827H         LINE#         37
+  C:0828H         LINE#         38
+  C:0829H         LINE#         39
+  C:082CH         LINE#         41
+  C:082EH         LINE#         42
+  C:0831H         LINE#         43
+  C:0833H         LINE#         46
+  C:0836H         LINE#         48
+  C:0838H         LINE#         49
+  C:083BH         LINE#         50
+  C:083DH         LINE#         51
+  C:083EH         LINE#         52
+  C:083FH         LINE#         53
+  -------         ENDMOD        READ
+
+  -------         MODULE        CHECK
+  C:08C8H         SEGMENT       CHECKCODE
+  C:08CAH         PUBLIC        INICIOCHECK
+  D:00F0H         SYMBOL        B
+  N:0000H         SYMBOL        CHECK
+  C:08DBH         SYMBOL        FALSO
+  C:08DDH         SYMBOL        FIM
+  C:08CCH         SYMBOL        START
+  C:08C8H         LINE#         5
+  C:08CAH         LINE#         10
+  C:08CCH         LINE#         12
+  C:08CEH         LINE#         13
+  C:08CFH         LINE#         14
+  C:08D0H         LINE#         15
+  C:08D3H         LINE#         16
+  C:08D4H         LINE#         17
+  C:08D5H         LINE#         18
+  C:08D7H         LINE#         19
+  C:08D9H         LINE#         20
+  C:08DBH         LINE#         23
+  C:08DDH         LINE#         25
+  -------         ENDMOD        CHECK
+
+  -------         MODULE        READPASS
+  C:0875H         SEGMENT       PASSCODE
+  C:0877H         PUBLIC        INICIOPASS
+  C:0890H         SYMBOL        CONTINUA
+  C:0897H         SYMBOL        FIM
+  C:087BH         SYMBOL        INICIO
+  N:0000H         SYMBOL        READPASS
+  C:0875H         LINE#         5
+BL51 BANKED LINKER/LOCATER V6.22                                                      12/26/2015  18:29:16  PAGE 7
+
+
+  C:0877H         LINE#         11
+  C:0879H         LINE#         12
+  C:087AH         LINE#         13
+  C:087BH         LINE#         16
+  C:087DH         LINE#         18
+  C:087FH         LINE#         19
+  C:0882H         LINE#         20
+  C:0884H         LINE#         21
+  C:0886H         LINE#         22
+  C:0889H         LINE#         23
+  C:088CH         LINE#         24
+  C:088EH         LINE#         25
+  C:0890H         LINE#         27
+  C:0891H         LINE#         28
+  C:0892H         LINE#         29
+  C:0893H         LINE#         30
+  C:0895H         LINE#         31
+  C:0897H         LINE#         33
+  -------         ENDMOD        READPASS
+
+  -------         MODULE        DETECT
+  C:0840H         SEGMENT       DETECTCODE
+  C:0842H         PUBLIC        INICIODETECT
+  C:0846H         SYMBOL        BOTOES
+  C:084EH         SYMBOL        BOTOES2
+  C:0853H         SYMBOL        BOTOES3
+  N:0000H         SYMBOL        DETECT
+  C:0858H         SYMBOL        ENTER
+  C:0874H         SYMBOL        FIM
+  C:085DH         SYMBOL        NORMAL
+  D:00B0H         SYMBOL        P3
+  C:0862H         SYMBOL        SOMA
+  C:0867H         SYMBOL        SOMA1
+  C:086AH         SYMBOL        TESTE
+  C:086FH         SYMBOL        TESTE2
+  C:0840H         LINE#         5
+  C:0842H         LINE#         12
+  C:0844H         LINE#         13
+  C:0846H         LINE#         15
+  C:0849H         LINE#         16
+  C:084CH         LINE#         17
+  C:084EH         LINE#         20
+  C:0851H         LINE#         21
+  C:0853H         LINE#         24
+  C:0856H         LINE#         25
+  C:0858H         LINE#         28
+  C:085AH         LINE#         29
+  C:085BH         LINE#         31
+  C:085DH         LINE#         34
+  C:085FH         LINE#         35
+  C:0860H         LINE#         37
+  C:0862H         LINE#         39
+  C:0864H         LINE#         40
+  C:0865H         LINE#         42
+  C:0867H         LINE#         44
+  C:0869H         LINE#         45
+  C:086AH         LINE#         49
+BL51 BANKED LINKER/LOCATER V6.22                                                      12/26/2015  18:29:16  PAGE 8
+
+
+  C:086DH         LINE#         50
+  C:086FH         LINE#         52
+  C:0872H         LINE#         53
+  C:0874H         LINE#         55
+  -------         ENDMOD        DETECT
+
+  -------         MODULE        NEWPASS
+  C:0898H         SEGMENT       NEWPASS
+  C:089AH         PUBLIC        INICIOPASS1
+  C:08B0H         SYMBOL        FIM
+  C:08A0H         SYMBOL        INICIO
+  C:0898H         LINE#         5
+  C:089AH         LINE#         12
+  C:089CH         LINE#         13
+  C:089EH         LINE#         14
+  C:089FH         LINE#         15
+  C:08A0H         LINE#         18
+  C:08A2H         LINE#         20
+  C:08A4H         LINE#         21
+  C:08A7H         LINE#         22
+  C:08A9H         LINE#         23
+  C:08ABH         LINE#         24
+  C:08ACH         LINE#         25
+  C:08ADH         LINE#         26
+  C:08AEH         LINE#         27
+  C:08B0H         LINE#         29
+  -------         ENDMOD        NEWPASS
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0131H BYTE (14%) *
+******************************************************************************
+
+Program Size: data=16.0 xdata=0 code=305
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

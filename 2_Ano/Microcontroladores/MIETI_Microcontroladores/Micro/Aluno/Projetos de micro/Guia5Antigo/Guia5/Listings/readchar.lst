@@ -1,0 +1,69 @@
+A51 MACRO ASSEMBLER  READCHAR                                                             11/24/2015 10:26:28 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.02c
+OBJECT MODULE PLACED IN .\Objects\readchar.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE readchar.a51 SET(SMALL) DEBUG PRINT(.\Listings\readchar.lst) OBJECT(.\O
+                      bjects\readchar.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1             NAME READ
+                       2             PUBLIC INICIOREAD
+                       3             READCODE SEGMENT CODE 
+----                   4             RSEG READCODE
+                       5                     
+                       6             EXTRN CODE (INICIODISPLAY)
+                       7             EXTRN CODE (INICIOWAIT)
+                       8                     
+0000                   9     INICIOREAD:     
+0000 7800             10                             MOV R0,#0H
+0002 120000   F       11                             LCALL INICIODISPLAY
+0005                  12     BOTOES:
+0005 30B305           13                     JNB             P3.3,SOMA
+0008 30B50D           14                     JNB             P3.5,FIM
+000B 80F8             15                     JMP BOTOES
+                      16                     
+000D                  17     SOMA:
+000D 08               18                             INC R0
+000E 120000   F       19                             LCALL INICIODISPLAY
+0011 7450             20                             MOV A,#80
+0013 120000   F       21                             LCALL INICIOWAIT
+0016 80ED             22                             JMP BOTOES
+                      23                                     
+0018 E8               24     FIM:                    MOV A,R0
+0019 FC               25                                     MOV R4,A
+001A 780A             26                                     MOV R0,#10
+001C 120000   F       27                                     LCALL INICIODISPLAY
+001F 7450             28                                     MOV A,#80
+0021 120000   F       29                                     LCALL INICIOWAIT
+0024 EC               30                                     MOV A,R4
+0025 F8               31                                     MOV R0,A
+0026 120000   F       32                                     LCALL INICIODISPLAY
+0029 7450             33                                     MOV A,#80
+002B 120000   F       34                                     LCALL INICIOWAIT
+002E 22               35                                     RET
+                      36     END
+A51 MACRO ASSEMBLER  READCHAR                                                             11/24/2015 10:26:28 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+BOTOES . . . . . .  C ADDR   0005H   R   SEG=READCODE
+FIM. . . . . . . .  C ADDR   0018H   R   SEG=READCODE
+INICIODISPLAY. . .  C ADDR   -----       EXT
+INICIOREAD . . . .  C ADDR   0000H   R   SEG=READCODE
+INICIOWAIT . . . .  C ADDR   -----       EXT
+P3 . . . . . . . .  D ADDR   00B0H   A   
+READ . . . . . . .  N NUMB   -----       
+READCODE . . . . .  C SEG    002FH       REL=UNIT
+SOMA . . . . . . .  C ADDR   000DH   R   SEG=READCODE
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

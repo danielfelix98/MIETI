@@ -1,0 +1,73 @@
+A51 MACRO ASSEMBLER  TPC                                                                  10/12/2016 21:28:01 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.5.0
+OBJECT MODULE PLACED IN .\Objects\tpc.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE tpc.a51 SET(SMALL) DEBUG PRINT(.\Listings\tpc.lst) OBJECT(.\Objects\tpc
+                      .obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     
+
+                       2     
+
+                       3             
+
+0000 7900              4             MOV R1,#0 
+
+0002                   5     LOOP:
+
+0002 E6                6             MOV A,@R0 
+
+0003 08                7             INC R0 
+
+0004 09                8             INC R1 
+
+0005 B45A08            9             CJNE A,#'Z',CR 
+
+0008 19               10             DEC R1  
+
+0009 E4               11             CLR A
+
+000A E7               12             MOV A,@R1
+
+000B 85E0F0           13             MOV B,ACC
+
+000E 8006             14             JMP TERMINA
+
+                      15             
+
+0010                  16     CR:
+
+0010 B40DEF           17             CJNE  A,#0DH,LOOP 
+
+0013 75F0FF           18             MOV B,#0FFH 
+
+                      19             
+
+0016                  20     TERMINA:
+
+                      21             END
+
+                                     
+
+A51 MACRO ASSEMBLER  TPC                                                                  10/12/2016 21:28:01 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+ACC. . . . . . . .  D ADDR   00E0H   A   
+B. . . . . . . . .  D ADDR   00F0H   A   
+CR . . . . . . . .  C ADDR   0010H   A   
+LOOP . . . . . . .  C ADDR   0002H   A   
+TERMINA. . . . . .  C ADDR   0016H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

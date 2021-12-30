@@ -1,0 +1,22 @@
+#BlueJ class context
+comment0.params=nom\ numeroc\ sal\ vplavagem
+comment0.target=Lavador(java.lang.String,\ int,\ double,\ double)
+comment1.params=lav
+comment1.target=Lavador(Lavador)
+comment2.params=
+comment2.target=double\ getLavagens()
+comment3.params=lav
+comment3.target=void\ setLavagens(double)
+comment4.params=
+comment4.target=double\ getVplavagem()
+comment5.params=vplavagem
+comment5.target=void\ setVplavagem(double)
+comment6.params=sBase
+comment6.target=void\ setSBase(double)
+comment7.params=
+comment7.target=double\ getSBase()
+comment8.params=
+comment8.target=double\ salario()
+comment9.params=
+comment9.target=Lavador\ clone()
+numComments=10

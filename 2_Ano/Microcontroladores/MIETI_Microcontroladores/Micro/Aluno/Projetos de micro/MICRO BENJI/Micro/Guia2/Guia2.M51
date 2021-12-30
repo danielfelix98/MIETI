@@ -1,0 +1,45 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        11/26/2014  09:53:58  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL_V5\C51\BIN\BL51.EXE guia2.obj TO Guia2 RAMSIZE (256)
+
+
+INPUT MODULES INCLUDED:
+  guia2.obj (GUIA2)
+
+
+LINK MAP OF MODULE:  Guia2 (GUIA2)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0008H     ABSOLUTE     
+
+
+
+SYMBOL TABLE OF MODULE:  Guia2 (GUIA2)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        GUIA2
+  D:0090H         SYMBOL        P1
+  C:0000H         SYMBOL        REPETE
+  C:0000H         LINE#         5
+  C:0002H         LINE#         6
+  C:0003H         LINE#         7
+  C:0006H         LINE#         9
+  -------         ENDMOD        GUIA2
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0008H BYTE ( 0%) *
+******************************************************************************
+
+Program Size: data=8.0 xdata=0 code=8
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

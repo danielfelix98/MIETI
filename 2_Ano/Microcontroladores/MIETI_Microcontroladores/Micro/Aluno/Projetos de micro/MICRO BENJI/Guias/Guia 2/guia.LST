@@ -1,0 +1,70 @@
+A51 MACRO ASSEMBLER  GUIA                                                                 01/08/2015 16:59:40 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.02b
+OBJECT MODULE PLACED IN guia.OBJ
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE guia.a51 SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+----                   1     CSEG    AT 0H
+0000 020033            2             LJMP MAIN
+                       3     
+----                   4     CSEG    AT 0BH
+000B 020046            5             LJMP    LIGA_LARANJA
+                       6     
+----                   7     CSEG    AT 33H
+                       8     
+0033                   9     MAIN:
+0033 7E41             10             MOV     R6,#65
+                      11     
+0035                  12     CONFTIMER0:
+0035 758901           13             MOV     TMOD,#1
+0038 758CD8           14             MOV     TH0,#HIGH(-10000)     ;10 ms de contagem
+003B 758AF0           15             MOV     TL0,#LOW(-10000)                
+003E D28C             16             SETB    TR0
+0040 D2AF             17             SETB    EA
+0042 D2A9             18             SETB    ET0
+                      19     
+0044                  20     LOOP:
+0044 80FE             21             JMP     $               ;fica à espera da interrupção (10 ms)
+                      22     
+0046                  23     LIGA_LARANJA:
+0046 DE04             24             DJNZ    R6,OUT          ;decrementa R6 (65 vezes) 65x10ms = 650 ms
+0048 B290             25             CPL     P1.0
+004A 7E41             26             MOV     R6,#65          ;volta a carregar R6 com 65
+                      27             
+004C                  28     OUT:
+004C 758CD8           29             MOV     TH0,#HIGH(-10000)     ;10 ms de contagem
+004F 758AF0           30             MOV     TL0,#LOW(-10000)
+0052 C28D             31             CLR     TF0
+0054 32               32             RETI
+                      33             
+                      34     END
+A51 MACRO ASSEMBLER  GUIA                                                                 01/08/2015 16:59:40 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+CONFTIMER0 . . . .  C ADDR   0035H   A   
+EA . . . . . . . .  B ADDR   00A8H.7 A   
+ET0. . . . . . . .  B ADDR   00A8H.1 A   
+LIGA_LARANJA . . .  C ADDR   0046H   A   
+LOOP . . . . . . .  C ADDR   0044H   A   
+MAIN . . . . . . .  C ADDR   0033H   A   
+OUT. . . . . . . .  C ADDR   004CH   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+TF0. . . . . . . .  B ADDR   0088H.5 A   
+TH0. . . . . . . .  D ADDR   008CH   A   
+TL0. . . . . . . .  D ADDR   008AH   A   
+TMOD . . . . . . .  D ADDR   0089H   A   
+TR0. . . . . . . .  B ADDR   0088H.4 A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

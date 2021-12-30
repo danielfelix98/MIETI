@@ -1,0 +1,41 @@
+A51 MACRO ASSEMBLER  MAIN                                                                 11/20/2014 17:21:54 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.02b
+OBJECT MODULE PLACED IN main.OBJ
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE main.a51 NOMOD51 SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     NAME MAIN
+                       2                             
+0000 020030            3             LJMP            START                   
+                       4             
+----                   5             CSEG            AT 30H  
+                       6                     
+0030                   7     START:
+0030 E560              8                     mov a, 60h
+0032 C4                9                     swap a
+0033 F560             10                     mov 60h,a 
+                      11              
+                      12              
+                      13     END
+                             
+                             
+                             
+A51 MACRO ASSEMBLER  MAIN                                                                 11/20/2014 17:21:54 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+MAIN . . . . . . .  N NUMB   -----       
+START. . . . . . .  C ADDR   0030H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

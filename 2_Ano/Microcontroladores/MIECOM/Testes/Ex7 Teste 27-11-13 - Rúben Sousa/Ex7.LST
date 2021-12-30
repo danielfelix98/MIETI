@@ -1,0 +1,80 @@
+A51 MACRO ASSEMBLER  EX7                                                                  11/27/2013 18:31:21 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.02b
+NO OBJECT MODULE REQUESTED
+ASSEMBLER INVOKED BY: C:\Keil\C51\BIN\A51.EXE Ex7.a51 NOMOD51 SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+----                   1             CSEG    AT      0H
+                       2             
+0000 802E              3             SJMP    MAIN
+----                   4             CSEG    AT  30H
+                       5             
+0030                   6     MAIN:
+0030 7C08              7             MOV             R4,#N           ; Move para R4 a quantidade de números a serem troc
+                             ados
+0032 7D40              8             MOV             R5,#40h     ; Endereço destino do 1º número, 0x40
+0034 7F10              9             MOV             R7,#10h     ; R7 contém os 8bits mais significativos do endereço de
+                              16bits onde se encontram os números
+0036 7E00             10             MOV             R6,#00h         ; R6 contém os 8bits menos significativos do endere
+                             ço de 16bits onde se encontram os números    
+0038 113C             11             CALL    ROTINA  
+003A 80FE             12             JMP             $
+                      13     
+003C                  14     ROTINA:
+003C ED               15             MOV             A,R5
+003D F8               16             MOV             R0,A            ; R0 apontará para a primeira posição onde será col
+                             ocado o número
+003E 0D               17             INC             R5
+003F ED               18             MOV             A,R5
+0040 F9               19             MOV             R1,A            ; R1 apontará para a posição seguinte
+0041 8E82             20             MOV             DPL,R6          ; Move os 8bits menos significativos para DPL
+0043 8F83             21             MOV             DPH,R7          ; Move os 8bits mais significativos para DPH
+0045 E5F0             22             MOV             A,B                     
+0047 93               23             MOVC    A,@A+DPTR       ; Guarda em A o número que está em NUMS
+0048 1C               24             DEC             R4                      ; Decrementa a quantidade de números que fa
+                             lta ler
+0049 F7               25             MOV             @R1,A           ; Faz a troca do número
+004A 05F0             26             INC             B                       ; Lê o número seguinte
+004C E5F0             27             MOV             A,B
+004E 93               28             MOVC    A,@A+DPTR       ; Guarda em A o número seguinte
+004F F6               29             MOV             @R0,A           ; Faz novamente a troca
+0050                  30             SUBB    R4,#2
+*** _________________________________________^
+*** ERROR #A40 IN 30 (Ex7.a51, LINE 30): INVALID REGISTER
+0050 05F0             31             INC             B                       
+0052 0D               32             INC             R5                      
+0053 BC00E6           33             CJNE    R4,#0,ROTINA    
+0056 22               34             RET
+                      35     
+----                  36             CSEG    AT 1000H
+                      37             
+1000                  38     NUMS:
+1000 80050610         39             DB              80h,05h,6h,10h,20h,30h,5Fh,30h
+1004 20305F30                
+  0008                40             N               EQU $-NUMS
+                      41             
+                      42     END
+A51 MACRO ASSEMBLER  EX7                                                                  11/27/2013 18:31:21 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+B. . . . . . . . .  D ADDR   00F0H   A   
+DPH. . . . . . . .  D ADDR   0083H   A   
+DPL. . . . . . . .  D ADDR   0082H   A   
+MAIN . . . . . . .  C ADDR   0030H   A   
+N. . . . . . . . .  N NUMB   0008H   A   
+NUMS . . . . . . .  C ADDR   1000H   A   
+ROTINA . . . . . .  C ADDR   003CH   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 1 ERROR(S)

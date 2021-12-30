@@ -1,0 +1,20 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+C:\Users\Fernando\Dropbox\MIECOM\2º ANO\Microcontroladores\Práticas\Práticas\TP6\Guia 6 - exe 1\Modelo.uvproj
+Project File Date:  12/19/2013
+
+<h2>Output:</h2>
+assembling contagem.a51...
+C:\KEIL\C51\ASM\89C51IC2.INC(139): error A1: ILLEGAL CHARACTER IN NUMERIC CONSTANT
+C:\KEIL\C51\ASM\89C51IC2.INC(194): error A10: ATTEMPT TO DEFINE AN ALREADY DEFINED SYMBOL
+C:\KEIL\C51\ASM\89C51IC2.INC(201): error A10: ATTEMPT TO DEFINE AN ALREADY DEFINED SYMBOL
+contagem.a51 - 3 Error(s), 0 Warning(s).
+"batchisp" -autoisp -device AT89C51RD2 -hardware RS232 -port COM3 -baudrate 9600 -operation MEMORY FLASH LOADBUFFER Modelo.HEX PROGRAM START RESET 00
+"batchisp" -autoisp -device AT89C51RD2 -hardware RS232 -port COM3 -baudrate 9600 -operation MEMORY FLASH LOADBUFFER Modelo.HEX PROGRAM START RESET 00
+"batchisp" -autoisp -device AT89C51RD2 -hardware RS232 -port COM3 -baudrate 9600 -operation MEMORY FLASH LOADBUFFER Modelo.HEX PROGRAM START RESET 00
+"batchisp" -autoisp -device AT89C51RD2 -hardware RS232 -port COM3 -baudrate 9600 -operation MEMORY FLASH LOADBUFFER Modelo.HEX PROGRAM START RESET 00
+"batchisp" -autoisp -device AT89C51RD2 -hardware RS232 -port COM3 -baudrate 9600 -operation MEMORY FLASH LOADBUFFER Modelo.HEX PROGRAM START RESET 00
+"batchisp" -autoisp -device AT89C51RD2 -hardware RS232 -port COM3 -baudrate 9600 -operation MEMORY FLASH LOADBUFFER Modelo.HEX PROGRAM START RESET 00

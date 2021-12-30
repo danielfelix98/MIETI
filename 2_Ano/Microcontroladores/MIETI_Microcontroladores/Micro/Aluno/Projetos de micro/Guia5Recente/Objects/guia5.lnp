@@ -1,0 +1,7 @@
+".\Objects\main.obj",
+".\Objects\Display.obj",
+".\Objects\wait.obj",
+".\Objects\readchar.obj",
+".\Objects\checkcode.obj" 
+TO ".\Objects\guia5" 
+PRINT(".\Listings\guia5.m51") RAMSIZE(256) 

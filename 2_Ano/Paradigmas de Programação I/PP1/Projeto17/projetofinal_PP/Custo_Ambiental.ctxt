@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.params=cst_amb
+comment0.target=void\ setCustoAmbientalbase(long)
+comment1.params=
+comment1.target=double\ getCustoAmbientalbase()
+comment2.params=
+comment2.target=double\ calcula_custo_ambiental()
+numComments=3

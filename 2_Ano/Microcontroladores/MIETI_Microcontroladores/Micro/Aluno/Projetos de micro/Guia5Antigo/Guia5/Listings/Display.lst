@@ -1,0 +1,90 @@
+A51 MACRO ASSEMBLER  DISPLAY                                                              11/24/2015 10:26:28 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.02c
+OBJECT MODULE PLACED IN .\Objects\Display.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE Display.a51 SET(SMALL) DEBUG PRINT(.\Listings\Display.lst) OBJECT(.\Obj
+                      ects\Display.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1             NAME DISPLAY
+                       2             PUBLIC INICIODISPLAY
+                       3             DISPLAYCODE SEGMENT CODE 
+----                   4             RSEG DISPLAYCODE
+                       5                     
+0000                   6     INICIODISPLAY:
+                       7                                     
+0000 B80005            8                                     TESTE0: CJNE R0,#0,TESTE1
+0003 75900C            9                                                     MOV P1,#0CH
+0006 805E             10                                                     JMP FIM
+0008 B80105           11                                     TESTE1: CJNE R0,#1,TESTE2
+000B 7590CF           12                                                     MOV P1,#0CFH
+000E 8056             13                                                     JMP FIM
+0010 B80205           14                                     TESTE2: CJNE R0,#2,TESTE3
+0013 759054           15                                                     MOV P1,#54H
+0016 804E             16                                                     JMP FIM
+0018 B80305           17                                     TESTE3: CJNE R0,#3,TESTE4
+001B 759046           18                                                     MOV P1,#46H
+001E 8046             19                                                     JMP FIM
+0020 B80405           20                                     TESTE4: CJNE R0,#4,TESTE5
+0023 759087           21                                                     MOV P1,#87H
+0026 803E             22                                                     JMP FIM
+0028 B80505           23                                     TESTE5: CJNE R0,#5,TESTE6
+002B 759026           24                                                     MOV P1,#26H
+002E 8036             25                                                     JMP FIM
+0030 B80605           26                                     TESTE6: CJNE R0,#6,TESTE7
+0033 759024           27                                                     MOV P1,#24H
+0036 802E             28                                                     JMP FIM
+0038 B80705           29                                     TESTE7: CJNE R0,#7,TESTE8
+003B 75904F           30                                                     MOV P1,#4FH
+003E 8026             31                                                     JMP FIM
+0040 B80805           32                                     TESTE8: CJNE R0,#8,TESTE9
+0043 759004           33                                                     MOV P1,#4H
+0046 801E             34                                                     JMP FIM
+0048 B80905           35                                     TESTE9: CJNE R0,#9,LIMPO
+004B 759006           36                                                     MOV P1,#6H
+004E 8016             37                                                     JMP FIM
+0050 B80A05           38                                     LIMPO: CJNE R0,#10,NO
+0053 7590FF           39                                                     MOV P1,#0FFH
+0056 800E             40                                                     JMP FIM
+0058 B80B05           41                                     NO:     CJNE R0,#11,YES
+005B 75900D           42                                                     MOV P1,#0DH
+005E 8006             43                                                     JMP FIM
+0060 B80C03           44                                     YES:    CJNE R0,#12,FIM
+0063 759086           45                                                     MOV P1,#86H
+                      46             
+0066 22               47             FIM: RET
+                      48     END                                     
+A51 MACRO ASSEMBLER  DISPLAY                                                              11/24/2015 10:26:28 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+DISPLAY. . . . . .  N NUMB   -----       
+DISPLAYCODE. . . .  C SEG    0067H       REL=UNIT
+FIM. . . . . . . .  C ADDR   0066H   R   SEG=DISPLAYCODE
+INICIODISPLAY. . .  C ADDR   0000H   R   SEG=DISPLAYCODE
+LIMPO. . . . . . .  C ADDR   0050H   R   SEG=DISPLAYCODE
+NO . . . . . . . .  C ADDR   0058H   R   SEG=DISPLAYCODE
+P1 . . . . . . . .  D ADDR   0090H   A   
+TESTE0 . . . . . .  C ADDR   0000H   R   SEG=DISPLAYCODE
+TESTE1 . . . . . .  C ADDR   0008H   R   SEG=DISPLAYCODE
+TESTE2 . . . . . .  C ADDR   0010H   R   SEG=DISPLAYCODE
+TESTE3 . . . . . .  C ADDR   0018H   R   SEG=DISPLAYCODE
+TESTE4 . . . . . .  C ADDR   0020H   R   SEG=DISPLAYCODE
+TESTE5 . . . . . .  C ADDR   0028H   R   SEG=DISPLAYCODE
+TESTE6 . . . . . .  C ADDR   0030H   R   SEG=DISPLAYCODE
+TESTE7 . . . . . .  C ADDR   0038H   R   SEG=DISPLAYCODE
+TESTE8 . . . . . .  C ADDR   0040H   R   SEG=DISPLAYCODE
+TESTE9 . . . . . .  C ADDR   0048H   R   SEG=DISPLAYCODE
+YES. . . . . . . .  C ADDR   0060H   R   SEG=DISPLAYCODE
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

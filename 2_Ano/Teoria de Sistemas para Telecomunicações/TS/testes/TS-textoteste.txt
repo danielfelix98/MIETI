@@ -1,0 +1,157 @@
+Modelo comportamental: Um modelo que descreve relações entre algumas variáveis de um sistema, de uma forma que permite prever ou explicar a evolução ao longo do tempo das variáveis em causa.
+
+
+Cap 1)
+
+-> Conceito de Sistema:
+
+- Forma A:
+Um sistema é um domínio de duas ou mais entidades relacionadas entre si e com o exterior do domínio, que nós distinguimos como um todo.
+
+- Forma B:
+Um sistema é um todo que se concebe como um domínio de entidades relacionadas entre si e com o exterior e que realiza ou se pretende que venha a realizar um certo conjunto de funções.
+
+
+-> Componentes vs Entidades
+Componentes: São todos os atributos que formam um sistema, à excepção dos seres humanos, por indelicadeza.
+
+Entidades: O significado da palavra entidade pode ser entendida como um individuo ou tudo o que é concreto. Podemos envolver os componentes como entidades mas nem sempre as entidades  são componentes porque um individuo não é um componente.
+
+
+-> Dominio vs Conjunto:
+Um domínio é uma noção mais alargada que a de conjunto no sentido matemático, porque nem sempre nos é possível indicar as entidades do
+sistema como um conjunto.
+
+-> Subsistema:
+Um subsistema é um subconjunto das entidades do sistema que é também um sistema.
+
+-> Fronteira:
+Pode entender-se a fronteira de um sistema como o subconjunto das suas entidades que interagem com entidades exteriores ao sistema.
+
+-> Interior:
+Entidades de um sistema que só interagem com outras entidades do sistema.
+Um subconjunto de entidades de um sistema que só interagem com outras entidades do sistema pode ser entendido como o interior do sistema.
+
+-> Exterior:
+Entidades que interagem com a fronteira e com entidades exteriores ao sistema.
+
+Cap 2) Modelos de Sistema
+
+Modelo de Sistema: 
+- Um modelo de sistema é uma descrição parcial e/ou aproximada de um sistema, contendo informação relevante para um certo objectivo.
+
+Modelo estrutural:
+- Um modelo estrutural de um sistema descreve o sistema em termos de entidades(componentes) e de conexões entre entidades(componentes).
+
+Modelo comportamental: Um modelo que descreve relações entre algumas variáveis de um sistema, de uma forma que permite prever ou explicar a evolução ao longo do tempo das variáveis em causa.
+
+Variáveis: 
+Variavéis são consideradas propriedades mensuráveis. Isto porque podemos medir os seus valores ou porque, mesmo não os medindo, podemos assumir que estas propriedades tomam valores diferentes ao longo do tempo ou de sistema para sistema.
+
+Parámetros:
+São propriedades mensuráveis cujos valores não mudam ao longo do tempo, ou se mudam, fazem-no muito mais lentamente e nunca como resultado da mudança do valor das variáveis.
+Os parâmetros têm um papel definidor do comportamento de um sistema.
+
+Processo de realização de uma previsão da evolução da variável de um sistema a partir de uma equação diferencial como comportando os seguintes passos:
+– Definir a situação (evolução da variável de entrada e condições iniciais) para a qual se pretende
+realizar a previsão.
+– Conjugar a definição da situação com a equação diferencial e resolver a equação resultante para as
+condições dadas.
+– Representar em gráfico a função que é solução da equação diferencial ou calcular valores dela para
+instantes de tempo determinados.
+
+
+Os 3 procedimentos para se obter a função :
+(Medir, Impor e Prever)
+	- Medir uma variavel, registar a sua evolução num grafico, e a partir do mesmo e dos valores obtidos, então encontrar f(t);
+	- Impor a evolução de uma variavel;
+	- Prever a evolução atraves de um modelo.
+
+
+
+- Como é que a partir de um modelo, se obtém a função f(t) que descreve uma certa evolução de uma variável que se pretende prever?
+
+A resposta depende do tipo de modelo. Os modelos do circuito LRC envolvem equações diferenciais em ordem ao tempo. Para este tipo de modelos, obter a função f(t) que descreve a evolução da variavel, implica “resolver” a equação diferencial.
+Para obter esta previsão começa-se por estabelecer o seu modelo e uma vez obtido o modelo devemos ver como o pôr a funcionar para prever a evolução da variável de saída.
+
+
+
+Cap 3) Modelos Comportamentais
+
+-> As três formas de utilizar ou três finalidades com que se faz a utilização dos modelos comportamentais são:
+– Previsão de valores numéricos das variáveis ao longo do tempo (previsão de comportamento);
+– Análise da influência de variações do valor dos parâmetros no comportamento do
+sistema;
+– Descrição ou construção de modelos de simulação de um sistema.
+Vamos também referir a questão da validade dos modelos.;
+
+
+-> FINALIDADE: Prever a evolução da variavel Vo(t) ao longo do tempo de um circuito RC
+
+
+-> Limites à previsão de valores numéricos:
+A previsão de valores numéricos da evolução de uma variável está sujeita a erros. Mesmo admitindo que o modelo está correcto e traduz fielmente as relações entre variáveis no sistema que descreve, existe sempre uma possível fonte de erro nos valores das condições iniciais. Na prática, as condições iniciais que se supõem para realizar uma previsão podem não ser
+exactamente as que existem no sistema a que a previsão se aplica, por exemplo, devido a limitações dos instrumentos de medida.
+Consoante os modelos, esta fonte de erros pode afectar pouco ou muito o intervalo de tempo de previsão em que os valores numéricos previstos fazem sentido. Em modelos ditos simples os erros tendem a desaparecer com o tempo. Em modelos que exibam sensibilidade às condições iniciais, os erros tendem a ser amplificados com a passagem do tempo. Isto acontece, por exemplo, com os modelos usados em Meteorologia para prever o estado do
+tempo.
+
+
+-> Influência dos valores dos parâmetros no comportamento:
+É uma utilização dos modelos que utiliza a previsão dos valores numéricos, mas tem um objectivo mais amplo que é a análise da influência dos parâmetros no comportamento do sistema. A análise mostra-nos como a variação do valor dos parâmetros se traduz na modificação da evolução das variáveis.
+
+
+-> Simulação de um Sistema
+A simulação pode ser entendida como uma forma de gerar automaticamente os valores (numéricos ou outros) de evoluções das variáveis de um modelo, recorrendo a computadores.
+A simulação realiza-se para previsão de valores numéricos, análise da influência dos parâmetros e para outras finalidades como aprendizagem e treino.
+Realizar a simulação de um sistema implica três passos:
+– Escolha do modelo a usar para descrever o sistema.
+– Tradução do modelo escolhido num modelo programado próprio para ser executado num computador.
+– Execução do modelo programado no computador ou simulação propriamente dita.
+
+
+
+-> Validade de modelos
+ A validade de um modelo estabelece-se comparando as suas previsões para uma ou mais experiências com os resultados experimentais dessas experiências.
+Assim, dizemos que um modelo é válido para um sistema e uma situação comportamental desse sistema, se as previsões que o modelo faz para a evolução das variáveis do sistema nessa situação, coincidirem com as medidas que se obtêm quando o sistema está nessa situação, de acordo com um critério de precisão que estabelecemos à partida.
+Se previsões e medidas (suficientemente precisas) não coincidirem, tal não significa necessariamente que o modelo esteja completamente incorrecto. Pode aceitar-se que os erros de previsão do modelo não têm importância prática, efectivamente aumentando a tolerância do critério. Ou pode haver erro no valor assumido para os parâmetros do modelo.
+
+->Processo de validação de um modelo comportamental para uma situação específica comportando os seguintes passos:
+1. A partir do modelo, obter previsões do comportamento do sistema para a situação considerada.
+2. Realizar a experiência, isto é, registar a evolução das variáveis do sistema na situação considerada.
+3. Comparar as previsões do modelo com os registos do comportamento obtidos.
+4. Aferir da validade do modelo com base na comparação e num critério pré-definido de concordância de previsões com resultados.
+
+
+4)
+
+Variaveis de entrada: 
+Por variável de entrada entende-se uma variável cuja evolução é completamente determinada por causas exteriores ao sistema.
+Esta variavel é externa 
+
+Variavel de Saída:
+Uma variável de saída pode entender-se:
+– Em sentido lato como qualquer variável que não é variável de entrada e que pode ser observada.
+– Em sentido estrito como uma variável que não é variável de entrada e que afecta outros sistemas.
+
+Modelos continuos vs Discretos:
+- Um modelo é dito contínuo no tempo, ou simplesmente contínuo, se os valores das variáveis do modelo estão definidos para qualquer instante de tempo t num intervalo [T0,Tf];
+
+- Um modelo discreto no tempo define os valores das variáveis do modelo apenas para uma sequência de instantes de tempo t[k] = t[0] ,t[1],t[2] ,... .
+Em geral, considera-se que o índice k dos instantes de tempo pertence ao conjunto dos inteiros.
+
+
+Dinamico vs Estatico:
+(Ex: Dinamico porque a variavel de saida assume valores diferentes da variavel de entrada (x(k) dif k))
+- Num modelo ou relação dinâmica, o valor da variável (considerada) de saída num instante t depende de valores da variável de entrada ou dela própria em outros instantes de tempo (passados ou futuros). 
+
+- Num modelo ou relação estática, o valor da variável (considerada) de saída num instante t é expresso como uma função do valor da variável de entrada no mesmo instante. Note-se que num modelo estático, para cada valor da variável de entrada, a variável de saída só pode apresentar um (e só um) valor.
+
+
+Causal vs Não Causal
+(Ex: Causal pois a evolução da variavel x(k) varia em função de valores anteriores (x(k-1)) )
+- Num modelo causal, a saída depende apenas do valor presente ou de valores passados da entrada. Num modelo não-causal a saída depende de valores futuros da entrada. A questão de um modelo ser ou não causal é importante, porque num modelo não-causal o valor da variável de saída depende de valores futuros da variável de entrada (e eventualmente de si própria).
+
+
+
+
+

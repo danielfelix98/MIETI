@@ -1,0 +1,70 @@
+A51 MACRO ASSEMBLER  GUIA4                                                                10/31/2013 21:32:15 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.02b
+OBJECT MODULE PLACED IN guia4.OBJ
+ASSEMBLER INVOKED BY: C:\Keil\C51\BIN\A51.EXE guia4.a51 SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     ;#include <89C51Rx2.inc>
+                       2     
+                       3                     NAME MAIN
+                       4     
+                       5                     EXTRN   CODE    (ENVIAR_RS232, RECEBER_RS232, CONFIG_RS232)
+                       6     
+----                   7                     CSEG    AT      0H
+0000 802E              8                     JMP             MAIN
+                       9     
+----                  10                     CSEG    AT      30H
+0030                  11     MAIN:
+0030 120000   F       12                     CALL    CONFIG_RS232
+0033 7C00             13                     MOV     R4,#0
+0035 900049           14                     MOV     DPTR,#MENSAGEM
+0038                  15     MAINLOOP:
+0038 EC               16             MOV             A,R4
+0039 93               17                     MOVC    A,@A+DPTR
+003A 120000   F       18                     CALL    ENVIAR_RS232
+003D 0C               19                     INC             R4
+003E BC2BF7           20                     CJNE    R4,#MSGLEN,MAINLOOP
+0041                  21     MAINLOOP2:
+0041 120000   F       22                     CALL    RECEBER_RS232
+0044 120000   F       23                     CALL    ENVIAR_RS232
+0047 80F8             24                     JMP             MAINLOOP2
+                      25     
+0049                  26     MENSAGEM:
+0049 4D494352         27                     DB      "MICROPROCESSADORES E CIRCUITOS ELECTRONICOS"
+004D 4F50524F                
+0051 43455353                
+0055 41444F52                
+0059 45532045                
+005D 20434952                
+0061 43554954                
+0065 4F532045                
+0069 4C454354                
+006D 524F4E49                
+0071 434F53                  
+  002B                28     MSGLEN  EQU $-MENSAGEM
+                      29     END
+A51 MACRO ASSEMBLER  GUIA4                                                                10/31/2013 21:32:15 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+CONFIG_RS232 . . .  C ADDR   -----       EXT
+ENVIAR_RS232 . . .  C ADDR   -----       EXT
+MAIN . . . . . . .  C ADDR   0030H   A   
+MAINLOOP . . . . .  C ADDR   0038H   A   
+MAINLOOP2. . . . .  C ADDR   0041H   A   
+MENSAGEM . . . . .  C ADDR   0049H   A   
+MSGLEN . . . . . .  N NUMB   002BH   A   
+RECEBER_RS232. . .  C ADDR   -----       EXT
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

@@ -1,0 +1,101 @@
+A51 MACRO ASSEMBLER  TESTE                                                                10/17/2016 19:57:08 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.5.0
+OBJECT MODULE PLACED IN .\Objects\teste.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE teste.a51 SET(SMALL) DEBUG PRINT(.\Listings\teste.lst) OBJECT(.\Objects
+                      \teste.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     $nomod51 
+
+                       2     
+
+                       3     
+
+----                   4             CSEG AT 0H
+
+0000 8000              5             JMP MAIN
+
+                       6             
+
+0002                   7     MAIN:
+
+0002 90A000            8             MOV DPTR,#0A000H
+
+0005 7840              9             MOV R0,#40H
+
+0007 79A0             10             MOV R1,#0A0H
+
+0009 7A28             11             MOV R2,#40
+
+                      12             
+
+000B                  13     CICLO:
+
+000B E0               14             MOVX A,@DPTR
+
+000C FB               15             MOV R3,A
+
+000D 33               16             RLC A
+
+000E 5008             17             JNC MENOR
+
+                      18             
+
+0010                  19     MAIOR:
+
+0010 EB               20             MOV A,R3
+
+0011 F6               21             MOV @R0,A
+
+0012 08               22             INC R0
+
+0013 A3               23             INC DPTR
+
+0014 DAF5             24             DJNZ R2,CICLO
+
+0016 8008             25             JMP FIM
+
+                      26     
+
+0018                  27     MENOR:
+
+0018 EB               28             MOV A,R3
+
+0019 F7               29             MOV @R1,A
+
+001A 09               30             INC R1
+
+001B A3               31             INC DPTR
+
+001C DAED             32             DJNZ R2,CICLO
+
+001E 8000             33             JMP FIM
+
+                      34     
+
+0020                  35     FIM:
+
+                      36             END
+
+A51 MACRO ASSEMBLER  TESTE                                                                10/17/2016 19:57:08 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+CICLO. . . . . . .  C ADDR   000BH   A   
+FIM. . . . . . . .  C ADDR   0020H   A   
+MAIN . . . . . . .  C ADDR   0002H   A   
+MAIOR. . . . . . .  C ADDR   0010H   A   
+MENOR. . . . . . .  C ADDR   0018H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

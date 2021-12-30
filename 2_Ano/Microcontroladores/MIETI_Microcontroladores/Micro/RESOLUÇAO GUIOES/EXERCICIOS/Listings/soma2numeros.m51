@@ -1,0 +1,52 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        10/25/2016  16:41:53  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\soma.obj TO .\Objects\soma2numeros PRINT (.\Listings\soma2numeros.m51) RAMSIZE (25
+>> 6)
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\soma.obj (SOMA)
+
+
+LINK MAP OF MODULE:  .\Objects\soma2numeros (SOMA)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0010H     ABSOLUTE     
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\soma2numeros (SOMA)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        SOMA
+  C:0002H         SYMBOL        MAIN
+  C:0000H         LINE#         4
+  C:0002H         LINE#         8
+  C:0004H         LINE#         9
+  C:0006H         LINE#         10
+  C:0008H         LINE#         11
+  C:000AH         LINE#         13
+  C:000BH         LINE#         14
+  C:000CH         LINE#         15
+  C:000DH         LINE#         17
+  C:000EH         LINE#         18
+  C:000FH         LINE#         19
+  -------         ENDMOD        SOMA
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0010H BYTE ( 0%) *
+******************************************************************************
+
+Program Size: data=8.0 xdata=0 code=16
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

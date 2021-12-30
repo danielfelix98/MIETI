@@ -1,0 +1,3 @@
+".\Objects\tpc.obj" 
+TO ".\Objects\tpc" 
+PRINT(".\Listings\tpc.m51") RAMSIZE(256) 

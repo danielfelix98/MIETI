@@ -1,0 +1,56 @@
+A51 MACRO ASSEMBLER  1                                                                    01/02/2013 17:37:25 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.02a
+OBJECT MODULE PLACED IN 1.OBJ
+ASSEMBLER INVOKED BY: C:\Keil\C51\BIN\A51.EXE 1.a51 SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     
+                       2     
+                       3             EXTRN   CODE (CONFIG_RS232,RECEBER_RS232,ENVIAR_RS232)
+----                   4             CSEG AT 0H
+0000 802E              5             SJMP START
+----                   6             CSEG AT 30H
+                       7     
+0030                   8     START:
+0030 120000   F        9             CALL CONFIG_RS232       
+0033 759035           10             MOV P1,#35H
+0036 7A0B             11             MOV R2,#11
+0038 900043           12         MOV DPTR, #STRING
+                      13                             
+003B                  14     LOOP:                                           
+003B E4               15             CLR A
+003C 93               16             MOVC A, @A+DPTR 
+003D 120000   F       17             CALL ENVIAR_RS232
+0040 A3               18             INC DPTR                 
+0041 DAF8             19             DJNZ R2, LOOP
+                      20     
+0043                  21     STRING: 
+0043 4D494352         22             DB "MICROS 2012"
+0047 4F532032                
+004B 303132                  
+                      23     
+                      24     END
+A51 MACRO ASSEMBLER  1                                                                    01/02/2013 17:37:25 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+CONFIG_RS232 . . .  C ADDR   -----       EXT
+ENVIAR_RS232 . . .  C ADDR   -----       EXT
+LOOP . . . . . . .  C ADDR   003BH   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+RECEBER_RS232. . .  C ADDR   -----       EXT
+START. . . . . . .  C ADDR   0030H   A   
+STRING . . . . . .  C ADDR   0043H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

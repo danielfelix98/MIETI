@@ -1,0 +1,32 @@
+A51 MACRO ASSEMBLER  MAIN                                                                 12/18/2012 18:07:40 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.02a
+OBJECT MODULE PLACED IN main.OBJ
+ASSEMBLER INVOKED BY: C:\Keil\C51\BIN\A51.EXE main.a51 SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     EXTRN CODE (MOSTRADIG)
+                       2     
+0000                   3     MAIN:
+0000 740A              4             MOV     A,#0AH
+0002 120000   F        5             CALL    MOSTRADIG
+0005 80FE              6             JMP     $
+                       7     END
+A51 MACRO ASSEMBLER  MAIN                                                                 12/18/2012 18:07:40 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+MAIN . . . . . . .  C ADDR   0000H   A   
+MOSTRADIG. . . . .  C ADDR   -----       EXT
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

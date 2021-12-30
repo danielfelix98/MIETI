@@ -1,0 +1,76 @@
+A51 MACRO ASSEMBLER  TESTE                                                                11/27/2014 20:00:22 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.02b
+OBJECT MODULE PLACED IN TESTE.OBJ
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE TESTE.a51 NOMOD51 SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+----                   1     CSEG    AT      0H
+                       2     
+0000 020030            3     LJMP MAIN
+                       4     
+----                   5     CSEG    AT 30H
+0030                   6     MAIN:
+0030 7A00              7             MOV     R2,#0H
+0032 7B00              8             MOV     R3,#0H
+0034 7C00              9             MOV     R4,#0H
+0036 E8               10             MOV     A,R0
+0037 FD               11             MOV     R5,A
+0038 08               12             INC     R0
+                      13     
+0039                  14     LOOP:
+0039 B90002           15             CJNE    R1,#0H,TESTA
+003C 80FE             16             JMP $
+                      17     
+003E                  18     TESTA:
+003E E6               19             MOV     A,@R0
+003F 08               20             INC     R0
+0040 08               21             INC     R0
+0041 20E70C           22             JB              ACC.7,NEGATIVO
+0044 B4000C           23             CJNE    A,#0H,POSITIVO
+0047 ED               24             MOV     A,R5
+0048 F8               25             MOV     R0,A
+0049 E6               26             MOV     A,@R0
+004A B40006           27             CJNE    A,#0H,POSITIVO
+004D 0B               28             INC     R3
+004E 8006             29             JMP     SEMI
+                      30             
+0050                  31     NEGATIVO:
+0050 0A               32             INC     R2
+0051 8003             33             JMP     SEMI
+                      34             
+0053                  35     POSITIVO:
+0053 0C               36             INC     R4
+0054 8000             37             JMP SEMI
+                      38     
+0056                  39     SEMI:
+0056 0D               40             INC     R5
+0057 0D               41             INC     R5
+0058 19               42             DEC             R1
+0059 80DE             43             JMP     LOOP
+                      44             
+                      45             
+                      46     END
+A51 MACRO ASSEMBLER  TESTE                                                                11/27/2014 20:00:22 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+ACC. . . . . . . .  D ADDR   00E0H   A   
+LOOP . . . . . . .  C ADDR   0039H   A   
+MAIN . . . . . . .  C ADDR   0030H   A   
+NEGATIVO . . . . .  C ADDR   0050H   A   
+POSITIVO . . . . .  C ADDR   0053H   A   
+SEMI . . . . . . .  C ADDR   0056H   A   
+TESTA. . . . . . .  C ADDR   003EH   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

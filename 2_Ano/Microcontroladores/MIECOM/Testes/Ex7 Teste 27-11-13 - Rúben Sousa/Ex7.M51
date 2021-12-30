@@ -1,0 +1,80 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        11/27/2013  18:24:33  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL\C51\BIN\BL51.EXE Ex7.obj TO Ex7 RAMSIZE (256)
+
+
+INPUT MODULES INCLUDED:
+  Ex7.obj (EX7)
+
+
+LINK MAP OF MODULE:  Ex7 (EX7)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0002H     ABSOLUTE     
+                    0002H     002EH                  *** GAP ***
+            CODE    0030H     0028H     ABSOLUTE     
+                    0058H     0FA8H                  *** GAP ***
+            CODE    1000H     0008H     ABSOLUTE     
+
+
+
+SYMBOL TABLE OF MODULE:  Ex7 (EX7)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        EX7
+  D:00F0H         SYMBOL        B
+  D:0083H         SYMBOL        DPH
+  D:0082H         SYMBOL        DPL
+  C:0030H         SYMBOL        MAIN
+  N:0008H         SYMBOL        N
+  C:1000H         SYMBOL        NUMS
+  C:003CH         SYMBOL        ROTINA
+  C:0000H         LINE#         3
+  C:0030H         LINE#         7
+  C:0032H         LINE#         8
+  C:0034H         LINE#         9
+  C:0036H         LINE#         10
+  C:0038H         LINE#         11
+  C:003AH         LINE#         12
+  C:003CH         LINE#         15
+  C:003DH         LINE#         16
+  C:003EH         LINE#         17
+  C:003FH         LINE#         18
+  C:0040H         LINE#         19
+  C:0041H         LINE#         20
+  C:0043H         LINE#         21
+  C:0045H         LINE#         22
+  C:0047H         LINE#         23
+  C:0048H         LINE#         24
+  C:0049H         LINE#         25
+  C:004AH         LINE#         26
+BL51 BANKED LINKER/LOCATER V6.22                                                      11/27/2013  18:24:33  PAGE 2
+
+
+  C:004CH         LINE#         27
+  C:004EH         LINE#         28
+  C:004FH         LINE#         29
+  C:0050H         LINE#         30
+  C:0051H         LINE#         31
+  C:0053H         LINE#         32
+  C:0054H         LINE#         33
+  C:0057H         LINE#         34
+  -------         ENDMOD        EX7
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0032H BYTE ( 2%) *
+******************************************************************************
+
+Program Size: data=8.0 xdata=0 code=50
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,40 @@
+A51 MACRO ASSEMBLER  BOTAO                                                                12/05/2014 21:34:45 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.02b
+OBJECT MODULE PLACED IN botao.OBJ
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE botao.a51 SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+----                   1     CSEG    AT 0H
+                       2             
+0000 020030            3             LJMP MAIN
+                       4     
+----                   5     CSEG    AT 30H
+                       6     
+0030                   7     MAIN:
+0030 E500              8             MOV     A,P3.3
+*** ___________________________________________^
+*** ERROR #A48 IN 8 (botao.a51, LINE 8): DATA-ADDRESS EXPECTED
+0032 F590              9             MOV     P1,A
+0034 80FA             10             JMP     MAIN
+                      11     
+                      12     END
+A51 MACRO ASSEMBLER  BOTAO                                                                12/05/2014 21:34:45 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+MAIN . . . . . . .  C ADDR   0030H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+P3 . . . . . . . .  D ADDR   00B0H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 1 ERROR(S)

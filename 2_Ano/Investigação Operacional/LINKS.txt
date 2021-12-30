@@ -1,0 +1,101 @@
+ Caderno de Exercícios
+Arquivos anexados:	
+ Exercicios_IO_0708.pdf (187,674 KB)
+Caderno de exercícios propostos para serem analisados nas aulas práticas
+
+
+Apontamentos (password: io0405)
+Arquivos anexados:	
+ apontamentos agr.zip (5,402 MB)
+A.J.M.Guimarães Rodrigues, Investigação Operacional - Modelos Determinísticos, Vol.I, Universidade do Minho, 1993.
+
+
+Aula de Apresentação da UC
+Arquivos anexados:	
+ io_MIECOM_2012.pdf (1,007 MB)
+Ficheiro com elementos informativos da uc. 
+Metodologia de avaliação (a confirmar e aprovar pelos alunos)
+
+
+Mapa de Aulas
+Arquivos anexados:	
+ Calendário Escolar2012_13_Miecom3.pdf (33,067 KB)
+Ficheiro com a calendarização das aulas. Lista de exercícios. Datas importantes da UC.
+
+
+Investigação Operacional
+Arquivos anexados:	
+ Aula1.pdf (1,297 MB)
+Slides para a Apresentação da Investigação Operacional
+Vídeo recomendado:
+http://freevideolectures.com/Course/2365/Fundamentals-of-Operations-Research/1 (primeiros 8 minutos)
+
+
+LP-Solve
+Arquivos anexados:	
+ LPSolveIDESetup55.zip (2,867 MB)
+Software para problemas de Programação Linear (Inteira). Contém um ficheiro dll que pode ser necessário instalar...
+
+
+Métodos de Programação Linear
+Arquivos anexados:	
+ Aula3.pdf (459,111 KB)
+Slides sobre Métodos de Programação Linear: Gráfica
+Video recomendado:
+http://freevideolectures.com/Course/2365/Fundamentals-of-Operations-Research/3
+
+
+Métodos de Programação Linear
+Arquivos anexados:	
+ Aula4.pdf (356,536 KB)
+Slides sobre Métodos de Programação Linear: Simplex
+Video recomendado:
+http://freevideolectures.com/Course/2365/Fundamentals-of-Operations-Research/4
+
+
+DicIO 
+Ativado:	Registro de Estatísticas
+Arquivos anexados:	
+ dicio.xls (144 KB)
+Dicionário Inglês-Português de Investigação Operacional.
+
+
+Portais de Pesquisa 
+Arquivos anexados:	
+ portais_Pesquisa.doc (795,5 KB)
+Links com alguns dos portais de pesquisa das editoras.
+Não esquecer que só terão acesso se estiverem na UMINHo, ou efectuarem uma ligação por VPN.
+
+Recomendo que utilizem a pesquisa avançada, quando disponível.
+Alguns portais permitem uma pesaquisa "Search within results". Por exemplo na ScienceDirect iniciam a pesquisa com o termo "Logistics" e obtêm 212,262 articles found for: ALL(Logistics) 
+Depois usando a pesquisa em "Search within results" com o termo "optimization" a pesquisa é filtrada e obtem-se 22,756 articles found for: ALL(Logistics) and Optimization. Deste modo podemos ir refinando a nossa pesquisa a um tema específico.
+
+Template 
+Ativado:	Registro de Estatísticas
+Arquivos anexados:	
+ Template.doc (38,5 KB)
+Ficheiro com a Template a utilizar para a realização do Trabalho Prático.
+
+
+Simplex Matricial 
+Arquivos anexados:	
+ Simplex_matricial.xls (33,5 KB)
+Folha de cálculo para construção do Quadro Simplex (3x3)
+
+
+Simplex Dual, Revisto e Matricial 
+Ativado:	Registro de Estatísticas
+Arquivos anexados:	
+ Aula5.pdf (370,429 KB)
+Slides de Métodos de Programação Linear: Simplex Dual, Revisto e Matricial
+
+Video recomendado:
+http://freevideolectures.com/Course/2365/Fundamentals-of-Operations-Research/10 (depois do minuto 20)
+http://freevideolectures.com/Course/2365/Fundamentals-of-Operations-Research/11
+
+Trabalho Prático 
+Ativado:	Registro de Estatísticas
+Arquivos anexados:	
+ TP1.pdf (57,173 KB)
+Enunciado do Trabalho Prático
+Data de entrega: 27 de Outubro de 2012

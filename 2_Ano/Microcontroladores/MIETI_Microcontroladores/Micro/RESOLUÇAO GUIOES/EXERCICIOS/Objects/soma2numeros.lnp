@@ -1,0 +1,3 @@
+".\Objects\soma.obj" 
+TO ".\Objects\soma2numeros" 
+PRINT(".\Listings\soma2numeros.m51") RAMSIZE(256) 

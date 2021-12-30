@@ -1,0 +1,105 @@
+A51 MACRO ASSEMBLER  GUIA2                                                                12/26/2016 18:42:20 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.5.0
+OBJECT MODULE PLACED IN .\Objects\guia2.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE guia2.a51 SET(SMALL) DEBUG PRINT(.\Listings\guia2.lst) OBJECT(.\Objects
+                      \guia2.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     
+
+                       2     
+
+----                   3             CSEG AT 0H
+
+0000 020020            4             LJMP MAIN
+
+                       5             
+
+----                   6             CSEG AT 20H
+
+0020                   7     MAIN:
+
+0020 752001            8             MOV 20H, #1
+
+0023 752102            9             MOV 21H, #2
+
+0026 752203           10             MOV 22H, #3
+
+0029 752304           11             MOV 23H, #4
+
+                      12             
+
+002C 7B04             13             MOV R3,#4
+
+002E 7820             14             MOV R0,#20H
+
+0030 7930             15             MOV R1,#30H
+
+                      16             
+
+                      17             
+
+0032                  18     LOOP:
+
+0032 E6               19             MOV A,@R0
+
+0033 08               20             INC R0
+
+0034 DB02             21             DJNZ R3,IMPSWAP 
+
+0036 800B             22             JMP TERMINA 
+
+                      23     
+
+0038                  24     IMPSWAP:
+
+0038 C3               25                     CLR C 
+
+0039 13               26                     RRC A 
+
+003A 4003             27                     JC POS_IMP 
+
+003C F8               28                     MOV R0,A  
+
+003D 80F3             29                     JMP LOOP
+
+                      30                     
+
+003F                  31     POS_IMP:
+
+003F F9               32                     MOV R1,A 
+
+0040 09               33                     INC R1 
+
+0041 80EF             34                     JMP LOOP
+
+                      35             
+
+0043                  36     TERMINA:
+
+0043 80FE             37                     SJMP $
+
+                      38     END
+
+A51 MACRO ASSEMBLER  GUIA2                                                                12/26/2016 18:42:20 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+IMPSWAP. . . . . .  C ADDR   0038H   A   
+LOOP . . . . . . .  C ADDR   0032H   A   
+MAIN . . . . . . .  C ADDR   0020H   A   
+POS_IMP. . . . . .  C ADDR   003FH   A   
+TERMINA. . . . . .  C ADDR   0043H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

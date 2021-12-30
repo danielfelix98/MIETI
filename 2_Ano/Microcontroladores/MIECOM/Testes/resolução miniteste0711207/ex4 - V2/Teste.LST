@@ -1,0 +1,71 @@
+A51 MACRO ASSEMBLER  TESTE                                                                11/26/2013 22:00:49 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.02b
+OBJECT MODULE PLACED IN Teste.OBJ
+ASSEMBLER INVOKED BY: C:\Keil\C51\BIN\A51.EXE Teste.a51 SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     
+                       2     
+----                   3     CSEG    AT      0H
+0000 802E              4     JMP MAIN
+----                   5     CSEG    AT      30H
+                       6     
+0030 D2E5              7     MAIN:   SETB    0E5H
+0032 900440            8                     MOV     DPTR,#ARMAZENAR
+0035 7800              9                     MOV     R0,#0H
+0037 7914             10                     MOV     R1,#20
+0039 7A00             11                     MOV             R2,#0H
+003B 7BFF             12                     MOV             R3,#0FFH
+                      13                     
+003D E8               14     CONTAR: MOV             A, R0
+003E 93               15                     MOVC    A,@A+DPTR
+003F FA               16                     MOV     R2,A    
+0040 08               17                     INC     R0;PROXIMO NUMERO
+0041 30E004           18                     JNB             Acc.0,PAR  ;VERIFICAR SE É PAR
+0044 D9F7             19                     DJNZ     R1, CONTAR
+0046 80FE             20                     JMP     $
+                      21                     
+0048 EA               22     PAR:    MOV             A,R2
+0049 C3               23                     CLR     C
+004A 9B               24                     SUBB    A,R3
+004B 4002             25                     JC              GUARDAR
+004D 80EE             26                     JMP             CONTAR
+                      27                     
+004F                  28     GUARDAR:
+004F EA               29                     MOV             A,R2
+0050 FB               30                     MOV             R3,A
+0051 D9EA             31                     DJNZ    R1, CONTAR
+0053 80FE             32                     JMP     $
+                      33                     
+----                  34             CSEG    AT      440H    
+0440                  35     ARMAZENAR:
+0440 03060804         36             DB 3H,6H,8H,4H,9H,9H,9H,1H,9H,2H,9H,9H,9H,9H,9H,9H,9H,9H,9H,9H,9H;
+0444 09090901                
+0448 09020909                
+044C 09090909                
+0450 09090909                
+0454 09                      
+                      37     END
+A51 MACRO ASSEMBLER  TESTE                                                                11/26/2013 22:00:49 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+ACC. . . . . . . .  D ADDR   00E0H   A   
+ARMAZENAR. . . . .  C ADDR   0440H   A   
+CONTAR . . . . . .  C ADDR   003DH   A   
+GUARDAR. . . . . .  C ADDR   004FH   A   
+MAIN . . . . . . .  C ADDR   0030H   A   
+PAR. . . . . . . .  C ADDR   0048H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

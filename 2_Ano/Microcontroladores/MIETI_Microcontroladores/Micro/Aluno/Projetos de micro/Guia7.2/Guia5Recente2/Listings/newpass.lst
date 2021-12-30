@@ -1,0 +1,117 @@
+A51 MACRO ASSEMBLER  NEWPASS                                                              02/02/2016 22:15:06 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.02c
+OBJECT MODULE PLACED IN .\Objects\newpass.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE newpass.a51 SET(SMALL) DEBUG PRINT(.\Listings\newpass.lst) OBJECT(.\Obj
+                      ects\newpass.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1             NAME NEWPASS
+                       2             PUBLIC INICIOPASS1
+                       3             NEWPASS SEGMENT CODE 
+----                   4             RSEG NEWPASS
+0000 8000              5             JMP INICIOPASS1
+                       6                     
+                       7             EXTRN CODE (INICIOREAD)
+                       8             EXTRN CODE (INICIOWAIT)
+                       9             EXTRN CODE (INICIODISPLAY)
+                      10             EXTRN DATA (COD3)
+                      11             EXTRN DATA (LER)
+                      12             EXTRN DATA (TRINCO)
+                      13                     
+                      14     
+                      15     
+0002                  16     INICIOPASS1:
+0002 BE0004           17             CJNE R6,#0,NOVA
+0005 7800     F       18             MOV R0,#LER
+0007 8007             19             JMP INTRODUZ
+0009                  20     NOVA:
+0009 AF00     F       21             MOV R7,TRINCO
+000B BF0144           22             CJNE R7,#1, FIMNP2
+000E 7800     F       23             MOV R0,#COD3
+0010                  24     INTRODUZ:
+0010 7A04             25             MOV R2,#4
+0012 E8               26             MOV A,R0
+0013 F9               27             MOV R1,A
+                      28             USING 0
+0014 C001             29             PUSH AR1
+0016 780D             30             MOV R0,#13
+0018 120000   F       31             LCALL INICIODISPLAY
+001B 7803             32             MOV R0,#3
+001D 120000   F       33             LCALL INICIOWAIT
+0020 D001             34             POP AR1
+0022 758920           35             MOV TMOD,#20H
+0025 758DFD           36             MOV TH1,#0FDH
+0028 759850           37             MOV SCON,#50H
+002B D28E             38             SETB TR1
+002D                  39     INICIO:
+                      40             USING 0
+002D C001             41             PUSH AR1
+                      42             USING 0
+002F C002             43             PUSH AR2
+0031 3098FD           44             JNB RI,$
+0034 C298             45             CLR RI
+0036 E599             46             MOV A,SBUF
+0038 9430             47             SUBB A,#30H
+003A F599             48             MOV SBUF,A
+003C 3099FD           49             JNB TI,$
+003F C299             50             CLR TI
+0041 D002             51             POP AR2
+0043 D001             52             POP AR1
+0045 F7               53             MOV @R1,A
+0046 09               54             INC R1
+0047 DAE4             55             DJNZ R2,INICIO
+0049 C28E             56             CLR TR1
+004B                  57     FIMNP:
+A51 MACRO ASSEMBLER  NEWPASS                                                              02/02/2016 22:15:06 PAGE     2
+
+004B 780E             58             MOV R0,#14
+004D 120000   F       59             LCALL INICIODISPLAY
+0050 8005             60             JMP FIMNP3
+0052                  61     FIMNP2:
+0052 780F             62             MOV R0,#15
+0054 120000   F       63             CALL INICIODISPLAY
+0057                  64     FIMNP3: 
+0057 7803             65             MOV R0,#3
+0059 120000   F       66             LCALL INICIOWAIT
+005C 22               67             RET
+                      68             END
+A51 MACRO ASSEMBLER  NEWPASS                                                              02/02/2016 22:15:06 PAGE     3
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+AR1. . . . . . . .  D ADDR   0001H   A   
+AR2. . . . . . . .  D ADDR   0002H   A   
+COD3 . . . . . . .  D ADDR   -----       EXT
+FIMNP. . . . . . .  C ADDR   004BH   R   SEG=NEWPASS
+FIMNP2 . . . . . .  C ADDR   0052H   R   SEG=NEWPASS
+FIMNP3 . . . . . .  C ADDR   0057H   R   SEG=NEWPASS
+INICIO . . . . . .  C ADDR   002DH   R   SEG=NEWPASS
+INICIODISPLAY. . .  C ADDR   -----       EXT
+INICIOPASS1. . . .  C ADDR   0002H   R   SEG=NEWPASS
+INICIOREAD . . . .  C ADDR   -----       EXT
+INICIOWAIT . . . .  C ADDR   -----       EXT
+INTRODUZ . . . . .  C ADDR   0010H   R   SEG=NEWPASS
+LER. . . . . . . .  D ADDR   -----       EXT
+NEWPASS. . . . . .  C SEG    005DH       REL=UNIT
+NOVA . . . . . . .  C ADDR   0009H   R   SEG=NEWPASS
+RI . . . . . . . .  B ADDR   0098H.0 A   
+SBUF . . . . . . .  D ADDR   0099H   A   
+SCON . . . . . . .  D ADDR   0098H   A   
+TH1. . . . . . . .  D ADDR   008DH   A   
+TI . . . . . . . .  B ADDR   0098H.1 A   
+TMOD . . . . . . .  D ADDR   0089H   A   
+TR1. . . . . . . .  B ADDR   0088H.6 A   
+TRINCO . . . . . .  D ADDR   -----       EXT
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

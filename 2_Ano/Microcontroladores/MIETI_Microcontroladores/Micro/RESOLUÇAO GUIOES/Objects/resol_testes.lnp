@@ -1,0 +1,3 @@
+".\Objects\resol_testes.obj" 
+TO ".\Objects\resol_testes" 
+PRINT(".\Listings\resol_testes.m51") RAMSIZE(256) 

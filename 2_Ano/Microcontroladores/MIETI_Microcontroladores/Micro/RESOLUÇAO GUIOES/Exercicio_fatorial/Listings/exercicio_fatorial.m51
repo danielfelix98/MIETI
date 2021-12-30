@@ -1,0 +1,85 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        12/25/2016  11:15:05  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\exercicio_fatorial.obj TO .\Objects\exercicio_fatorial PRINT (.\Listings\exercicio
+>> _fatorial.m51) RAMSIZE (256)
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\exercicio_fatorial.obj (EXERCICIO_FATORIAL)
+
+
+LINK MAP OF MODULE:  .\Objects\exercicio_fatorial (EXERCICIO_FATORIAL)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0002H     ABSOLUTE     
+                    0002H     002EH                  *** GAP ***
+            CODE    0030H     002EH     ABSOLUTE     
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\exercicio_fatorial (EXERCICIO_FATORIAL)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        EXERCICIO_FATORIAL
+  D:00E0H         SYMBOL        ACC
+  D:00F0H         SYMBOL        B
+  C:003FH         SYMBOL        CHECK1
+  C:0043H         SYMBOL        CHECK2
+  C:004DH         SYMBOL        FATORIAL
+  C:0052H         SYMBOL        FIM_FATORIAL
+  C:004CH         SYMBOL        FIM_VERIFICA_NUM
+  C:0030H         SYMBOL        MAIN
+  C:003AH         SYMBOL        NAO_VALIDO
+  C:0049H         SYMBOL        NOT1
+  C:0055H         SYMBOL        NOT_ONE
+  C:0046H         SYMBOL        VALID
+  C:003CH         SYMBOL        VERIFICA_NUM
+  C:0000H         LINE#         2
+  C:0030H         LINE#         7
+  C:0032H         LINE#         8
+  C:0033H         LINE#         10
+  C:0035H         LINE#         12
+  C:0037H         LINE#         14
+  C:0039H         LINE#         15
+  C:003AH         LINE#         17
+  C:003CH         LINE#         23
+  C:003FH         LINE#         26
+  C:0041H         LINE#         27
+  C:0043H         LINE#         30
+  C:0046H         LINE#         32
+  C:0047H         LINE#         33
+BL51 BANKED LINKER/LOCATER V6.22                                                      12/25/2016  11:15:05  PAGE 2
+
+
+  C:0049H         LINE#         36
+  C:004BH         LINE#         37
+  C:004CH         LINE#         39
+  C:004DH         LINE#         44
+  C:004FH         LINE#         46
+  C:0052H         LINE#         49
+  C:0054H         LINE#         50
+  C:0055H         LINE#         53
+  C:0056H         LINE#         55
+  C:0058H         LINE#         57
+  C:005AH         LINE#         59
+  C:005CH         LINE#         61
+  C:005DH         LINE#         62
+  -------         ENDMOD        EXERCICIO_FATORIAL
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0030H BYTE ( 2%) *
+******************************************************************************
+
+Program Size: data=8.0 xdata=0 code=48
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

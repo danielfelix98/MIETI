@@ -1,0 +1,105 @@
+A51 MACRO ASSEMBLER  TESTE                                                                01/08/2015 16:17:02 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.02b
+OBJECT MODULE PLACED IN teste.OBJ
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE teste.a51 SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     
+                       2             
+0000                   3             org 0H
+0000 020033            4     LJMP carrega
+                       5     
+000B                   6     org 000BH
+000B 8059              7     jmp isr_t0
+                       8     
+                       9     
+0033                  10     org 33H
+0033                  11     carrega:
+0033 7580FF           12             mov p0,#0ffh
+0036 7B18             13             mov r3,#24
+0038 7C02             14             mov r4,#2
+003A C2B3             15             clr p3.3
+003C C290             16             clr p1.0
+                      17             
+003E                  18     config_t0:
+003E 758901           19             mov tmod,#01h
+0041 758CC5           20             mov th0,#HIGH(-15000)
+0044 758A68           21             MOV TL0,#LOW(-15000)
+0047 75A882           22             mov ie, #82h
+004A D28C             23             setb tr0
+                      24             
+004C                  25     testa:
+004C 20B302           26             jb p3.3,vermelho
+004F 80FB             27             jmp testa
+                      28             
+0051                  29     vermelho:
+0051 C28C             30             clr tr0
+0053 758CC5           31             mov th0,#HIGH(-15000)
+0056 758A68           32             MOV TL0,#LOW(-15000)
+0059 7B73             33             mov r3,#115
+005B B290             34             cpl p1.0
+005D B291             35             cpl p1.1
+005F D28C             36             setb tr0
+                      37             
+0061                  38     vermelho_2:
+0061 30B3CF           39             jnb p3.3, carrega
+0064 80FB             40             jmp vermelho_2
+                      41     
+                      42     
+0066                  43     isr_t0:
+0066 30B30C           44             jnb p3.3,amarelo_isr
+                      45     
+0069                  46     vermelho_isr:
+0069 DB10             47             djnz r3, sair_isr
+006B 7B73             48             mov r3,#115
+006D DC0C             49             djnz r4,sair_isr
+006F B290             50             cpl p1.0
+0071 B2B3             51             cpl p3.3
+0073 8006             52             jmp sair_isr
+                      53     
+0075                  54     amarelo_isr:
+0075 DB04             55             djnz r3,sair_isr
+0077 B291             56             cpl p1.1
+0079 7B18             57             mov r3,#24
+                      58             
+A51 MACRO ASSEMBLER  TESTE                                                                01/08/2015 16:17:02 PAGE     2
+
+007B                  59     sair_isr:
+007B 32               60             reti
+                      61             
+                      62             
+                      63     END
+A51 MACRO ASSEMBLER  TESTE                                                                01/08/2015 16:17:02 PAGE     3
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+AMARELO_ISR. . . .  C ADDR   0075H   A   
+CARREGA. . . . . .  C ADDR   0033H   A   
+CONFIG_T0. . . . .  C ADDR   003EH   A   
+IE . . . . . . . .  D ADDR   00A8H   A   
+ISR_T0 . . . . . .  C ADDR   0066H   A   
+P0 . . . . . . . .  D ADDR   0080H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+P3 . . . . . . . .  D ADDR   00B0H   A   
+SAIR_ISR . . . . .  C ADDR   007BH   A   
+TESTA. . . . . . .  C ADDR   004CH   A   
+TH0. . . . . . . .  D ADDR   008CH   A   
+TL0. . . . . . . .  D ADDR   008AH   A   
+TMOD . . . . . . .  D ADDR   0089H   A   
+TR0. . . . . . . .  B ADDR   0088H.4 A   
+VERMELHO . . . . .  C ADDR   0051H   A   
+VERMELHO_2 . . . .  C ADDR   0061H   A   
+VERMELHO_ISR . . .  C ADDR   0069H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

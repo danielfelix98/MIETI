@@ -1,0 +1,4 @@
+"guia6.obj",
+".\serie.OBJ" 
+TO "Guia6" 
+RAMSIZE(256) 

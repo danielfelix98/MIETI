@@ -1,0 +1,45 @@
+A51 MACRO ASSEMBLER  1                                                                    12/18/2012 18:07:40 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.02a
+OBJECT MODULE PLACED IN 1.OBJ
+ASSEMBLER INVOKED BY: C:\Keil\C51\BIN\A51.EXE 1.a51 SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     PUBLIC MOSTRADIG
+                       2     
+                       3     
+                       4     
+                       5     
+                       6     
+0000                   7     MOSTRADIG:
+0000 900007            8                     MOV     DPTR, #TAB
+0003 93                9                     MOVC    A,@A+DPTR
+0004 F590             10                     MOV             P1,A
+0006 22               11                     RET
+0007                  12     TAB:
+0007 0CCF5446         13                     DB              0CH,0CFH,54H,46H,87H,26H,24H,4FH,40H,06H,05H,0A4H,0F4H,0C4H
+                             ,34H,35H
+000B 8726244F                
+000F 400605A4                
+0013 F4C43435                
+                      14     
+                      15     END
+A51 MACRO ASSEMBLER  1                                                                    12/18/2012 18:07:40 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+MOSTRADIG. . . . .  C ADDR   0000H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+TAB. . . . . . . .  C ADDR   0007H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

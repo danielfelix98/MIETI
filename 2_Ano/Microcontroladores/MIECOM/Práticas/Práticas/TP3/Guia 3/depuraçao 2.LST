@@ -1,0 +1,24 @@
+A51 MACRO ASSEMBLER  DEPURA_AO_2                                                          10/03/2013 16:34:14 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.02b
+OBJECT MODULE PLACED IN depuraçao 2.OBJ
+ASSEMBLER INVOKED BY: C:\Keil\C51\BIN\A51.EXE depuraçao 2.a51 SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+*** WARNING #A41 IN 0 (depuraçao 2.a51, LINE 0): MISSING 'END' STATEMENT
+A51 MACRO ASSEMBLER  DEPURA_AO_2                                                          10/03/2013 16:34:14 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  1 WARNING(S), 0 ERROR(S)

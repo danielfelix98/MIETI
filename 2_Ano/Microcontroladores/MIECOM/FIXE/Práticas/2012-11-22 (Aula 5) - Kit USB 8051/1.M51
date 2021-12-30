@@ -1,0 +1,59 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        12/18/2012  18:07:40  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL\C51\BIN\BL51.EXE 1.obj, main.obj TO 1 RAMSIZE (256)
+
+
+INPUT MODULES INCLUDED:
+  1.obj (1)
+  main.obj (MAIN)
+
+
+LINK MAP OF MODULE:  1 (1)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0017H     ABSOLUTE     
+* OVERLAP * CODE    0000H     0007H     ABSOLUTE     
+
+
+
+SYMBOL TABLE OF MODULE:  1 (1)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        1
+  C:0000H         PUBLIC        MOSTRADIG
+  D:0090H         SYMBOL        P1
+  C:0007H         SYMBOL        TAB
+  C:0000H         LINE#         8
+  C:0003H         LINE#         9
+  C:0004H         LINE#         10
+  C:0006H         LINE#         11
+  -------         ENDMOD        1
+
+  -------         MODULE        MAIN
+  C:0000H         SYMBOL        MAIN
+  C:0000H         LINE#         4
+  C:0002H         LINE#         5
+  C:0005H         LINE#         6
+  -------         ENDMOD        MAIN
+
+*** WARNING L5: CODE SPACE MEMORY OVERLAP
+    FROM:    0000H
+    TO:      0016H
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 001EH BYTE ( 1%) *
+******************************************************************************
+
+Program Size: data=8.0 xdata=0 code=30
+LINK/LOCATE RUN COMPLETE.  1 WARNING(S),  0 ERROR(S)

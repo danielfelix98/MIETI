@@ -1,0 +1,161 @@
+A51 MACRO ASSEMBLER  JSBJK                                                                12/27/2016 17:48:48 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.5.0
+NO OBJECT MODULE REQUESTED
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE jsbjk.a51 NOMOD51 SET(SMALL) DEBUG PRINT(.\Listings\jsbjk.lst) OBJECT(.
+                      \Objects\jsbjk.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     include<89c51ic2.inc>
+
+*** _________________________^
+*** ___________________________________^
+*** ERROR #A9 IN 1 (jsbjk.a51, LINE -3): SYNTAX ERROR
+*** ERROR #A1 IN 1 (jsbjk.a51, LINE -3): ILLEGAL CHARACTER IN NUMERIC CONSTANT
+                       2     
+
+----                   3     CSEG AT 00h                             
+
+0000 020030            4             LJMP MAIN
+
+                       5     
+
+----                   6             CSEG AT 2BH     
+
+002B 802D              7     JMP ISRT2               ;Vector utilizado para a interrupção desejada
+
+                       8                                             ;volta para o sitio de onde saiu.
+
+                       9             
+
+----                  10             CSEG AT 30H
+
+                      11     
+
+0030                  12     MAIN:
+
+0030 7B00             13             MOV             R3,#0
+
+0032 90005E           14             MOV             DPTR, #DISPLAY
+
+                      15             
+
+0035                  16             MOV     T2CON,#04H              ;ativar o timer 2 da forma que queremos. modo auto reload
+
+*** _________________________________________^
+*** ERROR #A45 IN 16 (jsbjk.a51, LINE 16): UNDEFINED SYMBOL (PASS-2)
+0038                  17             MOV     TH2,#HIGH (-1000)               ;estao a decrementar
+
+*** _________________________________________^
+*** ERROR #A45 IN 17 (jsbjk.a51, LINE 17): UNDEFINED SYMBOL (PASS-2)
+003B                  18             MOV     TL2,#LOW (-1000)
+
+*** _________________________________________^
+*** ERROR #A45 IN 18 (jsbjk.a51, LINE 18): UNDEFINED SYMBOL (PASS-2)
+003E                  19             MOV     RCAP2H,#HIGH (-1000)    ;quando o tf2 fica a 1 o rcap passa outra vez os valores para o th2.
+
+*** _________________________________________^
+*** ERROR #A45 IN 19 (jsbjk.a51, LINE 19): UNDEFINED SYMBOL (PASS-2)
+0041                  20             MOV             RCAP2L,#LOW (-1000)
+
+*** _________________________________________________^
+*** ERROR #A45 IN 20 (jsbjk.a51, LINE 20): UNDEFINED SYMBOL (PASS-2)
+0044                  21             SETB    EA                                              ;ativar as interrupcoes todas
+
+*** _________________________________________^
+*** ERROR #A45 IN 21 (jsbjk.a51, LINE 21): UNDEFINED SYMBOL (PASS-2)
+0046                  22             SETB    ET2                                             ;ativa a interrupçao especifica do timer 2.
+
+*** _________________________________________^
+*** ERROR #A45 IN 22 (jsbjk.a51, LINE 22): UNDEFINED SYMBOL (PASS-2)
+                      23             
+
+                      24             
+
+0048                  25     LOOP:
+
+0048 BBFAFD           26             CJNE    R3,#250,LOOP                    ;quando r3 chegar a 250 sai daqui. a cada microsegundo salta 
+
+                      27             
+
+004B                  28     ESCREVER:
+
+004B 7B00             29             MOV             R3,#0                                   ;como nunca mais volta a main, temos que garantir que fica a zero.
+
+004D E4               30             CLR             A
+
+004E 93               31             MOVC    A,@A+DPTR
+
+004F                  32             MOV             P1,A
+
+*** _________________________________________________^
+*** ERROR #A45 IN 32 (jsbjk.a51, LINE 32): UNDEFINED SYMBOL (PASS-2)
+0051 A3               33             INC             DPTR
+
+0052 B407F3           34             CJNE    A,#07h,LOOP
+
+0055 90005E           35             MOV     DPTR,#DISPLAY
+
+0058 80EE             36             JMP             LOOP
+
+005A                  37             ISRT2:
+
+A51 MACRO ASSEMBLER  JSBJK                                                                12/27/2016 17:48:48 PAGE     2
+
+005A                  38         CPL  P2.0           
+
+*** __________________________________^
+*** ERROR #A17 IN 38 (jsbjk.a51, LINE 38): INVALID BYTE BASE IN BIT ADDRESS EXPRESSION
+005A                  39             CLR     TF2                     ;Timer recomeça, quando o timer faz overflow o tf2 fica ativo e enquanto ficar assim o timer nao funciona
+
+*** _________________________________________^
+*** ERROR #A45 IN 39 (jsbjk.a51, LINE 39): UNDEFINED SYMBOL (PASS-2)
+005C 0B               40             INC             R3                                              ;conta as interrupçoes
+
+005D 32               41             RETI                            
+
+                      42     
+
+005E                  43     DISPLAY:
+
+005E 0CCF5446         44             DB              0CH,0CFH,54H,46H,87H,26H,24H,4FH,04H,07H
+
+0062 8726244F                
+0066 0407                    
+                      45             
+
+                      46     END
+
+A51 MACRO ASSEMBLER  JSBJK                                                                12/27/2016 17:48:48 PAGE     3
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+DISPLAY. . . . . .  C ADDR   005EH   A   
+EA . . . . . . . .    ----   -----       
+ESCREVER . . . . .  C ADDR   004BH   A   
+ET2. . . . . . . .    ----   -----       
+IC2. . . . . . . .    ----   -----       
+INCLUDE. . . . . .    ----   -----       
+ISRT2. . . . . . .  C ADDR   005AH   A   
+LOOP . . . . . . .  C ADDR   0048H   A   
+MAIN . . . . . . .  C ADDR   0030H   A   
+P1 . . . . . . . .    ----   -----       
+P2 . . . . . . . .    ----   -----       
+RCAP2H . . . . . .    ----   -----       
+RCAP2L . . . . . .    ----   -----       
+T2CON. . . . . . .    ----   -----       
+TF2. . . . . . . .    ----   -----       
+TH2. . . . . . . .    ----   -----       
+TL2. . . . . . . .    ----   -----       
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 12 ERROR(S)

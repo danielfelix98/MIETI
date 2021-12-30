@@ -1,0 +1,46 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        12/01/2016  17:23:18  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\guia1teste.obj TO .\Objects\guia1teste PRINT (.\Listings\guia1teste.m51) RAMSIZE (
+>> 256)
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\guia1teste.obj (GUIA1TESTE)
+
+
+LINK MAP OF MODULE:  .\Objects\guia1teste (GUIA1TESTE)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     004DH                  *** GAP ***
+            CODE    0050H     0003H     ABSOLUTE     
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\guia1teste (GUIA1TESTE)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        GUIA1TESTE
+  C:0050H         SYMBOL        MAIN
+  D:0090H         SYMBOL        P1
+  C:0000H         LINE#         2
+  C:0050H         LINE#         6
+  -------         ENDMOD        GUIA1TESTE
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0006H BYTE ( 0%) *
+******************************************************************************
+
+Program Size: data=8.0 xdata=0 code=6
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

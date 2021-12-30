@@ -1,0 +1,65 @@
+A51 MACRO ASSEMBLER  EXERCICIO                                                            11/28/2014 17:42:04 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.02b
+OBJECT MODULE PLACED IN Exercicio.OBJ
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE Exercicio.a51 SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+----                   1     CSEG AT 0H
+                       2     
+                       3             
+0000 75F0BB            4             MOV     B,#0BBH                 ;DIVISOR
+0003 90AD6B            5             MOV     DPTR,#0AD6BH                    ;DIVIDENDO
+                       6     
+0006 AA83              7             MOV     R2,DPH  
+0008 A982              8             MOV     R1,DPL
+                       9     
+000A E9               10             MOV     A,R1
+000B 900000           11             MOV     DPTR,#0H
+                      12             
+000E                  13     SUB:
+000E 95F0             14             SUBB    A,B
+0010 A3               15             INC     DPTR                    ;CONTAGEM DE SUBTRAÇÕES, FUNCIONA COMO QUOCIENTE NO
+                              FINAL DO PROGRAMA
+0011 20D702           16             JB              cy,DECREMENTA
+0014 80F8             17             JMP     SUB
+                      18             
+0016                  19     DECREMENTA:
+0016 1A               20             DEC     R2
+0017 C3               21             CLR     C
+0018 BA00F3           22             CJNE    R2,#0H,SUB
+001B 8000             23             JMP     FIM
+                      24     
+001D                  25     FIM:
+001D F5F0             26             MOV     B,A                                     ;B FICA COM O RESTO DA DIVISÃO.
+001F 80FE             27             JMP $
+                      28             
+                      29     END
+                                     
+                             ;Testei e funcionou corretamente com o meu exemplo.
+                             ;Cumprimentos, Hélder Rafael Costa Veloso, aluno nº 70017, de MIETI.
+                             
+                             
+A51 MACRO ASSEMBLER  EXERCICIO                                                            11/28/2014 17:42:04 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+B. . . . . . . . .  D ADDR   00F0H   A   
+CY . . . . . . . .  B ADDR   00D0H.7 A   
+DECREMENTA . . . .  C ADDR   0016H   A   
+DPH. . . . . . . .  D ADDR   0083H   A   
+DPL. . . . . . . .  D ADDR   0082H   A   
+FIM. . . . . . . .  C ADDR   001DH   A   
+SUB. . . . . . . .  C ADDR   000EH   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

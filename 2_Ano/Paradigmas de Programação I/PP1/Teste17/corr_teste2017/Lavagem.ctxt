@@ -1,0 +1,15 @@
+#BlueJ class context
+comment0.params=
+comment0.target=double\ getValor()
+comment1.params=c\ cc\ a\ t
+comment1.target=Lavagem(int,\ int,\ int,\ int)
+comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ Lavagem\r\n
+comment2.params=
+comment2.target=int\ getAgua()
+comment3.params=
+comment3.target=int\ getTempo()
+comment4.params=
+comment4.target=double\ custo()
+comment5.params=
+comment5.target=Lavagem\ clone()
+numComments=6

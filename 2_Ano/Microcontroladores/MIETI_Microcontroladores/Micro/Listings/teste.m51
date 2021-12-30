@@ -1,0 +1,60 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        10/11/2016  21:35:57  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\teste.obj TO .\Objects\teste PRINT (.\Listings\teste.m51) RAMSIZE (256)
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\teste.obj (TESTE)
+
+
+LINK MAP OF MODULE:  .\Objects\teste (TESTE)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     001BH     ABSOLUTE     
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\teste (TESTE)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        TESTE
+  C:0016H         SYMBOL        IMPAR
+  C:000BH         SYMBOL        LOOP
+  C:0003H         SYMBOL        MAIN
+  C:000EH         SYMBOL        PAR
+  C:0000H         LINE#         4
+  C:0003H         LINE#         13
+  C:0005H         LINE#         14
+  C:0007H         LINE#         15
+  C:0009H         LINE#         16
+  C:000BH         LINE#         19
+  C:000CH         LINE#         21
+  C:000EH         LINE#         24
+  C:000FH         LINE#         25
+  C:0011H         LINE#         26
+  C:0012H         LINE#         27
+  C:0013H         LINE#         28
+  C:0014H         LINE#         29
+  C:0016H         LINE#         32
+  C:0017H         LINE#         33
+  C:0018H         LINE#         34
+  C:0019H         LINE#         35
+  -------         ENDMOD        TESTE
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 001BH BYTE ( 1%) *
+******************************************************************************
+
+Program Size: data=8.0 xdata=0 code=27
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

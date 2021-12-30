@@ -1,0 +1,83 @@
+A51 MACRO ASSEMBLER  GUIAO2                                                               10/03/2016 22:05:51 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.5.0
+OBJECT MODULE PLACED IN .\Objects\guiao2.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE guiao2.a51 SET(SMALL) DEBUG PRINT(.\Listings\guiao2.lst) OBJECT(.\Objec
+                      ts\guiao2.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     
+
+                       2     
+
+----                   3             CSEG AT 0H
+
+0000 020050            4             LJMP MAIN
+
+                       5             
+
+----                   6             CSEG AT 50H
+
+0050                   7     MAIN:
+
+0050 752001            8             MOV 20H, #1
+
+0053 752102            9             MOV 21H, #2
+
+0056 752203           10             MOV 22H, #3
+
+0059 752304           11             MOV 23H, #4
+
+                      12             
+
+005C 7B04             13             MOV R3,#4
+
+005E 7814             14             MOV R0,#20
+
+0060 791E             15             MOV R1,#30
+
+                      16             
+
+0062                  17     LOOP:
+
+0062 E6               18             MOV     A,@R0
+
+0063 F7               19             MOV     @R1,A
+
+0064 08               20             INC     R0
+
+0065 09               21             INC     R1
+
+0066 DBFA             22             DJNZ    R3,LOOP
+
+                      23             
+
+0068                  24     AQUI:
+
+0068 80FE             25                     SJMP AQUI
+
+                      26     END
+
+                                     
+
+                                     
+
+A51 MACRO ASSEMBLER  GUIAO2                                                               10/03/2016 22:05:51 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+AQUI . . . . . . .  C ADDR   0068H   A   
+LOOP . . . . . . .  C ADDR   0062H   A   
+MAIN . . . . . . .  C ADDR   0050H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

@@ -1,0 +1,24 @@
+A51 MACRO ASSEMBLER  TESTE                                                                09/26/2013 15:41:20 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.02b
+OBJECT MODULE PLACED IN Teste.OBJ
+ASSEMBLER INVOKED BY: C:\Keil\C51\BIN\A51.EXE Teste.a51 SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+*** WARNING #A41 IN 0 (Teste.a51, LINE 0): MISSING 'END' STATEMENT
+A51 MACRO ASSEMBLER  TESTE                                                                09/26/2013 15:41:20 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  1 WARNING(S), 0 ERROR(S)

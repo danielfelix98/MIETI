@@ -1,0 +1,106 @@
+A51 MACRO ASSEMBLER  READCHAR                                                             01/25/2016 15:10:52 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.02c
+OBJECT MODULE PLACED IN .\Objects\readchar.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE readchar.a51 SET(SMALL) DEBUG PRINT(.\Listings\readchar.lst) OBJECT(.\O
+                      bjects\readchar.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1             NAME READ
+                       2             PUBLIC INICIOREAD
+                       3             READCODE SEGMENT CODE 
+----                   4             RSEG READCODE
+                       5                     
+                       6             EXTRN CODE (INICIODISPLAY)
+                       7             EXTRN CODE (INICIOWAIT)
+                       8             EXTRN CODE (INICIODETECT)
+                       9                     
+                      10     
+                      11     
+                      12     
+0000                  13     INICIOREAD:     
+0000 7800             14                             MOV R0,#0
+0002 120000   F       15                             LCALL INICIODISPLAY
+0005 7900             16                             MOV R1,#0
+0007 7A00             17                             MOV R2,#0
+0009                  18     DETETA:                 
+                      19                             USING 0
+0009 C001             20                             PUSH AR1
+000B 120000   F       21                             LCALL INICIODETECT
+000E E8               22                             MOV A,R0
+                      23                             USING 0
+000F C000             24                             PUSH AR0
+0011 7801             25                             MOV R0,#1
+0013 120000   F       26                             LCALL INICIOWAIT
+0016 D000             27                             POP AR0
+0018 D001             28                             POP AR1
+                      29                             
+001A FA               30                             MOV R2,A
+001B BA0006           31                             CJNE R2,#0,DETETA1  
+001E 790B             32                             MOV R1,#11
+0020 7A01             33                             MOV R2,#1
+0022 801B             34                             JMP DETETAFINAL
+0024                  35     DETETA1:
+0024 BA0218           36                             CJNE R2,#2,DETETAFINAL  
+0027 09               37                             INC R1
+0028 B90A02           38                             CJNE R1,#10,DISWAIT
+002B 7900             39                             MOV R1,#0
+002D                  40     DISWAIT:
+002D E9               41                             MOV A,R1
+002E F8               42                             MOV R0,A
+002F 120000   F       43                             LCALL INICIODISPLAY
+                      44                             USING 0
+0032 C001             45                             PUSH AR1
+                      46                             USING 0
+0034 C000             47                             PUSH AR0
+0036 7801             48                             MOV R0,#1
+0038 120000   F       49                             LCALL INICIOWAIT
+003B D000             50                             POP AR0
+003D D001             51                             POP AR1
+                      52                             
+003F                  53     DETETAFINAL:
+003F BA01C7           54                             CJNE R2,#1,DETETA  
+                      55                             USING 0
+0042 C001             56                             PUSH AR1
+                      57                             USING 0
+A51 MACRO ASSEMBLER  READCHAR                                                             01/25/2016 15:10:52 PAGE     2
+
+0044 C000             58                             PUSH AR0
+0046 7801             59                             MOV R0,#1
+0048 120000   F       60                             LCALL INICIOWAIT
+004B D000             61                             POP AR0
+004D D001             62                             POP AR1
+004F E9               63                             MOV A,R1
+0050 F8               64                             MOV R0,A
+0051 22               65                             RET
+                      66                             
+                      67     END
+                                                     
+A51 MACRO ASSEMBLER  READCHAR                                                             01/25/2016 15:10:52 PAGE     3
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+AR0. . . . . . . .  D ADDR   0000H   A   
+AR1. . . . . . . .  D ADDR   0001H   A   
+DETETA . . . . . .  C ADDR   0009H   R   SEG=READCODE
+DETETA1. . . . . .  C ADDR   0024H   R   SEG=READCODE
+DETETAFINAL. . . .  C ADDR   003FH   R   SEG=READCODE
+DISWAIT. . . . . .  C ADDR   002DH   R   SEG=READCODE
+INICIODETECT . . .  C ADDR   -----       EXT
+INICIODISPLAY. . .  C ADDR   -----       EXT
+INICIOREAD . . . .  C ADDR   0000H   R   SEG=READCODE
+INICIOWAIT . . . .  C ADDR   -----       EXT
+READ . . . . . . .  N NUMB   -----       
+READCODE . . . . .  C SEG    0052H       REL=UNIT
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

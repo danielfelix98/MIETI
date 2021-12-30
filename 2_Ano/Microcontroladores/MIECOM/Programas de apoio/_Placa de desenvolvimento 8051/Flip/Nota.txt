@@ -1,0 +1,7 @@
+Para aqueles que pede o JAVA:
+
+GOOGLE: 
+	ATMEL FLIP
+		-JRE - FLIP INSTALLER (quem já tem o java instalado)
+		-FLIP INSTALLER
+	

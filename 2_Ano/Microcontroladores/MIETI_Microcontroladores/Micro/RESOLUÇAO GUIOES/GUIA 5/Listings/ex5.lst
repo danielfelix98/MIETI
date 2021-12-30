@@ -1,0 +1,236 @@
+A51 MACRO ASSEMBLER  EX5                                                                  12/01/2016 15:16:17 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.5.0
+OBJECT MODULE PLACED IN .\Objects\ex5.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE ex5.a51 SET(SMALL) DEBUG PRINT(.\Listings\ex5.lst) OBJECT(.\Objects\ex5
+                      .obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     ;configs para cusar codigo externo.
+
+                       2      
+
+                       3     
+
+                       4                     EXTRN CODE (CONFIG_RS232)
+
+                       5                     EXTRN CODE (ENVIAR_RS232)
+
+                       6                     EXTRN CODE (RECEBER_RS232)
+
+                       7                             
+
+----                   8             cseg at 00h     
+
+0000 020024            9                     LJMP ESTADO1
+
+                      10                             
+
+                      11                             
+
+                      12     ; rotina para enviar para o display de 7 segmentos
+
+0003                  13     DISPLAY:
+
+0003 90000C           14             MOV DPTR,#TABELADISPLAY
+
+0006 9430             15             SUBB A,#30H
+
+0008 93               16             MOVC A,@A+DPTR
+
+0009 F590             17             MOV P1,A
+
+000B 22               18             RET
+
+                      19             
+
+000C                  20     TABELADISPLAY:
+
+000C 0CCF5446         21             DB 0CH,0CFH,54H,46H,87H,26H,24H,4FH,4H,6H
+
+0010 8726244F                
+0014 0406                    
+                      22     
+
+                      23     
+
+0016 900019           24     SALTOS: MOV DPTR,#TABESTADOS
+
+                      25                             
+
+0019                  26                     TABESTADOS:
+
+                      27             
+
+0019 0124             28                     AJMP ESTADO1
+
+001B 012D             29                     AJMP ESTADO2
+
+001D 0138             30                     AJMP ESTADO3
+
+001F 014E             31                     AJMP ESTADO4
+
+                      32                     
+
+                      33     
+
+                      34     
+
+                      35     
+
+                      36     
+
+                      37     
+
+                      38     
+
+                      39     
+
+                      40     
+
+                      41     
+
+                      42     
+
+                      43     
+
+                      44     
+
+                      45             
+
+0021 120000   F       46             CALL CONFIG_RS232
+
+                      47     
+
+0024                  48     ESTADO1: 
+
+                      49             
+
+                      50             
+
+0024 30B3FD           51             JNB P3.3,ESTADO1
+
+0027 7402             52             MOV A,#2
+
+                      53             
+
+                      54     
+
+0029 120000   F       55             LCALL ENVIAR_RS232
+
+A51 MACRO ASSEMBLER  EX5                                                                  12/01/2016 15:16:17 PAGE     2
+
+002C 73               56             JMP @A+DPTR
+
+                      57     
+
+002D                  58     ESTADO2:
+
+002D 30B5FD           59             JNB P3.5,ESTADO2
+
+0030 7403             60             MOV A,#3  
+
+0032 1103             61             CALL DISPLAY
+
+0034 120000   F       62             LCALL ENVIAR_RS232
+
+0037 73               63             JMP @A+DPTR
+
+                      64     
+
+0038                  65     ESTADO3:
+
+0038 30B508           66             JNB P3.5,TESTAOUTRO1
+
+003B 7404             67             MOV A,#4
+
+003D 1103             68             CALL DISPLAY
+
+                      69     
+
+003F 120000   F       70             LCALL ENVIAR_RS232
+
+0042 73               71             JMP @A+DPTR
+
+0043 30B3F2           72             TESTAOUTRO1: JNB P3.3,ESTADO3
+
+0046 7402             73                                     MOV A,#2
+
+0048 1103             74                                     CALL DISPLAY
+
+                      75                     
+
+004A 120000   F       76                                     LCALL ENVIAR_RS232
+
+004D 73               77                                     JMP @A+DPTR
+
+                      78     
+
+004E                  79     ESTADO4:
+
+004E 30B500           80             JNB P3.5,TESTAOUTRO2
+
+0051 20B300           81             TESTAOUTRO2: JB P3.3,OK
+
+                      82             
+
+0054                  83                       OK:
+
+0054 7401             84                                     MOV A,#1
+
+0056 1103             85                                     CALL DISPLAY
+
+0058 120000   F       86                                 LCALL ENVIAR_RS232
+
+005B 73               87                                     JMP @A+DPTR
+
+                      88             
+
+                      89             
+
+                      90             
+
+                      91             
+
+                      92     
+
+                      93     
+
+                      94                     
+
+                      95             
+
+                      96     END
+
+A51 MACRO ASSEMBLER  EX5                                                                  12/01/2016 15:16:17 PAGE     3
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+CONFIG_RS232 . . .  C ADDR   -----       EXT
+DISPLAY. . . . . .  C ADDR   0003H   A   
+ENVIAR_RS232 . . .  C ADDR   -----       EXT
+ESTADO1. . . . . .  C ADDR   0024H   A   
+ESTADO2. . . . . .  C ADDR   002DH   A   
+ESTADO3. . . . . .  C ADDR   0038H   A   
+ESTADO4. . . . . .  C ADDR   004EH   A   
+OK . . . . . . . .  C ADDR   0054H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+P3 . . . . . . . .  D ADDR   00B0H   A   
+RECEBER_RS232. . .  C ADDR   -----       EXT
+SALTOS . . . . . .  C ADDR   0016H   A   
+TABELADISPLAY. . .  C ADDR   000CH   A   
+TABESTADOS . . . .  C ADDR   0019H   A   
+TESTAOUTRO1. . . .  C ADDR   0043H   A   
+TESTAOUTRO2. . . .  C ADDR   0051H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

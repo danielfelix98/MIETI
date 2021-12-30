@@ -1,0 +1,11 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+C:\Users\Fernando\Dropbox\MIECOM\2º ANO\Microcontroladores\Práticas\Práticas\TP6\Guia 6\Modelo.uvproj
+Project File Date:  11/28/2013
+
+<h2>Output:</h2>
+"batchisp" -autoisp -device AT89C51RD2 -hardware RS232 -port COM6 -baudrate 9600 -operation MEMORY FLASH LOADBUFFER Modelo.HEX PROGRAM START RESET 00
+"batchisp" -autoisp -device AT89C51RD2 -hardware RS232 -port COM3 -baudrate 9600 -operation MEMORY FLASH LOADBUFFER Modelo.HEX PROGRAM START RESET 00

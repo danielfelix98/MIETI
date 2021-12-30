@@ -1,0 +1,87 @@
+A51 MACRO ASSEMBLER  MAIN                                                                 01/08/2015 18:42:59 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.02b
+OBJECT MODULE PLACED IN main.OBJ
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE main.a51 SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+----                   1     CSEG    AT      0H
+0000 020030            2             LJMP    MAIN
+                       3     
+----                   4     BSEG    AT 29H
+0029                   5     EXCESSO: DBIT 1
+                       6             
+----                   7     CSEG    AT 0BH
+000B 020047            8             LJMP LUZ
+                       9     
+----                  10     CSEG    AT 30H
+0030                  11     MAIN:
+0030 758901           12             MOV     TMOD,#1
+0033 758CD8           13             MOV     TH0,#HIGH(-10000)
+0036 758AF0           14             MOV     TL0,#LOW(-10000)
+0039 D2AF             15             SETB    EA
+003B D2A9             16             SETB    ET0
+003D D28C             17             SETB    TR0
+003F 7E96             18             MOV     R6,#150
+0041 7D96             19             MOV     R5,#150
+0043 7C0A             20             MOV     R4,#10
+                      21     
+0045                  22     LOOP:
+0045 80FE             23             JMP     $
+                      24     
+0047                  25     LUZ:
+0047 202911           26             JB              EXCESSO,VERMELHO
+004A 8000             27             JMP     AMARELO
+                      28     
+004C                  29     AMARELO:
+004C DE04             30             DJNZ    R6,OUT
+004E B291             31             CPL     P1.1
+0050 7E96             32             MOV     R6,#150
+                      33     
+0052                  34     OUT:
+0052 C28D             35             CLR     TF0
+0054 758CD8           36             MOV     TH0,#HIGH(-10000)
+0057 758AF0           37             MOV     TL0,#LOW(-10000)
+005A 32               38             RETI
+                      39     
+005B                  40     VERMELHO:
+005B C291             41             CLR     P1.1
+005D D290             42             SETB    P1.0
+005F DDF1             43             DJNZ    R5,OUT
+0061 7D96             44             MOV     R5,#150
+0063 DCED             45             DJNZ    R4,OUT
+0065 7C0A             46             MOV     R4,#10
+0067 C229             47             CLR     EXCESSO
+                      48     
+                      49     END
+A51 MACRO ASSEMBLER  MAIN                                                                 01/08/2015 18:42:59 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+AMARELO. . . . . .  C ADDR   004CH   A   
+EA . . . . . . . .  B ADDR   00A8H.7 A   
+ET0. . . . . . . .  B ADDR   00A8H.1 A   
+EXCESSO. . . . . .  B ADDR   0025H.1 A   
+LOOP . . . . . . .  C ADDR   0045H   A   
+LUZ. . . . . . . .  C ADDR   0047H   A   
+MAIN . . . . . . .  C ADDR   0030H   A   
+OUT. . . . . . . .  C ADDR   0052H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+TF0. . . . . . . .  B ADDR   0088H.5 A   
+TH0. . . . . . . .  D ADDR   008CH   A   
+TL0. . . . . . . .  D ADDR   008AH   A   
+TMOD . . . . . . .  D ADDR   0089H   A   
+TR0. . . . . . . .  B ADDR   0088H.4 A   
+VERMELHO . . . . .  C ADDR   005BH   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

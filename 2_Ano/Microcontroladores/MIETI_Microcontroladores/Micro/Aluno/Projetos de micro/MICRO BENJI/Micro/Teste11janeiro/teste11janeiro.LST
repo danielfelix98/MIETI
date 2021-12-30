@@ -1,0 +1,156 @@
+A51 MACRO ASSEMBLER  TESTE11JANEIRO                                                       12/05/2016 21:45:21 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.5.0
+OBJECT MODULE PLACED IN teste11janeiro.OBJ
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE teste11janeiro.a51 SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+----                   1     CSEG AT 0H
+
+0000 802E              2             JMP MAIN
+
+                       3     
+
+----                   4     CSEG AT 30H
+
+                       5             
+
+                       6     
+
+0030                   7     MAIN:
+
+0030 7C15              8             MOV     R4,#21
+
+0032 7830              9             MOV     R0,#30H
+
+0034 7940             10             MOV             R1,#40H
+
+0036 900030           11             MOV             DPTR,#30H
+
+                      12     
+
+0039                  13     SOMAS:
+
+0039 E6               14             MOV     A,@R0
+
+003A 08               15             INC     R0
+
+003B 26               16             ADD     A,@R0
+
+003C 08               17             INC     R0
+
+003D FF               18             MOV     R7,A            ;GUARDA O VALOR DA SOMA EM R7
+
+003E 7D08             19             MOV     R5,#8
+
+0040 BC0002           20             CJNE    R4,#0,ROTACAO
+
+0043 8025             21             JMP     FIM
+
+                      22     
+
+0045                  23     ROTACAO:
+
+0045 C3               24             CLR     c
+
+0046 13               25             RRC     A
+
+0047 4004             26             JC              CONTA
+
+0049 DDFA             27             DJNZ    R5,ROTACAO             
+
+004B 8005             28             JMP     VERIFICA
+
+                      29             
+
+004D                  30     CONTA:
+
+004D 0E               31             INC     R6                      ;NUMEROS DE 1'
+
+004E DDF5             32             DJNZ    R5,ROTACAO
+
+0050 8000             33             JMP     VERIFICA
+
+                      34     
+
+0052                  35     VERIFICA:
+
+0052 1C               36             DEC     R4
+
+0053 1C               37             DEC     R4
+
+0054 C3               38             CLR     c
+
+0055 E4               39             CLR     A
+
+0056 EE               40             MOV     A,R6            ;MOVE OS NUMEROS DE 1'
+
+0057 9406             41             SUBB    A,#6
+
+0059 7E00             42             MOV     R6,#0
+
+005B 20E702           43             JB              ACC.7,MENOS_DE_5
+
+005E 8005             44             JMP     MAIS_DE_5
+
+                      45     
+
+0060                  46     MENOS_DE_5:
+
+0060 EF               47             MOV     A,R7
+
+0061 F3               48             MOVX    @R1,A
+
+0062 09               49             INC     R1
+
+0063 80D4             50             JMP     SOMAS
+
+                      51     
+
+0065                  52     MAIS_DE_5:
+
+0065 EF               53             MOV     A,R7
+
+0066 F0               54             MOVX    @DPTR,A
+
+0067 A3               55             INC     DPTR
+
+0068 80CF             56             JMP     SOMAS
+
+                      57     
+
+006A                  58     FIM:
+
+A51 MACRO ASSEMBLER  TESTE11JANEIRO                                                       12/05/2016 21:45:21 PAGE     2
+
+006A 80FE             59             JMP     $
+
+                      60     
+
+                      61     END
+
+A51 MACRO ASSEMBLER  TESTE11JANEIRO                                                       12/05/2016 21:45:21 PAGE     3
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+ACC. . . . . . . .  D ADDR   00E0H   A   
+CONTA. . . . . . .  C ADDR   004DH   A   
+FIM. . . . . . . .  C ADDR   006AH   A   
+MAIN . . . . . . .  C ADDR   0030H   A   
+MAIS_DE_5. . . . .  C ADDR   0065H   A   
+MENOS_DE_5 . . . .  C ADDR   0060H   A   
+ROTACAO. . . . . .  C ADDR   0045H   A   
+SOMAS. . . . . . .  C ADDR   0039H   A   
+VERIFICA . . . . .  C ADDR   0052H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

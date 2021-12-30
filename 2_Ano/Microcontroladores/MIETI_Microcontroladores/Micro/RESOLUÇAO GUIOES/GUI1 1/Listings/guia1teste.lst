@@ -1,0 +1,40 @@
+A51 MACRO ASSEMBLER  GUIA1TESTE                                                           12/01/2016 17:23:18 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.5.0
+OBJECT MODULE PLACED IN .\Objects\guia1teste.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE guia1teste.a51 SET(SMALL) DEBUG PRINT(.\Listings\guia1teste.lst) OBJECT
+                      (.\Objects\guia1teste.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+----                   1     CSEG AT 00H
+
+0000 020050            2     LJMP MAIN
+
+----                   3     CSEG AT 50H
+
+                       4     
+
+0050                   5     MAIN: 
+
+0050 75903F            6     MOV P1,#3FH  
+
+                       7     END
+
+A51 MACRO ASSEMBLER  GUIA1TESTE                                                           12/01/2016 17:23:18 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+MAIN . . . . . . .  C ADDR   0050H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

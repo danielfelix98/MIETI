@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.params=
+comment0.target=double\ getValor()
+comment1.params=c\ cc\ t
+comment1.target=Revisao(int,\ int,\ int)
+comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ Revisao\r\n
+comment2.params=
+comment2.target=int\ getTempo()
+comment3.params=
+comment3.target=double\ custo()
+comment4.params=
+comment4.target=Revisao\ clone()
+numComments=5

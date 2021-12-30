@@ -1,0 +1,14 @@
+#BlueJ class context
+comment0.params=nom\ numeroc\ sal
+comment0.target=Mecanicos(java.lang.String,\ int,\ double)
+comment1.params=mec
+comment1.target=Mecanicos(Mecanicos)
+comment2.params=sBase
+comment2.target=void\ setSBase(double)
+comment3.params=
+comment3.target=double\ getSBase()
+comment4.params=
+comment4.target=double\ salario()
+comment5.params=
+comment5.target=Mecanicos\ clone()
+numComments=6

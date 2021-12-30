@@ -1,0 +1,57 @@
+A51 MACRO ASSEMBLER  TESTELED                                                             12/05/2014 21:29:45 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.02b
+OBJECT MODULE PLACED IN testeled.OBJ
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE testeled.a51 SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 000H  
+                       2             
+0000                   3     START: 
+0000 7409              4     MOV A,#00001001B  
+0002 F5F0              5     MOV B,A
+0004 780F              6     MOV R0,#0FH  
+0006                   7     LOOP: 
+0006 E5F0              8     MOV A,B
+0008 04                9     INC A
+0009 F5F0             10     MOV B,A
+000B 83               11     MOVC A,@A+PC  
+000C F590             12     MOV P1,A
+000E 1117             13     ACALL DELAY  
+0010 18               14     DEC R0 
+0011 E8               15     MOV A,R0  
+0012 60EC             16     JZ START  
+0014 80F0             17     SJMP LOOP
+0016 00               18     DB 0h
+0017 7C05             19     DELAY: MOV R4,#05H  
+0019 7B00             20     WAIT1: MOV R3,#00H
+001B 7A00             21     WAIT2: MOV R2,#00H
+001D DAFE             22     WAIT3: DJNZ R2,WAIT3
+001F DBFA             23     DJNZ R3,WAIT2
+0021 DCF6             24     DJNZ R4,WAIT1
+0023 22               25     RET
+                      26     END
+A51 MACRO ASSEMBLER  TESTELED                                                             12/05/2014 21:29:45 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+B. . . . . . . . .  D ADDR   00F0H   A   
+DELAY. . . . . . .  C ADDR   0017H   A   
+LOOP . . . . . . .  C ADDR   0006H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+START. . . . . . .  C ADDR   0000H   A   
+WAIT1. . . . . . .  C ADDR   0019H   A   
+WAIT2. . . . . . .  C ADDR   001BH   A   
+WAIT3. . . . . . .  C ADDR   001DH   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

@@ -1,0 +1,53 @@
+A51 MACRO ASSEMBLER  DISPLAY                                                              01/14/2016 13:36:26 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.02c
+OBJECT MODULE PLACED IN .\Objects\Display.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE Display.a51 SET(SMALL) DEBUG PRINT(.\Listings\Display.lst) OBJECT(.\Obj
+                      ects\Display.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1             NAME DISPLAY
+                       2             PUBLIC INICIODISPLAY
+                       3             DISPLAYCODE SEGMENT CODE 
+----                   4             RSEG DISPLAYCODE
+0000 020000   F        5             JMP INICIODISPLAY
+                       6             
+                       7             TABLECODE SEGMENT CODE
+----                   8             RSEG TABLECODE
+0000 0CCF5446          9             TABLE: DB 0CH,0CFH,54H,46H,87H,26H,24H,4FH,4H,6H,0FFH,0DH,82H,15H,34H
+0004 8726244F                
+0008 0406FF0D                
+000C 821534                  
+                      10     
+000F                  11     INICIODISPLAY:
+000F 900000   F       12             MOV DPTR,#TABLE
+0012 E8               13             MOV A,R0
+0013 93               14             MOVC A,@A+DPTR
+0014 F590             15             MOV P1,A
+                      16     
+                      17             
+0016 22               18             FIM: RET
+                      19     END                                     
+A51 MACRO ASSEMBLER  DISPLAY                                                              01/14/2016 13:36:26 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+DISPLAY. . . . . .  N NUMB   -----       
+DISPLAYCODE. . . .  C SEG    0003H       REL=UNIT
+FIM. . . . . . . .  C ADDR   0016H   R   SEG=TABLECODE
+INICIODISPLAY. . .  C ADDR   000FH   R   SEG=TABLECODE
+P1 . . . . . . . .  D ADDR   0090H   A   
+TABLE. . . . . . .  C ADDR   0000H   R   SEG=TABLECODE
+TABLECODE. . . . .  C SEG    0017H       REL=UNIT
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

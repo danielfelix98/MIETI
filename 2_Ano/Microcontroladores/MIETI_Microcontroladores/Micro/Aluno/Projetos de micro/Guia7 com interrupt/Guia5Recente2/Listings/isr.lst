@@ -1,0 +1,60 @@
+A51 MACRO ASSEMBLER  ISR                                                                  01/23/2016 16:36:44 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.02c
+OBJECT MODULE PLACED IN .\Objects\isr.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE isr.a51 SET(SMALL) DEBUG PRINT(.\Listings\isr.lst) OBJECT(.\Objects\isr
+                      .obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1             NAME ISR
+                       2             PUBLIC ISR
+                       3             ISRCODE SEGMENT CODE 
+----                   4             RSEG ISRCODE
+0000 8000              5             JMP ISR
+                       6             
+                       7             EXTRN DATA (TRINCO)
+                       8     
+0002                   9     ISR:
+0002 C28E             10             CLR TR1
+0004 758D3C           11             MOV TH1,#HIGH(-50000)
+0007 758BB0           12             MOV TL1,#LOW(-50000)
+000A D28E             13             SETB TR1
+000C BC000A           14             CJNE R4,#0,CONTINUA
+000F BD000A           15             CJNE R5,#0,CONTINUA2
+0012 750000   F       16             MOV TRINCO,#0
+0015 C28E             17             CLR TR1
+0017 8006             18             JMP FIMISR
+0019                  19     CONTINUA:
+0019 1C               20             DEC R4
+001A 8003             21             JMP FIMISR
+001C                  22     CONTINUA2:      
+001C 1D               23             DEC R5
+001D 8000             24             JMP FIMISR
+001F                  25     FIMISR:
+001F 22               26             RET
+                      27             END
+A51 MACRO ASSEMBLER  ISR                                                                  01/23/2016 16:36:44 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+CONTINUA . . . . .  C ADDR   0019H   R   SEG=ISRCODE
+CONTINUA2. . . . .  C ADDR   001CH   R   SEG=ISRCODE
+FIMISR . . . . . .  C ADDR   001FH   R   SEG=ISRCODE
+ISR. . . . . . . .  C ADDR   0002H   R   SEG=ISRCODE
+ISRCODE. . . . . .  C SEG    0020H       REL=UNIT
+TH1. . . . . . . .  D ADDR   008DH   A   
+TL1. . . . . . . .  D ADDR   008BH   A   
+TR1. . . . . . . .  B ADDR   0088H.6 A   
+TRINCO . . . . . .  D ADDR   -----       EXT
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

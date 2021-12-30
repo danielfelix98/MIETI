@@ -1,0 +1,162 @@
+A51 MACRO ASSEMBLER  EX5                                                                  12/04/2016 13:04:48 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.5.0
+OBJECT MODULE PLACED IN .\Objects\ex5.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE ex5.a51 SET(SMALL) DEBUG PRINT(.\Listings\ex5.lst) OBJECT(.\Objects\ex5
+                      .obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     
+
+                       2                     EXTRN CODE (CONFIG_RS232)
+
+                       3                     EXTRN CODE (ENVIAR_RS232)
+
+                       4                     EXTRN CODE (RECEBER_RS232)
+
+                       5                             
+
+                       6             ;#include <89c51ic2.inc>
+
+                       7     
+
+----                   8     CSEG AT 00H
+
+                       9             
+
+0000 02006B           10             LJMP MAIN
+
+                      11     
+
+----                  12     CSEG AT 50H
+
+                      13     
+
+0050                  14     ESTADOS:
+
+0050 CF544687         15             DB 0CFH,54H,46H,87H
+
+                      16     
+
+0054                  17     TABESTADOS:
+
+0054 900050           18             MOV DPTR, #ESTADOS
+
+0057 93               19             MOVC A,@A+DPTR
+
+0058 F590             20             MOV P1, A
+
+005A 22               21             RET
+
+                      22             
+
+005B                  23     CHECK:
+
+005B 20B314           24             JB P3.3, E2
+
+005E 30B51E           25             JNB P3.5, E4
+
+0061 80F8             26             JMP CHECK
+
+                      27             
+
+0063                  28     CHECK2:
+
+0063 30B305           29             JNB P3.3, MAIN
+
+0066 20B509           30             JB P3.5, E2
+
+0069 80F8             31             JMP CHECK2
+
+                      32             
+
+006B                  33     MAIN:
+
+006B 7400             34             MOV A, #0  
+
+006D 1154             35             CALL TABESTADOS  
+
+                      36             
+
+006F                  37     HOLD:
+
+006F 20B3FD           38             JB P3.3, HOLD  
+
+0072                  39     E2:     
+
+0072 7401             40             MOV A, #1        
+
+0074 1154             41             CALL TABESTADOS  
+
+                      42             
+
+                      43     
+
+0076                  44     HOLD2:
+
+0076 20B5FD           45             JB P3.5, HOLD2  
+
+0079                  46     E3:      
+
+0079 7402             47             MOV A, #2        
+
+007B 1154             48             CALL TABESTADOS  
+
+007D 80DC             49             JMP CHECK
+
+007F                  50     E4:
+
+007F 7403             51             MOV A,#3
+
+0081 1154             52             CALL TABESTADOS
+
+                      53             
+
+0083 80DE             54             JMP CHECK2
+
+                      55             
+
+                      56     
+
+                      57     
+
+A51 MACRO ASSEMBLER  EX5                                                                  12/04/2016 13:04:48 PAGE     2
+
+                      58     
+
+0085                  59     FIM:
+
+                      60             END
+
+A51 MACRO ASSEMBLER  EX5                                                                  12/04/2016 13:04:48 PAGE     3
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+CHECK. . . . . . .  C ADDR   005BH   A   
+CHECK2 . . . . . .  C ADDR   0063H   A   
+CONFIG_RS232 . . .  C ADDR   -----       EXT
+E2 . . . . . . . .  C ADDR   0072H   A   
+E3 . . . . . . . .  C ADDR   0079H   A   
+E4 . . . . . . . .  C ADDR   007FH   A   
+ENVIAR_RS232 . . .  C ADDR   -----       EXT
+ESTADOS. . . . . .  C ADDR   0050H   A   
+FIM. . . . . . . .  C ADDR   0085H   A   
+HOLD . . . . . . .  C ADDR   006FH   A   
+HOLD2. . . . . . .  C ADDR   0076H   A   
+MAIN . . . . . . .  C ADDR   006BH   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+P3 . . . . . . . .  D ADDR   00B0H   A   
+RECEBER_RS232. . .  C ADDR   -----       EXT
+TABESTADOS . . . .  C ADDR   0054H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

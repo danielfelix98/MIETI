@@ -1,0 +1,65 @@
+A51 MACRO ASSEMBLER  2                                                                    11/15/2012 18:08:47 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.02a
+OBJECT MODULE PLACED IN .\2.obj
+ASSEMBLER INVOKED BY: C:\Keil\C51\BIN\A51.EXE ..\2012-11-15 (Aula 4)\2.A51 SET(SMALL) DEBUG PRINT(.\2.lst) OBJECT(.\2.ob
+                      j) EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1             NAME MAIN
+                       2     ;#include<89C51Rx2.inc>
+                       3     
+                       4             EXTRN           CODE    (INICIOH2A)
+  0005                 5             NO_LOOPS        EQU             5
+                       6     
+----                   7             CSEG    AT 0H
+0000 020030            8             LJMP    START
+                       9     
+----                  10             CSEG    AT 30H
+0030                  11     START:
+0030 752005           12             MOV             20H,#05H
+0033 752108           13             MOV             21H,#08H
+0036 75220A           14             MOV             22H,#0AH
+0039 75230E           15             MOV             23H,#0EH
+003C 752407           16             MOV             24H,#07H
+                      17     
+003F 7A05             18             MOV     R2,#NO_LOOPS
+0041 7820             19             MOV             R0,#20H
+0043 7908             20             MOV             R1,#8H
+                      21     
+0045                  22     LOOP:
+0045 E6               23             MOV             A,@R0
+0046 C0E0             24             PUSH    ACC
+0048 120000   F       25             LCALL   INICIOH2A
+004B E5F0             26             MOV     A,B
+004D F3               27             MOVX    @R1,A                   
+004E D0E0             28             POP             ACC
+0050 08               29             INC             R0
+0051 09               30             INC             R1
+0052 DAF1             31             DJNZ    R2,LOOP
+0054 80FE             32             SJMP    $
+                      33     END
+                             
+A51 MACRO ASSEMBLER  2                                                                    11/15/2012 18:08:47 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+ACC. . . . . . . .  D ADDR   00E0H   A   
+B. . . . . . . . .  D ADDR   00F0H   A   
+INICIOH2A. . . . .  C ADDR   -----       EXT
+LOOP . . . . . . .  C ADDR   0045H   A   
+MAIN . . . . . . .  N NUMB   -----       
+NO_LOOPS . . . . .  N NUMB   0005H   A   
+START. . . . . . .  C ADDR   0030H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

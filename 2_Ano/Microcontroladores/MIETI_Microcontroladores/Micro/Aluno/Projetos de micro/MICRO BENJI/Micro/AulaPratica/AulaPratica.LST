@@ -1,0 +1,78 @@
+A51 MACRO ASSEMBLER  AULAPRATICA                                                          12/05/2014 20:49:19 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.02b
+OBJECT MODULE PLACED IN AulaPratica.OBJ
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE AulaPratica.a51 SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+----                   1     CSEG    AT      0H
+                       2             
+0000 020030            3             LJMP BA1
+                       4             
+----                   5     CSEG    AT 30H
+                       6     
+0030                   7     BA1:
+0030 7840              8             MOV     R0,#40H
+0032 7942              9             MOV     R1,#42H
+0034 7A80             10             MOV     R2,#128
+0036 7B00             11             MOV     R3,#0
+0038 E6               12             MOV     A,@R0
+                      13             
+0039                  14     BD1:
+0039 20E702           15             JB              ACC.7,BA2
+003C 8008             16             JMP     BA3
+                      17     
+003E                  18     BA2:
+003E C0E0             19             PUSH    ACC
+0040 EA               20             MOV     A,R2
+0041 F7               21             MOV     @R1,A
+0042 D0E0             22             POP     ACC
+0044 09               23             INC     R1
+0045 0B               24             INC     R3
+                      25     
+0046                  26     BA3:
+0046 23               27             RL              A
+0047 C0E0             28             PUSH    ACC
+0049 EA               29             MOV     A,R2
+004A C3               30             CLR     c
+004B 13               31             RRC     A
+004C FA               32             MOV     R2,A
+004D D0E0             33             POP     ACC
+                      34     
+004F                  35     BD2:
+004F BA00E7           36             CJNE    R2,#0H,BD1
+                      37     
+0052                  38     BA4:
+0052 7941             39             MOV     R1,#41H
+0054 EB               40             MOV     A,R3
+0055 F7               41             MOV     @R1,A
+0056 8000             42             JMP     FIM
+                      43     
+0058                  44     FIM:
+0058 80FE             45             JMP     $
+                      46     
+                      47     END
+A51 MACRO ASSEMBLER  AULAPRATICA                                                          12/05/2014 20:49:19 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+ACC. . . . . . . .  D ADDR   00E0H   A   
+BA1. . . . . . . .  C ADDR   0030H   A   
+BA2. . . . . . . .  C ADDR   003EH   A   
+BA3. . . . . . . .  C ADDR   0046H   A   
+BA4. . . . . . . .  C ADDR   0052H   A   
+BD1. . . . . . . .  C ADDR   0039H   A   
+BD2. . . . . . . .  C ADDR   004FH   A   
+FIM. . . . . . . .  C ADDR   0058H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

@@ -1,0 +1,48 @@
+A51 MACRO ASSEMBLER  1                                                                    01/02/2013 18:58:07 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.02a
+OBJECT MODULE PLACED IN 1.OBJ
+ASSEMBLER INVOKED BY: C:\Keil\C51\BIN\A51.EXE 1.a51 SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+----                   1     CSEG    AT      0H
+0000 802E              2     JMP MAIN
+----                   3     CSEG    AT      30H
+                       4     
+0030                   5     MAIN:
+0030 78B2              6             MOV             R0,#0B2H
+0032 79C2              7             MOV             R1,#0C2H
+0034 7BA4              8             MOV             R3,#0A4H
+0036 7CFD              9             MOV             R4,#0FDH  
+0038 7DAA             10             MOV             R5,#0AAH
+003A 7EF1             11             MOV             R6,#0F1H
+003C 8883             12             MOV     DPH,R0
+003E 8982             13             MOV             DPL,R1
+0040 EB               14             MOV             A,R3
+0041 F0               15             MOVX    @DPTR,A
+                      16             
+0042 8D83             17             MOV     DPH,R5
+0044 8E82             18             MOV             DPL,R6
+0046 EC               19             MOV             A,R4
+0047 F0               20             MOVX    @DPTR,A
+                      21     
+                      22     END
+A51 MACRO ASSEMBLER  1                                                                    01/02/2013 18:58:07 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+DPH. . . . . . . .  D ADDR   0083H   A   
+DPL. . . . . . . .  D ADDR   0082H   A   
+MAIN . . . . . . .  C ADDR   0030H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

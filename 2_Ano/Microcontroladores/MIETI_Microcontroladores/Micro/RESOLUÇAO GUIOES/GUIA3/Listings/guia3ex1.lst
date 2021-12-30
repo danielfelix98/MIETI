@@ -1,0 +1,106 @@
+A51 MACRO ASSEMBLER  GUIA3EX1                                                             10/25/2016 16:21:40 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.5.0
+OBJECT MODULE PLACED IN .\Objects\guia3ex1.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE guia3ex1.a51 SET(SMALL) DEBUG PRINT(.\Listings\guia3ex1.lst) OBJECT(.\O
+                      bjects\guia3ex1.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     
+
+                       2     
+
+----                   3             CSEG AT 00H
+
+0000 020003            4             LJMP MAIN
+
+                       5             
+
+0003                   6     MAIN:
+
+0003 7930              7             MOV R1,#30H
+
+0005 7A80              8             MOV R2,#80H;PAR
+
+0007 7BA0              9             MOV R3,#0A0H;IMPAR
+
+0009 7C00             10             MOV R4,#0;CONTADOR
+
+000B                  11     LOOP:
+
+000B E7               12             MOV A,@R1
+
+000C 09               13             INC R1
+
+000D 75F002           14             MOV B,#2
+
+0010 84               15             DIV AB
+
+0011 E5F0             16             MOV A,B
+
+0013 B4000C           17             CJNE A,#0,IMPAR
+
+                      18                     
+
+0016                  19     PAR:    
+
+0016 E7               20             MOV A,@R1
+
+0017 A802             21             mov R0, 02H
+
+0019 F6               22             MOV @R0,A
+
+001A 0A               23             INC R2
+
+001B 09               24             INC R1
+
+001C 0C               25             INC R4
+
+001D BC14EB           26             CJNE R4,#20, LOOP
+
+0020 800A             27             JMP FIM
+
+                      28                     
+
+0022                  29     IMPAR:
+
+0022 E7               30             MOV A,@R1
+
+0023 A803             31             MOV R0,03H
+
+0025 F6               32             MOV @R0,A
+
+0026 0B               33             INC R3
+
+0027 BC14E1           34             CJNE R4,#20,LOOP
+
+002A 8000             35             JMP FIM
+
+002C                  36     FIM:
+
+002C 80FE             37                     SJMP $
+
+                      38                     END
+
+A51 MACRO ASSEMBLER  GUIA3EX1                                                             10/25/2016 16:21:40 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+B. . . . . . . . .  D ADDR   00F0H   A   
+FIM. . . . . . . .  C ADDR   002CH   A   
+IMPAR. . . . . . .  C ADDR   0022H   A   
+LOOP . . . . . . .  C ADDR   000BH   A   
+MAIN . . . . . . .  C ADDR   0003H   A   
+PAR. . . . . . . .  C ADDR   0016H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

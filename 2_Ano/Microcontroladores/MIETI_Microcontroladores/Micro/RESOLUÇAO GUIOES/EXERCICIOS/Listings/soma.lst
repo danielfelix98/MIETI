@@ -1,0 +1,65 @@
+A51 MACRO ASSEMBLER  SOMA                                                                 10/25/2016 16:41:53 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.5.0
+OBJECT MODULE PLACED IN .\Objects\soma.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE soma.a51 SET(SMALL) DEBUG PRINT(.\Listings\soma.lst) OBJECT(.\Objects\s
+                      oma.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     
+
+----                   2     CSEG AT 0H
+
+                       3             
+
+0000 8000              4     JMP MAIN
+
+                       5     
+
+0002                   6     MAIN:
+
+                       7             
+
+0002 7F51              8             MOV R7,#51H
+
+0004 7E50              9             MOV R6,#50H
+
+0006 7D61             10             MOV R5,#61H
+
+0008 7C60             11             MOV R4,#60H
+
+                      12     
+
+000A EF               13             MOV A,R7    
+
+000B 2D               14         ADD A,R5     
+
+000C FB               15         MOV R3,A 
+
+                      16             
+
+000D EE               17             MOV A,R6    
+
+000E 3C               18         ADDC A,R4  
+
+000F FA               19         MOV R2,A  
+
+                      20     END
+
+A51 MACRO ASSEMBLER  SOMA                                                                 10/25/2016 16:41:53 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+MAIN . . . . . . .  C ADDR   0002H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

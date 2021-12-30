@@ -1,0 +1,3 @@
+".\Objects\exercicio_fatorial.obj" 
+TO ".\Objects\exercicio_fatorial" 
+PRINT(".\Listings\exercicio_fatorial.m51") RAMSIZE(256) 

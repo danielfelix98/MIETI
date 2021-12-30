@@ -1,0 +1,4 @@
+"guia4.obj",
+"..\serie.OBJ" 
+TO "Teste" 
+RAMSIZE(256) 

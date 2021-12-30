@@ -1,0 +1,99 @@
+A51 MACRO ASSEMBLER  DETECTKEYS                                                           12/26/2015 18:29:15 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.02c
+OBJECT MODULE PLACED IN .\Objects\detectkeys.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE detectkeys.a51 SET(SMALL) DEBUG PRINT(.\Listings\detectkeys.lst) OBJECT
+                      (.\Objects\detectkeys.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1             NAME DETECT
+                       2             PUBLIC INICIODETECT
+                       3             DETECTCODE SEGMENT CODE 
+----                   4             RSEG DETECTCODE
+0000 8000              5             JMP INICIODETECT
+                       6             
+                       7             EXTRN CODE (INICIOWAIT)
+                       8                     
+                       9     
+                      10             
+0002                  11     INICIODETECT:
+0002 7800             12             MOV R0,#0
+0004 7900             13             MOV R1,#0
+0006                  14     BOTOES:
+0006 30B50F           15             JNB P3.5,ENTER
+0009 30B316           16             JNB P3.3,SOMA
+000C 80F8             17             JMP BOTOES
+                      18     
+000E                  19     BOTOES2:
+000E 30B316           20             JNB P3.3,SOMA1
+0011 8017             21             JMP TESTE
+                      22             
+0013                  23     BOTOES3:
+0013 30B507           24             JNB P3.5,NORMAL
+0016 8012             25             JMP TESTE
+                      26     
+0018                  27     ENTER:
+0018 7801             28             MOV R0,#1
+001A 09               29             INC R1
+                      30             
+001B 80F1             31             JMP BOTOES2
+                      32             
+001D                  33     NORMAL:
+001D 7802             34             MOV R0,#2
+001F 09               35             INC R1
+                      36             
+0020 8008             37             JMP TESTE
+0022                  38     SOMA:
+0022 7802             39             MOV R0,#2
+0024 09               40             INC R1
+                      41             
+0025 80EC             42             JMP BOTOES3
+0027                  43     SOMA1:
+0027 7801             44             MOV R0,#1
+0029 09               45             INC R1
+                      46             
+                      47             
+002A                  48     TESTE:
+002A B90002           49             CJNE R1,#0,TESTE2
+002D 80D7             50             JMP BOTOES
+002F                  51     TESTE2:
+002F B90202           52             CJNE R1,#2,FIM
+0032 7800             53             MOV R0,#0
+0034                  54     FIM:    
+0034 22               55             RET
+                      56             END
+                                     
+A51 MACRO ASSEMBLER  DETECTKEYS                                                           12/26/2015 18:29:15 PAGE     2
+
+                                     
+A51 MACRO ASSEMBLER  DETECTKEYS                                                           12/26/2015 18:29:15 PAGE     3
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+BOTOES . . . . . .  C ADDR   0006H   R   SEG=DETECTCODE
+BOTOES2. . . . . .  C ADDR   000EH   R   SEG=DETECTCODE
+BOTOES3. . . . . .  C ADDR   0013H   R   SEG=DETECTCODE
+DETECT . . . . . .  N NUMB   -----       
+DETECTCODE . . . .  C SEG    0035H       REL=UNIT
+ENTER. . . . . . .  C ADDR   0018H   R   SEG=DETECTCODE
+FIM. . . . . . . .  C ADDR   0034H   R   SEG=DETECTCODE
+INICIODETECT . . .  C ADDR   0002H   R   SEG=DETECTCODE
+INICIOWAIT . . . .  C ADDR   -----       EXT
+NORMAL . . . . . .  C ADDR   001DH   R   SEG=DETECTCODE
+P3 . . . . . . . .  D ADDR   00B0H   A   
+SOMA . . . . . . .  C ADDR   0022H   R   SEG=DETECTCODE
+SOMA1. . . . . . .  C ADDR   0027H   R   SEG=DETECTCODE
+TESTE. . . . . . .  C ADDR   002AH   R   SEG=DETECTCODE
+TESTE2 . . . . . .  C ADDR   002FH   R   SEG=DETECTCODE
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

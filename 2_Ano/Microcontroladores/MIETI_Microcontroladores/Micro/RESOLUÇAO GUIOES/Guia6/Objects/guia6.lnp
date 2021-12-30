@@ -1,0 +1,3 @@
+".\Objects\guia6.obj" 
+TO ".\Objects\guia6" 
+PRINT(".\Listings\guia6.m51") RAMSIZE(256) 

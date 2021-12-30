@@ -1,0 +1,92 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        11/15/2012  18:08:47  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL\C51\BIN\BL51.EXE STARTUP.obj, .\2.obj TO 4 RAMSIZE (256)
+
+
+INPUT MODULES INCLUDED:
+  STARTUP.obj (H2A)
+  .\2.obj (MAIN)
+
+
+LINK MAP OF MODULE:  4 (H2A)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     002DH                  *** GAP ***
+            CODE    0030H     0026H     ABSOLUTE     
+                    0056H     07AAH                  *** GAP ***
+            CODE    0800H     0013H     UNIT         H2ACODE
+
+
+
+SYMBOL TABLE OF MODULE:  4 (H2A)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        H2A
+  C:0800H         SEGMENT       H2ACODE
+  C:0800H         PUBLIC        INICIOH2A
+  D:00F0H         SYMBOL        B
+  C:080CH         SYMBOL        BA3_NAO
+  C:0812H         SYMBOL        FIMH2A
+  N:0000H         SYMBOL        H2A
+  C:0800H         LINE#         12
+  C:0801H         LINE#         13
+  C:0802H         LINE#         14
+  C:0804H         LINE#         17
+  C:0806H         LINE#         20
+  C:0808H         LINE#         21
+  C:080AH         LINE#         22
+  C:080CH         LINE#         26
+  C:080EH         LINE#         27
+  C:0810H         LINE#         28
+  C:0812H         LINE#         30
+  -------         ENDMOD        H2A
+
+  -------         MODULE        MAIN
+  D:00E0H         SYMBOL        ACC
+  D:00F0H         SYMBOL        B
+  C:0045H         SYMBOL        LOOP
+  N:0000H         SYMBOL        MAIN
+  N:0005H         SYMBOL        NO_LOOPS
+BL51 BANKED LINKER/LOCATER V6.22                                                      11/15/2012  18:08:47  PAGE 2
+
+
+  C:0030H         SYMBOL        START
+  C:0000H         LINE#         8
+  C:0030H         LINE#         12
+  C:0033H         LINE#         13
+  C:0036H         LINE#         14
+  C:0039H         LINE#         15
+  C:003CH         LINE#         16
+  C:003FH         LINE#         18
+  C:0041H         LINE#         19
+  C:0043H         LINE#         20
+  C:0045H         LINE#         23
+  C:0046H         LINE#         24
+  C:0048H         LINE#         25
+  C:004BH         LINE#         26
+  C:004DH         LINE#         27
+  C:004EH         LINE#         28
+  C:0050H         LINE#         29
+  C:0051H         LINE#         30
+  C:0052H         LINE#         31
+  C:0054H         LINE#         32
+  -------         ENDMOD        MAIN
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 003CH BYTE ( 2%) *
+******************************************************************************
+
+Program Size: data=8.0 xdata=0 code=60
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

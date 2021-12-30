@@ -1,0 +1,121 @@
+A51 MACRO ASSEMBLER  EX1                                                                  12/01/2016 16:19:40 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.5.0
+OBJECT MODULE PLACED IN .\Objects\ex1.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE ex1.a51 SET(SMALL) DEBUG PRINT(.\Listings\ex1.lst) OBJECT(.\Objects\ex1
+                      .obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     
+
+                       2             EXTRN  CODE (CONFIG_RS232,ENVIAR_RS232,RECEBER_RS232)
+
+----                   3                     CSEG AT 00H
+
+0000 120000   F        4                             CALL CONFIG_RS232
+
+0003 8036              5                             SJMP MAIN
+
+----                   6                     CSEG AT 30H
+
+                       7                             
+
+0030                   8     TABLE: 
+
+0030 4D494352          9             DB "MICROS 2012"
+
+0034 4F532032                
+0038 303132                  
+                      10     
+
+003B                  11     MAIN:
+
+003B 900030           12             MOV DPTR, #TABLE
+
+003E 7A0B             13             MOV R2,#11
+
+0040 D2B3             14             SETB P3.3
+
+0042 D2B5             15             SETB P3.5
+
+0044 800E             16             JMP ESCREVER
+
+                      17             
+
+0046                  18     PB1:
+
+0046 20B304           19             JB P3.3,PB2
+
+0049 7F31             20             MOV R7,#'1'
+
+004B 8011             21             JMP ENVIAR
+
+004D                  22     PB2:
+
+004D 20B5F6           23             JB P3.5,PB1
+
+0050 7F32             24             MOV R7,#'2'
+
+0052 800A             25             JMP ENVIAR
+
+                      26             
+
+0054                  27     ESCREVER:
+
+0054 E4               28             CLR A
+
+0055 93               29             MOVC A,@A+DPTR
+
+0056 120000   F       30             CALL ENVIAR_RS232
+
+0059 A3               31             INC DPTR
+
+005A DAF8             32             DJNZ R2,ESCREVER
+
+005C 80E8             33             JMP PB1
+
+005E                  34     ENVIAR:
+
+005E 740D             35             MOV A,#0DH
+
+0060 120000   F       36             CALL ENVIAR_RS232
+
+0063 EF               37             MOV A,R7
+
+0064 120000   F       38             CALL ENVIAR_RS232
+
+0067 80DD             39             JMP PB1
+
+                      40             
+
+0069                  41     FIM:
+
+                      42             END
+
+A51 MACRO ASSEMBLER  EX1                                                                  12/01/2016 16:19:40 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+CONFIG_RS232 . . .  C ADDR   -----       EXT
+ENVIAR . . . . . .  C ADDR   005EH   A   
+ENVIAR_RS232 . . .  C ADDR   -----       EXT
+ESCREVER . . . . .  C ADDR   0054H   A   
+FIM. . . . . . . .  C ADDR   0069H   A   
+MAIN . . . . . . .  C ADDR   003BH   A   
+P3 . . . . . . . .  D ADDR   00B0H   A   
+PB1. . . . . . . .  C ADDR   0046H   A   
+PB2. . . . . . . .  C ADDR   004DH   A   
+RECEBER_RS232. . .  C ADDR   -----       EXT
+TABLE. . . . . . .  C ADDR   0030H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

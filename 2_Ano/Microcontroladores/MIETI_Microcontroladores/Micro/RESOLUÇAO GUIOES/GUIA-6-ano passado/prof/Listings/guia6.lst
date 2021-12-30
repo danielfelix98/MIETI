@@ -1,0 +1,363 @@
+A51 MACRO ASSEMBLER  GUIA6                                                                12/17/2015 17:51:41 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.02c
+NO OBJECT MODULE REQUESTED
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE guia6.a51 NOMOD51 SET(SMALL) DEBUG PRINT(.\Listings\guia6.lst) OBJECT(.
+                      \Objects\guia6.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     ;#include <89c51rd2.inc>
+                       2     
+*** ERROR #A318 IN 3 (guia6.a51, LINE 1): can't open file '89c51rd2.inc'
+----                   3     CSEG AT 00H
+0000 020038            4             LJMP MAIN
+----                   5     CSEG AT 30H
+                       6     
+                       7     
+0030                   8     CHAVE: DS 4
+0034 01020304          9     KEY: DB 1,2,3,4
+                      10     
+0038                  11     MAIN:
+0038                  12              SETB P3.3  
+*** _______________________________________^
+*** ERROR #A17 IN 12 (guia6.a51, LINE 12): INVALID BYTE BASE IN BIT ADDRESS EXPRESSION
+0038                  13              SETB P3.5  
+*** _______________________________________^
+*** ERROR #A17 IN 13 (guia6.a51, LINE 13): INVALID BYTE BASE IN BIT ADDRESS EXPRESSION
+0038 120000   F       14              CALL READCHAR
+003B B90006           15              CJNE R1,#0,MODO2 
+003E 120000   F       16              CALL CHECKCODE
+0041 120000   F       17              CALL DISPLAY
+                      18               
+                      19              
+0044 120000   F       20     MODO2: CALL READCHAR
+0047 FE               21                MOV R6,A
+0048 120000   F       22                CALL READCHAR
+004B FD               23                MOV R5,A
+004C 120000   F       24                CALL READCHAR
+004F FC               25                MOV R4,A
+0050 120000   F       26                CALL READCHAR 
+0053 120000   F       27                CALL CHECKCODE
+0056 120000   F       28                CALL DISPLAY
+                      29      
+                      30     
+                      31     DETECTKEYS SEGMENT CODE
+----                  32             RSEG DETECTKEYS
+                      33                     
+0000                  34     DETECT:
+0000                  35                     JNB P3.3,INSERE 
+*** _____________________________________________^
+*** ERROR #A17 IN 35 (guia6.a51, LINE 35): INVALID BYTE BASE IN BIT ADDRESS EXPRESSION
+                      36     
+0000                  37     SELECT: 
+0000 7901             38                     MOV R1,#1  
+0002 8009             39                     JMP FIM
+                      40                                       
+0004                  41     INSERE: 
+0004 120000   F       42                     CALL WAIT 
+0007                  43                     JNB P3.5,SIMULTANEO              
+*** _____________________________________________^
+*** ERROR #A17 IN 43 (guia6.a51, LINE 43): INVALID BYTE BASE IN BIT ADDRESS EXPRESSION
+0007 7902             44             MOV R1,#2
+0009 8002             45                 JMP FIM 
+                      46                     
+000B                  47     SIMULTANEO: 
+000B 7900             48                             MOV R1,#0
+A51 MACRO ASSEMBLER  GUIA6                                                                12/17/2015 17:51:41 PAGE     2
+
+000D 22               49     FIM: RET
+                      50                     
+                      51     
+                      52     WAIT SEGMENT CODE        
+----                  53             RSEG WAIT
+                      54             
+0000                  55     MOV TMOD, #01H  
+*** _____________________________^
+*** ERROR #A45 IN 55 (guia6.a51, LINE 55): UNDEFINED SYMBOL (PASS-2)
+                      56     
+                      57     
+0003 7F0F             58     DELAY1: MOV R7,#15 ;faz o loop 2x.... /0,5*2 = 1s
+                      59     
+0005                  60     LOOP: 
+0005                  61           MOV TH0,#00H ; timer 0 to overflow em 50ms
+*** ___________________________________^
+*** ERROR #A45 IN 61 (guia6.a51, LINE 61): UNDEFINED SYMBOL (PASS-2)
+0008                  62           MOV TL0,#00H
+*** ___________________________________^
+*** ERROR #A45 IN 62 (guia6.a51, LINE 62): UNDEFINED SYMBOL (PASS-2)
+000B                  63               SETB TR0
+*** ________________________________________^
+*** ERROR #A45 IN 63 (guia6.a51, LINE 63): UNDEFINED SYMBOL (PASS-2)
+000D                  64           JNB TF0, $  
+*** ___________________________________^
+*** ERROR #A45 IN 64 (guia6.a51, LINE 64): UNDEFINED SYMBOL (PASS-2)
+0010                  65               CLR TR0
+*** _______________________________________^
+*** ERROR #A45 IN 65 (guia6.a51, LINE 65): UNDEFINED SYMBOL (PASS-2)
+0012                  66           CLR TF0
+*** ___________________________________^
+*** ERROR #A45 IN 66 (guia6.a51, LINE 66): UNDEFINED SYMBOL (PASS-2)
+0014 DFEF             67               DJNZ R7,LOOP
+0016 22               68             RET
+                      69          
+                      70     READCHAR SEGMENT CODE
+----                  71             RSEG READCHAR
+                      72                     
+                      73      
+0000                  74     INICIO:
+0000 7400             75                     MOV A,#0H
+0002                  76     INICIO1:
+0002 120000   F       77                     CALL DETECTKEYS
+0005 B90112           78                     CJNE R1,#1H,VERIFICA
+0008 FE               79                     MOV R6,A 
+0009 7410             80                     MOV A,#10H 
+000B 120000   F       81                     CALL DISPLAY
+000E 120000   F       82                     CALL WAIT
+0011 EE               83                     MOV A,R6
+0012 120000   F       84                     CALL DISPLAY
+0015 120000   F       85                     CALL WAIT
+0018 8011             86                     JMP FIM1
+001A                  87     VERIFICA:
+001A B90005           88                     CJNE R1,#0,SOMAR 
+001D 740B             89                     MOV A,#11 
+001F                  90                     CALL NEW PASS 
+*** _________________________________________^
+*** __________________________________________________^
+*** ERROR #A38 IN 90 (guia6.a51, LINE 90): NUMBER OF OPERANDS DOES NOT MATCH INSTRUCTION
+*** ERROR #A9 IN 90 (guia6.a51, LINE 90): SYNTAX ERROR
+001F 120000   F       91                     CALL READPASS
+0022                  92     SOMAR:
+0022 04               93               INC A 
+0023 120000   F       94               CALL DISPLAY
+0026 120000   F       95               CALL WAIT
+0029 80D7             96               JMP INICIO1
+A51 MACRO ASSEMBLER  GUIA6                                                                12/17/2015 17:51:41 PAGE     3
+
+002B                  97     FIM1:
+002B 22               98             RET
+                      99     
+                     100     NEWPASS SEGMENT CODE
+----                 101             RSEG NEWPASS
+                     102     
+0000                 103     NOVA: 
+0000 900030          104             MOV DPTR,#CHAVE
+0003 E0              105             MOVX A,@DPTR
+0004 FA              106             MOV R2,A   
+0005 A3              107             INC DPTR
+0006 0A              108             INC R2
+0007 22              109             RET
+                     110     
+                     111     
+                     112     READPASS SEGMENT CODE
+----                 113         RSEG READPASS
+                     114             
+0000                 115     LERCHAVE:
+0000 7B04            116                       MOV R3,#4
+0002 120000   F      117                   CALL READCHAR  
+0005 900030          118                   MOV DPTR,#CHAVE
+0008 F0              119               MOVX @DPTR,A
+0009 A3              120                       INC DPTR
+000A DBF4            121                   DJNZ R3,LERCHAVE 
+000C 22              122                   RET 
+                     123     
+                     124     
+                     125     DISPLAY SEGMENT CODE
+----                 126                     RSEG DISPLAY
+                     127                     
+0000                 128     DISPLAY1:
+0000                 129             MOV P1,#0FFH
+*** _____________________________________^
+*** ERROR #A45 IN 129 (guia6.a51, LINE 129): UNDEFINED SYMBOL (PASS-2)
+                     130                      
+0003                 131     ZERO:
+0003 B40805          132         CJNE A,#8H,UM
+0006                 133             MOV P1,#8H
+*** _____________________________________^
+*** ERROR #A45 IN 133 (guia6.a51, LINE 133): UNDEFINED SYMBOL (PASS-2)
+0009 8056            134             JMP FIM2
+000B                 135     UM:
+000B B4CB05          136         CJNE A,#0CBH,DOIS
+000E                 137             MOV P1,#0CBH
+*** _____________________________________^
+*** ERROR #A45 IN 137 (guia6.a51, LINE 137): UNDEFINED SYMBOL (PASS-2)
+0011 804E            138             JMP FIM2
+0013                 139     DOIS:
+0013 B45005          140         CJNE A,#50H,TRES
+0016                 141             MOV P1,#50H
+*** _____________________________________^
+*** ERROR #A45 IN 141 (guia6.a51, LINE 141): UNDEFINED SYMBOL (PASS-2)
+0019 8046            142             JMP FIM2
+001B                 143     TRES:
+001B B44205          144         CJNE A,#42H,QUATRO
+001E                 145             MOV P1,#42H
+*** _____________________________________^
+*** ERROR #A45 IN 145 (guia6.a51, LINE 145): UNDEFINED SYMBOL (PASS-2)
+0021 803E            146             JMP FIM2
+0023                 147     QUATRO:
+0023 B48305          148         CJNE A,#83H,CINCO
+0026                 149             MOV P1,#83H
+*** _____________________________________^
+*** ERROR #A45 IN 149 (guia6.a51, LINE 149): UNDEFINED SYMBOL (PASS-2)
+0029 8036            150             JMP FIM2
+A51 MACRO ASSEMBLER  GUIA6                                                                12/17/2015 17:51:41 PAGE     4
+
+002B                 151     CINCO:
+002B B42205          152         CJNE A,#22H,SEIS
+002E                 153             MOV P1,#22H
+*** _____________________________________^
+*** ERROR #A45 IN 153 (guia6.a51, LINE 153): UNDEFINED SYMBOL (PASS-2)
+0031 802E            154             JMP FIM2
+0033                 155     SEIS:
+0033 B42005          156         CJNE A,#20H,SETE
+0036                 157             MOV P1,#20H
+*** _____________________________________^
+*** ERROR #A45 IN 157 (guia6.a51, LINE 157): UNDEFINED SYMBOL (PASS-2)
+0039 8026            158             JMP FIM2
+003B                 159     SETE:
+003B B44B05          160         CJNE A,#4BH,OITO
+003E                 161             MOV P1,#4BH
+*** _____________________________________^
+*** ERROR #A45 IN 161 (guia6.a51, LINE 161): UNDEFINED SYMBOL (PASS-2)
+0041 801E            162             JMP FIM2
+0043                 163     OITO:
+0043 B40005          164         CJNE A,#00H,NOVE
+0046                 165             MOV P1,#00H
+*** _____________________________________^
+*** ERROR #A45 IN 165 (guia6.a51, LINE 165): UNDEFINED SYMBOL (PASS-2)
+0049 8016            166             JMP FIM2
+004B                 167     NOVE:
+004B B40205          168         CJNE A,#02H,ACEITE
+004E                 169             MOV P1,#02H
+*** _____________________________________^
+*** ERROR #A45 IN 169 (guia6.a51, LINE 169): UNDEFINED SYMBOL (PASS-2)
+0051 800E            170             JMP FIM2
+0053                 171     ACEITE:
+0053 B48205          172         CJNE A,#82H,NAO_ACEITE
+0056                 173             MOV P1,#82H
+*** _____________________________________^
+*** ERROR #A45 IN 173 (guia6.a51, LINE 173): UNDEFINED SYMBOL (PASS-2)
+0059 8006            174             JMP FIM2
+005B                 175     NAO_ACEITE:
+005B B40900   F      176         CJNE A,#09H,FIM
+005E                 177             MOV P1,#09H
+*** _____________________________________^
+*** ERROR #A45 IN 177 (guia6.a51, LINE 177): UNDEFINED SYMBOL (PASS-2)
+                     178             
+0061                 179     FIM2:
+0061 22              180         RET
+                     181     
+                     182     
+                     183     
+                     184     CHECKCODE SEGMENT CODE
+----                 185     RSEG CHECKCODE
+0000 7B04            186     CHECKPASS:                      MOV R3,#4
+0002 900034          187                                             MOV DPTR, #KEY          ;guarda a nossa chave prédefinida no dptr
+                     188                                                                    
+0005 E4              189     CHECK:                          CLR A                           
+0006 93              190                                             MOVC A,@A+DPTR          
+0007 96              191                                             SUBB A,@R0                       ;subtrair os valores o da senha e o dos valores lidos
+0008 B40006          192                                             CJNE A,#0,ERRO   
+000B A3              193                                             INC  DPTR                       
+000C 0A              194                                             INC  R2                  
+000D DBF6            195                                             DJNZ R3, CHECK           
+000F 800A            196                                             JMP  CORRECTO                    
+                     197     
+0011 7409            198     ERRO:                           MOV A, #09H                      
+0013 120000   F      199                                             CALL DISPLAY
+0016 120000   F      200                                             CALL WAIT
+0019 800A            201                                             JMP FIMCHECK
+                     202     
+A51 MACRO ASSEMBLER  GUIA6                                                                12/17/2015 17:51:41 PAGE     5
+
+001B 7482            203     CORRECTO:                       MOV A,#82H         
+001D 120000   F      204                                             CALL DISPLAY
+0020 120000   F      205                                             CALL WAIT
+0023 8000            206                                             JMP FIMCHECK
+                     207     
+                     208     
+0025 22              209     FIMCHECK:                       RET     
+                     210     
+                     211     
+0026                 212     FIM3:
+                     213                                             END
+                             
+                             
+                             
+                                     
+                                     
+                                     
+                                     
+                             
+                                     
+                             
+                             
+A51 MACRO ASSEMBLER  GUIA6                                                                12/17/2015 17:51:41 PAGE     6
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+ACEITE . . . . . .  C ADDR   0053H   R   SEG=DISPLAY
+CHAVE. . . . . . .  C ADDR   0030H   A   
+CHECK. . . . . . .  C ADDR   0005H   R   SEG=CHECKCODE
+CHECKCODE. . . . .  C SEG    0026H       REL=UNIT
+CHECKPASS. . . . .  C ADDR   0000H   R   SEG=CHECKCODE
+CINCO. . . . . . .  C ADDR   002BH   R   SEG=DISPLAY
+CORRECTO . . . . .  C ADDR   001BH   R   SEG=CHECKCODE
+DELAY1 . . . . . .  C ADDR   0003H   R   SEG=WAIT
+DETECT . . . . . .  C ADDR   0000H   R   SEG=DETECTKEYS
+DETECTKEYS . . . .  C SEG    000EH       REL=UNIT
+DISPLAY. . . . . .  C SEG    0062H       REL=UNIT
+DISPLAY1 . . . . .  C ADDR   0000H   R   SEG=DISPLAY
+DOIS . . . . . . .  C ADDR   0013H   R   SEG=DISPLAY
+ERRO . . . . . . .  C ADDR   0011H   R   SEG=CHECKCODE
+FIM. . . . . . . .  C ADDR   000DH   R   SEG=DETECTKEYS
+FIM1 . . . . . . .  C ADDR   002BH   R   SEG=READCHAR
+FIM2 . . . . . . .  C ADDR   0061H   R   SEG=DISPLAY
+FIM3 . . . . . . .  C ADDR   0026H   R   SEG=CHECKCODE
+FIMCHECK . . . . .  C ADDR   0025H   R   SEG=CHECKCODE
+INICIO . . . . . .  C ADDR   0000H   R   SEG=READCHAR
+INICIO1. . . . . .  C ADDR   0002H   R   SEG=READCHAR
+INSERE . . . . . .  C ADDR   0004H   R   SEG=DETECTKEYS
+KEY. . . . . . . .  C ADDR   0034H   A   
+LERCHAVE . . . . .  C ADDR   0000H   R   SEG=READPASS
+LOOP . . . . . . .  C ADDR   0005H   R   SEG=WAIT
+MAIN . . . . . . .  C ADDR   0038H   A   
+MODO2. . . . . . .  C ADDR   0044H   A   
+NAO_ACEITE . . . .  C ADDR   005BH   R   SEG=DISPLAY
+NEW. . . . . . . .    ----   -----       
+NEWPASS. . . . . .  C SEG    0008H       REL=UNIT
+NOVA . . . . . . .  C ADDR   0000H   R   SEG=NEWPASS
+NOVE . . . . . . .  C ADDR   004BH   R   SEG=DISPLAY
+OITO . . . . . . .  C ADDR   0043H   R   SEG=DISPLAY
+P1 . . . . . . . .    ----   -----       
+P3 . . . . . . . .    ----   -----       
+PASS . . . . . . .    ----   -----       
+QUATRO . . . . . .  C ADDR   0023H   R   SEG=DISPLAY
+READCHAR . . . . .  C SEG    002CH       REL=UNIT
+READPASS . . . . .  C SEG    000DH       REL=UNIT
+SEIS . . . . . . .  C ADDR   0033H   R   SEG=DISPLAY
+SELECT . . . . . .  C ADDR   0000H   R   SEG=DETECTKEYS
+SETE . . . . . . .  C ADDR   003BH   R   SEG=DISPLAY
+SIMULTANEO . . . .  C ADDR   000BH   R   SEG=DETECTKEYS
+SOMAR. . . . . . .  C ADDR   0022H   R   SEG=READCHAR
+TF0. . . . . . . .    ----   -----       
+TH0. . . . . . . .    ----   -----       
+TL0. . . . . . . .    ----   -----       
+TMOD . . . . . . .    ----   -----       
+TR0. . . . . . . .    ----   -----       
+TRES . . . . . . .  C ADDR   001BH   R   SEG=DISPLAY
+UM . . . . . . . .  C ADDR   000BH   R   SEG=DISPLAY
+VERIFICA . . . . .  C ADDR   001AH   R   SEG=READCHAR
+WAIT . . . . . . .  C SEG    0017H       REL=UNIT
+ZERO . . . . . . .  C ADDR   0003H   R   SEG=DISPLAY
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 27 ERROR(S)

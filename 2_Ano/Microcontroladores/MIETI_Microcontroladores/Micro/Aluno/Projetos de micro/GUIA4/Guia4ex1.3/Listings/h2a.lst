@@ -1,0 +1,62 @@
+A51 MACRO ASSEMBLER  H2A                                                                  11/05/2015 19:44:11 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.02c
+OBJECT MODULE PLACED IN .\Objects\h2a.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE h2a.a51 NOMOD51 SET(SMALL) DEBUG PRINT(.\Listings\h2a.lst) OBJECT(.\Obj
+                      ects\h2a.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     $nomod51 
+                       2     NAME H2A
+                       3     PUBLIC INICIOH2A
+                       4     
+                       5     H2ACODE SEGMENT CODE
+----                   6     RSEG H2ACODE ; Rotina que converte dígito hexadeciimal armazenado
+                       7     ;no endereço de memória apontado por R0 para ASCII
+                       8     
+0000                   9     INICIOH2A: 
+                      10     ;BA1: Bloco de atribuição 1
+0000 E8               11     MOV A,R0
+0001 C3               12     CLR C
+0002 940A             13     SUBB A,#10
+                      14     
+                      15     ;BD1 : Bloco de decisão 1
+0004 4006             16     JC BA3_NAO
+                      17     ;Carry é 0, logo é letra porque A>=10
+                      18     ;BA2_SIM:Bloco de atribuição 2 
+0006 2441             19     ADD A,#'A'
+0008 F5F0             20     MOV B,A
+000A 8006             21     JMP FIMH2A
+                      22     
+                      23     ;BA3_NAO:BLOCO DE ATRIBUIÇÃO 3
+                      24     
+000C                  25     BA3_NAO:
+000C 240A             26                     ADD A,#10
+000E 2430             27                     ADD A ,#'0'
+0010 F5F0             28                     MOV B,A
+                      29     
+0012                  30     FIMH2A:
+0012 22               31                     RET
+                      32     END
+A51 MACRO ASSEMBLER  H2A                                                                  11/05/2015 19:44:11 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+B. . . . . . . . .  D ADDR   00F0H   A   
+BA3_NAO. . . . . .  C ADDR   000CH   R   SEG=H2ACODE
+FIMH2A . . . . . .  C ADDR   0012H   R   SEG=H2ACODE
+H2A. . . . . . . .  N NUMB   -----       
+H2ACODE. . . . . .  C SEG    0013H       REL=UNIT
+INICIOH2A. . . . .  C ADDR   0000H   R   SEG=H2ACODE
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

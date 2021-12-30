@@ -1,0 +1,56 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        01/08/2015  16:58:38  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL_V5\C51\BIN\BL51.EXE main.obj TO Guia3 RAMSIZE (256)
+
+
+INPUT MODULES INCLUDED:
+  main.obj (MAIN)
+
+
+LINK MAP OF MODULE:  Guia3 (MAIN)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     0008H                  *** GAP ***
+            CODE    000BH     0003H     ABSOLUTE     
+                    000EH     0025H                  *** GAP ***
+            CODE    0033H     000DH     ABSOLUTE     
+
+
+
+SYMBOL TABLE OF MODULE:  Guia3 (MAIN)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        MAIN
+  D:00A8H         SYMBOL        IE
+  C:0033H         SYMBOL        MAIN
+  D:0090H         SYMBOL        P1
+  D:008CH         SYMBOL        TH0
+  D:0089H         SYMBOL        TMOD
+  C:0000H         LINE#         2
+  C:0033H         LINE#         8
+  C:0036H         LINE#         9
+  C:0039H         LINE#         10
+  C:003CH         LINE#         11
+  C:003EH         LINE#         12
+  C:000BH         LINE#         14
+  C:000DH         LINE#         15
+  -------         ENDMOD        MAIN
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0013H BYTE ( 0%) *
+******************************************************************************
+
+Program Size: data=8.0 xdata=0 code=19
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

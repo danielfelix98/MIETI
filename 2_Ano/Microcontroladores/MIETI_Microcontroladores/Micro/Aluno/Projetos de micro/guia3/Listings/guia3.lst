@@ -1,0 +1,110 @@
+A51 MACRO ASSEMBLER  GUIA3                                                                10/18/2016 16:35:11 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.5.0
+OBJECT MODULE PLACED IN .\Objects\guia3.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE guia3.a51 NOMOD51 SET(SMALL) DEBUG PRINT(.\Listings\guia3.lst) OBJECT(.
+                      \Objects\guia3.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     $nomod51 
+
+                       2     
+
+                       3     
+
+----                   4             CSEG AT 0H
+
+                       5             
+
+0000                   6     MAIN:
+
+0000 7C14              7             MOV R4,#20
+
+0002 7930              8             MOV R1,#30H
+
+0004 7A80              9             MOV R2,#80H
+
+0006 7BA0             10             MOV R3,#0A0H
+
+                      11     
+
+0008                  12     CICLO:
+
+0008 E7               13             MOV A,@R1
+
+0009 75F002           14             MOV B,#2
+
+000C 84               15             DIV AB
+
+000D E5F0             16             MOV A,B
+
+000F 700A             17             JNZ IMPAR
+
+                      18     
+
+0011                  19     PAR:
+
+0011 EA               20             MOV A,R2
+
+0012 F8               21             MOV R0,A
+
+0013 E7               22             MOV A,@R1
+
+0014 F6               23             MOV @R0,A
+
+0015 0A               24             INC R2
+
+0016 09               25             INC R1
+
+0017 DCEF             26             DJNZ R4,CICLO
+
+0019 8008             27             JMP FIM
+
+                      28             
+
+001B                  29     IMPAR:
+
+001B EB               30             MOV A,R3
+
+001C F8               31             MOV R0,A
+
+001D E7               32             MOV A,@R1
+
+001E F6               33             MOV @R0,A
+
+001F 0B               34             INC R3
+
+0020 09               35             INC R1
+
+0021 DCE5             36             DJNZ R4,CICLO   
+
+                      37             
+
+0023                  38     FIM:
+
+                      39             END
+
+                                             
+
+A51 MACRO ASSEMBLER  GUIA3                                                                10/18/2016 16:35:11 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+B. . . . . . . . .  D ADDR   00F0H   A   
+CICLO. . . . . . .  C ADDR   0008H   A   
+FIM. . . . . . . .  C ADDR   0023H   A   
+IMPAR. . . . . . .  C ADDR   001BH   A   
+MAIN . . . . . . .  C ADDR   0000H   A   
+PAR. . . . . . . .  C ADDR   0011H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

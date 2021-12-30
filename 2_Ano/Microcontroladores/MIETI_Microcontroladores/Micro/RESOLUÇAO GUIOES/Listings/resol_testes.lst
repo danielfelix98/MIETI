@@ -1,0 +1,68 @@
+A51 MACRO ASSEMBLER  RESOL_TESTES                                                         12/30/2016 11:04:55 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.5.0
+OBJECT MODULE PLACED IN .\Objects\resol_testes.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE resol_testes.a51 SET(SMALL) DEBUG PRINT(.\Listings\resol_testes.lst) OB
+                      JECT(.\Objects\resol_testes.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+----                   1     CSEG AT 0
+
+0000 802E              2             JMP MAIN
+
+                       3             
+
+----                   4             CSEG AT 30H
+
+0030                   5     MAIN:
+
+0030 7580FF            6             MOV P0, #0FFH
+
+0033 3100              7             ACALL ROTINA
+
+0035 60F9              8             JZ MAIN
+
+0037 F4                9             CPL A
+
+0038 F590             10             MOV P1,A
+
+003A 80F4             11             JMP MAIN
+
+                      12             
+
+----                  13     CSEG AT 100H
+
+0100                  14     ROTINA:
+
+0100 E580             15             MOV A,P0
+
+0102 22               16             RET
+
+                      17             
+
+                      18     END
+
+                                     
+
+                                             
+
+A51 MACRO ASSEMBLER  RESOL_TESTES                                                         12/30/2016 11:04:55 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+MAIN . . . . . . .  C ADDR   0030H   A   
+P0 . . . . . . . .  D ADDR   0080H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+ROTINA . . . . . .  C ADDR   0100H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)
